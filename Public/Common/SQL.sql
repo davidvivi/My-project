@@ -39,4 +39,17 @@ CREATE TABLE `think_auth_group_access` (
     KEY `uid` (`uid`), 
     KEY `group_id` (`group_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- think_img_turn 轮播图管理表
+-- 
+-- ----------------------------
+DROP TABLE IF EXISTS `think_img_turn`;
+CREATE TABLE IF NOT EXISTS `think_img_turn` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `reorder` int NOT NULL comment '轮播图排序顺序,从小到大的排序',
+  `imgurl` varchar(200) NOT NULL comment '轮播图的地址',
+  `category_id` int NOT NULL comment '商品类型的id',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
  */
