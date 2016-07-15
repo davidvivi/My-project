@@ -10,7 +10,7 @@ return array(
     'DB_PWD'                =>  '123',          // 密码
     'DB_PORT'               =>  '',        // 端口
     'DB_PREFIX'             =>  'think_',    // 数据库表前缀
-	
+    //trace	
 	'SHOW_PAGE_TRACE' =>true, 
 
     //Auth配置
