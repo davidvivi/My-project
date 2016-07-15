@@ -10,7 +10,7 @@ return array(
     'DB_PWD'                =>  '123',          // 密码
     'DB_PORT'               =>  '',        // 端口
     'DB_PREFIX'             =>  'think_',    // 数据库表前缀
-    //trace	
+	//kaiqi trace 
 	'SHOW_PAGE_TRACE' =>true, 
 
     //Auth配置
@@ -24,5 +24,6 @@ return array(
         // 用户信息表
         'AUTH_USER' => 'user',
 
+    ),
     ),
 );
