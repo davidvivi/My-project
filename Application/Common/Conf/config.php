@@ -9,5 +9,5 @@ return array(
     'DB_USER'               =>  'wei',      // 用户名
     'DB_PWD'                =>  '123',          // 密码
     'DB_PORT'               =>  '',        // 端口
-    'DB_PREFIX'             =>  '',    // 数据库表前缀
+    'DB_PREFIX'             =>  'think_',    // 数据库表前缀
 );
