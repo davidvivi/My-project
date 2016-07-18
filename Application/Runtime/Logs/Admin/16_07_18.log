@@ -1435,6 +1435,7 @@ ERR: 非法操作:skin
 [ 2016-07-18T10:08:30+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/laypage/1.2/laypage.js
 ERR: 非法操作:lib
 
+<<<<<<< HEAD
 [ 2016-07-18T11:06:02+08:00 ] ::1 /2/QAQproject/index.php/admin/index/skin/default/skin.css
 ERR: 非法操作:skin
 
@@ -1496,5 +1497,113 @@ ERR: 非法操作:skin
 ERR: 非法操作:skin
 
 [ 2016-07-18T11:49:33+08:00 ] ::1 /2/QAQproject/index.php/admin/index/skin/green/skin.css
+=======
+[ 2016-07-18T11:04:30+08:00 ] ::1 /QAQproject/index.php/admin/index/skin/default/skin.css
+ERR: 非法操作:skin
+
+[ 2016-07-18T11:04:40+08:00 ] ::1 /QAQproject/index.php/admin/index/temp/brand/dongpeng.jpeg
+ERR: 非法操作:temp
+
+[ 2016-07-18T11:04:40+08:00 ] ::1 /QAQproject/index.php/admin/index/lib/laypage/1.2/laypage.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T11:04:44+08:00 ] ::1 /QAQproject/index.php/admin/index/temp/brand/dongpeng.jpeg
+ERR: 非法操作:temp
+
+[ 2016-07-18T11:04:44+08:00 ] ::1 /QAQproject/index.php/admin/index/lib/laypage/1.2/laypage.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T11:04:44+08:00 ] ::1 /QAQproject/index.php/admin/index/lib/laypage/1.2/laypage.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T11:04:51+08:00 ] ::1 /QAQproject/index.php/admin/index/member-level.html
+ERR: 非法操作:member-level
+
+[ 2016-07-18T11:04:51+08:00 ] ::1 /QAQproject/index.php/admin/index/member-scoreoperation.html
+ERR: 非法操作:member-scoreoperation
+
+[ 2016-07-18T11:05:28+08:00 ] ::1 /QAQproject/index.php/admin/index/skin/green/skin.css
+ERR: 非法操作:skin
+
+[ 2016-07-18T11:05:33+08:00 ] ::1 /QAQproject/index.php/admin/index/skin/default/skin.css
+ERR: 非法操作:skin
+
+[ 2016-07-18T11:05:40+08:00 ] ::1 /QAQproject/index.php/admin/index/skin/default/skin.css
+ERR: 非法操作:skin
+
+[ 2016-07-18T11:06:22+08:00 ] ::1 /QAQproject/index.php/admin/index/temp/brand/dongpeng.jpeg
+ERR: 非法操作:temp
+
+[ 2016-07-18T11:06:22+08:00 ] ::1 /QAQproject/index.php/admin/index/lib/laypage/1.2/laypage.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T11:06:22+08:00 ] ::1 /QAQproject/index.php/admin/index/lib/laypage/1.2/laypage.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T11:34:44+08:00 ] ::1 /QAQproject/index.php/admin/index/skin/default/skin.css
+ERR: 非法操作:skin
+
+[ 2016-07-18T11:34:45+08:00 ] ::1 /QAQproject/index.php/admin/index/temp/brand/dongpeng.jpeg
+ERR: 非法操作:temp
+
+[ 2016-07-18T11:34:47+08:00 ] ::1 /QAQproject/index.php/admin/index/lib/laypage/1.2/laypage.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T11:35:06+08:00 ] ::1 /QAQproject/index.php/admin/index/member-scoreoperation.html
+ERR: 非法操作:member-scoreoperation
+
+[ 2016-07-18T11:35:08+08:00 ] ::1 /QAQproject/index.php/admin/index/member-level.html
+ERR: 非法操作:member-level
+
+[ 2016-07-18T11:35:10+08:00 ] ::1 /QAQproject/index.php/admin/index/member-scoreoperation.html
+ERR: 非法操作:member-scoreoperation
+
+[ 2016-07-18T11:35:10+08:00 ] ::1 /QAQproject/index.php/admin/index/member-level.html
+ERR: 非法操作:member-level
+
+[ 2016-07-18T11:35:12+08:00 ] ::1 /QAQproject/index.php/admin/index/member-scoreoperation.html
+ERR: 非法操作:member-scoreoperation
+
+[ 2016-07-18T11:35:26+08:00 ] ::1 /QAQproject/index.php/admin/index/member-scoreoperation.html
+ERR: 非法操作:member-scoreoperation
+
+[ 2016-07-18T11:35:27+08:00 ] ::1 /QAQproject/index.php/admin/index/member-level.html
+ERR: 非法操作:member-level
+
+[ 2016-07-18T11:35:29+08:00 ] ::1 /QAQproject/index.php/admin/index/member-level.html
+ERR: 非法操作:member-level
+
+[ 2016-07-18T11:37:56+08:00 ] ::1 /QAQproject/index.php/admin/index/temp/brand/dongpeng.jpeg
+ERR: 非法操作:temp
+
+[ 2016-07-18T11:37:56+08:00 ] ::1 /QAQproject/index.php/admin/index/lib/laypage/1.2/laypage.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T11:37:56+08:00 ] ::1 /QAQproject/index.php/admin/index/lib/laypage/1.2/laypage.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T11:46:51+08:00 ] ::1 /QAQproject/index.php/admin/index/skin/default/skin.css
+ERR: 非法操作:skin
+
+[ 2016-07-18T11:47:05+08:00 ] ::1 /QAQproject/index.php/admin/index/skin/default/skin.css
+ERR: 非法操作:skin
+
+[ 2016-07-18T11:48:17+08:00 ] ::1 /QAQproject/index.php/admin/index/skin/default/skin.css
+ERR: 非法操作:skin
+
+[ 2016-07-18T11:49:05+08:00 ] ::1 /QAQproject/index.php/admin/index/skin/default/skin.css
+ERR: 非法操作:skin
+
+[ 2016-07-18T11:50:20+08:00 ] ::1 /QAQproject/index.php/admin/index/lib/laypage/1.2/laypage.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T11:50:21+08:00 ] ::1 /QAQproject/index.php/admin/index/temp/brand/dongpeng.jpeg
+ERR: 非法操作:temp
+
+[ 2016-07-18T11:50:21+08:00 ] ::1 /QAQproject/index.php/admin/index/lib/laypage/1.2/laypage.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T11:58:28+08:00 ] ::1 /QAQproject/index.php/admin/index/skin/default/skin.css
+>>>>>>> 409690867543ef60311669effbedb4041d8cce5b
 ERR: 非法操作:skin
 
