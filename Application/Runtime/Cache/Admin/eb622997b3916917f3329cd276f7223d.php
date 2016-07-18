@@ -30,10 +30,7 @@
 <div style="margin-left:150px;">
 	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 产品管理 <span class="c-gray en">&gt;</span> 产品列表 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<div class="pd-20">
-		<div class="text-c"> 日期范围：
-			<input type="text" onfocus="WdatePicker({maxDate:'#F<?php echo ('%y-%M-%d'($dp["$D('logmax')"])); ?>'})" id="logmin" class="input-text Wdate" style="width:120px;">
-			-
-			<input type="text" onfocus="WdatePicker({minDate:'#F<?php echo ($dp["$D('logmin')"]); ?>',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;">
+		<div class="text-c">
 			<input type="text" name="" id="" placeholder=" 产品名称" style="width:250px" class="input-text">
 			<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜产品</button>
 		</div>

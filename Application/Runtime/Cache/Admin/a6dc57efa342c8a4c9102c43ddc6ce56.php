@@ -30,10 +30,7 @@
 			<option value="1">分类一</option>
 			<option value="2">分类二</option>
 		</select>
-		</span> 日期范围：
-		<input type="text" onfocus="WdatePicker({maxDate:'#F<?php echo ('%y-%M-%d'($dp["$D('logmax')"])); ?>'})" id="logmin" class="input-text Wdate" style="width:120px;">
-		-
-		<input type="text" onfocus="WdatePicker({minDate:'#F<?php echo ($dp["$D('logmin')"]); ?>',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;">
+		</span>
 		<input type="text" name="" id="" placeholder=" 资讯名称" style="width:250px" class="input-text">
 		<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜资讯</button>
 	</div>

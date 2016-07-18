@@ -22,24 +22,11 @@
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>H-ui.admin v2.3</title>
-<meta name="keywords" content="H-ui.admin v2.3,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
-<meta name="description" content="H-ui.admin v2.3，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+<title>QAQ后台管理平台</title>
+<meta name="keywords" content="QAQ后台管理">
 </head>
 <body>
-<header class="Hui-header cl"> <a class="Hui-logo l" title="H-ui.admin v2.3" href="/">H-ui.admin</a> <a class="Hui-logo-m l" href="/" title="H-ui.admin">H-ui</a> <span class="Hui-subtitle l">V2.3</span>
-	<nav class="mainnav cl" id="Hui-nav">
-		<ul>
-			<li class="dropDown dropDown_click"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
-				<ul class="dropDown-menu radius box-shadow">
-					<li><a href="javascript:;" onclick="article_add('添加资讯','article-add.html')"><i class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
-					<li><a href="javascript:;" onclick="picture_add('添加资讯','picture-add.html')"><i class="Hui-iconfont">&#xe613;</i> 图片</a></li>
-					<li><a href="javascript:;" onclick="product_add('添加资讯','product-add.html')"><i class="Hui-iconfont">&#xe620;</i> 产品</a></li>
-					<li><a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
-				</ul>
-			</li>
-		</ul>
-	</nav>
+<header class="Hui-header cl"> <img style="width:100px;" title="QAQ" src="/QAQproject/Public/admin/images/logo.jpg"><b style="font-size:20px">后台管理</b>
 	<ul class="Hui-userbar">
 		<li>超级管理员</li>
 		<li class="dropDown dropDown_hover"><a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
@@ -47,17 +34,6 @@
 				<li><a href="#">个人信息</a></li>
 				<li><a href="#">切换账户</a></li>
 				<li><a href="#">退出</a></li>
-			</ul>
-		</li>
-		<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
-		<li id="Hui-skin" class="dropDown right dropDown_hover"><a href="javascript:;" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
-			<ul class="dropDown-menu radius box-shadow">
-				<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
-				<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
-				<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
-				<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
-				<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
-				<li><a href="javascript:;" data-val="orange" title="绿色">橙色</a></li>
 			</ul>
 		</li>
 	</ul>
@@ -124,12 +100,9 @@
 			<dd>
 				<ul>
 					<li><a _href="member-list.html" href="javascript:;">会员列表</a></li>
-					<li><a _href="member-del.html" href="javascript:;">删除的会员</a></li>
-					<li><a _href="member-level.html" href="javascript:;">等级管理</a></li>
-					<li><a _href="member-scoreoperation.html" href="javascript:;">积分管理</a></li>
-					<li><a _href="member-record-browse.html" href="javascript:void(0)">浏览记录</a></li>
-					<li><a _href="member-record-download.html" href="javascript:void(0)">下载记录</a></li>
-					<li><a _href="member-record-share.html" href="javascript:void(0)">分享记录</a></li>
+                    <li><a _href="member-add.html" href="javascript:;">会员增加</a></li>
+					<li><a _href="member-del.html" href="javascript:;">已经删除的会员</a></li>
+					<li><a _href="member-grade.html" href="javascript:;">会员等级管理</a></li>
 				</ul>
 			</dd>
 		</dl>
