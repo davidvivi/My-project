@@ -1,6 +1,56 @@
 <extend name="Base/index" />
 	
 	<block name="head">
+		<style>
+			.gonggao{
+				width:240px;
+				height:410px;
+				float:right;
+			}
+			.gonggao div{
+				width:240px;
+				height:200px;
+				border-left:1px solid #EDEDED;
+				border-top:1px solid #EDEDED;
+				border-bottom:1px solid #EDEDED;
+			}
+			.gonggao div ul li{
+				list-style:none;
+			}
+			.turnimg{
+				width:750px;
+				height:410px;
+				float:right;
+				border:1px solid red;
+				margin-right:10px;
+			}
+			#catenav{
+				display:block;
+			}
+		</style>
+	</block>
+	
+	<block name="gaoshi">
+	
+		<div class="gonggao">
+			<img src="__PUBLIC__/img/baozhang20160320.jpg" />
+			<div>
+				<p align="center" style="margin-top:20px;">商城公告</p>
+				<ul>
+					
+					<li>遍历</li>
+					<li>遍历</li>
+					<li>遍历</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!--==============轮播图=================-->
+		<div class="turnimg">
+			
+			
+		</div>
+		
 		
 	</block>
 	
@@ -9,5 +59,9 @@
 	</block>
 	
 	<block name="footer">
-	
+		<script>
+			$(
+				$('.active').unbind()
+			);
+		</script>
 	</block>
