@@ -6,7 +6,7 @@
         
         <meta charset="utf-8" />
 		
-		<style src='/2/QAQproject/Public/Home/css/bootstrap.min.css'></style>
+		<style src='/QAQproject/Public/Home/css/bootstrap.min.css'></style>
         <!-- 预留接口，等子模板使用 -->
         
 		
