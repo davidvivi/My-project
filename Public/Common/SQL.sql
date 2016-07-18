@@ -1,5 +1,5 @@
-//数据库
-/*
+
+
 -- ----------------------------
 -- think_auth_rule，规则表，
 -- id:主键，name：规则唯一标识, title：规则中文名称 status 状态：为1正常，为0禁用，condition：规则表达式，为空表示存在就验证，不为空表示按照条件验证
@@ -45,11 +45,36 @@ CREATE TABLE `think_auth_group_access` (
 -- 
 -- ----------------------------
 DROP TABLE IF EXISTS `think_img_turn`;
-CREATE TABLE IF NOT EXISTS `think_img_turn` (
+CREATE TABLE `think_img_turn` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `reorder` int NOT NULL comment '轮播图排序顺序,从小到大的排序',
   `imgurl` varchar(200) NOT NULL comment '轮播图的地址',
   `category_id` int NOT NULL comment '商品类型的id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
- */
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+
+
+-- admin 表
+CREATE TABLE IF NOT EXISTS `think_admin`(
+    `id` INT UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(32) NOT NULL UNIQUE,
+    `password` VARCHAR(255) NOT NULL,
+    `grade` TINYINT(1) UNSIGNED NOT NULL DEFAULT 3,
+    `pic` VARCHAR(100) NOT NULL,
+    `tel` INT(11) UNSIGNED NOT NULL,
+    `email` VARCHAR(100) NOT NULL,
+    `addtime` INT NOT NULL,
+    `type` ENUM('0','1') NOT NULL DEFAULT 1 COMMENT '0:禁用 1：使用中'
+)ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+
+--user 表
+CREATE TABLE IF NOT EXISTS `think_user`(
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `username` VARCHAR(32) NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
+    `addtime` INT(30) NOT NULL,
+    `tel` VARCHAR(20) NOT NULL,
+    `status` TINYINT(1) NOT NULL
+    )ENGINE=INNODB DEFAULT CHARSET=UTF8;
