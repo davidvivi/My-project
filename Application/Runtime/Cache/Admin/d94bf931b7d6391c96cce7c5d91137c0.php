@@ -11,9 +11,9 @@
 <script type="text/javascript" src="lib/respond.min.js"></script>
 <script type="text/javascript" src="lib/PIE_IE678.js"></script>
 <![endif]-->
-<link href="/2/QAQproject/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
-<link href="/2/QAQproject/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
-<link href="/2/QAQproject/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="/QAQproject/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="/QAQproject/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+<link href="/QAQproject/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -23,10 +23,7 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 评论管理 <span class="c-gray en">&gt;</span> 意见反馈 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="pd-20">
-	<div class="text-c"> 日期范围：
-		<input type="text" onfocus="WdatePicker({maxDate:'#F<?php echo ('%y-%M-%d'($dp["$D('datemax')"])); ?>'})" id="datemin" class="input-text Wdate" style="width:120px;">
-		-
-		<input type="text" onfocus="WdatePicker({minDate:'#F<?php echo ($dp["$D('datemin')"]); ?>',maxDate:'%y-%M-%d'})" id="datemax" class="input-text Wdate" style="width:120px;">
+	<div class="text-c">
 		<input type="text" class="input-text" style="width:250px" placeholder="输入关键词" id="" name="">
 		<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜意见</button>
 	</div>
@@ -87,13 +84,13 @@
 		</table>
 	</div>
 </div>
-<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/layer/1.9.3/layer.js"></script> 
-<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/laypage/1.2/laypage.js"></script> 
-<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/My97DatePicker/WdatePicker.js"></script> 
-<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
-<script type="text/javascript" src="/2/QAQproject/Public/admin/js/H-ui.js"></script> 
-<script type="text/javascript" src="/2/QAQproject/Public/admin/js/H-ui.admin.js"></script> 
+<script type="text/javascript" src="/QAQproject/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/QAQproject/Public/admin/lib/layer/1.9.3/layer.js"></script> 
+<script type="text/javascript" src="/QAQproject/Public/admin/lib/laypage/1.2/laypage.js"></script> 
+<script type="text/javascript" src="/QAQproject/Public/admin/lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="/QAQproject/Public/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="/QAQproject/Public/admin/js/H-ui.js"></script> 
+<script type="text/javascript" src="/QAQproject/Public/admin/js/H-ui.admin.js"></script> 
 <script type="text/javascript">
 $(function(){
 	$('.table-sort').dataTable({
