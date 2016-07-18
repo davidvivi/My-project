@@ -125,14 +125,14 @@
 	</form>
 </div>
 </div>
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="lib/layer/1.9.3/layer.js"></script> 
-<script type="text/javascript" src="lib/My97DatePicker/WdatePicker.js"></script> 
-<script type="text/javascript" src="lib/icheck/jquery.icheck.min.js"></script> 
-<script type="text/javascript" src="lib/Validform/5.3.2/Validform.min.js"></script> 
-<script type="text/javascript" src="lib/webuploader/0.1.5/webuploader.min.js"></script> 
-<script type="text/javascript" src="js/H-ui.js"></script> 
-<script type="text/javascript" src="js/H-ui.admin.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/layer/1.9.3/layer.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/icheck/jquery.icheck.min.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/Validform/5.3.2/Validform.min.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/webuploader/0.1.5/webuploader.min.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/js/H-ui.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/js/H-ui.admin.js"></script> 
 <script type="text/javascript">
 $(function(){
 	$('.skin-minimal input').iCheck({
