@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 	<head>
-		<block name="title">
+		
             <title>QAQ数码商城首页</title>
-        </block>
+        
         <meta charset="utf-8" />
 		
-		<link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css">
-		<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
-		<script src="__PUBLIC__/Home/js/jquery-1.10.2.min.js"></script>
+		<link rel="stylesheet" href="/QAQproject/Public/Home/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/QAQproject/Public/Home/css/base.css">
+		<script src="/QAQproject/Public/Home/js/jquery-1.10.2.min.js"></script>
 		
         <!-- 预留接口，等子模板使用 -->
-        <block name="head">
+        
 			<!-- 样式 JS -->
-        </block>
+        
 	</head>
 	
 	<body>
@@ -39,7 +39,7 @@
 			<div class="container">
 				<div class="top_search">
 					<div class="logo">
-						<img src="__PUBLIC__/img/logo.jpg" alt="QAQ商城logo" style="width:180px;height:50px;"/>
+						<img src="/QAQproject/Public/img/logo.jpg" alt="QAQ商城logo" style="width:180px;height:50px;"/>
 						<span>QAQ在线网上数码商城</span>
 					</div>
 					<div>
@@ -59,7 +59,7 @@
 						</ul>
 					</div>
 					<div>
-						<img src="__PUBLIC__/img/ChMkJlYcpziIdMcxAAB2sdYBFdcAADnzQKpVyIAAHbJ372.jpg" style="width:180px;height:60px;margin-left:55px;"/>
+						<img src="/QAQproject/Public/img/ChMkJlYcpziIdMcxAAB2sdYBFdcAADnzQKpVyIAAHbJ372.jpg" style="width:180px;height:60px;margin-left:55px;"/>
 					</div>
 				</div>
 				
@@ -76,11 +76,11 @@
 							<li>摄影</li>
 						</ul>
 						
-						<img src="__PUBLIC__/img/ChMkJ1Z7xxmIJIRaAAAVx_5H8MsAAGjZwDgKK0AABXf118.gif" />
+						<img src="/QAQproject/Public/img/ChMkJ1Z7xxmIJIRaAAAVx_5H8MsAAGjZwDgKK0AABXf118.gif" />
 					</div>
-					<block name="gaoshi">
 					
-					</block>
+					
+					
 				</div>
 					</div>
 					<div class="navnone">
@@ -89,9 +89,9 @@
 		</div>
 		
 		<!-- ======主体部分接口======= -->
-        <block name="main">
+        
             <div>main</div>
-        </block>
+        
 		
 		<!-- ========页面尾部========== -->
         <hr style="color:#3d3d3d;" />
@@ -177,7 +177,5 @@
 	
 </script>
 
-<block name="footer">
+
 	<!-- JS -->
-	
-</block>
