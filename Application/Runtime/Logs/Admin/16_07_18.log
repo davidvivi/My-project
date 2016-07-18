@@ -2295,3 +2295,132 @@ ERR: 非法操作:skin
 [ 2016-07-18T19:26:42+08:00 ] ::1 /2/QAQproject/index.php/admin/index/skin/green/skin.css
 ERR: 非法操作:skin
 
+[ 2016-07-18T19:29:04+08:00 ] ::1 /2/QAQproject/index.php/admin/index/skin/green/skin.css
+ERR: 非法操作:skin
+
+[ 2016-07-18T19:30:08+08:00 ] ::1 /2/QAQproject/index.php/admin/index/skin/green/skin.css
+ERR: 非法操作:skin
+
+[ 2016-07-18T19:30:23+08:00 ] ::1 /2/QAQproject/index.php/admin/index/skin/green/skin.css
+ERR: 非法操作:skin
+
+[ 2016-07-18T19:31:08+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/jquery/1.9.1/jquery.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:08+08:00 ] ::1 /2/QAQproject/index.php/admin/index/js/H-ui.js
+ERR: 非法操作:js
+
+[ 2016-07-18T19:31:08+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/Validform/5.3.2/Validform.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:08+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/webuploader/0.1.5/webuploader.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:09+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/layer/1.9.3/layer.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:09+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/icheck/jquery.icheck.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:10+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/My97DatePicker/WdatePicker.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:10+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/icheck/jquery.icheck.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:10+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/Validform/5.3.2/Validform.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:10+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/webuploader/0.1.5/webuploader.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:11+08:00 ] ::1 /2/QAQproject/index.php/admin/index/js/H-ui.js
+ERR: 非法操作:js
+
+[ 2016-07-18T19:31:11+08:00 ] ::1 /2/QAQproject/index.php/admin/index/js/H-ui.admin.js
+ERR: 非法操作:js
+
+[ 2016-07-18T19:31:14+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/jquery/1.9.1/jquery.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:14+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/My97DatePicker/WdatePicker.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:14+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/layer/1.9.3/layer.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:14+08:00 ] ::1 /2/QAQproject/index.php/admin/index/js/H-ui.js
+ERR: 非法操作:js
+
+[ 2016-07-18T19:31:14+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/My97DatePicker/WdatePicker.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:15+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/Validform/5.3.2/Validform.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:15+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/icheck/jquery.icheck.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:15+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/webuploader/0.1.5/webuploader.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:15+08:00 ] ::1 /2/QAQproject/index.php/admin/index/js/H-ui.admin.js
+ERR: 非法操作:js
+
+[ 2016-07-18T19:31:15+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/Validform/5.3.2/Validform.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:15+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/webuploader/0.1.5/webuploader.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:15+08:00 ] ::1 /2/QAQproject/index.php/admin/index/js/H-ui.js
+ERR: 非法操作:js
+
+[ 2016-07-18T19:31:15+08:00 ] ::1 /2/QAQproject/index.php/admin/index/js/H-ui.admin.js
+ERR: 非法操作:js
+
+[ 2016-07-18T19:31:24+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/jquery/1.9.1/jquery.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:24+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/icheck/jquery.icheck.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:24+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/layer/1.9.3/layer.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:24+08:00 ] ::1 /2/QAQproject/index.php/admin/index/js/H-ui.admin.js
+ERR: 非法操作:js
+
+[ 2016-07-18T19:31:24+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/My97DatePicker/WdatePicker.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:24+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/webuploader/0.1.5/webuploader.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:24+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/Validform/5.3.2/Validform.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:24+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/icheck/jquery.icheck.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:24+08:00 ] ::1 /2/QAQproject/index.php/admin/index/js/H-ui.js
+ERR: 非法操作:js
+
+[ 2016-07-18T19:31:24+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/Validform/5.3.2/Validform.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:24+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/webuploader/0.1.5/webuploader.min.js
+ERR: 非法操作:lib
+
+[ 2016-07-18T19:31:24+08:00 ] ::1 /2/QAQproject/index.php/admin/index/js/H-ui.js
+ERR: 非法操作:js
+
+[ 2016-07-18T19:31:24+08:00 ] ::1 /2/QAQproject/index.php/admin/index/js/H-ui.admin.js
+ERR: 非法操作:js
+
+[ 2016-07-18T19:32:05+08:00 ] ::1 /2/QAQproject/index.php/admin/index/temp/brand/dongpeng.jpeg
+ERR: 非法操作:temp
+
+[ 2016-07-18T19:32:05+08:00 ] ::1 /2/QAQproject/index.php/admin/index/lib/laypage/1.2/laypage.js
+ERR: 非法操作:lib
+

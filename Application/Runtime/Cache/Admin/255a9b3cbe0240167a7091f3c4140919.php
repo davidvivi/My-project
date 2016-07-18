@@ -60,16 +60,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row cl">
-			<label class="form-label col-2"><span class="c-red">*</span>发布日期：</label>
-			<div class="formControls col-2">
-				<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F<?php echo ('%y-%M-%d'($dp["$D('datemax')"])); ?>'})" id="datemin" class="input-text Wdate">
-			</div>
-			<label class="form-label col-2"><span class="c-red">*</span>结束日期：</label>
-			<div class="formControls col-2">
-				<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F<?php echo ($dp["$D('datemin')"]); ?>'})" id="datemax" class="input-text Wdate">
-			</div>
-		</div>
+		
 		<div class="row cl">
 			<label class="form-label col-2">图片作者：</label>
 			<div class="formControls col-2">
