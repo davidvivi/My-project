@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -11,17 +11,17 @@
 <script type="text/javascript" src="lib/respond.min.js"></script>
 <script type="text/javascript" src="lib/PIE_IE678.js"></script>
 <![endif]-->
-<link href="__PUBLIC__/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="/2/QAQproject/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="/2/QAQproject/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+<link href="/2/QAQproject/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>删除的用户</title>
+<title>用户的等级</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 删除的用户<a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 用户的等级<a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="pd-20">
 	<div class="text-c">
 		<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、电话、邮箱" id="" name="">
@@ -33,13 +33,14 @@
 		<thead>
 			<tr class="text-c">
 				<th width="25"><input type="checkbox" name="" value=""></th>
-				<th width="80">ID</th>
+				<th width="40">ID</th>
 				<th width="100">用户名</th>
 				<th width="40">性别</th>
 				<th width="90">手机</th>
 				<th width="150">邮箱</th>
 				<th width="">地址</th>
-				<th width="130">加入时间</th>
+				<th width="90">加入时间</th>
+                <th width="70">等级</th>
 				<th width="70">状态</th>
 				<th width="100">操作</th>
 			</tr>
@@ -54,6 +55,7 @@
 				<td>admin@mail.com</td>
 				<td class="text-l">北京市 海淀区</td>
 				<td>2014-6-11 11:11:42</td>
+                <td>普通会员</td>
 				<td class="td-status"><span class="label label-danger radius">已删除</span></td>
 				<td class="td-manage"><a style="text-decoration:none" href="javascript:;" onClick="member_huanyuan(this,'1')" title="还原"><i class="Hui-iconfont">&#xe66b;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 			</tr>
@@ -61,13 +63,13 @@
 	</table>
 	</div>
 </div>
-<script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/admin/lib/layer/1.9.3/layer.js"></script>
-<script type="text/javascript" src="__PUBLIC__/admin/lib/laypage/1.2/laypage.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/admin/lib/My97DatePicker/WdatePicker.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/layer/1.9.3/layer.js"></script>
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/laypage/1.2/laypage.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/js/H-ui.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/js/H-ui.admin.js"></script> 
 <script type="text/javascript">
 $(function(){
 	$('.table-sort').dataTable({

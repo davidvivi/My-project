@@ -6,10 +6,14 @@
         
         <meta charset="utf-8" />
 		
+<<<<<<< HEAD
 		<link rel="stylesheet" href="/QAQproject/Public/Home/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/QAQproject/Public/Home/css/base.css">
 		<script src="/QAQproject/Public/Home/js/jquery-1.10.2.min.js"></script>
 		
+=======
+		<style src='/2/QAQproject/Public/Home/css/bootstrap.min.css'></style>
+>>>>>>> c117e1bf56d6830e54005862f3c8f16721565b98
         <!-- 预留接口，等子模板使用 -->
         
 		<style>
