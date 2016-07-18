@@ -144,7 +144,18 @@ CREATE TABLE IF NOT EXISTS `think_assess`(
     `addtime` INT NOT NULL COMMENT '评价时间'
 )ENGINE = INNODB DEFAULT CHARSET=UTF8;
 --------------------------------------------
-
+--------------------------------------------
+--   收货地址表  address
+--------------------------------------------
+CREATE TABLE IF NOT EXISTS `think_address`( 
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `uid` INT NOT NULL COMMENT '用户id',
+    `address` VARCHAR(255) NOT NULL COMMENT '收货地址',
+    `name` VARCHAR(32) NOT NULL COMMENT '收货人',
+    `tel` int NOT NULL COMMENT '收货人号码',
+    `postcode` INT NOT NULL COMMENT '邮编'
+)ENGINE = INNODB DEFAULT CHARSET=UTF8;
+--------------------------------------------
 
 
 
