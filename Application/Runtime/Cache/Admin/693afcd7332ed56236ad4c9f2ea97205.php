@@ -26,7 +26,16 @@
 <meta name="keywords" content="QAQ后台管理">
 </head>
 <body>
-<header class="Hui-header cl"> <img style="width:100px;" title="QAQ" src="/QAQproject/Public/admin/images/logo.jpg"><b style="font-size:20px">后台管理</b>
+<header class="Hui-header cl"> <img style="width:100px;" title="QAQ" src="/QAQproject/Public/admin/images/logo.jpg"><b style="font-size:20px">后台管理</b><div><p>1111</p></div>
+<script type="text/javascript">
+
+
+        //window.onload=function(){
+    //alert('aa');
+//}
+    var a = document.getElementsByTagName('div');
+
+</script>
 	<ul class="Hui-userbar">
 		<li>超级管理员</li>
 		<li class="dropDown dropDown_hover"><a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
@@ -161,7 +170,7 @@
 		</div>
 	</div>
 </section>
-<script type="text/javascript" src="/QAQproject/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/QAQproject/Public/admin/lib/jquery/1.9.1/jquery10.js"></script> 
 <script type="text/javascript" src="/QAQproject/Public/admin/lib/layer/1.9.3/layer.js"></script> 
 <script type="text/javascript" src="/QAQproject/Public/admin/js/H-ui.js"></script> 
 <script type="text/javascript" src="/QAQproject/Public/admin/js/H-ui.admin.js"></script> 

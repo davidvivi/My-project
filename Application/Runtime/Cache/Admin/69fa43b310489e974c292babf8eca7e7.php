@@ -43,7 +43,10 @@
     <tbody>
       <tr class="text-c">
         <td>总数</td>
-        <td><?php echo ($b); ?></td>
+        <td><script type="text/javascript">
+              var b = window.parent.c.innerHTML;
+              alert(b);
+        </script></td>
         <td>9</td>
         <td>0</td>
         <td>8</td>
