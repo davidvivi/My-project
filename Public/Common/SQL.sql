@@ -75,4 +75,37 @@ CREATE TABLE IF NOT EXISTS `think_user`(
     `addtime` INT(30) NOT NULL,
     `tel` VARCHAR(20) NOT NULL,
     `status` TINYINT(1) NOT NULL
-    )ENGINE=INNODB DEFAULT CHARSET=UTF8;
+)ENGINE=INNODB DEFAULT CHARSET=UTF8;
+	
+	
+-- 订单表order
+CREATE TABLE IF NOT EXISTS `think_order`(
+	`id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`uid` INT NOT NULL COMMENT '用户id',
+	`num_id` INT NOT NULL COMMENT '订单号',
+	`buy` DOUBLE(8,2) NOT NULL COMMENT '总金额',
+	`written` VARCHAR(255) COMMENT '留言',
+	`emailno` INT(6) NOT NULL COMMENT '邮编',
+	`address` VARCHAR(100) NOT NULL COMMENT '地址',
+	`tel` VARCHAR(32) NOT NULL,
+	`num` INT UNSIGNED NOT NULL COMMENT '购买数量',
+	`state` TINYINT(1) NOT NULL DEFAULT 1,
+	`addtime` INT(30) NOT NULL
+)ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+
+-- --------------------------------------
+--
+--   订单详情表 orderdetail
+-- ---------------------------------------
+CREATE TABLE IF NOT EXISTS `think_orderdetail`(
+	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`oid` INT NOT NULL COMMENT '订单id',
+	`uid` INT NOT NULL COMMENT '用户id',
+	`gid` INT NOT NULL COMMENT '商品id',
+	`pic` VARCHAR(255) NOT NULL COMMENT '商品图',
+	`num` INT NOT NULL COMMENT '数量',
+	`price` DOUBLE(8,2) NOT NULL COMMENT '单价',
+	`guige` VARCHAR(255) NOT NULL COMMENT '规格',
+	`state` TINYINT(1) NOT NULL DEFAULT 1 COMMENT '评价状态'
+)ENGINE = INNODB DEFAULT CHARSET=UTF8;
