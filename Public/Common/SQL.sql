@@ -173,5 +173,13 @@ CREATE TABLE IF NOT EXISTS `think_user_detail`(
 )ENGINE=INNODB DEFAULT CHARSET=UTF8;
 
 
-
-
+-----------------------------------------------
+-----------------------------------------------
+---分类表
+------------------------------------------
+CREATE TABLE IF NOT EXISTS `think_sort` ( 
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `pid` INT NOT NULL,  
+    `name` VARCHAR(32) NOT NULL, 
+    `path` VARCHAR(255) NOT NULL 
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
