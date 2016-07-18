@@ -109,3 +109,22 @@ CREATE TABLE IF NOT EXISTS `think_orderdetail`(
 	`guige` VARCHAR(255) NOT NULL COMMENT '规格',
 	`state` TINYINT(1) NOT NULL DEFAULT 1 COMMENT '评价状态'
 )ENGINE = INNODB DEFAULT CHARSET=UTF8;
+
+
+--------------------------------------------
+--   友情链接管理表  friendly_link
+--------------------------------------------
+CREATE TABLE IF NOT EXISTS `think_friendly_link`( 
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `pic` VARCHAR(255) NOT NULL COMMENT '友情链接地址',
+    `contents` VARCHAR(255) NOT NULL COMMENT '描述',
+    `url` VARCHAR(255) NOT NULL COMMENT '链接地址',
+    `state` TINYINT(1) NOT NULL DEFAULT 1 COMMENT '状态，0：禁用；1：开启；'
+)ENGINE = INNODB DEFAULT CHARSET=UTF8;
+--------------------------------------------
+
+
+
+
+
+
