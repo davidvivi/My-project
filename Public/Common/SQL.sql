@@ -157,6 +157,21 @@ CREATE TABLE IF NOT EXISTS `think_address`(
 )ENGINE = INNODB DEFAULT CHARSET=UTF8;
 --------------------------------------------
 
+-----------------------------------------------
+-----------------------------------------------
+---用户详情表
+------------------------------------------
+CREATE TABLE IF NOT EXISTS `think_user_detail`(
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `uid` INT NOT NULL,
+    `pic` VARCHAR(255) NOT NULL DEFAULT 'default.jpg',
+    `name` VARCHAR(32) NOT NULL,
+    `address` VARCHAR(255) NOT NULL,
+    `emailno` INT(6) NOT NULL,
+    `birth` INT NOT NULL COMMENT '时间戳',
+    `grade` TINYINT(1) NOT NULL DEFAULT 1 COMMENT '1:青铜用户 2：白银用户 3:黄金用户 4：白金用户 5：钻石用户'
+)ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
 
 
 
