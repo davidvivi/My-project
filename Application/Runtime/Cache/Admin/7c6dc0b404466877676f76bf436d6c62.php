@@ -18,10 +18,10 @@
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>下载记录</title>
+<title>分享记录</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 下载记录 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 分享记录 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="pd-20">
 	<div class="text-c"> 日期范围：
 		<input type="text" onfocus="WdatePicker({maxDate:'#F<?php echo ('%y-%M-%d'($dp["$D('datemax')"])); ?>'})" id="datemin" class="input-text Wdate" style="width:120px;">
@@ -60,13 +60,12 @@
 </div>
 <script type="text/javascript" src="/QAQproject/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
 <script type="text/javascript" src="/QAQproject/Public/admin/lib/layer/1.9.3/layer.js"></script> 
-<script type="text/javascript" src="/QAQproject/Public/admin/lib/laypage/1.2/laypage.js"></script> 
+<script type="text/javascript" src="/QAQproject/Public/admin//QAQproject/Public/admin/lib/laypage/1.2/laypage.js"></script> 
 <script type="text/javascript" src="/QAQproject/Public/admin/lib/My97DatePicker/WdatePicker.js"></script> 
 <script type="text/javascript" src="/QAQproject/Public/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
 <script type="text/javascript" src="/QAQproject/Public/admin/js/H-ui.js"></script> 
 <script type="text/javascript" src="/QAQproject/Public/admin/js/H-ui.admin.js"></script> 
 <script type="text/javascript">
-
 $('.table-sort').dataTable({
 	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
 	"bStateSave": true,//状态保存
