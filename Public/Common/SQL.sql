@@ -119,11 +119,43 @@ CREATE TABLE IF NOT EXISTS `think_friendly_link`(
     `pic` VARCHAR(255) NOT NULL COMMENT '友情链接地址',
     `contents` VARCHAR(255) NOT NULL COMMENT '描述',
     `url` VARCHAR(255) NOT NULL COMMENT '链接地址',
-    `state` TINYINT(1) NOT NULL DEFAULT 1 COMMENT '状态，0：禁用；1：开启；'
+    `state` TINYINT(1) NOT NULL DEFAULT 1 COMMENT '开关，0：禁用；1：开启；'
 )ENGINE = INNODB DEFAULT CHARSET=UTF8;
 --------------------------------------------
-
-
+--------------------------------------------
+--   公告管理表  information
+--------------------------------------------
+CREATE TABLE IF NOT EXISTS `think_information`( 
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `url` VARCHAR(255) NOT NULL COMMENT '公告链接地址',
+    `contents` VARCHAR(255) NOT NULL COMMENT '描述',
+    `state` TINYINT(1) NOT NULL DEFAULT 1 COMMENT '开关，0：禁用；1：开启；'
+)ENGINE = INNODB DEFAULT CHARSET=UTF8;
+--------------------------------------------
+--------------------------------------------
+--   评论管理表  assess
+--------------------------------------------
+CREATE TABLE IF NOT EXISTS `think_assess`( 
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `uid` INT NOT NULL COMMENT '用户id',
+    `odid` INT NOT NULL COMMENT '订单详情表id',
+    `grade` TINYINT(1) NOT NULL DEFAULT 5 COMMENT '评价等级,评价1最低，评价5最高',
+    `contents` VARCHAR(255) NOT NULL COMMENT '评价内容',
+    `addtime` INT NOT NULL COMMENT '评价时间'
+)ENGINE = INNODB DEFAULT CHARSET=UTF8;
+--------------------------------------------
+--------------------------------------------
+--   收货地址表  address
+--------------------------------------------
+CREATE TABLE IF NOT EXISTS `think_address`( 
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `uid` INT NOT NULL COMMENT '用户id',
+    `address` VARCHAR(255) NOT NULL COMMENT '收货地址',
+    `name` VARCHAR(32) NOT NULL COMMENT '收货人',
+    `tel` int NOT NULL COMMENT '收货人号码',
+    `postcode` INT NOT NULL COMMENT '邮编'
+)ENGINE = INNODB DEFAULT CHARSET=UTF8;
+--------------------------------------------
 
 
 
