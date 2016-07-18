@@ -11,10 +11,10 @@
 <script type="text/javascript" src="lib/respond.min.js"></script>
 <script type="text/javascript" src="lib/PIE_IE678.js"></script>
 <![endif]-->
-<link href="/2/QAQproject/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
-<link href="/2/QAQproject/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+<link href="/QAQproject/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="/QAQproject/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
 
-<link href="/2/QAQproject/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="/QAQproject/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -189,8 +189,8 @@
   <p>感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br>Copyright &copy;2015 H-ui.admin v2.3 All Rights Reserved.<br>
     本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
 </footer>
-<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="/2/QAQproject/Public/admin/js/H-ui.js"></script>
+<script type="text/javascript" src="/QAQproject/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/QAQproject/Public/admin/js/H-ui.js"></script>
 <script>
 var _hmt = _hmt || [];
 (function() {
