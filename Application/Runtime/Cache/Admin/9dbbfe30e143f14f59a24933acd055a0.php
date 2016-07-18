@@ -11,10 +11,10 @@
 <script type="text/javascript" src="lib/respond.min.js"></script>
 <script type="text/javascript" src="lib/PIE_IE678.js"></script>
 <![endif]-->
-<link href="/QAQproject/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
-<link href="/QAQproject/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
-<link href="/QAQproject/Public/admin/css/style.css" rel="stylesheet" type="text/css" />
-<link href="/QAQproject/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="/2/QAQproject/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="/2/QAQproject/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+<link href="/2/QAQproject/Public/admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/2/QAQproject/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -58,8 +58,8 @@
 					<td><input name="" type="checkbox" value=""></td>
 					<td>1</td>
 					<td><input type="text" class="input-text text-c" value="1"></td>
-					<td><img src="/2/QAQproject/Public/admin/temp/brand/dongpeng.jpeg"></td>
-					<td class="text-l"><img title="国内品牌" src="/2/QAQproject/Public/admin/images/gq/cn.gif"> 东鹏</td>
+					<td><img src="temp/brand/dongpeng.jpeg"></td>
+					<td class="text-l"><img title="国内品牌" src="images/gq/cn.gif"> 东鹏</td>
 					<td class="text-l">东鹏陶瓷被评为“中国名牌”、“国家免检产品”、“中国驰名商标”、http://www.dongpeng.net/</td>
 					<td class="f-14 product-brand-manage"><a style="text-decoration:none" onClick="product_brand_edit('品牌编辑','codeing.html','1')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="active_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 				</tr>
@@ -67,13 +67,13 @@
 		</table>
 	</div>
 </div>
-<script type="text/javascript" src="/QAQproject/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="/QAQproject/Public/admin/lib/layer/1.9.3/layer.js"></script><script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script> 
-<script type="text/javascript" src="/QAQproject/Public/admin/lib/My97DatePicker/WdatePicker.js"></script> 
-<script type="text/javascript" src="/QAQproject/Public/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
-<script type="text/javascript" src="/QAQproject/Public/admin/js/H-ui.js"></script> 
-<script type="text/javascript" src="/QAQproject/Public/admin/js/H-ui.admin.js"></script> 
-<script type="text/javascript" src="/QAQproject/Public/admin/js/H-ui.admin.product.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/layer/1.9.3/layer.js"></script><script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/js/H-ui.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/js/H-ui.admin.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/js/H-ui.admin.product.js"></script> 
 <script type="text/javascript">
 $('.table-sort').dataTable({
 	"aaSorting": [[ 1, "desc" ]],//默认第几个排序

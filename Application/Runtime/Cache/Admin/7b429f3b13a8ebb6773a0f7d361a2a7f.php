@@ -11,11 +11,11 @@
 <script type="text/javascript" src="lib/respond.min.js"></script>
 <script type="text/javascript" src="lib/PIE_IE678.js"></script>
 <![endif]-->
-<link href="/QAQproject/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
-<link href="/QAQproject/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
-<link href="/QAQproject/Public/admin/css/style.css" rel="stylesheet" type="text/css" />
-<link href="/QAQproject/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="/QAQproject/Public/admin/lib/zTree/v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link href="/2/QAQproject/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="/2/QAQproject/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+<link href="/2/QAQproject/Public/admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/2/QAQproject/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/2/QAQproject/Public/admin/lib/zTree/v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
 <!--[if IE 6]>
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -30,11 +30,11 @@
 		<td class="va-t"><IFRAME ID="testIframe" Name="testIframe" FRAMEBORDER=0 SCROLLING=AUTO width=100%  height=390px SRC="product-category-add.html"></IFRAME></td>
 	</tr>
 </table>
-<script type="text/javascript" src="/QAQproject/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="/QAQproject/Public/admin/lib/layer/1.9.3/layer.js"></script> 
-<script type="text/javascript" src="/QAQproject/Public/admin/lib/zTree/v3/js/jquery.ztree.all-3.5.min.js"></script> 
-<script type="text/javascript" src="/QAQproject/Public/admin/js/H-ui.js"></script> 
-<script type="text/javascript" src="/QAQproject/Public/admin/js/H-ui.admin.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/layer/1.9.3/layer.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/zTree/v3/js/jquery.ztree.all-3.5.min.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/js/H-ui.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/js/H-ui.admin.js"></script> 
 <script type="text/javascript">
 var setting = {
 	view: {
