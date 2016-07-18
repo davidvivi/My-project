@@ -11,11 +11,11 @@
 <script type="text/javascript" src="lib/respond.min.js"></script>
 <script type="text/javascript" src="lib/PIE_IE678.js"></script>
 <![endif]-->
-<link href="/QAQproject/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
-<link href="/QAQproject/Public/admin//QAQproject/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
-<link href="/QAQproject/Public/admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/2/QAQproject/Public/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="/2/QAQproject/Public/admin//2/QAQproject/Public/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+<link href="/2/QAQproject/Public/admin/css/style.css" rel="stylesheet" type="text/css" />
 
-<link href="/QAQproject/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="/2/QAQproject/Public/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -29,12 +29,12 @@
   </div>
   <div class="mt-20 text-c"><button name="system-base-save" id="system-base-save" class="btn btn-success radius" type="submit"><i class="icon-ok"></i> 确定</button></div>
 </div>
-<script type="text/javascript" src="/QAQproject/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="/QAQproject/Public/admin/lib/Validform/5.3.2/Validform.min.js"></script>  
-<script type="text/javascript" src="/QAQproject/Public/admin/lib/layer/1.9.3/layer.js"></script><script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script> 
-<script type="text/javascript" src="/QAQproject/Public/admin/js/H-ui.js"></script> 
-<script type="text/javascript" src="/QAQproject/Public/admin/js/H-ui.admin.js"></script> 
-<script type="text/javascript" src="/QAQproject/Public/admin/js/H-ui.admin.system.js"></script>
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/Validform/5.3.2/Validform.min.js"></script>  
+<script type="text/javascript" src="/2/QAQproject/Public/admin/lib/layer/1.9.3/layer.js"></script><script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/js/H-ui.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/js/H-ui.admin.js"></script> 
+<script type="text/javascript" src="/2/QAQproject/Public/admin/js/H-ui.admin.system.js"></script>
 <script>
 var _hmt = _hmt || [];
 (function() {
