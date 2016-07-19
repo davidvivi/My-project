@@ -25,5 +25,4 @@ return array(
         'AUTH_USER' => 'think_admin',
 
     ),
-
 );
