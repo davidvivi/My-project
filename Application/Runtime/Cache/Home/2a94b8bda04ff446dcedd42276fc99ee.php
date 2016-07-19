@@ -6,18 +6,10 @@
         
         <meta charset="utf-8" />
 		
-<<<<<<< HEAD
-		<style src='/QAQproject/Public/Home/css/bootstrap.min.css'></style>
-=======
-<<<<<<< HEAD
 		<link rel="stylesheet" href="/QAQproject/Public/Home/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/QAQproject/Public/Home/css/base.css">
 		<script src="/QAQproject/Public/Home/js/jquery-1.10.2.min.js"></script>
 		
-=======
-		<style src='/2/QAQproject/Public/Home/css/bootstrap.min.css'></style>
->>>>>>> c117e1bf56d6830e54005862f3c8f16721565b98
->>>>>>> 0daefc9d83e1f06a1df639228213a24c9f9f55b9
         <!-- 预留接口，等子模板使用 -->
         
 		<style>
@@ -46,6 +38,30 @@
 			#catenav{
 				display:block;
 			}
+			.hot{
+				width:1200px;
+				height:180px;
+				border:1px solid red;
+			}
+			h2{
+				display:inline-block;
+				
+			}
+			.floor ul{
+				list-style:none;
+				float:right;
+				margin-top:40px;
+			}
+			.floor ul li{
+				float:left;
+				margin-left:15px;
+				padding-left:15px;
+				border-left:1px solid gray;
+			}
+			.floor ul li:first-of-type{
+				border-left:none;
+			}
+			
 		</style>
 	
 	</head>
@@ -136,17 +152,61 @@
 		
 	
 				</div>
-					</div>
+			
 					<div class="navnone">
 						
+					</div>
+		
+				<!-- ======主体部分接口======= -->
+				
+		<div>
+			<h2>热卖商品</h2>
+			<a>更多&gt;&gt;</a>
+			<div class="hot"></div>
+		</div>
+		<div>
+			<h2>限时抢购</h2>
+			<a>更多&gt;&gt;</a>
+			<div class="hot"></div>
+		</div>
+		<div>
+			<h2>精品推荐</h2>
+			<a>更多&gt;&gt;</a>
+			<div class="hot"></div>
+		</div>
+		<div class="floor">
+			<h2>1F 手机通讯</h2>
+			<ul>
+				<li><a>####</a></li>
+				<li><a>#####</a></li>
+				<li><a>####</a></li>
+				<li><a>####</a></li>
+			</ul>
+			<div class="hot"></div>
+		</div>
+		<div class="floor">
+			<h2>2F 电脑数码</h2>
+			<ul>
+				<li><a>####</a></li>
+				<li><a>#####</a></li>
+				<li><a>####</a></li>
+				<li><a>####</a></li>
+			</ul>
+			<div class="hot"></div>
+		</div>
+		<div class="floor">
+			<h2>3F 摄影生活</h2>
+			<ul>
+				<li><a>####</a></li>
+				<li><a>#####</a></li>
+				<li><a>####</a></li>
+				<li><a>####</a></li>
+			</ul>
+			<div class="hot"></div>
+		</div>
+	
 			</div>
 		</div>
-		
-		<!-- ======主体部分接口======= -->
-        
-	
-	
-		
 		<!-- ========页面尾部========== -->
         <hr style="color:#3d3d3d;" />
 		
@@ -189,6 +249,18 @@
 				<li>商城规则</li>
 				<li>商家帮助</li>
 			</ul>
+			
+			
+		</div>
+		<div class="weiba">
+			<ul>
+				<li>合作伙伴：</li>
+				<li><a>######</a></li>
+				<li><a>####</a></li>
+				<li><a>遍历</a></li>
+				<li><a>######</a></li>
+				
+			</ul>
 		</div>
 	</body>
 	
@@ -218,9 +290,10 @@
 			$(this).css({'background':'#2D2D2D','color':'white',})
 			$('.navnone').css('display','none');
 		})
-	)
+	);
 		$('.active').mouseover(function(){
 			//console.log('1');
+			
 			$('#catenav').css('display','block');
 			
 		}).mouseout(function(){
