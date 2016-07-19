@@ -82,17 +82,17 @@
 					
 					</block>
 				</div>
-					</div>
+			
 					<div class="navnone">
 						
+					</div>
+		
+				<!-- ======主体部分接口======= -->
+				<block name="main">
+					<div>main</div>
+				</block>
 			</div>
 		</div>
-		
-		<!-- ======主体部分接口======= -->
-        <block name="main">
-            <div>main</div>
-        </block>
-		
 		<!-- ========页面尾部========== -->
         <hr style="color:#3d3d3d;" />
 		
@@ -135,6 +135,18 @@
 				<li>商城规则</li>
 				<li>商家帮助</li>
 			</ul>
+			
+			
+		</div>
+		<div class="weiba">
+			<ul>
+				<li>合作伙伴：</li>
+				<li><a>######</a></li>
+				<li><a>####</a></li>
+				<li><a>遍历</a></li>
+				<li><a>######</a></li>
+				
+			</ul>
 		</div>
 	</body>
 	
@@ -164,9 +176,10 @@
 			$(this).css({'background':'#2D2D2D','color':'white',})
 			$('.navnone').css('display','none');
 		})
-	)
+	);
 		$('.active').mouseover(function(){
 			//console.log('1');
+			
 			$('#catenav').css('display','block');
 			
 		}).mouseout(function(){
