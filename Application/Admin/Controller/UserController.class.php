@@ -4,7 +4,7 @@ namespace Admin\Controller;
 
 use Think\Controller;
 
-class UserController extends Controller {
+class UserController extends CommonController {
     // 会员列表  status 0代表已删除，1代表启用
     public function index()
     {   
@@ -52,8 +52,20 @@ class UserController extends Controller {
     }
     public function userDelete()
     { 
-        $id = I('post.id');
-        dump($id);
-        echo json_encode($id);
+        $id = I('get.id'); 
+        $user = M('user');
+        $userdetail = M('user_detail');
+        if($id){ 
+            $du = $user->where("id='{$id}'")->delete();
+            $dd = $userdetail->where("uid='{$id}'")->delete();
+            if($du && $dd){ 
+                $this->success('删除成功');
+            }else{ 
+                $this->error('删除失败');
+            }
+        }else{ 
+            $this->error('删除失败!');
+        }
+      
     }
 }
