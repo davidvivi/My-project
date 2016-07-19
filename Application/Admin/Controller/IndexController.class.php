@@ -8,6 +8,6 @@ class IndexController extends CommonController {
 
     public function index()
     {
-        $this->display('index/index');
+        $this->display('Index/index');
     }
 }
