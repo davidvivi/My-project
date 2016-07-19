@@ -31,6 +31,8 @@ class LoginController extends controller
             $bool = $admin->auth($name, $password);
 
             if($bool){
+                //将识别成功的用户名存进session，作为登录的依据
+                $_SESSION['admin_name']=$name;
                 $this->success('成功', U('Index/index'));
                 }else{
                     $this->error('失败');

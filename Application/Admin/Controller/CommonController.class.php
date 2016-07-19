@@ -4,10 +4,14 @@ namespace Admin\Controller;
 
 use Think\Controller;
 
-class IndexController extends Controller {
+class CommonController extends Controller {
 
-    public function index()
+    //初始化操作
+    public function _initialize()
     {
-        $this->display('index/index');
+         if( !$_SESSION['admin_name'] ){
+
+            $this->error('请登录', U('Login/index'));
+        }
     }
 }
