@@ -190,8 +190,33 @@ li.active{
 .footer ul{
 	float:left;
 	list-style:none;
-	margin-right:50px;
+	margin-right:100px;
 }
 .footer ul li{
 	margin-top:10px;
+}
+
+.weiba{
+	width:100%;
+	height:200px;
+	border:1px solid blue;
+	background:#2d2d2d;
+	color:white;
+}
+.weiba ul{
+	float:left;
+	list-style:none;
+	margin-left:60px;
+	margin-top:40px;
+}
+.weiba ul li{
+	float:left;
+	padding-right:15px;
+	margin-left:15px;
+	border-right:1px solid #ededed;
+	
+}
+.weiba ul li:first-of-type{
+	border-right:none;
+	
 }

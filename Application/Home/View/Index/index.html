@@ -27,6 +27,30 @@
 			#catenav{
 				display:block;
 			}
+			.hot{
+				width:1200px;
+				height:180px;
+				border:1px solid red;
+			}
+			h2{
+				display:inline-block;
+				
+			}
+			.floor ul{
+				list-style:none;
+				float:right;
+				margin-top:40px;
+			}
+			.floor ul li{
+				float:left;
+				margin-left:15px;
+				padding-left:15px;
+				border-left:1px solid gray;
+			}
+			.floor ul li:first-of-type{
+				border-left:none;
+			}
+			
 		</style>
 	</block>
 	
@@ -55,7 +79,51 @@
 	</block>
 	
 	<block name="main">
-	
+		<div>
+			<h2>热卖商品</h2>
+			<a>更多&gt;&gt;</a>
+			<div class="hot"></div>
+		</div>
+		<div>
+			<h2>限时抢购</h2>
+			<a>更多&gt;&gt;</a>
+			<div class="hot"></div>
+		</div>
+		<div>
+			<h2>精品推荐</h2>
+			<a>更多&gt;&gt;</a>
+			<div class="hot"></div>
+		</div>
+		<div class="floor">
+			<h2>1F 手机通讯</h2>
+			<ul>
+				<li><a>####</a></li>
+				<li><a>#####</a></li>
+				<li><a>####</a></li>
+				<li><a>####</a></li>
+			</ul>
+			<div class="hot"></div>
+		</div>
+		<div class="floor">
+			<h2>2F 电脑数码</h2>
+			<ul>
+				<li><a>####</a></li>
+				<li><a>#####</a></li>
+				<li><a>####</a></li>
+				<li><a>####</a></li>
+			</ul>
+			<div class="hot"></div>
+		</div>
+		<div class="floor">
+			<h2>3F 摄影生活</h2>
+			<ul>
+				<li><a>####</a></li>
+				<li><a>#####</a></li>
+				<li><a>####</a></li>
+				<li><a>####</a></li>
+			</ul>
+			<div class="hot"></div>
+		</div>
 	</block>
 	
 	<block name="footer">
