@@ -4,14 +4,22 @@ namespace Admin\Controller;
 
 use Think\Controller;
 
-class CommonController extends Controller {
 
-    //初始化操作
-    public function _initialize()
+    class CommonController extends Controller
     {
-         if( !$_SESSION['admin_name'] ){
+        public function _initialize()
+        {
+            if (empty($_SESSION['admin']['login']))
+            {
+                redirect(U('Admin/login/login'));
+            }
+            /* else {
+                  if (!IS_AJAX) {
+                    $this->display('Common/index');
+                  }
+            } */
 
-            $this->error('请登录', U('Login/index'));
+            
+            
         }
     }
-}
