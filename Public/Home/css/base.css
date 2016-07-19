@@ -132,7 +132,7 @@ li.active{
 .navenone{
     width:750px;
     height:410px;
-    border:1px solid red;
+    background:red;
     float:left;
     display:none;
 }
