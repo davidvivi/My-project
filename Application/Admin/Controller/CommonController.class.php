@@ -9,7 +9,7 @@ use Think\Controller;
     {
         public function _initialize()
         {
-            if (empty($_SESSION['admin']['login']))
+            if (empty($_SESSION['admin']['name']))
             {
                 redirect(U('Admin/login/login'));
             }

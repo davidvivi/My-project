@@ -16,10 +16,8 @@
         public function checkLogin()
         {
             $Admin = M('admin');
-            //$arr['name'] = I('post.name');
-            //$arr['password'] = I('post.password');
+            
             $map['name'] = I('post.name');
-            //$arr['password'] = password_hash(I('post.password'),PASSWORD_DEFAULT);
             $Verify = new \Think\Verify();
             
             $verifyCode = $Verify->check(I('post.checkCode'));
@@ -39,6 +37,7 @@
             if(!$bool){ 
                 $this->error('登陆失败');
             }else{  
+                $_SESSION['admin']['name']=$map['name'];
                 $this->success('登陆成功',U('index/index'),2);
             }
 
