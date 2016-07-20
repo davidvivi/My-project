@@ -29,11 +29,11 @@
 <header class="Hui-header cl"> <img style="width:100px;" title="QAQ" src="__PUBLIC__/admin/images/logo.jpg"><b style="font-size:20px">后台管理</b>
 	<ul class="Hui-userbar">
 		<li>超级管理员</li>
-		<li class="dropDown dropDown_hover"><a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
+		<li class="dropDown dropDown_hover"><a href="#" class="dropDown_A">{$managerInfo.name}<i class="Hui-iconfont">&#xe6d5;</i></a>
 			<ul class="dropDown-menu radius box-shadow">
 				<li><a href="#">个人信息</a></li>
 				<li><a href="#">切换账户</a></li>
-				<li><a href="#">退出</a></li>
+				<li><a href="{:U('Login/lyout')}">退出</a></li>
 			</ul>
 		</li>
 	</ul>
