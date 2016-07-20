@@ -85,12 +85,15 @@ CREATE TABLE IF NOT EXISTS `think_order`(
 	`num_id` INT NOT NULL COMMENT '订单号',
 	`buy` DOUBLE(8,2) NOT NULL COMMENT '总金额',
 	`written` VARCHAR(255) COMMENT '留言',
-	`emailno` INT(6) NOT NULL COMMENT '邮编',
+	`emailno` INT(6) NOT NULL COMMENT '邮编'
+    `consignee` VARCHAR(60) NOT NULL COMMENT '收货人',
 	`address` VARCHAR(100) NOT NULL COMMENT '地址',
-	`tel` VARCHAR(32) NOT NULL,
-	`num` INT UNSIGNED NOT NULL COMMENT '购买数量',
-	`state` TINYINT(1) NOT NULL DEFAULT 1,
-	`addtime` INT(30) NOT NULL
+	`tel` VARCHAR(32) NOT NULL COMMENT'手机号',
+    `orderstatus` TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '0:新订单,1:已发货,2:已收货,3:无效订单',
+    `addtime` INT UNSIGNED NOT NULL COMMENT '添加时间',
+    `paystatus` TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '0:未支付,1:已支付',
+    `payment` VARCHAR(120) NOT NULL DEFAULT 0 COMMENT '0:货到付款,1:微信支付,2:支付宝,3:银联支付',
+    `shipping` VARCHAR(120) NOT NULL DEFAULT 0 COMMENT '0:顺丰,1:圆通,2:申通,3:中通'
 )ENGINE=INNODB DEFAULT CHARSET=UTF8;
 
 
