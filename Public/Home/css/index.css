@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+
+/*----------------------------------------------------------------------------注册-开始------------------------------------------------------------------------------------------------------------*/
+.reg{ background:url(../../img/bg10.jpg) no-repeat center 0; height:100%; width:100%; color:#5C5C5C}
+.customer-header{ height:73px}
+.setout{ width:1002px; margin:0 auto;}
+.setout table tr td{ padding-top:30px}
+.bit-ti-s table tr td span{ font-size:22px; font-family:"微软雅黑"; display:block; padding-left:10px; color:#777777;}
+.pa-le-5{ padding-left:5px}
+
+.shuru-area{ background:url(../images/bg13.png) no-repeat; width:791px; margin:0 auto; position:relative}
+.tit-zc{ padding:43px 0px 14px 220px}
+.tit-zc h3{ width:400px; height:29px; font-weight:400}
+.tit-zc h3 span{ display:block; height:35px; color:#b90006; font-size:30px; line-height:35px}
+.shrk-bd-zc{ padding-top:9px; height:427px; background:#FFF url(../images/bg26.png) no-repeat; background-position:0 bottom;}
+.shrk-bd-zc table tr th{ padding:10px 0; text-align:right;  font-size:14px; width:218px; color:#838282; font-weight:400; font-style:normal;}
+.shrk-bd-zc table tr td{ padding:10px 0;}
+.zc-text{ font-size:12px; width:239px; border:1px solid #bcbcbc; color:#8B8B8B; height:20px; line-height:20px; padding:6px; border-radius:4px 4px}
+.zc-text:focus{ border-color:#EE9043 !important; background-color:#FFFFE9; outline:none}
+.pwd-letter{ padding-top:3px;}
+.pwd-letter span{ width:80px; background-color:#eee; margin-left:1px; display:block; float:left; text-align:center; color:#aaa;}
+.wi96{ width:96px}
+.to0{ top:0px}
+.shrk-bd-zc .checkboxs{ margin-right:5px}
+#iage label{ font-family:tahoma;}
+a.iages{color:#004E97; text-decoration:underline}
+.zc-ljzc{ border-radius:3px; padding:5px 30px; width:auto; height:36px; font-weight:bold; font-size:18px; border:0; cursor:pointer;  color:#FFF;  background-color:RGB(255,137,36)}
+.zc-ljzc:hover{ background-color:#ff7a31}
+.tar{ padding-top:6px; height:36px; text-align:right}
+.zc-dl{ border-radius:3px; padding:5px 30px; height:36px; font-weight:bold; font-size:14px; color:#FFF; background-color:RGB(197,197,197);}
+a.zc-dl:hover{ text-decoration:underline;}
+.cz-clude{ position:absolute; width:226px; height:135px; bottom:19px; left:-53px; z-index:2}
+#pa{ padding-top:36px}
+.hr-60{height: 20px;border-bottom: solid 1px #aaa;margin-left: auto;margin-right: auto;width: 70%;}
+.cust-footer{ height:58px; width:100%; bottom:0}
+.warrant-area{ padding-top:2px; line-height:56px}
+.warrant-area p{ text-align:center; height:20px; color:#999 }
+.warrant-area p a{ color:#999; text-decoration:underline;}
+/*----------------------------------------------------------------------------注册-结束------------------------------------------------------------------------------------------------------------*/
