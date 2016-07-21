@@ -25,33 +25,32 @@
             <h3><span>QAQ账号注册</span></h3>
         </div>
         <div class="shrk-bd-zc">
-            <form action="" method="post" onSubmit=" return check_submit(this)" id="reg_form2">
+            <form action="{:U('Reg/reg')}" method="post" onSubmit=" return check_submit(this)" id="reg_form2">
                 <table border="0" cellspacing="0" cellpadding="0">
                     <tr>
+                        <th>用户名：</th>
+                        <td><input class="zc-text" type="text" name="username" id="username2" placeholder="请输入用户名号码" maxlength="11" required/></td>
+                    </tr>
+                    <tr>
                         <th>手机号：</th>
-                        <td><input class="zc-text" type="text" name="username" id="username2" placeholder="请输入手机号码" maxlength="11" required/></td>
+                        <td><input class="zc-text" type="text" name="tel" id="J_register_phone_number" placeholder="请输入手机号码" maxlength="11" required/></td>
                     </tr>
                                         <tr>
                         <th>密码：</th>
                         <td>
-                            <input class="zc-text" type="password" name="password" id="password3" placeholder="8-32个字符" required/>
-                            <!--<div class="pwd-letter">-->
-                                <!--<span>弱</span>-->
-                                <!--<span>中</span>-->
-                                <!--<span>强</span>-->
-                            <!--</div>-->
+                            <input class="zc-text" type="password" name="password" id="password" placeholder="8-32个字符" required/>
+                            <i class="wrong-tips" style="display: none;" id="J_register_pasword_phone_tips">密码不可以包含特殊字符</i>
                         </td>
                     </tr>
                     <tr>
                         <th>确认密码：</th>
-                        <td><input class="zc-text" type="password" name="password2" id="password4" placeholder="请重复输入您的密码" required/></td>
+                        <td><input class="zc-text" type="password" name="password2" id="password2" placeholder="请重复输入您的密码" required/></td>
                     </tr>
                     <tr>
                         <th>验证码：</th>
                         <td  class="po-re">
-                            <input class="zc-text wi96" name="verify_code" id="verify_code2" type="text" placeholder="不区分大小写" required/>
-                            <img class="po-ab to0" width="140" height="65" id="reflsh_code2"  src="/index.php/Home/User/verify/type/user_reg.html" />
-                            <a><img class="ma-le-210" src="/Template/pc/default/Static/images/chg_image.png" onClick="verify('reflsh_code2')" /></a>
+                            <input class="zc-text wi96" name="verify" id="verify_code2" type="text" placeholder="不区分大小写" required/>
+                            <img class="po-ab to0" style="margin:0px 0px -12px 0px" id="reflsh_code2"  src="{:U('Reg/verify')}"onclick="this.src='{:U('Reg/verify')}?'+Math.random()"  />
                         </td>
                     </tr>
                     <tr>
@@ -91,9 +90,23 @@
         </div>
     </div>
 </div>
+
 <script>
+$(function(){
+
+$('#username').blur(function(){
+
+var account=$('#username').val();
+
+if(account==''){
+
+$('.username').html('请输入用户名');
+
+return false;
+
+}
 	// 普通 图形验证码 
-    function verify(id){
+    /*function verify(id){
         $('#'+id).attr('src','/index.php?m=Home&c=User&a=verify&type=user_reg&r='+Math.random());
     }
     function check_submit(){
@@ -110,7 +123,7 @@
         if(password == '' || password2 == ''){
             error += '密码不能为空\n';
         }
-        if(password !== password2){
+        if(password != password2){
             error += '两次输入密码不一致\n';
         }
         if(password.length < 6){
@@ -170,7 +183,8 @@
 //        codeObj.attr("IntervalTime",intAs);
 
         setTimeout("jsInnerTimeout('"+id+"',"+intAs+")",1000);
-    };
+    };*/
 </script>
+<script src="__PUBLIC__/Home/js/register.min.js"></script>
 </body>
 </html>

@@ -59,12 +59,12 @@
         **/
         public function verify() {
             $Verify = new \Think\Verify(array(   
-            'length' => 4,
-            //'useNoise' => FALSE,
+            'length' => 3,
+            'useNoise' => FALSE,
             'fontSize' => 14,
             'imageW'   =>100,
             'imageH'    => 35,
-            //'useCurve'  =>false,
+            'useCurve'  =>false,
             'fontttf' => '5.ttf',
             ));
             $Verify->entry();
