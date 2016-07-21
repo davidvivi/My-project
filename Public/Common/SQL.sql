@@ -82,18 +82,19 @@ CREATE TABLE IF NOT EXISTS `think_user`(
 CREATE TABLE IF NOT EXISTS `think_order`(
 	`id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`uid` INT NOT NULL COMMENT '用户id',
-	`num_id` INT NOT NULL COMMENT '订单号',
+	`num_id` VARCHAR(20) NOT NULL COMMENT '订单号',
 	`buy` DOUBLE(8,2) NOT NULL COMMENT '总金额',
 	`written` VARCHAR(255) COMMENT '留言',
-	`emailno` INT(6) NOT NULL COMMENT '邮编'
+	`emailno` INT(6) NOT NULL COMMENT '邮编',
+<<<<<<< HEAD
     `consignee` VARCHAR(60) NOT NULL COMMENT '收货人',
+=======
+>>>>>>> 170e4f9e9379954a54f7f6257cb6323581e58d58
 	`address` VARCHAR(100) NOT NULL COMMENT '地址',
-	`tel` VARCHAR(32) NOT NULL COMMENT'手机号',
-    `orderstatus` TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '0:新订单,1:已发货,2:已收货,3:无效订单',
-    `addtime` INT UNSIGNED NOT NULL COMMENT '添加时间',
-    `paystatus` TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '0:未支付,1:已支付',
-    `payment` VARCHAR(120) NOT NULL DEFAULT 0 COMMENT '0:货到付款,1:微信支付,2:支付宝,3:银联支付',
-    `shipping` VARCHAR(120) NOT NULL DEFAULT 0 COMMENT '0:顺丰,1:圆通,2:申通,3:中通'
+	`tel` VARCHAR(32) NOT NULL,
+	`num` INT UNSIGNED NOT NULL COMMENT '购买数量',
+	`state` TINYINT(1) NOT NULL DEFAULT 1,
+	`addtime` INT(30) NOT NULL
 )ENGINE=INNODB DEFAULT CHARSET=UTF8;
 
 
@@ -178,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `think_user_detail`(
 
 -----------------------------------------------
 -----------------------------------------------
----分类表
+---分类表 sort
 ------------------------------------------
 CREATE TABLE IF NOT EXISTS `think_sort` ( 
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -186,3 +187,34 @@ CREATE TABLE IF NOT EXISTS `think_sort` (
     `name` VARCHAR(32) NOT NULL, 
     `path` VARCHAR(255) NOT NULL 
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+
+----------------------------------------------------
+------------------------------------------------------
+--------商品表 goods
+------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `think_goods`(
+	`id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`typeid` INT NOT NULL,
+	`goodname` VARCHAR(50) NOT NULL,
+	`state` TINYINT(1) DEFAULT 1 COMMENT '0:审核 1:已发布 2:已下架',
+	`buy` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '购买量默认0',
+	`view` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '浏览量默认0',
+	`store` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '库存默认0',
+	`discribe` VARCHAR(255) NOT NULL,
+	`addtime` INT NOT NULL
+)ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+------------------------------------------------
+------------------------------------------------
+-------商品图表
+------------------------------------------------
+CREATE TABLE IF NOT EXISTS `think_goods_pic`(
+	`id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`gid` INT NOT NULL,
+	`picname` VARCHAR(255) NOT NULL
+)ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+
+
+
