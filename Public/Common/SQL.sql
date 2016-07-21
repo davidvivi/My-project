@@ -82,10 +82,10 @@ CREATE TABLE IF NOT EXISTS `think_user`(
 CREATE TABLE IF NOT EXISTS `think_order`(
 	`id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`uid` INT NOT NULL COMMENT '用户id',
-	`num_id` INT NOT NULL COMMENT '订单号',
+	`num_id` VARCHAR(20) NOT NULL COMMENT '订单号',
 	`buy` DOUBLE(8,2) NOT NULL COMMENT '总金额',
 	`written` VARCHAR(255) COMMENT '留言',
-	`emailno` INT(6) NOT NULL COMMENT '邮编'
+	`emailno` INT(6) NOT NULL COMMENT '邮编',
     `consignee` VARCHAR(60) NOT NULL COMMENT '收货人',
 	`address` VARCHAR(100) NOT NULL COMMENT '地址',
 	`tel` VARCHAR(32) NOT NULL COMMENT'手机号',

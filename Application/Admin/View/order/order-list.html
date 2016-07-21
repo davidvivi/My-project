@@ -31,8 +31,8 @@
 			<thead>
 				<tr class="text-c">
 					<th width="25"><input type="checkbox" name="" value=""></th>
-					<th width="70">订单编号</th>
-					<th width="80">收货人</th>
+					<th width="80">订单编号</th>
+					<th width="120">收货人</th>
 					<th width="80">应付金额</th>
 					<th width="80">支付状态</th>
                     <th width="80">支付方式</th>
@@ -43,32 +43,21 @@
 				</tr>
 			</thead>
 			<tbody>
+                <foreach name="orderlist" item="val">
 				<tr class="text-c">
 					<td><input name="" type="checkbox" value=""></td>
-					<td>20160720krisz</td>
-					<td><input type="text" class="input-text text-c" value="1"></td>
-					<td>1000</td>
-					<td class="text-l">未支付/已支付</td>
-					<td class="text-l">支付宝/微信/货到付款</td>
-                    <td>订单状态</td>
-                    <td>顺丰快递</td>
-                    <td>111111111111</td>
+					<td>{$val.numid}</td>
+					<td>{$val.consignee}:{$val.tel}</td>
+					<td>{$val.buy}</td>
+					<td class="text-l">{$val.paystatus}</td>
+					<td class="text-l">{$val.payment}</td>
+                    <td>{$val.orderstatus}</td>
+                    <td>{$val.shipping}</td>
+                    <td>{$val.addtime}</td>
 
 					<td class="f-14 product-brand-manage"><a style="text-decoration:none" onClick="order_detail('订单详情','order-detail.html','1')" href="javascript:;" title="详情"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="active_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 				</tr>
-                <tr class="text-c">
-                    <td><input name="" type="checkbox" value=""></td>
-                    <td>20160720krisz</td>
-                    <td><input type="text" class="input-text text-c" value="1"></td>
-                    <td>1000</td>
-                    <td class="text-l">未支付/已支付</td>
-                    <td class="text-l">支付宝/微信/货到付款</td>
-                    <td>订单状态</td>
-                    <td>顺丰快递</td>
-                    <td>111111111111</td>
-
-                    <td class="f-14 product-brand-manage"><a style="text-decoration:none" onClick="order_detail('订单详情','order-detail.html','1','')" href="javascript:;" title="详情"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="active_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-                </tr>
+                </foreach>
 			</tbody>
 		</table>
 	</div>
