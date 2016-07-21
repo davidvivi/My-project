@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `think_user_detail`(
 
 -----------------------------------------------
 -----------------------------------------------
----分类表
+---分类表 sort
 ------------------------------------------
 CREATE TABLE IF NOT EXISTS `think_sort` ( 
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -183,3 +183,34 @@ CREATE TABLE IF NOT EXISTS `think_sort` (
     `name` VARCHAR(32) NOT NULL, 
     `path` VARCHAR(255) NOT NULL 
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+
+----------------------------------------------------
+------------------------------------------------------
+--------商品表 goods
+------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `think_goods`(
+	`id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`typeid` INT NOT NULL,
+	`goodname` VARCHAR(50) NOT NULL,
+	`state` TINYINT(1) DEFAULT 1 COMMENT '0:审核 1:已发布 2:已下架',
+	`buy` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '购买量默认0',
+	`view` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '浏览量默认0',
+	`store` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '库存默认0',
+	`discribe` VARCHAR(255) NOT NULL,
+	`addtime` INT NOT NULL
+)ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+------------------------------------------------
+------------------------------------------------
+-------商品图表
+------------------------------------------------
+CREATE TABLE IF NOT EXISTS `think_goods_pic`(
+	`id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`gid` INT NOT NULL,
+	`picname` VARCHAR(255) NOT NULL
+)ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+
+
+
