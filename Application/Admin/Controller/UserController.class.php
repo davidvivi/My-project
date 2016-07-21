@@ -8,6 +8,7 @@ class UserController extends CommonController {
     // 会员列表  status 0代表已删除，1代表启用
     public function index()
     {   
+
         $choose = I('get.choose');
         $user = M('user');
         $userdetail = M('user_detail');
@@ -23,7 +24,7 @@ class UserController extends CommonController {
         $show = $Page->show();
 
 
-        $grade_arr = array('','青铜用户','白银用户','黄金用户','白金用户','王者用户');
+        
         if($choose == 1){
             $userdata = $user->field('id,username,addtime,tel,status')->where('status=1')->limit($Page->firstRow.','.$Page->listRows)->select();
         }elseif($choose == 0){ 
@@ -39,21 +40,14 @@ class UserController extends CommonController {
                 $userdata[$i]['sex'] = $detaildata[0]['sex'];
                 $userdata[$i]['email'] = $detaildata[0]['email'];
                 $userdata[$i]['address'] = $detaildata[0]['address'];
-                $userdata[$i]['grade'] = $grade_arr[$detaildata[0]['grade']];
+                $userdata[$i]['grade'] = $detaildata[0]['grade'];
             }
-            $userdata[$i]['addtime'] = date('Y-m-d H:i:s',$userdata[$i]['addtime']);
-            if($userdata[$i]['status'] == 0){ 
-                $userdata[$i]['status'] = '已删除';
-            }else{ 
-                $userdata[$i]['status'] = '已启用';
-            }
-            if($userdata[$i]['sex'] == 0){ 
-                $userdata[$i]['sex'] = '女';
-            }else{ 
-                $userdata[$i]['sex'] = '男';
-            }
+            
         }  
 
+        //var_dump($userdata);exit;
+        $userclass = new \Admin\Model\UserModel();
+        $userdata = $userclass->userSwitch($userdata);
 
         $this->assign('count', $count);
         $this->assign('page', $show);
@@ -87,10 +81,15 @@ class UserController extends CommonController {
     public function userReturn()
     { 
         $id = I('id');
+        $i = I('i');
 
         $user = M('user');
         if($id){ 
-            $data['status'] = '1';
+            if($i == 1){ 
+                $data['status'] = '0';
+            }else{
+                $data['status'] = '1';
+            }
             $du = $user->where("id='{$id}'")->save($data);
             if($du){ 
                 $this->ajaxReturn('1');
@@ -103,7 +102,43 @@ class UserController extends CommonController {
     }
     public function userEdit()
     { 
+        $id = I('id');
+        $user = M('user');
+        $userdetail = M('user_detail');
+        $userdata = $user->field('id,username,addtime,tel,status')->where("status=1 AND id='{$id}'")->select();
+       
+        $userid = $userdata[0]['id'];              
+        $detaildata = $userdetail->field('sex,email,address,grade')->where("uid='{$userid}'")->select();
+        
+        $data1 = array_pop($userdata);
+        $data2 = array_pop($detaildata);
+        $data = array_merge($data1,$data2);
+        
+       
+
+
+        $this->assign('formdata',$data);
         $this->display('user/user-edit');
         
     }
+    public function userEditForm()
+    { 
+        $id = I('id');
+
+        $userdetail = M('user_detail');
+
+        if(ture){ 
+
+        $detaildata = $userdetail->field('grade')->where("uid='{$id}'")->select();
+  
+            $data['grade'] = '2';
+            $du = $userdetail->where("uid='{$id}'")->save($data);
+            $this->ajaxReturn('1');
+        }else{ 
+            $this->ajaxReturn('0');
+        }
+
+    }
+
+   
 }
