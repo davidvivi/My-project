@@ -11,11 +11,23 @@ class UserController extends CommonController {
         $choose = I('get.choose');
         $user = M('user');
         $userdetail = M('user_detail');
+
+        if($choose == 1){ 
+            $count = $user->where('status=1')->count();
+        }elseif($chose == 0){
+            $count = $user->where('status=0')->count();
+        }else{ 
+            $this->error('操作失败！');
+        }
+        $Page = new \Think\Page($count,8);
+        $show = $Page->show();
+
+
         $grade_arr = array('','青铜用户','白银用户','黄金用户','白金用户','王者用户');
         if($choose == 1){
-            $userdata = $user->field('id,username,addtime,tel,status')->where('status=1')->select();
+            $userdata = $user->field('id,username,addtime,tel,status')->where('status=1')->limit($Page->firstRow.','.$Page->listRows)->select();
         }elseif($choose == 0){ 
-            $userdata = $user->field('id,username,addtime,tel,status')->where('status=0')->select();
+            $userdata = $user->field('id,username,addtime,tel,status')->where('status=0')->limit($Page->firstRow.','.$Page->listRows)->select();
         }else{ 
             $this->error('操作失败！');
         }
@@ -40,9 +52,12 @@ class UserController extends CommonController {
             }else{ 
                 $userdata[$i]['sex'] = '男';
             }
-
         }  
-      
+
+
+        $this->assign('count', $count);
+        $this->assign('page', $show);
+        
         $this->assign('userdata',$userdata);
         if($choose == 1){
             $this->display('user/user-list');
@@ -50,22 +65,45 @@ class UserController extends CommonController {
             $this->display('user/user-del');
         }
     }
+    
     public function userDelete()
     { 
-        $id = I('get.id'); 
+        $id = I('id');
         $user = M('user');
         $userdetail = M('user_detail');
         if($id){ 
             $du = $user->where("id='{$id}'")->delete();
             $dd = $userdetail->where("uid='{$id}'")->delete();
-            if($du && $dd){ 
-                $this->success('删除成功');
+            if($du){ 
+                $this->ajaxReturn('1');
             }else{ 
-                $this->error('删除失败');
+                $this->ajaxReturn('0');
             }
         }else{ 
-            $this->error('删除失败!');
+            $this->ajaxReturn('0');
         }
-      
+
+    }
+    public function userReturn()
+    { 
+        $id = I('id');
+
+        $user = M('user');
+        if($id){ 
+            $data['status'] = '1';
+            $du = $user->where("id='{$id}'")->save($data);
+            if($du){ 
+                $this->ajaxReturn('1');
+            }else{ 
+                $this->ajaxReturn('0');
+            }
+        }else{ 
+            $this->ajaxReturn('0');
+        }
+    }
+    public function userEdit()
+    { 
+        $this->display('user/user-edit');
+        
     }
 }
