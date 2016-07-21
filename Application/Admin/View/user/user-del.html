@@ -18,10 +18,10 @@
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>删除的用户</title>
+<title>禁用的用户</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 删除的用户<a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 禁用的用户<a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="pd-20">
 	<div class="text-c">
 		<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、电话、邮箱" id="" name="">
@@ -61,7 +61,7 @@
                 				<td class="text-l">{$val.address}</td>
                 				<td>{$val.addtime}</td>
                 				<td class="td-status"><span class="label label-danger radius">{$val.status}</span></td>
-                				<td class="td-manage"><a style="text-decoration:none" href="javascript:;" return-id="{$val.id}" class="return-status" title="还原"><i class="Hui-iconfont">&#xe66b;</i></a> <a title="删除" href="javascript:;"  delete-id="{$val.id}" class="delete-a" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                				<td class="td-manage"><a style="text-decoration:none" href="javascript:;" return-id="{$val.id}" class="return-status" title="还原"><i class="Hui-iconfont">&#xe66b;</i></a> <a title="删除" href="javascript:;" delete-id="{$val.id}" class="delete-a" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
                 			</tr>
                         </foreach>
             		</tbody>
@@ -148,7 +148,7 @@ $(function(){
 
     });
     // 还原
-    $('.return-status').click(function(){ 
+    $('#div1').on('click','.return-status',function(){ 
         var return_td = $(this);
         var id = $(this).attr('return-id');
         $.ajax({ 
@@ -157,8 +157,10 @@ $(function(){
             data:{id},
             success:function(data){ 
                 if(data == 1){ 
-                    return_td.parents("tr").remove();
                     alert('还原成功');
+                    $('#div1').load("__SELF__ #div2",function(){ 
+                        page();
+                    })
                 }else{ 
                     alert('还原失败！');
                 }
