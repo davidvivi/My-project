@@ -31,6 +31,7 @@
 			<thead>
 				<tr class="text-c">
 					<th width="25"><input type="checkbox" name="" value=""></th>
+                    <th width="60">ID</th>
 					<th width="80">订单编号</th>
 					<th width="120">收货人</th>
 					<th width="80">应付金额</th>
@@ -46,6 +47,7 @@
                 <foreach name="orderlist" item="val">
 				<tr class="text-c">
 					<td><input name="" type="checkbox" value=""></td>
+                    <td>{$val.orderid}</td>
 					<td>{$val.numid}</td>
 					<td>{$val.consignee}:{$val.tel}</td>
 					<td>{$val.buy}</td>
@@ -55,7 +57,7 @@
                     <td>{$val.shipping}</td>
                     <td>{$val.addtime}</td>
 
-					<td class="f-14 product-brand-manage"><a style="text-decoration:none" onClick="order_detail('订单详情','order-detail.html','1')" href="javascript:;" title="详情"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="active_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+					<td class="f-14 product-brand-manage"><a style="text-decoration:none" onClick="order_detail('订单详情','order_detail.html?orderid={$val.orderid}','1')" href="javascript:;" title="详情"><i class="Hui-iconfont">&#xe627;</i></a> <a style="text-decoration:none" class="ml-5" onClick="active_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 				</tr>
                 </foreach>
 			</tbody>
