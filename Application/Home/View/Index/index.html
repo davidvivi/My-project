@@ -61,10 +61,12 @@
 			<div>
 				<p align="center" style="margin-top:20px;">商城公告</p>
 				<ul>
+					<foreach name="list" item="vo">
+						<li>
+							<a href="{$vo.url}"><span>{$vo.contents}</span></a>
+						</li>
+					</foreach>
 					
-					<li>遍历</li>
-					<li>遍历</li>
-					<li>遍历</li>
 				</ul>
 			</div>
 		</div>

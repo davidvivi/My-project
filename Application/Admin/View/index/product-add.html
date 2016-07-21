@@ -52,24 +52,9 @@
 			<div class="formControls col-2">
 				<input type="text" class="input-text" value="0" placeholder="" id="" name="">
 			</div>
-			<label class="form-label col-2">允许评论：</label>
-			<div class="formControls col-2 skin-minimal">
-				<div class="check-box">
-					<input type="checkbox" id="checkbox-1">
-					<label for="checkbox-1">&nbsp;</label>
-				</div>
-			</div>
+			
 		</div>
-		<div class="row cl">
-			<label class="form-label col-2">产品规格：</label>
-			<div class="formControls col-10">
-				<input type="text" name="" id="" placeholder="输入长度" value="" class="input-text" style=" width:25%">
-				MM
-				<input type="text" name="" id="" placeholder="输入宽度" value="" class="input-text" style=" width:25%">
-				MM
-				<input type="text" name="" id="" placeholder="输入高度" value="" class="input-text" style=" width:25%">
-				MM </div>
-		</div>
+		
 		<div class="row cl">
 			<label class="form-label col-2">产地：</label>
 			<div class="formControls col-10">
@@ -86,23 +71,7 @@
 				<input type="text" name="" id="" placeholder="" value="" class="input-text">
 			</div>
 		</div>
-		<div class="row cl">
-			<label class="form-label col-2">价格计算单位：</label>
-			<div class="formControls col-4"> <span class="select-box">
-				<select class="select">
-					<option>请选择</option>
-					<option value="1">件</option>
-					<option value="2">斤</option>
-					<option value="3">KG</option>
-					<option value="4">吨</option>
-					<option value="5">套</option>
-				</select>
-				</span> </div>
-			<label class="form-label col-2">产品重量：</label>
-			<div class="formControls col-4">
-				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
-				kg</div>
-		</div>
+		
 		<div class="row cl">
 			<label class="form-label col-2">产品展示价格：</label>
 			<div class="formControls col-4">
@@ -126,7 +95,7 @@
 		<div class="row cl">
 			<label class="form-label col-2">销售开始时间：</label>
 			<div class="formControls col-4">
-				<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin" class="input-text Wdate" style="width:180px;">
+				<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'datemax\')}'})" id="datemin" class="input-text Wdate" style="width:180px;">
 			</div>
 			<label class="form-label col-2">销售结束时间：</label>
 			<div class="formControls col-4">

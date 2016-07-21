@@ -18,6 +18,9 @@
 	
 	<body>
 		<!-- ======页面头部======= -->
+		<div class="rightNav">
+			
+		</div>
 		<div>
 			<div class="topbar">
 				<div class="topbar_content">
@@ -78,18 +81,19 @@
 						
 						<img src="__PUBLIC__/img/ChMkJ1Z7xxmIJIRaAAAVx_5H8MsAAGjZwDgKK0AABXf118.gif" />
 					</div>
+					
 					<block name="gaoshi">
 					
 					</block>
 				</div>
-			
-					<div class="navnone">
+				<div class="navnone">
 						
-					</div>
+				</div>
+					
 		
 				<!-- ======主体部分接口======= -->
 				<block name="main">
-					<div>main</div>
+					<div></div>
 				</block>
 			</div>
 		</div>
@@ -157,7 +161,7 @@
 		$('li.navnav').mouseover(function(){
 			//console.log('1');
 			$(this).css({'background':'white','color':'black',})
-			$('.navnone').css('display','block');
+			$('.navnone').css({'display':'block','width':'750px','height':'410px','background':'red',"position":'relative',"left":"200px"});
 		}).mouseout(function(){
 			$(this).css({'background':'#2D2D2D','color':'white',})
 			$('.navnone').css('display','none');
@@ -165,7 +169,7 @@
 		}).next().mouseover(function(){
 			//console.log('1');
 			$(this).css({'background':'white','color':'black',})
-			$('.navnone').css('display','block');
+			$('.navnone').css({'display':'block','width':'750px','height':'410px','background':'yellow',"position":'relative',"left":"200px"});
 		}).mouseout(function(){
 			$(this).css({'background':'#2D2D2D','color':'white',})
 			$('.navnone').css('display','none');
@@ -173,7 +177,7 @@
 		}).next().mouseover(function(){
 			//console.log('1');
 			$(this).css({'background':'white','color':'black',})
-			$('.navnone').css('display','block');
+			$('.navnone').css({'display':'block','width':'750px','height':'410px','background':'green',"position":'relative',"left":"200px"});
 		}).mouseout(function(){
 			$(this).css({'background':'#2D2D2D','color':'white',})
 			$('.navnone').css('display','none');
@@ -185,7 +189,12 @@
 			$('#catenav').css('display','block');
 			
 		}).mouseout(function(){
-			$('#catenav').css('display','none');
+			$('#catenav').mouseover(function(){
+				
+			}).mouseout(function(){
+				$('#catenav').css('display','none')
+			})
+			
 		})
 		
 		
