@@ -22,9 +22,7 @@ class UserController extends CommonController {
         }
         $Page = new \Think\Page($count,8);
         $show = $Page->show();
-
-
-        
+   
         if($choose == 1){
             $userdata = $user->field('id,username,addtime,tel,status')->where('status=1')->limit($Page->firstRow.','.$Page->listRows)->select();
         }elseif($choose == 0){ 
@@ -32,23 +30,10 @@ class UserController extends CommonController {
         }else{ 
             $this->error('操作失败！');
         }
-        for($i=0;$i<count($userdata);$i++)
-        {
-            $userid = $userdata[$i]['id'];              
-            $detaildata = $userdetail->field('sex,email,address,grade')->where("uid='{$userid}'")->select();
-            if($detaildata){ 
-                $userdata[$i]['sex'] = $detaildata[0]['sex'];
-                $userdata[$i]['email'] = $detaildata[0]['email'];
-                $userdata[$i]['address'] = $detaildata[0]['address'];
-                $userdata[$i]['grade'] = $detaildata[0]['grade'];
-            }
-            
-        }  
-
         //var_dump($userdata);exit;
         $userclass = new \Admin\Model\UserModel();
+        $userdata = $userclass->userInfo($userdata);
         $userdata = $userclass->userSwitch($userdata);
-
         $this->assign('count', $count);
         $this->assign('page', $show);
         
@@ -80,6 +65,7 @@ class UserController extends CommonController {
     }
     public function userReturn()
     { 
+        
         $id = I('id');
         $i = I('i');
 
@@ -99,6 +85,7 @@ class UserController extends CommonController {
         }else{ 
             $this->ajaxReturn('0');
         }
+        
     }
     public function userEdit()
     { 
@@ -116,7 +103,7 @@ class UserController extends CommonController {
         
        
 
-
+        $this->assign('act',1);
         $this->assign('formdata',$data);
         $this->display('user/user-edit');
         
@@ -124,21 +111,80 @@ class UserController extends CommonController {
     public function userEditForm()
     { 
         $id = I('id');
-
-        $userdetail = M('user_detail');
-
-        if(ture){ 
-
-        $detaildata = $userdetail->field('grade')->where("uid='{$id}'")->select();
-  
-            $data['grade'] = '2';
+        $grade = I('grade');
+        if($id){ 
+            $userdetail = M('user_detail');
+            $detaildata = $userdetail->field('grade')->where("uid='{$id}'")->select();
+            $data['grade'] = $grade;
             $du = $userdetail->where("uid='{$id}'")->save($data);
             $this->ajaxReturn('1');
         }else{ 
             $this->ajaxReturn('0');
         }
+    }  
+    public function userSearch()
+    { 
+        $data = I('text');
+        $sid = I('id'); //  区别是哪个页面
+        
+        $user = M('user');
+        $whereuser['username'] = array('like',"%{$data}%");
 
+        $whereuser['status'] = $sid;
+
+
+        $userdata = $user->field('id,username,addtime,tel,status')->where($whereuser)->find();
+        if(!$userdata)
+        { 
+            $wheretel['tel'] = array('like',"%{$data}%");
+            $wheretel['status'] = $sid;
+            $userdata = $user->field('id,username,addtime,tel,status')->where($wheretel)->find();
+        }
+        
+        if($userdata){ 
+            $this->ajaxReturn($userdata);
+        }else{ 
+            $this->ajaxReturn('失败');
+        }
     }
 
-   
+    public function userFind(){ 
+
+        $text = I('text'); // 搜索框里的内容
+        $user = M('user');
+
+        $sid = I('id');
+
+        //$userdetail = M('user_detail');
+        $whereuser['username'] = array('like',"%{$text}%");
+        $whereuser['status'] = $sid;
+        $wheretel['tel'] = array('like',"%{$text}%");
+        $wheretel['status'] = $sid;
+
+        $countuser = $user->where($whereuser)->count();
+        $counttel = $user->where($wheretel)->count();
+        $count = $countuser + $counttel;
+        // $Page = new \Think\Page($count,5);
+        // $show = $Page->show();
+
+
+
+        $useruser = $user->field('id,username,addtime,tel,status')->where($whereuser)->select();
+        $usertel = $user->field('id,username,addtime,tel,status')->where($wheretel)->select();
+        $userdata = array_merge($useruser,$usertel);
+        //dump($userdata);exit;   
+        $userclass = new \Admin\Model\UserModel();
+        $userdata = $userclass->userInfo($userdata);
+        $userdata = $userclass->userSwitch($userdata);
+        $this->assign('count', $count);
+        $this->assign('act', 1);
+        $this->assign('userdata',$userdata);
+        //dump($userdata);exit;
+        if($sid == 1){
+            $this->display('user/user-list');
+        }else{ 
+            $this->display('user/user-del');
+        }
+    }
+    
 }
