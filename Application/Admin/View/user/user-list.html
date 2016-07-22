@@ -25,11 +25,11 @@
 <div>
 	<div class="text-c"> 
 		<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、电话、邮箱" id="" name="">
-		<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
+		<button type="submit" class="btn btn-success radius" id="search" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 	</div>
     <div id="div1">
     <div id="div2">
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span> <span class="r">共有数据：<strong>{$count}</strong> 条</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span> <span class="r">共有数据：<strong><span id="num" >{$count}</span></strong> 条</span> </div>
 	<div class="mt-20"  class="pd-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
@@ -69,6 +69,7 @@
     <div id="page" style="text-align: center;">
         {$page}
     </div>
+    <span id="active" act="{$act}"></span>
 	</div>
     </div>
     </div>
@@ -101,8 +102,6 @@ $(function(){
 		}
 	});
 */
-
-
     // 修改分页的样式
 
     function page(){ 
@@ -126,62 +125,79 @@ $(function(){
     }
     page();
 
-    //删除
-    $('#div1').on("click",'.unable-a',function(){        
-        var id = $(this).attr('unable-id');
-        $.get("__URL__/userReturn?i=1",{id:id},
-            function(data){ 
-                if(data == 1){ 
-                    alert('删除成功unable');
-                    $('#div1').load("__SELF__ #div2",function(){ 
-                        page();
-                    });
-                }else if(data == 0){ 
-                    alert('删除失败！');
+    //禁用
+    act = $('#active').attr('act');
+    if(act != 1){
+    
+        $('#div1').on("click",'.unable-a',function(){        
+            var id = $(this).attr('unable-id');
+            act = $('#active').attr('act');
+            
+            $.get("__URL__/userReturn?i=1",{id:id},
+                function(data){ 
+                    if(data == 1){ 
+                        alert('禁用成功!');
+                        $('#div1').load("__SELF__ #div2",function(){ 
+                            page();
+                        });
+                    }else{ 
+                        alert('禁用失败！');
+                    }
+                },'json'
+            );
+
+        });
+    }else{
+
+     // 搜索之后的禁用
+        $('.unable-a').click(function(){      
+            var id = $(this).attr('unable-id');
+            ab = $(this);
+            num = $('#num').text();
+            $.get("__URL__/userReturn?i=1",{id:id},
+                function(data){ 
+                    if(data == 1){ 
+                        alert('禁用成功!'); 
+                        $('#num').text(num-1);                       
+                        ab.parents("tr").remove();                        
+                    }else{ 
+                        alert('禁用失败！');
+                    }
+                },'json'
+            );
+
+        });
+    }
+
+    // 搜索
+    
+    $('#search').click(function(){
+        input_text = $('.input-text').val();
+
+        $.ajax({ 
+            type:"post",
+            url:"{:U('userSearch')}",
+            data:'text='+input_text+'&id=1',
+            success:function(data){               
+                if($.type(data) != "string"){                            
+                    //layer.alert('搜索成功！');
+                    $('body').load("__URL__/userFind",{text:input_text,id:1},function(){               
+                    });                        
                 }else{ 
-                    alert('什么鬼');
+                    layer.alert('不存在！');
                 }
-            },'json'
-        );
+            }
 
-    });
-
-    
-    
-
+        });
+    });   
+   
 
 });
-/*用户-添加
-function member_add(title,url,w,h){
-	layer_show(title,url,w,h);
-}
 
-/*用户-停用
-function member_stop(obj,id){
-	layer.confirm('确认要停用吗？',function(index){
-		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,id)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已停用</span>');
-		$(obj).remove();
-		layer.msg('已停用!',{icon: 5,time:1000});
-	});
-}
-*/  
     /*用户-编辑*/
     function member_edit(title,url,id,w,h){
         layer_show(title,url,w,h);
     }
-
-
-
-
-/*用户-删除
-function member_del(obj,id){
-	layer.confirm('确认要删除吗？',function(index){
-		$(obj).parents("tr").remove();
-		layer.msg('已删除!',{icon:1,time:1000});
-	});
-}
-*/
 </script> 
 </body>
 </html>
