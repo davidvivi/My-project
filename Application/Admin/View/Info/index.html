@@ -15,6 +15,14 @@
 		<link href="__PUBLIC__/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
 		<link href="__PUBLIC__/admin/lib/icheck/icheck.css" rel="stylesheet" type="text/css" />
 		<link href="__PUBLIC__/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+		<script type="text/javascript" src="__PUBLIC__/admin/lib/layer/1.9.3/layer.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/admin/lib/laypage/1.2/laypage.js"></script> 
+		<script type="text/javascript" src="__PUBLIC__/admin/lib/My97DatePicker/WdatePicker.js"></script> 
+		<script type="text/javascript" src="__PUBLIC__/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+		<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.js"></script> 
+		<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.js"></script> 
+		<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.product.js"></script> 
 		<!--[if IE 6]>
 		<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 		<script>DD_belatedPNG.fix('*');</script>
@@ -24,6 +32,7 @@
 	</head>
 
 	<body>
+		<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 页面管理 <span class="c-gray en">&gt;</span> 公告管理 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 		<div class="cl pd-5 bg-1 bk-gray mt-20"> 
 			<span class="l">
 				<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
@@ -74,3 +83,33 @@
 		</div>
 	</body>
 </html>
+
+<script>
+
+	
+		(function page(){ 
+			$("#page").css("margin-top","15px").find('a').css({'margin': "0 9px",
+				"display": "inline-block",
+				"border":"1px solid #ededed",
+				"text-align": "center",
+				"width":"25px",
+				"height":"25px",
+				"text-decoration":"none"
+				}
+			).hover(function(){
+				$(this).css({"background":"#5A98DE","color":"white"})
+			},function(){
+				$(this).css({"background":"white","color":"black"})
+			});
+		
+			$("#page").find('span').css({'margin': "0 9px",
+				"display": "inline-block",
+				"background": "#5A98DE",
+				"text-align": "center",
+				"width":"25px",
+				"height":"25px",
+				"color":"white"}
+			);
+		})();
+	
+</script>
