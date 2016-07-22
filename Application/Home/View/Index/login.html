@@ -16,7 +16,7 @@
 				height:50px;		
 			}
 			.top_L{
-				width:270px;
+				width:400px;
 				float:left;
 			}
 			.top_R{
@@ -41,7 +41,6 @@
 				height:304px;
 				background:url('__PUBLIC__/img/loginimg.jpg') no-repeat;
 				position:relative;
-				left:-271px;
 				top:96px;
 			}
 			.place{
@@ -79,14 +78,14 @@
 	<body>
 		<div class="body">
 			<div class="top">
-				<div class="top_L">
+				<div class="top_L" style="margin:-14px 0px 0px 0px">
 					<a href="__URL__/index">
-						<img src="__PUBLIC__/img/logo.jpg" height="50px" />
-						<p>QAQ在线旗下网上商城</p>
+						<img src="__PUBLIC__/img/logo.jpg" height="63px" width="160px" />
+						<p style="font-size:30px; margin:27px 105px 0px 0px ">欢迎登陆</p>
 					</a>
 				</div>
 				<div class="top_R">
-					<p>还没有QAQ商城账号？ <a href="./reg.html">立即注册</a></p>
+					<p style="font-size:23px">还没有QAQ商城账号？ <a href="./reg.html">立即注册</a></p>
 				</div>
 				
 			</div>
@@ -95,7 +94,7 @@
 				<i></i>
 				<div class="place">
 					<div>
-						<h3>登录QAQ商城</h3>
+						<h1>登录QAQ商城</h1>
 					</div>
 					<div>
 						<form action="{:U('Login/checkLogin')}" method="post">
