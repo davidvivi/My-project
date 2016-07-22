@@ -25,11 +25,11 @@
 <div class="pd-20">
 	<div class="text-c">
 		<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、电话、邮箱" id="" name="">
-		<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
+		<button type="submit" class="btn btn-success radius" id="search" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 	</div>
     <div id="div1">
         <div id="div2">
-        	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> </span> <span class="r">共有数据：<strong>{$count}</strong> 条</span> </div>
+        	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> </span> <span class="r">共有数据：<strong><span id="num" >{$count}</span></strong> 条</span> </div>
         	<div class="mt-20">
                 
             	<table class="table table-border table-bordered table-hover table-bg table-sort fuck" >
@@ -71,6 +71,7 @@
                 </div>
             </div>
 	   </div>
+       <span id="active" act="{$act}"></span>
     </div>
 </div>
 <script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
@@ -82,28 +83,6 @@
 <script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.js"></script> 
 <script type="text/javascript">
 $(function(){
-	
-    //$('.table-sort').dataTable({
-		//"aaSorting": [[ 1, "desc" ]],//默认第几个排序
-		//"bStateSave": true,//状态保存
-		//"aoColumnDefs": [
-		  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-		  //{"orderable":false,"aTargets":[0,8,9]}// 制定列不参与排序
-		//]
-	//});
-    
-    /*
-   
-	$('.table-sort tbody').on( 'click', 'tr', function () {
-		if ( $(this).hasClass('selected') ) {
-			$(this).removeClass('selected');
-		}
-		else {
-			table.$('tr.selected').removeClass('selected');
-			$(this).addClass('selected');
-		}
-	});
-    */
     // 修改分页的样式
 
     function page(){ 
@@ -127,44 +106,113 @@ $(function(){
     }
     page();
     //删除
-    $('#div1').on("click",'.delete-a',function(){ 
-        //$(this).confirm('删除么')
-        var td = $(this);
-        var id = $(this).attr('delete-id');
-        $.get("__URL__/userDelete",{id:id},
-            function(data){ 
-                if(data == 1){ 
-                    alert('删除成功');
-                    $('#div1').load("__SELF__ #div2",function(){ 
-                        page();
-                    });
-                }else if(data == 0){ 
-                    alert('删除失败！');
-                }else{ 
-                    alert('什么鬼');
-                }
-            },'json'
-        );
+    act = $('#active').attr('act');
+    if(act != 1){
+        $('#div1').on("click",'.delete-a',function(){     
+            var td = $(this);
+            var id = $(this).attr('delete-id');
+            $.get("__URL__/userDelete",{id:id},
+                function(data){ 
+                    if(data == 1){ 
+                        alert('彻底删除成功！');
+                        $('#div1').load("__SELF__ #div2",function(){ 
+                            page();
+                        });
+                    }else{ 
+                        alert('彻底删除失败！');
+                    }
+                },'json'
+            );
 
-    });
+        });
+    }else{ 
+        //$('#div1').on("click",'.delete-a',function(){
+        $('.delete-a').click(function(){    
+            var td = $(this);
+            var id = $(this).attr('delete-id');
+            num = $('#num').text();
+            $.get("__URL__/userDelete",{id:id},
+                function(data){ 
+                    if(data == 1){ 
+                        alert('彻底删除成功！');
+                        $('#num').text(num-1);                       
+                        td.parents("tr").remove();
+                    }else{ 
+                        alert('彻底删除失败！');
+                    }
+                },'json'
+            );
+
+        });
+
+
+    }
     // 还原
-    $('#div1').on('click','.return-status',function(){ 
-        var return_td = $(this);
-        var id = $(this).attr('return-id');
+    act = $('#active').attr('act');
+    if(act != 1){
+        $('#div1').on('click','.return-status',function(){ 
+            var return_td = $(this);
+            var id = $(this).attr('return-id');
+            $.ajax({ 
+                type:"post",
+                url:"__URL__/userReturn",
+                data:{id},
+                success:function(data){ 
+                    if(data == 1){ 
+                        alert('还原成功');
+                        $('#div1').load("__SELF__ #div2",function(){ 
+                            page();
+                        })
+                    }else{ 
+                        alert('还原失败！');
+                    }
+                },dataType:'json'
+            });
+        });
+    }else{ 
+        // 搜索之后的还原
+        
+            $('.return-status').click(function(){
+            var return_td = $(this);
+            num = $('#num').text();
+            var id = $(this).attr('return-id');
+            $.ajax({ 
+                type:"post",
+                url:"__URL__/userReturn",
+                data:{id},
+                success:function(data){ 
+                    if(data == 1){ 
+                        alert('还原成功');
+                        $('#num').text(num-1);
+                        return_td.parents("tr").remove();
+                    }else{ 
+                        alert('还原失败！');
+                    }
+                },dataType:'json'
+            });
+        });
+
+    }
+
+    // 搜索
+    
+    $('#search').click(function(){
+        input_text = $('.input-text').val();
+
         $.ajax({ 
             type:"post",
-            url:"__URL__/userReturn",
-            data:{id},
-            success:function(data){ 
-                if(data == 1){ 
-                    alert('还原成功');
-                    $('#div1').load("__SELF__ #div2",function(){ 
-                        page();
-                    })
+            url:"{:U('userSearch')}",
+            data:'text='+input_text+'&id=0',
+            success:function(data){               
+                if($.type(data) != "string"){                            
+                    //layer.alert('搜索成功！');
+                    $('body').load("__URL__/userFind",{text:input_text,id:0},function(){               
+                    });                        
                 }else{ 
-                    alert('还原失败！');
+                    layer.alert('不存在！');
                 }
-            },dataType:'json'
+            }
+
         });
     });
 

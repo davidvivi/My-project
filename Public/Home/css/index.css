@@ -4,7 +4,7 @@
 /*----------------------------------------------------------------------------注册-开始------------------------------------------------------------------------------------------------------------*/
 .reg{ background:url(../../img/bg10.jpg) no-repeat center 0; height:100%; width:100%; color:#5C5C5C}
 .customer-header{ height:73px}
-.setout{ width:1002px; margin:-69px 0px 0px 150px;}
+.setout{ width:1002px; margin:-93px 0px 0px 150px;}
 .setout table tr td{ padding-top:30px}
 .bit-ti-s table tr td span{ font-size:22px; font-family:"微软雅黑"; display:block; padding-left:10px; color:#777777;}
 .pa-le-5{ padding-left:5px}
@@ -12,9 +12,9 @@
 .shuru-area{ background:url(../images/bg13.png) no-repeat; width:791px; margin:0 auto; position:relative}
 .tit-zc{ padding:43px 0px 14px 220px}
 .tit-zc h3{ width:400px; height:29px; font-weight:400}
-.tit-zc h3 span{ display:block; height:35px; color:#b90006; font-size:30px; line-height:35px}
+.tit-zc h3 span{ display:block; height:35px; color:#b90006; font-size:46px; line-height:35px;margin:0px 45px;}
 .shrk-bd-zc{ padding-top:9px; height:427px; background:#FFF url(../images/bg26.png) no-repeat; background-position:0 bottom;}
-.shrk-bd-zc table tr th{ padding:10px 0; text-align:right;  font-size:14px; width:218px; color:#838282; font-weight:400; font-style:normal;}
+.shrk-bd-zc table tr th{ padding:10px 0; text-align:right;  font-size:14px; width:265px; color:#838282; font-weight:400; font-style:normal;}
 .shrk-bd-zc table tr td{ padding:10px 0;}
 .zc-text{ font-size:12px; width:239px; border:1px solid #bcbcbc; color:#8B8B8B; height:20px; line-height:20px; padding:6px; border-radius:4px 4px}
 .zc-text:focus{ border-color:#EE9043 !important; background-color:#FFFFE9; outline:none}

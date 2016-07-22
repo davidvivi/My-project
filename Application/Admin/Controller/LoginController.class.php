@@ -28,12 +28,13 @@
 
             $password=$Admin->field('password')->where($map)->find();
 
-            //dump($password);
+
             //echo $Admin->getLastSql();
             //exit;
 
             $bool = password_verify(I('post.password'),$password['password']);
-
+            
+        
             if(!$bool){ 
                 $this->error('登陆失败');
             }else{  

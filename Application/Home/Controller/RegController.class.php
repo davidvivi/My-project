@@ -28,7 +28,6 @@ class RegController extends Controller
     }
 
     //自动hash加密密码
-  
 
 
     public function reg()
@@ -52,7 +51,7 @@ class RegController extends Controller
         $data['tel']   = I('post.tel');
         $Verify = new \Think\Verify();
         $verifyCode = $Verify->check(I('post.verify'));
-
+        
        // $data['password'] = I('post.password');
         if($password != $password2 )
             {   
@@ -86,16 +85,6 @@ class RegController extends Controller
 
     }
 
-    public function telVerify($tel)
-    {
-        $user = M('user');
-
-        $user->create($tel);
-
-        $data = $user->find();
-
-        return $data;
-    }
     public function verify() {
             $Verify = new \Think\Verify(array(   
             'length' => 3,

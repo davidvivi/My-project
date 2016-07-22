@@ -21,8 +21,8 @@
 <![endif]-->
 <title>添加用户</title>
 </head>
-<body id="div1">
-<div class="pd-20" id="div2">
+<body>
+<div class="pd-20">
   <form action="" method="post" class="form form-horizontal" id="form-member-add">
     <div class="row cl">
       <label class="form-label col-3"><span class="c-red">*</span>用户名：</label>
@@ -32,21 +32,21 @@
       </div>
       <div class="col-4"> </div>
     </div>
-    <div class="row cl">
+    <div class="row cl" id="eq-grade">
       <label class="form-label col-3"><span class="c-red">*</span> 会员等级：</label>
 
       <eq name="formdata['grade']" value="1">
           <div class="formControls col-5 skin-minimal">
             <div class="radio-box">
-              <input type="radio" id="sex-1" name="grade" datatype="*" checked nullmsg="请选择等级！">
+              <input type="radio" id="sex-1" name="grade" datatype="*" value="1" checked nullmsg="请选择等级！">
               <label for="sex-1">英勇黄铜</label>
             </div>
             <div class="radio-box">
-              <input type="radio" id="sex-2" name="grade">
+              <input type="radio" id="sex-2" name="grade" value="2">
               <label for="sex-2">不屈白银</label>
             </div>
             <div class="radio-box">
-                  <input type="radio" id="sex-3" name="grade">
+                  <input type="radio" id="sex-3" name="grade" value="3">
                   <label for="sex-3">璀璨钻石</label>
             </div>
           </div>
@@ -55,30 +55,30 @@
         <eq name="formdata['grade']" value="2">
           <div class="formControls col-5 skin-minimal">
             <div class="radio-box">
-              <input type="radio" id="sex-1" name="grade" datatype="*" nullmsg="请选择等级！">
+              <input type="radio" id="sex-1" name="grade" value="1" datatype="*" nullmsg="请选择等级！">
               <label for="sex-1">英勇黄铜</label>
             </div>
             <div class="radio-box">
-              <input type="radio" id="sex-2" name="grade" checked>
+              <input type="radio" id="sex-2" name="grade" checked value="2">
               <label for="sex-2">不屈白银</label>
             </div>
             <div class="radio-box">
-                  <input type="radio" id="sex-3" name="grade">
+                  <input type="radio" id="sex-3" name="grade" value="3">
                   <label for="sex-3">璀璨钻石</label>
             </div>
           </div>
           <else/>
               <div class="formControls col-5 skin-minimal">
                 <div class="radio-box">
-                  <input type="radio" id="sex-1" name="grade" datatype="*" nullmsg="请选择等级！">
+                  <input type="radio" id="sex-1" name="grade" datatype="*" value="1" nullmsg="请选择等级！">
                   <label for="sex-1">英勇黄铜</label>
                 </div>
                 <div class="radio-box">
-                  <input type="radio" id="sex-2" name="grade">
+                  <input type="radio" id="sex-2" name="grade" value="2">
                   <label for="sex-2">不屈白银</label>
                 </div>
                 <div class="radio-box">
-                  <input type="radio" id="sex-3" name="grade" checked>
+                  <input type="radio" id="sex-3" name="grade" checked value="3">
                   <label for="sex-3">璀璨钻石</label>
                 </div>
               </div>
@@ -86,12 +86,9 @@
       </eq>
       <div class="col-4"> </div>
     </div>
-    
-    
-
     <div class="row cl">
       <div class="col-9 col-offset-3">
-        <input class="btn btn-primary radius" id="up" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+        <button type="button" class="btn btn-primary radius" id="up" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">提交</button>
       </div>
     </div>
   </form>
@@ -105,55 +102,26 @@
 <script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.js"></script>
 <script type="text/javascript">
 $(function(){
-   /*
-	$('.skin-minimal input').iCheck({
-		checkboxClass: 'icheckbox-blue',
-		radioClass: 'iradio-blue',
-		increaseArea: '20%'
-	});
-	
-	$("#form-member-add").Validform({
-		tiptype:2,
-		callback:function(form){
-			form[0].submit();
-			var index = parent.layer.getFrameIndex(window.name);
-			parent.$('.btn-refresh').click();
-			parent.layer.close(index);
-		}
-	});
-
-    */
-    //$('#div1').on("click",'#up',function(){ 
-       
-       
-      $('#up').click(function(){
-
+   
+    $('#up').click(function(){
         id = $('#aabb').val();
-        
-        //var td = $(this);
-        $.get("__URL__/userEditForm",{id:id},
-            function(data){ 
-                
-                //console.log(data);
-                if(data == 1){ 
-                    alert('删除成功1111');
-                    //window.close();
-                    //$('#div1').load("__SELF__",function(){                        
-                    //});
-                    //layer.close();
-                   //var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
-                    //   parent.layer.close(index);
-                }else if(data == 0){ 
-                    alert('删除失败！');
+        grade = $('#eq-grade').find('input:checked').val();
+        $.ajax({ 
+            type:"post",
+            url:"{:U('userEditForm')}",
+            data:'id='+id+'&grade='+grade,
+            success:function(data){ 
+                if(data == 1){                     
+                    alert('修改成功！');
+                    window.parent.location.reload();        
                 }else{ 
-                    alert('什么鬼');
+                    alert('修改失败！');
+                    window.parent.location.reload();
                 }
-            },'json'
-        );
+            }
 
-    });
-
-
+        });
+    });    
 });
 </script>
 </body>
