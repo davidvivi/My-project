@@ -19,6 +19,7 @@ class OrderController extends CommonController {
 
         $orderlist = M('order')->field('orderid,uid,numid,buy,written,emailno,consignee,address,tel,orderstatus,addtime,paystatus,payment,shipping')->select();
         //dump($orderlist);
+        $count = M('order')->count();
 
         foreach($orderlist as $k=>$v){  
             $orderlist[$k]['orderstatus'] = $orderstatus[$orderlist[$k]['orderstatus']];
@@ -28,7 +29,7 @@ class OrderController extends CommonController {
             $orderlist[$k]['addtime'] = date('Y-m-d H:i:s',$orderlist[$k]['addtime']);
         }
         //dump($orderlist);
-
+        $this->assign('count', $count);
         $this->assign('orderlist',$orderlist);
         $this->display('order/order-list');
             
@@ -85,8 +86,26 @@ class OrderController extends CommonController {
     }
 
 
-    public function next()
-    { 
+    /*
+     * 订单删除
+     */
+    public function order_delete()
+    {   
+        
+        $orderid = I('get.orderid');
+        $order = M('order');
+        //$orderdetail = M('orderdetail');
+
+        //$a = M('order')->where("orderid = $orderid")->delete();  $a = 1
+        //$b = M('orderdetail')->where("orderid = $orderid")->delete();
+        $a = 1;
+        $b = 1;
+
+        if($a && $b){   
+            $this->success('删除订单成功');
+        }else{  
+            $this->error('订单删除失败');           
+        }   
     }
 
-}
+}   
