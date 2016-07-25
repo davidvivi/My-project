@@ -15,7 +15,7 @@ class UserController extends CommonController {
 
         if($choose == 1){ 
             $count = $user->where('status=1')->count();
-        }elseif($chose == 0){
+        }elseif($choose == 0){
             $count = $user->where('status=0')->count();
         }else{ 
             $this->error('操作失败！');
