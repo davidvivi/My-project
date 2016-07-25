@@ -21,10 +21,10 @@
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>管理员列表</title>
+<title>评论列表</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 管理员列表 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 评论管理 <span class="c-gray en">&gt;</span>评论列表 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="pd-20">
 	<div class="text-c">
 		<input type="text" class="input-text" style="width:250px" placeholder="输入管理员名称" id="" name="">
@@ -39,34 +39,34 @@
 			<tr class="text-c">
 				<th width="25"><input type="checkbox" name="" value=""></th>
 				<th width="40">ID</th>
+                <th width="40">用户id</th>
 				<th width="150">订单id</th>
 				<th width="90">评价等级</th>
-				<th width="150">评价内容</th>
+				<th width="250">评价内容</th>
 				<th width="130">评价时间</th>
 				<th width="100">操作</th>
 			</tr>
 		</thead>
 		<tbody>
+            <foreach name="list" item="val">
+
 			<tr class="text-c">
 				<td><input type="checkbox" value="1" name=""></td>
-				<td>1</td>
-				<td>admin</td>
-				<td>13000000000</td>
-				<td>admin@mail.com</td>
-				<td>2014-6-11 11:11:42</td>
-				<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="删除" href="javascript:;" onclick="admin_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+				<td>{$val.id}</td>
+                <td>{$val.uid}</td>
+				<td>{$val.odid}</td>
+				<td>{$val.grade}</td>
+				<td>{$val.contents}</td>
+				<td>{$val.addtime}</td>
+				<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="删除" href="javascript:;" delete-id="{$val.id}" class="delete-a" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+
 			</tr>
-			<tr class="text-c">
-				<td><input type="checkbox" value="2" name=""></td>
-				<td>2</td>
-				<td>zhangsan</td>
-				<td>13000000000</td>
-				<td>admin@mail.com</td>
-				<td>2014-6-11 11:11:42</td>
-				<td class="td-manage"><a style="text-decoration:none" onClick="admin_start(this,'10001')" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe615;</i></a> <a title="删除" href="javascript:;" onclick="admin_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-			</tr>
+                </foreach>
 		</tbody>
 	</table>
+    <div id="page" style="text-align: center;">
+        {$page}
+    </div>
 </div>
 <script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script>  
 <script type="text/javascript" src="__PUBLIC__/admin/lib/layer/1.9.3/layer.js"></script> 
@@ -83,47 +83,70 @@
 	w		弹出层宽度（缺省调默认值）
 	h		弹出层高度（缺省调默认值）
 */
-/*管理员-增加*/
-function admin_add(title,url,w,h){
-	layer_show(title,url,w,h);
-}
-/*管理员-删除*/
-function admin_del(obj,id){
-	layer.confirm('确认要删除吗？',function(index){
-		//此处请求后台程序，下方是成功后的前台处理……
-		
-		$(obj).parents("tr").remove();
-		layer.msg('已删除!',{icon:1,time:1000});
-	});
-}
-/*管理员-编辑*/
-function admin_edit(title,url,id,w,h){
-	layer_show(title,url,w,h);
-}
-/*管理员-停用*/
-function admin_stop(obj,id){
-	layer.confirm('确认要停用吗？',function(index){
-		//此处请求后台程序，下方是成功后的前台处理……
-		
-		$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_start(this,id)" href="javascript:;" title="启用" style="text-decoration:none"><i class="Hui-iconfont">&#xe615;</i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已禁用</span>');
-		$(obj).remove();
-		layer.msg('已停用!',{icon: 5,time:1000});
-	});
-}
+$(function(){
+    // 修改分页的样式
 
-/*管理员-启用*/
-function admin_start(obj,id){
-	layer.confirm('确认要启用吗？',function(index){
-		//此处请求后台程序，下方是成功后的前台处理……
-		
-		
-		$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_stop(this,id)" href="javascript:;" title="停用" style="text-decoration:none"><i class="Hui-iconfont">&#xe631;</i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
-		$(obj).remove();
-		layer.msg('已启用!', {icon: 6,time:1000});
-	});
-}
+    function page(){ 
+        $("#page").find('a').css({'margin': "0 9px",
+            "display": "inline-block",
+            "background": "blue",
+            "text-align": "center",
+            "width":"25px",
+            "height":"25px",
+            "color":"white"}
+        );
+    
+        $("#page").find('span').css({'margin': "0 9px",
+            "display": "inline-block",
+            "background": "red",
+            "text-align": "center",
+            "width":"25px",
+            "height":"25px",
+            "color":"white"}
+        );
+    }
+    page();
+act = $('#active').attr('act');
+    if(act != 1){
+        $('#div1').on("click",'.delete-a',function(){     
+            var td = $(this);
+            var id = $(this).attr('delete-id');
+            $.get("__URL__/userDelete",{id:id},
+                function(data){ 
+                    if(data == 1){ 
+                        alert('彻底删除成功！');
+                        $('#div1').load("__SELF__ #div2",function(){ 
+                            page();
+                        });
+                    }else{ 
+                        alert('彻底删除失败！');
+                    }
+                },'json'
+            );
+
+        });
+    }else{ 
+        //$('#div1').on("click",'.delete-a',function(){
+        $('.delete-a').click(function(){    
+            var td = $(this);
+            var id = $(this).attr('delete-id');
+            num = $('#num').text();
+            $.get("__URL__/userDelete",{id:id},
+                function(data){ 
+                    if(data == 1){ 
+                        alert('彻底删除成功！');
+                        $('#num').text(num-1);                       
+                        td.parents("tr").remove();
+                    }else{ 
+                        alert('彻底删除失败！');
+                    }
+                },'json'
+            );
+
+        });
+
+
+    }
 </script>
 </body>
 </html>
