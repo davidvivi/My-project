@@ -33,7 +33,7 @@
 				<th width="25"><input type="checkbox" name="" value=""></th>
 				<th width="50">ID</th>
 				<th width="350">链接地址</th>
-                <th width="">描述</th>
+                <th width="">链接标题</th>
 				<th width="150">状态</th>
 				<th width="150">操作</th>
 			</tr>
@@ -46,17 +46,23 @@
     				<td>{$val.id}</td>
     				<td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">{$val.url}</u></td>
                     <td>{$val.contents}</td>
-    				<td class="td-status"><span class="label label-success radius">{$val.state}</span></td>
-    				<td class="td-manage"><a title="编辑" href="javascript:;" class="ml-5" onclick="link_edit('编辑','__URL__/linkEdit?id={$val.id}','{$val.id}','','510')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="禁用" href="javascript:;" class="unable-a" unable-id="{$val.id}" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+    				<td class="td-status" >
+                        <eq name="val.state" value="已禁用">
+                            <span class="label radius" >{$val.state}</span>
+                        <else/>
+                            <span class="label label-success radius" >{$val.state}</span>
+                        </eq>
+                    </td>
+    				<td class="td-manage"><a title="编辑" href="javascript:;" class="ml-5" onclick="link_edit('编辑','__URL__/linkEdit?id={$val.id}','{$val.id}','','510')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" class="unable-a" unable-id="{$val.id}" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
     			</tr>
             </foreach>
 		</tbody>
 	</table>
+    </div>
     <div id="page" style="text-align: center;">
         {$page}
     </div>
     <span id="active" act="{$act}"></span>
-	</div>
     </div>
     </div>
 </div>
@@ -87,7 +93,7 @@ $(function(){
 			$(this).addClass('selected');
 		}
 	});
-*/
+*/        
     // 修改分页的样式
 
     function page(){ 

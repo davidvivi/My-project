@@ -22,7 +22,7 @@
 		<script type="text/javascript" src="__PUBLIC__/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
 		<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.js"></script> 
 		<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.js"></script> 
-		<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.product.js"></script> 
+		 
 		<!--[if IE 6]>
 		<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 		<script>DD_belatedPNG.fix('*');</script>
@@ -33,61 +33,65 @@
 
 	<body>
 		<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 页面管理 <span class="c-gray en">&gt;</span> 公告管理 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-		<div class="cl pd-5 bg-1 bk-gray mt-20"> 
-			<span class="l">
-				<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
-					<i class="Hui-iconfont">&#xe6e2;</i> 批量删除
-				</a>
-			</span> 
-			<span class="r">
-				共有数据：<strong>{$count}</strong> 条
-			</span> 
-		</div>
-		<div class="mt-20">
-			<table class="table table-border table-bordered table-bg table-sort">
-				<thead>
-					<tr class="text-c">
-						<th width="25"><input type="checkbox" name="" value=""></th>
-						<th width="70">公告ID</th>
-						<th width="80">公告链接</th>
-						<th width="80">公告标题</th>
-						<th width="80">更新时间</th>
-						<th width="70">状态</th>
-						<th width="100">操作</th>
-					</tr>
-				</thead>
-				<tbody>
-					<foreach name="list" item="vo">
-						<tr>
-							<td width="25"><input type="checkbox" name="" value=""></td>
-							<td>{$vo.id}</td>
-							<td>{$vo.url}</td>
-							<td>{$vo.contents}</td>
-							<td>{$vo.addtime}</td>
-							<td>
-								<eq name="vo.state" value="0">
-									过期
-								<else/>
-									有效
-								</eq>
-							</td>
-							<td>删除 </td>
-						</tr>
-					</foreach>
-					
-				</tbody>
-			</table>
-			<div id="page" style="text-align: center;">
-				{$page} 
-			</div>
+        <div id="one">
+            <div id="two">
+        		<div class="cl pd-5 bg-1 bk-gray mt-20"> 
+        			<span class="l">
+        				<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
+        					<i class="Hui-iconfont">&#xe6e2;</i> 批量删除
+        				</a>
+        				<a href="javascript:;" onclick="gonggao_add('添加公告','__URL__/infoAdd')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加公告</a></span> <span class="r">
+        			</span> 
+        			<span class="r">
+        				共有数据：<strong>{$count}</strong> 条
+        			</span> 
+        		</div>
+        		<div class="mt-20">
+        			<table class="table table-border table-bordered table-bg table-sort">
+        				<thead>
+        					<tr class="text-c">
+        						<th width="25"><input type="checkbox" name="" value=""></th>
+        						<th width="70">公告ID</th>
+        						<th width="80">公告链接</th>
+        						<th width="80">公告标题</th>
+        						<th width="80">更新时间</th>
+        						<th width="70">状态</th>
+        						<th width="100">操作</th>
+        					</tr>
+        				</thead>
+        				<tbody>
+        					<foreach name="list" item="vo">
+        						<tr class="text-c">
+        							<td width="25"><input type="checkbox" name="" value=""></td>
+        							<td>{$vo.id}</td>
+        							<td>{$vo.url}</td>
+        							<td>{$vo.contents}</td>
+        							<td>{$vo.addtime}</td>
+        							<td>
+        								<eq name="vo.state" value="关闭">
+        									<span class="label radius">{$vo.state}</span>
+        								<else/>
+        									<span class="label label-success radius">{$vo.state}</span>
+        								</eq>
+        							</td>
+        							<td><a title="删除" href="javascript:;" class="info-a" info-id="{$vo.id}" style="text-decoration:none"><i class="Hui-iconfont">[彻底删除]</i></a></td>
+        						</tr>
+        					</foreach>
+        				</tbody>
+        			</table>
+        			<div id="page" style="text-align: center;">
+        				{$page} 
+        			</div>
+                </div>
+            </div>    
 		</div>
 	</body>
 </html>
 
 <script>
 
-	
-		(function page(){ 
+	$(function(){
+		function page(){ 
 			$("#page").css("margin-top","15px").find('a').css({'margin': "0 9px",
 				"display": "inline-block",
 				"border":"1px solid #ededed",
@@ -108,8 +112,40 @@
 				"text-align": "center",
 				"width":"25px",
 				"height":"25px",
-				"color":"white"}
+				"color":"white"
+				}
 			);
-		})();
+		}
+        page();
+
+        //删除
+    
+        $('#one').on("click",'.info-a',function(){        
+            id = $(this).attr('info-id');
+            $.get("__URL__/infoDelete",{id:id},
+                function(data){ 
+                    if(data == 1){ 
+                        alert('删除成功!');
+                        $('#one').load("__SELF__ #two",function(){ 
+                            page();
+                        });
+                    }else{ 
+                        alert('删除失败！');
+                    }
+                },'json'
+            );
+
+        });
+		
+
+    });
+		function gonggao_add(title,url){
+			var index = layer.open({
+				type: 2,
+				title: title,
+				content: url
+			});
+			layer.full(index);
+		}
 	
 </script>

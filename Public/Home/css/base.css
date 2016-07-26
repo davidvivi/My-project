@@ -142,6 +142,7 @@ li.active{
 }
 .navenone{
     display:none;
+	z-index:2;
 }
 
 .weibu{

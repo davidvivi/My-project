@@ -13,8 +13,8 @@ a{color:#333}a:hover,a:focus,.maincolor,.maincolor a{color:#06c}
 h4{line-height:30px}
 /*页面框架*/
 .Hui-header{position:absolute;top:0; right:0; left:0;height:44px;z-index:999;}
-.Hui-aside{position: absolute;top:44px;bottom:0;left:0;padding-top:10px;width:199px;z-index:99;overflow:auto; background-color:rgba(238,238,238,0.98);border-right: 1px solid #e5e5e5}
-.Hui-article-box{position: absolute;top:44px;right:0;bottom: 0;left:199px; overflow:hidden; z-index:1; background-color:#fff}
+.Hui-aside{position: absolute;top:65px;bottom:0;left:0;padding-top:10px;width:199px;z-index:99;overflow:auto; background-color:rgba(238,238,238,0.98);border-right: 1px solid #e5e5e5}
+.Hui-article-box{position: absolute;top:65px;right:0;bottom: 0;left:199px; overflow:hidden; z-index:1; background-color:#fff}
 	.Hui-article{position: absolute;top:35px;bottom:0;left:0; right:0;overflow:auto;z-index:1}
 .Hui-container{ padding:45px 0 0}
 .Hui-aside,.Hui-article-box,.dislpayArrow{-moz-transition: all 0.2s ease 0s;-webkit-transition: all 0.2s ease 0s;-ms-transition: all 0.2s ease 0s;-o-transition: all 0.2s ease 0s;transition: all 0.2s ease 0s}
@@ -37,7 +37,7 @@ h4{line-height:30px}
 	#Hui-nav > ul > li > a{padding:0 20px}
 	#Hui-nav > ul > li,#Hui-nav > ul > li > a{height:44px; line-height:44px}
 	#Hui-nav > ul > li > a:hover,#Hui-nav > ul > li.current > a{ background-color:rgba(255,255,255,0.2)}
-	.Hui-userbar{ position:absolute; top:0px; right:20px}
+	.Hui-userbar{ position:absolute; top:9px; right:20px}
 	.Hui-userbar > li{ float:left; display:inline-block; position:relative;line-height:44px}
 	.Hui-userbar > li > a{ display:inline-block; padding:0 10px;height:44px; line-height:44px}
 	.Hui-userbar > li > a:hover,Hui-userbar > li.current > a{ text-decoration:none;background-color:rgba(255,255,255,0.2)}

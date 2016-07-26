@@ -146,12 +146,12 @@
 		</div>
 		<div class="weiba">
 			<ul>
-				<li>合作伙伴：</li>
-				<li><a>######</a></li>
-				<li><a>####</a></li>
-				<li><a>遍历</a></li>
-				<li><a>######</a></li>
-				
+                <li>友情链接：</li>
+                <foreach name="link" item="val">
+    				
+    				
+    				<li><a href="{$val.url}" target="_blank">{$val.contents}</a></li>
+				</foreach>
 			</ul>
 		</div>
 	</body>
