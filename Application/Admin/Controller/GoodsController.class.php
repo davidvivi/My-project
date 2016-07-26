@@ -19,7 +19,8 @@ class GoodsController extends CommonController
 	}
 	
 	public function add(){
-		$model = D('goods');
+		$goods = D('goods');
+		$pic = D('goods_pic');
 		$post = I('post');
 		
 	}
