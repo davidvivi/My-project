@@ -11,9 +11,7 @@
     <style>
         .indexloading{text-align: center; padding-top: 20px}
         .indexloading img{ width:16px; height: 16px }
-        .my_card .brand {
-            background: url(../static/images/card_bg.png) 0 -100px no-repeat;
-        }
+        
         .related .browse_related_list .slide_box a:hover{ border:0}
         div.informations .in_01 .personal_head img {
           width: 84px;
@@ -47,11 +45,11 @@
     <div class="informations clearfix">
       <ul>
         <li class="in_01">
-          <span id="loadingpic" class="indexloading"> <a class="personal_head   target_no" href="javascript:void(0);"><img width="100" height="100" src="{$user_detail.pic|default='__PUBLIC__/Home/images/img88.jpg'}"></a> </span>
+          <span id="loadingpic" class="indexloading"> <a class="personal_head   target_no" href="javascript:void(0);"><img width="100" height="100" src="{$user_detail.pic|default='__PUBLIC__/Home/image/img88.jpg'}"></a> </span>
           <h2>
-            <span class="num" id="spanNickname">{$user.nickname}</span>
-            <div> <a class="usertitle target_no" href="" >普通会员</a> </div>
-            <p id="greeting" class="greeting">您好，欢迎来到TPshop网</p>
+            <span class="num" id="spanNickname">用户名{$user.username}</span>
+            <div> <a class="usertitle target_no" href="" >用户等级</a> </div>
+            <p id="greeting" class="greeting">您好，欢迎来到QAQ商城</p>
           </h2>
         </li>
         <!--                     <li class="in_02"> --> 
@@ -136,9 +134,7 @@
           <div class="order_list J_order_list">
           
            <tpshop sql="select * from `__PREFIX__order` where user_id = $user[user_id] order by order_id desc limit 1" item="v" key="k" >
-           <?php  
-                $v = set_btn_order_status($v);  // 添加属性  包括按钮显示属性 和 订单状态显示属性
-           ?>
+           
             <if condition="count($v) gt 0"> 
               <!--购买过商品-->
               <table class='paying'>
@@ -159,7 +155,7 @@
                 <tr class='list_cont '>
                   <td class="td_01">
                     <div class="list_main clearfix">
-                        <a href="{:U('Home/Goods/goodsInfo',array('id'=>$v2[goods_id]))}" class="J_hover"> <img src="{$v2.goods_id|goods_thum_images=80,80}"></a>
+                        <a href="{:U('Home/Goods/goodsInfo',array('id'=>$v2[goods_id]))}" class="J_hover"> <img src="{$v2.goods_id}"></a>
                         {$v2.goods_name}
                     </div>
                   </td>
@@ -201,7 +197,7 @@
                     <foreach name="collect_result" item="v">
                           <li>                         
                               <a target="_blank" class="items_tit" href="{:U('Home/Goods/goodsInfo',array('id'=>$v[goods_id]))}">
-                                 <img width="100" height="100" src="{$v.goods_id|goods_thum_images=100,100}">
+                                 <img width="100" height="100" src="{$v.goods_id}">
                               </a>
                           </li>
                      </foreach>  
@@ -262,7 +258,7 @@
                      <tpshop sql="select * from __PREFIX__goods order by goods_id desc limit 4"  item="v" key="k" >
                       <li class="heig_tz">
                           <a class="items_tit items_tz" href="{:U('Home/Goods/goodsInfo',array('id'=>$v[goods_id]))}">
-                                <img width="150" height="150" src="{$v.goods_id|goods_thum_images=160,160}">
+                                <img width="150" height="150" src="{$v.goods_id}">
                                 <span class="items_tit">{$v[goods_name]}</span>
                                 <span class="num"><em class="rmb">￥</em>{$v[shop_price]}</span>                             
                           </a>                      
@@ -280,7 +276,7 @@
       <div class="right_infor">
         <div class="fl weixin_box">
           <div class="clearfix in">
-            <span class="wxcodes fl"><img src="__STATIC__/images/qrcode_weixin.png" width="80" height="80"/></span>
+            <span class="wxcodes fl"><img src="__PUBLIC__/Home/image/qrcode_weixin.png" width="80" height="80"/></span>
             <p class="fl wxtxt">
               <span>下载APP手机端</span>
             </p>
@@ -295,7 +291,7 @@
               <ul class="clearfix">
                <foreach name="cart_list" item="v">
                     <li>
-                       <img width="100" height="100" alt="{$v[goods_name]}" src="{$v.goods_id|goods_thum_images=100,100}">
+                       <img width="100" height="100" alt="{$v[goods_name]}" src="{$v.goods_id}">
                        <div class="mask">
                            <a class="items_tit" href="{:U('Home/Goods/goodsInfo',array('id'=>$v[goods_id]))}">
                                 <span class="goods_name">{$v[goods_name]}</span>

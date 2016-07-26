@@ -19,8 +19,12 @@ class OrderController extends CommonController {
 
         $orderlist = M('order')->field('orderid,uid,numid,buy,written,emailno,consignee,address,tel,orderstatus,addtime,paystatus,payment,shipping')->select();
         //dump($orderlist);
-        $count = M('order')->count();
+        $count = M('order')->count(); //查询总条数
+        $Page = new \Think\Page($count,1);  
+        $show = $Page->show();
+        $orderlist = $order->limit($Page->firstRow.','.$Page->listRows)->select();
 
+    
         foreach($orderlist as $k=>$v){  
             $orderlist[$k]['orderstatus'] = $orderstatus[$orderlist[$k]['orderstatus']];
             $orderlist[$k]['paystatus'] = $paystatus[$orderlist[$k]['paystatus']];
@@ -29,10 +33,11 @@ class OrderController extends CommonController {
             $orderlist[$k]['addtime'] = date('Y-m-d H:i:s',$orderlist[$k]['addtime']);
         }
         //dump($orderlist);
+        //exit;
+        $this->assign('page',$show);
         $this->assign('count', $count);
         $this->assign('orderlist',$orderlist);
-        $this->display('order/order-list');
-            
+        $this->display('order/order-list');           
     }
 
 
@@ -43,7 +48,9 @@ class OrderController extends CommonController {
     { 
         //获取查看的订单的id
         $orderid = I('get.orderid');
+
         //dump($orderid);
+        //exit;
         $order = M('order');
         $shipping = array('顺丰','圆通','申通','中通');
         $orderstatus = array('新订单','已发货','已收货','无效订单');
@@ -93,16 +100,29 @@ class OrderController extends CommonController {
     {   
         
         $orderid = I('get.orderid');
+        //dump($orderid);
+        //exit;
         $order = M('order');
         //$orderdetail = M('orderdetail');
 
-        //$a = M('order')->where("orderid = $orderid")->delete();  $a = 1
-        //$b = M('orderdetail')->where("orderid = $orderid")->delete();
-        $a = 1;
-        $b = 1;
+        $a = M('order')->where('orderid='.$orderid)->delete();
+        //echo $a;
 
-        if($a && $b){   
-            $this->success('删除订单成功');
+        //echo $order->getLastSql();
+        //dump($a);
+        //exit; 
+        //$a = 1
+
+        //dump($a);
+        //exit;
+        //$b = M('orderdetail')->where("orderid = $orderid")->delete();
+        //$a = 1;
+        //$b = 1;
+
+        if($a){   
+            //echo $_SERVER['HTTP_REFERER'];
+            $this->success('删除订单成功',U('index'),3);
+            //redirect(U('order/index'));
         }else{  
             $this->error('订单删除失败');           
         }   
