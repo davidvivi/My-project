@@ -39,9 +39,9 @@
       <div class="col-4"> </div>
     </div>
     <div class="row cl">
-      <label class="form-label col-3"><span class="c-red">*</span>文字描述：</label>
+      <label class="form-label col-3"><span class="c-red">*</span>文字标题：</label>
       <div class="formControls col-5">
-        <input type="text" class="input-text" value="{$formdata['contents']}" placeholder="请填描述" id="link-contents" name="link-contents" datatype="*2-100" nullmsg="描述不能为空">
+        <input type="text" class="input-text" value="{$formdata['contents']}" placeholder="请填标题" id="link-contents" name="link-contents" datatype="*2-100" nullmsg="标题不能为空">
       </div>
       <div class="col-4"> </div>
     </div>
@@ -89,25 +89,26 @@ $(function(){
 
     $('#up').click(function(){
         id = $('#link-id').val();
-        grade = $('#eq-grade').find('input:checked').val();
         url = $('#link-url').val();
         contents = $('#link-contents').val();
         state = $('#link-state').val();
-        $.ajax({ 
-            type:"post",
-            url:"{:U('linkEditForm')}",
-            data:'id='+id+'&url='+url+'&contents='+contents+'&state='+state,
-            success:function(data){ 
-                if(data == 1){                     
-                    alert('修改成功！');
-                    window.parent.location.reload();        
-                }else{ 
-                    alert('修改失败！');
-                    window.parent.location.reload();
+        if(!(url == '' || contents == '' || state == '')){
+            $.ajax({ 
+                type:"post",
+                url:"{:U('linkEditForm')}",
+                data:'id='+id+'&url='+url+'&contents='+contents+'&state='+state,
+                success:function(data){ 
+                    if(data == 1){                     
+                        alert('修改成功！');
+                        window.parent.location.reload();        
+                    }else{ 
+                        alert('修改失败！');
+                        window.parent.location.reload();
+                    }
                 }
-            }
 
-        });
+            });
+        }
     });    
 });
 
