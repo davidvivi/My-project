@@ -48,9 +48,9 @@
                     <td>{$val.contents}</td>
     				<td class="td-status" >
                         <eq name="val.state" value="已禁用">
-                            <span class="label radius stop " id="stop">{$val.state}</span>
+                            <span class="label radius" >{$val.state}</span>
                         <else/>
-                            <span class="label label-success radius open" id="open">{$val.state}</span>
+                            <span class="label label-success radius" >{$val.state}</span>
                         </eq>
                     </td>
     				<td class="td-manage"><a title="编辑" href="javascript:;" class="ml-5" onclick="link_edit('编辑','__URL__/linkEdit?id={$val.id}','{$val.id}','','510')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" class="unable-a" unable-id="{$val.id}" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
@@ -58,11 +58,11 @@
             </foreach>
 		</tbody>
 	</table>
+    </div>
     <div id="page" style="text-align: center;">
         {$page}
     </div>
     <span id="active" act="{$act}"></span>
-	</div>
     </div>
     </div>
 </div>

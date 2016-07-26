@@ -27,28 +27,31 @@
 		<div class="row cl">
 			<label class="form-label col-3">公告标题：</label>
 			<div class="formControls col-5">
-				<input type="text" class="input-text" value="" placeholder="" id="gonggao-title" name="title" datatype="*2-16" nullmsg="公告标题不能为空">
+				<input type="text" class="input-text" value="" placeholder="请填写公告标题" id="gonggao-title" name="title" datatype="*2-100" nullmsg="公告标题不能为空">
 			</div>
+            <div class="col-4"> </div>
 		</div>
 		
 		<div class="row cl">
 			<label class="form-label col-3">公告链接：</label>
 			<div class="formControls col-5">
-				<input type="text" class="input-text" value="" placeholder="" id="gonggao-url" name="url" datatype="*2-16" nullmsg="公告链接不能为空">
+				<input type="text" class="input-text" value="" placeholder="请填写公告链接地址" id="gonggao-url" name="url" datatype="*2-100" nullmsg="公告链接不能为空">
 			</div>
+            <div class="col-4"> </div>
 		</div>
 		
 		<div class="row cl">
 			<label class="form-label col-3">状态：</label>
-			<div class="formControls col-5">
+			<div class="formControls col-5" id="state">
 				<input type="radio" name="state" id="state" value="0" /> 已失效
 				<input type="radio" name="state" id="state" checked value="1" /> 有效	
 			</div>
+            <div class="col-4"> </div>
 		</div>
 		
 		<div class="row cl">
 			<div class="col-9 col-offset-3">
-				<input class="btn btn-primary radius" id="up" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<input class="btn btn-primary radius" id="up" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
 		</div>
 	</form>
@@ -80,11 +83,11 @@ $(function(){
 	$('#up').click(function(){
         url = $('#gonggao-url').val();
         contents = $('#gonggao-title').val();
-        state = $('#state').val();
+        state = $('#state').find('input:checked').val();
         if(!(url == '' || contents == '' || state == '')){  
             $.ajax({ 
                 type:"post",
-                url:"{:U('infoEditForm')}",
+                url:"{:U('infoForm')}",
                 data:'&url='+url+'&contents='+contents+'&state='+state,
                 success:function(data){ 
                     if(data == 1){                     
