@@ -12,6 +12,10 @@ class IndexController extends Controller {
         $link_list = $link ->field('contents,url')->where($data)->select();
         $this->assign('link',$link_list);
 
+		if($_SESSION['user']){
+			$name = $_SESSION['user']['name'];
+			$this->assign('name',$name);
+		}
 		$this->assign('list',$list);
 		$this->display('Index/index');
     }

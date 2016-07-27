@@ -28,8 +28,13 @@
 				<div class="topbar_content">
 					<div>
 						<span><a href="">商城首页</a></span>
-						<span>Hi~欢迎来到QAQ数码商城，请<a href="__URL__/login">登录</a></span>
-						<span><a href="__URL__/reg">免费注册</a></span>
+						<if condition="$name">
+							<span>Hi~ <a href="">{$name}</a>,欢迎来到QAQ数码商城!</span>
+							<span><a>退出</a></span>
+						<else />
+							<span>Hi~欢迎来到QAQ数码商城，请<a href="__URL__/login">登录</a></span>
+							<span><a href="__URL__/reg">免费注册</a></span>
+						</if>
 					</div>
 					
 					<ul>
