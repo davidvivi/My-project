@@ -18,7 +18,7 @@
 
             $list = $Assess->field('id,uid,odid,grade,contents,addtime')->limit($Page->firstRow.','.$Page->listRows)->select();
             //dump($list);
-             //dump($count);
+            //dump($count);
             $this->assign('list',$list);// 赋值数据集
             $this->assign('count',$count);// 
             $this->assign('page',$show);// 赋值分页输出

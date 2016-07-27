@@ -216,5 +216,13 @@ CREATE TABLE IF NOT EXISTS `think_goods_pic`(
 )ENGINE=INNODB DEFAULT CHARSET=UTF8;
 
 
-
-
+------------------------------------------------
+------------------------------------------------
+-------分类表
+------------------------------------------------
+create table if not exists `think_category`(
+	`id` int unsigned not null auto_increment primary key,
+	`pid` int unsigned not null comment '父类ID',
+	`name` varchar(255) not null comment '分类名',
+	`path` varchar(255) not null comment '分类路径'
+)engine=innodb default charset=utf8;

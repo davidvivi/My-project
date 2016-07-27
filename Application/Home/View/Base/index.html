@@ -33,9 +33,10 @@
 					</div>
 					
 					<ul>
-						<li><a href="">我的订单</a></li>
-						<li><a href="">个人中心</a></li>
-						<li><a href="">购物车</a></li>
+                    <li>
+                        <!--判断是否登录，登录后跳转个人中心，否则跳转登录页-->                  
+						<li><a href="{:U('user/index')}">个人中心</a></li>
+						<li><a href="{:U('cart/index')}">购物车</a></li>
 						<li>联系客服</li>
 					</ul>
 				</div>

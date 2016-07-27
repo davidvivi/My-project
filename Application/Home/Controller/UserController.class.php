@@ -8,12 +8,9 @@ class UserController extends Controller
 {
     public function index(){
         
-        $this->display();
+        $this->display('user/index');
         
     }
-
-         
-
 
     
 }

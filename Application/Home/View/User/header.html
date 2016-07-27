@@ -106,46 +106,46 @@ ul.catagories li:hover .catagory-detail {
 }
 </style>
 <div id="global-topbar">
-  <div class="topbar-wrapper clearfix">
-    <ul class="topbar-left">
-      <li class="dropdown my-location">
-        <span class="current-place"></span>
-        <i class="icon-location icon-down"></i> </li>
-    </ul>
-    <ul class="topbar-right" id="topbar-right">
-      <li id="wellcome_wording">{$user['username']}</li>
-      <li id="link_signin" style="display: none;"></li>
-      <if condition="$user_id gt 0">
-      <li id="link_signup"><a href="{:U('Home/user/logout')}" class="signup target_no">[退出]</a></li>
-      </if>
-      <li><a href="{:U('Home/user/index')}">我的shop</a></li>
-      <li><a href="{:U('Home/Article/detail',array('article_id'=>17))}" target="_blank">帮助中心</a></li>
-    </ul>
-  </div>
+    <div class="topbar-wrapper clearfix">
+        <ul class="topbar-left">
+            <li class="dropdown my-location">
+                <span class="current-place"></span>
+            <i class="icon-location icon-down"></i> </li>
+        </ul>
+        <ul class="topbar-right" id="topbar-right">
+            <li id="wellcome_wording">{$user['username']}</li>
+            <li id="link_signin" style="display: none;"></li>
+            <if condition="$user_id gt 0">
+            <li id="link_signup"><a href="{:U('Home/user/logout')}" class="signup target_no">[退出]</a></li>
+            </if>
+            <li><a href="{:U('Home/user/index')}">我的shop</a></li>
+            <li><a href="{:U('Home/Article/detail',array('article_id'=>17))}" target="_blank">帮助中心</a></li>
+        </ul>
+    </div>
 </div>
 <div class="wrapper clearfix" id="global-header">
-  <div id="hd-banner" class="wrapper"> 
+    <div id="hd-banner" class="wrapper"> 
     <!--
         <a href="" target="_blank"><img src="__STATIC__/images/201602261202471456459367_kk-0.jpg" width="1220" height="60" alt""></a>
     --> 
-  </div>
-  <div id="headerall" class="wrapper clearfix"> <a href="/" title="首页" class="logohref">
-    <h1 id="hd-logo" class="icon-feiniu">
-      <img src="{$tpshop_config['shop_info_store_logo']}"/>
+    </div>
+    <div id="headerall" class="wrapper clearfix"> <a href="/" title="首页" class="logohref">
+        <h1 id="hd-logo" class="icon-feiniu">
+        <img src="__PUBLIC__/img/logo.jpg" height="60"/>
     </h1>
     </a>
 <!--搜索框-->
     <div id="hd-search">
-      <div class="search-form">
-        <form name="sourch_form" id="sourch_form" method="post" action="{:U("/Home/Goods/search")}">
-          <input type="text" data-role="input-search" autocomplete="off" class="search-keyword"  name="q" id="q" value="{$Think.post.search_key}" placeholder="搜索关键字"/>
-          <button class="btn-search" type="submit"onclick="if($.trim($('#q').val()) != '') $('#sourch_form').submit();">搜索</button>
-        </form>
-      </div>
-      <div class="hd-hot-keywords">
-        <ul id="hotsearch">
-            <foreach name="tpshop_config.hot_keywords" item="wd" key="k">
-                <li><a href="{:U('Home/Goods/search',array('q'=>$wd))}" <if condition="$k eq 0">class="ht"</if>>{$wd}</a></li>
+        <div class="search-form">
+            <form name="sourch_form" id="sourch_form" method="post" action="{:U("/Home/Goods/search")}">
+                <input type="text" data-role="input-search" autocomplete="off" class="search-keyword"  name="q" id="q" value="{$Think.post.search_key}" placeholder="搜索关键字"/>
+                <button class="btn-search" type="submit"onclick="if($.trim($('#q').val()) != '') $('#sourch_form').submit();">搜索</button>
+            </form>
+        </div>
+        <div class="hd-hot-keywords">
+            <ul id="hotsearch">
+                <foreach name="tpshop_config.hot_keywords" item="wd" key="k">
+                    <li><a href="{:U('Home/Goods/search',array('q'=>$wd))}" <if condition="$k eq 0">class="ht"</if>>{$wd}</a></li>
             </foreach>          
         </ul>
       </div>
@@ -286,7 +286,7 @@ ul.catagories li:hover .catagory-detail {
       </ul>
     </div>
     <ul class="horizontal-nav">
-      <li is_fresh="0"><a class="" href="/">
+      <li is_fresh="0"><a class="" href="{:U('index/index')}">
         <span>首页</span>
         <i class=""></i></a></li>
       <tpshop sql="SELECT * FROM `__PREFIX__navigation` where is_show = 1 ORDER BY `sort` DESC" key="k" item='v'>

@@ -22,7 +22,7 @@ class OrderController extends CommonController {
         $count = M('order')->count(); //查询总条数
         $Page = new \Think\Page($count,1);  
         $show = $Page->show();
-        $orderlist = $order->limit($Page->firstRow.','.$Page->listRows)->select();
+        $orderlist = $order->limit($Page->firstRow.','.$Page->listRows)->order('addtime desc')->select();
 
     
         foreach($orderlist as $k=>$v){  
