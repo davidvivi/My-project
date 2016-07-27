@@ -3,7 +3,13 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
-		// 公告
+
+        if($_SESSION['user']){
+			$name = $_SESSION['user']['name'];
+			$this->assign('name',$name);
+        }
+
+        // 公告
 		$info = D('Information');
 		$list = $info->field('url,contents')->where('state=1')->order('addtime desc')->limit(6)->select();
 		
@@ -12,6 +18,7 @@ class IndexController extends Controller {
         $link = M('link');
         $data['state'] = array('GT',0);
         $link_list = $link ->field('contents,url')->where($data)->select();
+        
         
 
         //轮播图
@@ -27,4 +34,10 @@ class IndexController extends Controller {
 		$this->assign('list',$list);
 		$this->display('Index/index');
     }
+
+	public function logout(){
+		
+		unset($_SESSION['user']);
+		redirect('index/index');
+	}
 }
