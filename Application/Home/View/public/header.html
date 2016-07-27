@@ -1,0 +1,23 @@
+		<!-- ======页面头部======= -->
+			<div class="topbar">
+				<div class="topbar_content">
+					<div>
+						<span><a href="">商城首页</a></span>
+						<if condition="$name">
+							<span>Hi~ <a href="">{$name}</a>,欢迎来到QAQ数码商城!</span>
+							<span><a href="__URL__/logout">退出</a></span>
+						<else />
+							<span>Hi~欢迎来到QAQ数码商城，请<a href="__URL__/login">登录</a></span>
+							<span><a href="__URL__/reg">免费注册</a></span>
+						</if>
+					</div>
+					
+					<ul>
+                    <li>
+                        <!--判断是否登录，登录后跳转个人中心，否则跳转登录页-->                  
+						<li><a href="{:U('user/index')}">个人中心</a></li>
+						<li><a href="{:U('cart/index')}">购物车</a></li>
+						<li>联系客服</li>
+					</ul>
+				</div>
+			</div>
