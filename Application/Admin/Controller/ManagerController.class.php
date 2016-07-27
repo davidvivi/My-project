@@ -194,10 +194,13 @@ class ManagerController extends CommonController {
     */
 	public function adminEditForm()
     { 
+		//$this->display('manager/text');
+		
         $admin = M('admin');
 		$access = M('auth_group_access');
 		
 		$id = I('id');
+		//dump($id);exit;
         $name = I('name');
         $password = password_hash(I('password'),PASSWORD_DEFAULT);
         $tel = I('tel');

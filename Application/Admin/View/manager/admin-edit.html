@@ -129,7 +129,7 @@ $(function(){
         if(!(name == '' || password == '' || tel == '' || email == '' || group  == '')){  
             $.ajax({ 
                 type:"post",
-                url:"{:U('adminEditForm')}",
+                url:"{:U('manager/adminEditForm')}",
                 data:'name='+name+'&password='+password+'&tel='+tel+'&email='+email+'&group='+group,
                 success:function(data){ 
                     if(data == 1){                     
