@@ -8,20 +8,20 @@ class LoginController extends Controller
 
         $username = I('post.username');
 
-            $password=M('user')->field('password')->where(array('username'=>$username))->find();
-           
+		$password=M('user')->field('password')->where(array('username'=>$username))->find();
+	   
 
-           
-            $bool = password_verify(I('post.password'),$password['password']);
+	   
+		$bool = password_verify(I('post.password'),$password['password']);
 
 
 
-            if(!$bool){ 
-                $this->error('登陆失败');
-            }else{  
-                $_SESSION['user']['username']=$map['username'];
-                $this->success('登陆成功',U('index/index'),2);
-            }
+		if(!$bool){ 
+			$this->error('登陆失败');
+		}else{  
+			$_SESSION['user']['name']=$username;
+			$this->success('登陆成功',U('index/index'),2);
+		}
     }
 
          

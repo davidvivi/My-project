@@ -19,7 +19,7 @@
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>添加管理员</title>
+<title>管理员信息修改</title>
 </head>
 <body>
 <div class="pd-20">
@@ -29,7 +29,7 @@
 				<span class="c-red">*</span>用户名：
 			</label>
 			<div class="formControls col-5">
-				<input type="text" class="input-text" value="" placeholder="" id="admin-name" name="name" datatype="*2-16" nullmsg="用户名不能为空">
+				<input type="text" class="input-text" value="{$name}" placeholder="" id="admin-name" name="name" datatype="*2-16" nullmsg="用户名不能为空">
 			</div>
 			<div class="col-4"> </div>
 		</div>
@@ -39,7 +39,7 @@
 				<span class="c-red">*</span>密码：
 			</label>
 			<div class="formControls col-5">
-				<input type="password" id="pwd" name="password" placeholder="密码" autocomplete="off" value="" class="input-text" datatype="*6-20" nullmsg="密码不能为空">
+				<input type="password" id="pwd" name="password" placeholder="密码" autocomplete="off" class="input-text" datatype="*6-20" nullmsg="密码不能为空">
 			</div>
 			<div class="col-4"> </div>
 		</div>
@@ -59,7 +59,7 @@
 				<span class="c-red">*</span>手机：
 			</label>
 			<div class="formControls col-5">
-				<input type="text" class="input-text" value="" placeholder="" id="admin-tel" name="tel"  datatype="m" nullmsg="手机不能为空">
+				<input type="text" class="input-text" value="{$tel}" placeholder="" id="admin-tel" name="tel"  datatype="m" nullmsg="手机不能为空">
 			</div>
 			<div class="col-4"> </div>
 		</div>
@@ -69,7 +69,7 @@
 				<span class="c-red">*</span>邮箱：
 			</label>
 			<div class="formControls col-5">
-				<input type="email" class="input-text" placeholder="@" name="email" id="email" datatype="e" nullmsg="请输入邮箱！">
+				<input type="email" class="input-text" value="{$email}" placeholder="@" name="email" id="email" datatype="e" nullmsg="请输入邮箱！">
 			</div>
 			<div class="col-4"> </div>
 		</div>
@@ -129,14 +129,14 @@ $(function(){
         if(!(name == '' || password == '' || tel == '' || email == '' || group  == '')){  
             $.ajax({ 
                 type:"post",
-                url:"{:U('adminAddForm')}",
+                url:"{:U('manager/adminEditForm')}",
                 data:'name='+name+'&password='+password+'&tel='+tel+'&email='+email+'&group='+group,
                 success:function(data){ 
                     if(data == 1){                     
-                        alert('添加成功！');
+                        alert('修改成功！');
                         window.parent.location.reload();        
                     }else{ 
-                        alert('添加失败！');
+                        alert('修改失败！');
                         window.parent.location.reload();
                     }
                 }

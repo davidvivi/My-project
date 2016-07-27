@@ -13,7 +13,7 @@ class ManagerController extends CommonController {
         $Page = new \Think\Page($count,8);
         $show = $Page->show();
    
-        $data = $admin->field('id,name,addtime,tel,email,status')->order('addtime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $data = $admin->field('id,name,addtime,tel,email,status')->limit($Page->firstRow.','.$Page->listRows)->select();
 		//dump($data);
 		//通过uid获取用户组group_id 再通过gid获取用户组
 		
@@ -41,17 +41,24 @@ class ManagerController extends CommonController {
         
     }
 	
+	/*=====管理员添加开始========*/
+	public function add(){
+		
+		$this->display('manager/admin-add');
+		
+	}
+	
 	public function adminAddForm()
     { 
-		dump('111');
+		$admin = M('admin');
+		$access = M('auth_group_access');
+		
         $name = I('name');
         $password = password_hash(I('password'),PASSWORD_DEFAULT);
         $tel = I('tel');
 		$email = I('email');
         $addtime = time();
 		$group = I('group');
-		
-        $admin = M('admin');   
               
         $data['name'] = $name;
         $data['password'] = $password;
@@ -61,22 +68,26 @@ class ManagerController extends CommonController {
 		$data['status'] = '1';
 		
 		$du = $admin->add($data);
+		
 		$uid = $admin->where('name='.$name)->getField('id');
-		dump($uid);
-		$dataa['uid'] = $uid;
-		$dataa['group_id'] = $group;		
-		$access = M('auth_group_access');
-		$da = $access->add($dataa);
+		
+		$map['uid'] = $uid;
+		$map['group_id'] = $group;
+		
+		$da = $access->add($map);
 		
 		
         
-        if($du && $da){
+        if($da){
            $this->ajaxReturn('1');
         }else{ 
             $this->ajaxReturn('0');
         }
     }  
 	
+	/*======管理员添加结束=======*/
+	
+	/*=====用户组管理======*/
 	public function userGroup(){
 		$group = M('auth_group');
 		$count = $group->count();
@@ -92,24 +103,28 @@ class ManagerController extends CommonController {
 		$this->display('manager/admin-group');
 	}
     
+	/*=======管理员删除======*/
     public function adminDelete()
     { 
-        $id = I('id');
-        $user = M('user');
-        $userdetail = M('user_detail');
-        if($id){ 
-            $du = $user->where("id='{$id}'")->delete();
-            $dd = $userdetail->where("uid='{$id}'")->delete();
-            if($du){ 
-                $this->ajaxReturn('1');
-            }else{ 
-                $this->ajaxReturn('0');
-            }
-        }else{ 
-            $this->ajaxReturn('0');
-        }
+			
+			$id = I('id');
+			$admin = M('admin');
+			$access = M('auth_group_access');
+			if($id){ 
+				$du = $admin->where('id='.$id)->delete();
+				$dd = $access->where('uid='.$id)->delete();
+				if($du && $dd){ 
+					$this->ajaxReturn('1');
+				}else{ 
+					$this->ajaxReturn('0');
+				}
+			}else{ 
+				$this->ajaxReturn('0');
+			}
 
     }
+	
+	/*
     public function userReturn()
     { 
         
@@ -134,12 +149,33 @@ class ManagerController extends CommonController {
         }
         
     }
-    public function userEdit()
+	*/
+	
+	/*=====管理员信息编辑开始=====*/
+	public function edit(){
+		$id = I('id');
+		$admin = M('admin');
+		
+		$list = $admin->where('id='.$id)->field('name,tel,email')->select();
+		//dump($list);exit;
+		$name = $list[0]['name'];
+		$tel = $list[0]['tel'];
+		$email = $list[0]['email'];
+		//dump($tel);exit;
+		$this->assign('id',$id);
+		$this->assign('name',$name);
+		$this->assign('tel',$tel);
+		$this->assign('email',$email);
+		$this->display('manager/admin-edit');
+	}
+	
+	/*
+    public function adminEdit()
     { 
         $id = I('id');
-        $user = M('user');
-        $userdetail = M('user_detail');
-        $userdata = $user->field('id,username,addtime,tel,status')->where("status=1 AND id='{$id}'")->select();
+        $admin = M('admin');
+        $access = M('auth_group_access');
+        $data = $admin->field('id,name,tel,email,status')->where("id='{$id}'")->select();
        
         $userid = $userdata[0]['id'];              
         $detaildata = $userdetail->field('sex,email,address,grade')->where("uid='{$userid}'")->select();
@@ -155,20 +191,45 @@ class ManagerController extends CommonController {
         $this->display('user/user-edit');
         
     }
-    public function userEditForm()
+    */
+	public function adminEditForm()
     { 
-        $id = I('id');
-        $grade = I('grade');
-        if($id){ 
-            $userdetail = M('user_detail');
-            $detaildata = $userdetail->field('grade')->where("uid='{$id}'")->select();
-            $data['grade'] = $grade;
-            $du = $userdetail->where("uid='{$id}'")->save($data);
-            $this->ajaxReturn('1');
+		//$this->display('manager/text');
+		
+        $admin = M('admin');
+		$access = M('auth_group_access');
+		
+		$id = I('id');
+		//dump($id);exit;
+        $name = I('name');
+        $password = password_hash(I('password'),PASSWORD_DEFAULT);
+        $tel = I('tel');
+		$email = I('email');
+        $addtime = time();
+		$group = I('group');
+		
+		$data['name'] = $name;
+        $data['password'] = $password;
+        $data['tel'] = $tel;
+		$data['email'] = $email;
+		$data['addtime'] = $addtime;
+		$data['status'] = '1';
+		$da = $admin->where('id='.$id)->save($data);
+		
+		$map['group_id'] = $group;
+		
+		$dd = $access->where('uid='.$id)->save($map);
+		
+		if($dd && $da){
+           $this->ajaxReturn('1');
         }else{ 
             $this->ajaxReturn('0');
         }
+		
     }  
+	
+	/*=======管理员信息编辑结束=======*/
+	
     public function userSearch()
     { 
         $data = I('text');
