@@ -215,6 +215,21 @@ CREATE TABLE IF NOT EXISTS `think_goods_pic`(
 	`picname` VARCHAR(255) NOT NULL
 )ENGINE=INNODB DEFAULT CHARSET=UTF8;
 
+------------------------------------------------
+-----------------------------------------------
+------购物车表
+-------------------------------------------------
+CREATE TABLE IF NOT EXISTS `think_cart`(
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `user_id` MEDIUMINT(8) UNSIGNED NOT NULL,
+    `goods_id` MEDIUMINT(8) UNSIGNED NOT NULL,
+    `goods_name` VARCHAR(120) NOT NULL,
+    `goods_price` DECIMAL(10,2) NOT NULL,
+    `special_price` DECIMAL(10,2) ,
+    `goods_num` SMALLINT(5) UNSIGNED NOT NULL,
+    `addtime` INT(11) 
+)ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
 
 
 
