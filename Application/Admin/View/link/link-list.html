@@ -21,51 +21,71 @@
 <title>友情链接管理</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 页面管理 <span class="c-gray en">&gt;</span> 友情链接 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-<div>
-    <div id="div1">
-    <div id="div2">
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除 </a></span>&nbsp;<a class="btn btn-primary radius" onclick="link_add('添加链接','__URL__/linkAdd')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加链接</a></span><span class="r">共有数据：<strong><span id="num" >{$count}</span></strong> 条</span> </div>
-	<div class="mt-20"  class="pd-20">
-	<table class="table table-border table-bordered table-hover table-bg table-sort">
-		<thead>
-			<tr class="text-c">
-				<th width="25"><input type="checkbox" name="" value=""></th>
-				<th width="50">ID</th>
-				<th width="350">链接地址</th>
-                <th width="">链接标题</th>
-				<th width="150">状态</th>
-				<th width="150">操作</th>
-			</tr>
-		</thead>
-        
-		<tbody>
-            <foreach name="list" item="val">
-    			<tr class="text-c">
-    				<td><input type="checkbox" value="1" name=""></td>
-    				<td>{$val.id}</td>
-    				<td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">{$val.url}</u></td>
-                    <td>{$val.contents}</td>
-    				<td class="td-status" >
-                        <eq name="val.state" value="已禁用">
-                            <span class="label radius" >{$val.state}</span>
-                        <else/>
-                            <span class="label label-success radius" >{$val.state}</span>
-                        </eq>
-                    </td>
-    				<td class="td-manage"><a title="编辑" href="javascript:;" class="ml-5" onclick="link_edit('编辑','__URL__/linkEdit?id={$val.id}','{$val.id}','','510')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" class="unable-a" unable-id="{$val.id}" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-    			</tr>
-            </foreach>
-		</tbody>
-	</table>
-    </div>
-    <div id="page" style="text-align: center;">
-        {$page}
-    </div>
-    <span id="active" act="{$act}"></span>
-    </div>
-    </div>
-</div>
+	<nav class="breadcrumb">
+		<i class="Hui-iconfont">&#xe67f;</i> 首页 
+		<span class="c-gray en">&gt;</span> 页面管理 
+		<span class="c-gray en">&gt;</span> 友情链接 
+		<a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
+			<i class="Hui-iconfont">&#xe68f;</i>
+		</a>
+	</nav>
+	
+	<div>
+		<div id="div1">
+			<div id="div2">
+				<div class="cl pd-5 bg-1 bk-gray mt-20"> 
+					<span class="l">
+						<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
+							<i class="Hui-iconfont">&#xe6e2;</i> 批量删除
+						</a>
+					</span>&nbsp;
+					<a class="btn btn-primary radius" onclick="link_add('添加链接','__URL__/linkAdd')" href="javascript:;">
+						<i class="Hui-iconfont">&#xe600;</i> 添加链接
+					</a></span>
+					<span class="r">共有数据：
+						<strong><span id="num" >{$count}</span></strong> 条
+					</span> 
+				</div>
+				<div class="mt-20"  class="pd-20">
+				<table class="table table-border table-bordered table-hover table-bg table-sort">
+					<thead>
+						<tr class="text-c">
+							<th width="25"><input type="checkbox" name="" value=""></th>
+							<th width="50">ID</th>
+							<th width="350">链接地址</th>
+							<th width="">链接标题</th>
+							<th width="150">状态</th>
+							<th width="150">操作</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<foreach name="list" item="val">
+							<tr class="text-c">
+								<td><input type="checkbox" value="1" name=""></td>
+								<td>{$val.id}</td>
+								<td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">{$val.url}</u></td>
+								<td>{$val.contents}</td>
+								<td class="td-status" >
+									<eq name="val.state" value="已禁用">
+										<span class="label radius" >{$val.state}</span>
+									<else/>
+										<span class="label label-success radius" >{$val.state}</span>
+									</eq>
+								</td>
+								<td class="td-manage"><a title="编辑" href="javascript:;" class="ml-5" onclick="link_edit('编辑','__URL__/linkEdit?id={$val.id}','{$val.id}','','510')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" class="unable-a" unable-id="{$val.id}" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+							</tr>
+						</foreach>
+					</tbody>
+				</table>
+				</div>
+				<div id="page" style="text-align: center;">
+					{$page}
+				</div>
+				<span id="active" act="{$act}"></span>
+			</div>
+		</div>
+	</div>
 <script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
 <script type="text/javascript" src="__PUBLIC__/admin/lib/layer/1.9.3/layer.js"></script>
 <script type="text/javascript" src="__PUBLIC__/admin/lib/laypage/1.2/laypage.js"></script> 
@@ -121,7 +141,7 @@ $(function(){
     
     $('#div1').on("click",'.unable-a',function(){        
         id = $(this).attr('unable-id');
-        $.get("__URL__/linkDelete",{id:id},
+        $.get("__URL__/adminDelete",{id:id},
             function(data){ 
                 if(data == 1){ 
                     alert('删除成功!');
