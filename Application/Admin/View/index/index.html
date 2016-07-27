@@ -26,13 +26,13 @@
 <meta name="keywords" content="QAQ后台管理">
 </head>
 <body>
-<header class="Hui-header cl"> <img style="width:149px;" title="QAQ" src="__PUBLIC__/admin/images/logo.jpg"><b style="font-size:25px">后台管理</b>
+<header class="Hui-header cl"> <img style="width:100px;" title="QAQ" src="__PUBLIC__/admin/images/logo.jpg"><b style="font-size:20px">后台管理</b>
 	<ul class="Hui-userbar">
 		<li>超级管理员</li>
-		<li class="dropDown dropDown_hover"><a href="#" class="dropDown_A">{$name}<i class="Hui-iconfont">&#xe6d5;</i></a>
+		<li class="dropDown dropDown_hover"><a href="#" class="dropDown_A">{$managerInfo.name}<i class="Hui-iconfont">&#xe6d5;</i></a>
 			<ul class="dropDown-menu radius box-shadow">
 				<li><a href="#">个人信息</a></li>
-				
+				<li><a href="#">切换账户</a></li>
 				<li><a href="{:U('Login/lyout')}">退出</a></li>
 			</ul>
 		</li>
@@ -50,10 +50,10 @@
 			</dd>
 		</dl>
 		<dl id="menu-picture">
-			<dt><i class="Hui-iconfont">&#xe613;</i>图片管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe613;</i> 图片管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="__URL__picture-list.html" href="javascript:void(0)">轮播图管理</a></li>
+					<li><a _href="picture-list.html" href="javascript:void(0)">图片管理</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -80,7 +80,7 @@
 			<dd>
 				<ul>
 					<li><a _href="__MODULE__/Assess/index" href="javascript:void(0);">评论列表</a></li>
-					
+					<li><a _href="feedback-list.html" href="javascript:void(0)">意见反馈</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -108,9 +108,9 @@
 			<dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="admin-role.html" href="javascript:void(0)">角色管理</a></li>
-					<li><a _href="admin-permission.html" href="javascript:void(0)">权限管理</a></li>
-					<li><a _href="admin-list.html" href="javascript:void(0)">管理员列表</a></li>
+					<li><a _href="__MODULE__/Manager/userGroup" href="javascript:void(0)">用户组管理</a></li>
+					<li><a _href="__MODULE__/Manager/admin-permission" href="javascript:void(0)">权限管理</a></li>
+					<li><a _href="__MODULE__/Manager/index" href="javascript:void(0)">管理员列表</a></li>
 				</ul>
 			</dd>
 		</dl>
