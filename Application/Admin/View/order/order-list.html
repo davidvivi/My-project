@@ -1,104 +1,137 @@
 ﻿<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="renderer" content="webkit|ie-comp|ie-stand">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-<!--[if lt IE 9]>
-<script type="text/javascript" src="lib/html5.js"></script>
-<script type="text/javascript" src="lib/respond.min.js"></script>
-<script type="text/javascript" src="lib/PIE_IE678.js"></script>
-<![endif]-->
-<link href="__PUBLIC__/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/admin/css/style.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
-<!--[if IE 6]>
-<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
-<script>DD_belatedPNG.fix('*');</script>
-<![endif]-->
-<title>订单列表</title>
-</head>
-<body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 订单管理 <span class="c-gray en">&gt;</span> 订单列表 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-<div class="pd-20">
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="lib/html5.js"></script>
+    <script type="text/javascript" src="lib/respond.min.js"></script>
+    <script type="text/javascript" src="lib/PIE_IE678.js"></script>
+    <![endif]-->
+    <link href="__PUBLIC__/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/admin/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+    <script type="text/javascript" src="__PUBLIC__/admin/lib/layer/1.9.3/layer.js"></script><script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script> 
+    <script type="text/javascript" src="__PUBLIC__/admin/lib/My97DatePicker/WdatePicker.js"></script> 
+    <script type="text/javascript" src="__PUBLIC__/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+    <script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.js"></script> 
+    <script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.js"></script> 
+    <script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.product.js"></script>
+    <!--[if IE 6]>
+    <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <title>订单列表</title>
+    </head>
+
+    <body>   
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 订单管理 <span class="c-gray en">&gt;</span> 订单列表 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+
+        <div class="pd-20">
 	
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span> <span class="r">共有数据：<strong>{$count}</strong> 条</span> </div>
-	<div class="mt-20">
-		<table class="table table-border table-bordered table-bg table-sort">
-			<thead>
-				<tr class="text-c">
-					<th width="25"><input type="checkbox" name="" value=""></th>
-                    <th width="60">ID</th>
-					<th width="80">订单编号</th>
-					<th width="120">收货人</th>
-					<th width="80">应付金额</th>
-					<th width="80">支付状态</th>
-                    <th width="80">支付方式</th>
-                    <th width="80">订单状态</th>
-                    <th width="80">配送方式</th>
-					<th>下单时间</th>
-					<th width="100">操作</th>
-				</tr>
-			</thead>
-			<tbody>
-                <foreach name="orderlist" item="val">
-				<tr class="text-c">
-					<td><input name="" type="checkbox" value=""></td>
-                    <td>{$val.orderid}</td>
-					<td>{$val.numid}</td>
-					<td>{$val.consignee}:{$val.tel}</td>
-					<td>{$val.buy}</td>
-					<td class="text-l">{$val.paystatus}</td>
-					<td class="text-l">{$val.payment}</td>
-                    <td>{$val.orderstatus}</td>
-                    <td>{$val.shipping}</td>
-                    <td>{$val.addtime}</td>
-
-					<td class="f-14 product-brand-manage">
-                    <a style="text-decoration:none" onClick="order_detail('订单详情','order_detail.html?orderid={$val.orderid}')" href="javascript:;" title="详情"><i class="Hui-iconfont">&#xe627;</i></a><a style="text-decoration:none" href="{:U('Admin/order/order_delete',array('orderid'=>$val['orderid']))}" class="ml-5" title="删除"><i class="Hui-iconfont">&#xe6e2;</i>
+    	    <div class="cl pd-5 bg-1 bk-gray mt-20"> 
+                <span class="l">
+                    <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
+                        <i class="Hui-iconfont">&#xe6e2;</i> 批量删除
                     </a>
+                </span> 
+                <span class="r">共有数据：<strong>{$count}</strong> 条</span> 
+            </div>
+    	   
+            <div class="mt-20">
+                <table class="table table-border table-bordered table-bg table-sort">
+        			<thead>
+        				<tr class="text-c">
+        					<th width="25"><input type="checkbox" name="" value=""></th>
+                            <th width="60">ID</th>
+        					<th width="80">订单编号</th>
+        					<th width="120">收货人</th>
+        					<th width="80">应付金额</th>
+        					<th width="80">支付状态</th>
+                            <th width="80">支付方式</th>
+                            <th width="80">订单状态</th>
+                            <th width="80">配送方式</th>
+        					<th>下单时间</th>
+        					<th width="100">操作</th>
+        				</tr>
+        			</thead>
+        			
+                    <tbody>
+                        <foreach name="orderlist" item="val">
+        				<tr class="text-c">
+        					<td><input name="" type="checkbox" value=""></td>
+                            <td>{$val.orderid}</td>
+        					<td>{$val.numid}</td>
+        					<td>{$val.consignee}:{$val.tel}</td>
+        					<td>{$val.buy}</td>
+        					<td class="text-l">{$val.paystatus}</td>
+        					<td class="text-l">{$val.payment}</td>
+                            <td>{$val.orderstatus}</td>
+                            <td>{$val.shipping}</td>
+                            <td>{$val.addtime}</td>
 
-                    <!--  后期还要根据订单的状态判断是否能被删除
-                     <if condition="($list['order_status'] eq 3) or ($list['order_status'] eq 5)">
-                     -->
-                                            
-                    <!--    
-                        <else/>
-                        <a href="javascript:void(0)" onclick="alert('该订单不得删除')" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                    </if>
-                    -->
-                    </td>
-				</tr>
-                </foreach>
-			</tbody>
-		</table>
-	</div>
-</div>
-<script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/admin/lib/layer/1.9.3/layer.js"></script><script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/admin/lib/My97DatePicker/WdatePicker.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.product.js"></script> 
-<script type="text/javascript">
+                            
+        					<td class="f-14 product-brand-manage">
+                            <a style="text-decoration:none" onClick="order_detail('订单详情','__URL__/order_detail?orderid={$val.orderid}')" href="javascript:;" title="详情"><i class="Hui-iconfont">&#xe627;</i></a><a style="text-decoration:none" href="{:U('Admin/order/order_delete',array('orderid'=>$val['orderid']))}" class="ml-5" title="删除"><i class="Hui-iconfont">&#xe6e2;</i>
+                            </a>
 
-$('.table-sort').dataTable({
-	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
-	"bStateSave": true,//状态保存
-	"aoColumnDefs": [
-	  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-	  {"orderable":false,"aTargets":[0]}// 制定列不参与排序
-	]
-});
+                            <!--  后期还要根据订单的状态判断是否能被删除
+                             <if condition="($list['order_status'] eq 3) or ($list['order_status'] eq 5)">
+                             -->
+                                                    
+                            <!--    
+                                <else/>
+                                <a href="javascript:void(0)" onclick="alert('该订单不得删除')" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
+                            </if>
+                            -->
+                            </td>
+        				</tr>
+                        </foreach>
+        			</tbody>
+    		    </table>
+                <div id="page" style="text-align: center;">
+                {$page} 
+                </div>
+	        </div>
+        </div>
+ 
+        <script type="text/javascript">
 
-/*管理员-角色-编辑*/
-function order_detail(title,url,id,w,h){
-    layer_show(title,url,w,h);
-}
-</script>
-</body>
+
+        /*管理员-角色-编辑*/
+        function order_detail(title,url,id,w,h){
+            layer_show(title,url,w,h);
+        }
+
+        (function page(){ 
+            $("#page").css("margin-top","15px").find('a').css({'margin': "0 9px",
+                "display": "inline-block",
+                "border":"1px solid #ededed",
+                "text-align": "center",
+                "width":"25px",
+                "height":"25px",
+                "text-decoration":"none"
+                }
+            ).hover(function(){
+                $(this).css({"background":"#5A98DE","color":"white"})
+            },function(){
+                $(this).css({"background":"white","color":"black"})
+            });
+        
+            $("#page").find('span').css({'margin': "0 9px",
+                "display": "inline-block",
+                "background": "#5A98DE",
+                "text-align": "center",
+                "width":"25px",
+                "height":"25px",
+                "color":"white"}
+            );
+        })();
+        </script>
+    </body>
 </html>
