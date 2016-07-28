@@ -1816,28 +1816,28 @@ body {
 	display: inline-block;
 	width: 20px;
 	height: 20px;
-  	background: url('../images/icon_yue.png');
+  	background: url('../image/icon_yue.png');
 }
 .informations .in_02 .icon_purse {
 	float: left;
 	display: inline-block;
 	width: 20px;
 	height: 20px;
-  	background: url('../images/icon_purse.png');
+  	background: url('../image/icon_purse.png');
 }
 .informations .in_02 .icon_point {
 	float: left;
 	display: inline-block;
 	width: 20px;
 	height: 20px;
-  	background: url('../images/icon_point.png');
+  	background: url('../image/icon_point.png');
 }
 .informations .in_02 .icon_quan {
 	float: left;
 	display: inline-block;
 	width: 20px;
 	height: 20px;
-  	background: url('../images/icon_quan.png');
+  	background: url('../image/icon_quan.png');
 }
 /*.informations .in_02 .inf_purse {
   color: #6c6c6c;

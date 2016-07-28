@@ -81,7 +81,7 @@
 .arrows_up {width: 10px; height: 11px; line-height: 11px; background: -289px -172px;}
 .arrows_down {width: 10px; height: 11px; line-height: 11px; background: -15px -220px;}
 .icon_small_warning {width: 10px; height: 41px; line-height: 41px; background: -142px -172px;}
-.free_tickets,.tickets,.icon_tea,.head_bg,.icon_big_warning,.icon_correct_big,.icon_correct,.icon_success,.icon_purse,.icon_small_warning,.star_02,.star_01,.icon_sure,.prev:hover,.next,.prev,.next:hover,.icon-warn,.icon_warning,.icon_error,.icon-loss,.icon_exp_up,.icon_exp_down,.icon_email,.icon_phone,.arrows_up,.arrows_down,.icon_down,.icon_desc,.icon_asc,.icon_order_up,.icon_m_up,.icon_down_01,.icon_up_01,.icon_m_down,.edit_up,.icon_triangle,.icon_or_up,.icon_or_down{background-image: url(../images/sprite_icon_s.png);}
+.free_tickets,.tickets,.icon_tea,.head_bg,.icon_big_warning,.icon_correct_big,.icon_correct,.icon_success,.icon_purse,.icon_small_warning,.star_02,.star_01,.icon_sure,.prev:hover,.next,.prev,.next:hover,.icon-warn,.icon_warning,.icon_error,.icon-loss,.icon_exp_up,.icon_exp_down,.icon_email,.icon_phone,.arrows_up,.arrows_down,.icon_down,.icon_desc,.icon_asc,.icon_order_up,.icon_m_up,.icon_down_01,.icon_up_01,.icon_m_down,.edit_up,.icon_triangle,.icon_or_up,.icon_or_down{background-image: url(../image/sprite_icon_s.png);}
 
 
 .brand-icon { background: url(../images/brand-ico.jpg) no-repeat!important;}

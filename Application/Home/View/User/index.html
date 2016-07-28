@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="__PUBLIC__/Home/css/appointment.css">
-    <title>用户中心-{$tpshop_config['shop_info_store_title']}</title>
+    <title>用户中心</title>
     <meta http-equiv="keywords" content="QAQ商城,笔记本,手机,数码相机,数码影音,DIY硬件" />
     <meta name="description" content="QAQ商城（QAQ.com）具备在3年内成长为中国最大的3C电子商城之潜力，源于中国IT行业第一垂直媒体（QAQ.com.cn）在IT及互联网行业已臻十年的深厚积累。运营核心，只为了给用户打造一个放心、省心、舒心的购物平台！" />
     <link rel="stylesheet" href="__PUBLIC__/Home/css/common_order.css"></link>
@@ -14,21 +14,22 @@
         
         .related .browse_related_list .slide_box a:hover{ border:0}
         div.informations .in_01 .personal_head img {
-          width: 84px;
-          height: 84px;
-          border: 1px solid #f1f1f1;
-          padding: 2px;
-          border-radius: 50%;
-          -moz-border-radius: 50%;
-          -webkit-border-radius: 50%;
-          behavior: url(iecss3.htc);
-          position:relative;
-          z-index:2;
+            width: 84px;
+            height: 84px;
+            border: 1px solid #f1f1f1;
+            padding: 2px;
+            border-radius: 50%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            behavior: url(iecss3.htc);
+            position:relative;
+            z-index:2;
         }       
     </style>
-<!-- 头部-s -->
-<include file="User/header" />
-<!-- 头部-e -->
+    
+    <!-- 头部-s -->
+    <include file="User/header" />
+    <!-- 头部-e -->
 
 
 <div class="wrap"> 
@@ -43,12 +44,17 @@
   <!-- 首页右侧 start -->
   <div class="col_main myfeiniu">
     <div class="informations clearfix">
-      <ul>
+    <ul>
         <li class="in_01">
-          <span id="loadingpic" class="indexloading"> <a class="personal_head   target_no" href="javascript:void(0);"><img width="100" height="100" src="{$user_detail.pic|default='__PUBLIC__/Home/image/img88.jpg'}"></a> </span>
-          <h2>
-            <span class="num" id="spanNickname">用户名{$user.username}</span>
-            <div> <a class="usertitle target_no" href="" >用户等级</a> </div>
+            <span id="loadingpic" class="indexloading"> 
+                <a class="personal_head   target_no" href="javascript:void(0);">
+                    <img width="100" height="100" src="{$user_detail.pic|default='__PUBLIC__/Home/image/img88.jpg'}">
+                </a>
+            </span>
+            <h2>
+            <span class="num" id="spanNickname">{$username}</span>
+            <div> <a class="usertitle target_no" ><if condition="$grade eq 1">英勇黄铜<elseif condition="$grade eq 2"/>不屈白银<elseif condition="$grade eq 3" />璀璨钻石<else />普通会员</if>
+            </a> </div>
             <p id="greeting" class="greeting">您好，欢迎来到QAQ商城</p>
           </h2>
         </li>
@@ -60,60 +66,65 @@
         <!--                         </dl> --> 
         <!--                     </li> -->
         <li class="in_02">
-          <div id="myQuanBonusBalance"> <i class="icon_line"></i> 
-          <a class="target_no" href=""> 
-             <i class="icon_yue"></i>
-            <span class="label">会员折扣</span>
-            <span class="text"><small class="rmb">{$user[discount] * 10}</small> 折</span>
-            <span class="go">&gt;</span>
-          </a> 
-          </div>
-          <div id="myAcctBalance"> 
-             <i class="icon_line"></i> 
-             <a class="target_no" href=""> 
-                 <i class="icon_purse"></i>
+            <div id="myQuanBonusBalance"> <i class="icon_line"></i> 
+            <a class="target_no" href=""> 
+                <i class="icon_yue"></i>
+                <span class="label">会员折扣</span>
+                <span class="text"><small class="rmb">{$user[discount] * 10}</small> 折</span>
+                <span class="go">&gt;</span>
+            </a> 
+            </div>
+          
+            <div id="myAcctBalance"> 
+                <i class="icon_line"></i> 
+                <a class="target_no" href=""> 
+                    <i class="icon_purse"></i>
                 <span class="label">账户余额</span>
                 <span class="text"><small class="rmb">{$user[user_money]}</small> 元</span>
                 <span class="go">&gt;</span>
             </a>
             </div>
-          <div id="myAvaliableScore"> 
-          <i class="icon_line"></i> 
-          <a class="target_no" href=""> 
-            <i class="icon_point"></i>
-            <span class="label">可用积分</span>
-            <span class="text"><small class="rmb">{$user[pay_points]}</small> 分</span>
-            <span class="go">&gt;</span>
-          </a>
-          </div>
-        </li>
-        <li class="in_03">
-          <div id="loadinguserinfo" class="slide_box J_slide_box">
-            <div class="account_security">
-              <span class="title">账户安全：</span>
-              <div class="progress_bar">
-                <div style="width:80%" class="progress"></div>
-              </div>
-              <span class="security_tips">高</span>
-            <!--  <a class="security_up blue target_no" href="https://i.tp-shop.cn/safetySettings/view">强化</a>-->
+            
+            <div id="myAvaliableScore"> 
+                <i class="icon_line"></i> 
+                <a class="target_no" href=""> 
+                    <i class="icon_point"></i>
+                <span class="label">可用积分</span>
+                <span class="text"><small class="rmb">{$user[pay_points]}</small> 分</span>
+                <span class="go">&gt;</span>
+                </a>
             </div>
-            <ul class="genre clearfix">
-              <li>
-                <span class="gray"><i class="icon_phone"></i>手机</span>
-                <a class="blue target_no" href="{:U('/Home/User/mobile_validate',array('type'=>'mobile','step'=>1))}">
-                    <if condition="$user['mobile_validate'] eq 0">未绑定<else/>更换绑定</if>
-                </a>
-              </li>
-              <li>
-                <span class="gray"><i class="icon_email"></i>邮箱</span>
-                <a class="red target_no" href="{:U('/Home/User/mobile_validate',array('type'=>'email','step'=>1))}">
-                    <if condition="$user['email_validated'] eq 0">未绑定<else/>更换绑定</if>
-                </a>
-              </li>
-            </ul>
-          </div>
         </li>
-      </ul>
+        
+        <li class="in_03">
+            <div id="loadinguserinfo" class="slide_box J_slide_box">
+                <div class="account_security">
+                    <span class="title">账户安全：</span>
+                    <div class="progress_bar">
+                        <div style="width:20%" class="progress"></div>
+                    </div>
+                <span class="security_tips">低</span>
+                <!--  <a class="security_up blue target_no" href="https://i.tp-shop.cn/safetySettings/view">强化</a>-->
+                </div>
+            
+                <ul class="genre clearfix">
+                    <li>
+                        <span class="gray"><i class="icon_phone"></i>手机</span>
+                        <a class="blue target_no" href="{:U('/Home/User/mobile_validate',array('type'=>'mobile','step'=>1))}">
+                            <if condition="$user['mobile_validate'] eq 0">未绑定<else/>更换绑定</if>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <span class="gray"><i class="icon_email"></i>邮箱</span>
+                        <a class="red target_no" href="{:U('/Home/User/mobile_validate',array('type'=>'email','step'=>1))}">
+                            <if condition="$user['email_validated'] eq 0">未绑定<else/>更换绑定</if>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
     </div>
     <div class="grid_02">
       <div class="middle_infor">

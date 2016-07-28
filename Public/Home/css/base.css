@@ -107,14 +107,7 @@
 .nav-tabs {
     border-bottom: 2px solid #C40000;
 }
-li.active{
-    width:200px;
-    line-height:41px;
-    text-align:center;
-    background:#C40000;
-    
-    color:white;
-}
+
 #catenav{
 	width:200px;
     height:410px;

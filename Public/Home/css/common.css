@@ -1790,7 +1790,7 @@ body {
     margin: 3px 0;
     text-align: center;
     width: 100px;
-	background: url("../images/bg_usertitle.png") left top no-repeat;
+	background: url("../image/bg_usertitle.png") left top no-repeat;
 }
 .informations .usertitle:hover {
     background-position: left bottom;

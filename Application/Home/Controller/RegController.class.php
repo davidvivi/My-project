@@ -49,6 +49,7 @@ class RegController extends Controller
         $data['username'] = I('post.username');
         $data['password'] = $hash;
         $data['tel']   = I('post.tel');
+        $data['status'] = 1;
         $Verify = new \Think\Verify();
         $verifyCode = $Verify->check(I('post.verify'));
         
@@ -70,7 +71,7 @@ class RegController extends Controller
 
             $user_Add = array(
                 'uid'=>$arr,
-                'name'=>$data['username']
+                'name'=>$data['username'],
             );
 
             $addendum->add($user_Add);

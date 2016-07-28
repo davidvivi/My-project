@@ -77,7 +77,7 @@ button{font-family:Tahoma, Arial, "Simsun", sans-serif;cursor:pointer}
 /*區塊基本設置*/
 .move-down,#global-header,#global-nav,#ft-service-infr,#globsal-footer{top:40px;position:relative}
 #ft-service-infr {top: 30px;}
-.wrapper{width:1220px;margin:0 auto}
+.wrapper{width:1423px;margin:0 auto}
 .dropdown > ul{position:absolute;z-index:99;display:none}
 
 /*common*/
@@ -200,8 +200,8 @@ button{font-family:Tahoma, Arial, "Simsun", sans-serif;cursor:pointer}
 .mobile-content:after,.mobile-content:before{left:50%}
 .mobile-content li{margin:0;padding:0}
 /* 頂層bar */
-#global-topbar{top:0;/*left:0;right:0;*/width:100%;padding-top:6px;color:#6c6c6c;line-height:1.5em;background:#f9f9f9;border-bottom:#f4f4f4 1px solid;position:fixed;z-index:99;font-family:Tahoma, Arial, "Simsun", sans-serif}
-#global-topbar .topbar-wrapper{max-width:1220px;margin:0 auto}
+#global-topbar{top:0;/*left:0;right:0;*/width:100%;padding-top:4px;color:#6c6c6c;line-height:1.5em;background:#f9f9f9;border-bottom:#f4f4f4 1px solid;position:fixed;z-index:99;font-family:Tahoma, Arial, "Simsun", sans-serif}
+#global-topbar .topbar-wrapper{max-width:1190px;margin:0 auto}
 #global-topbar li{position:relative}
 #global-topbar .dropdown{cursor:pointer}
 #global-topbar .dropdown:after{background-image:url("../images/feiniu-index-icon-www.png");background-repeat:no-repeat;
@@ -227,7 +227,8 @@ button{font-family:Tahoma, Arial, "Simsun", sans-serif;cursor:pointer}
 #global-topbar .topbar-right > .hd-sns{padding-bottom:0}
 #global-topbar .topbar-right > li > .quantity{color:#f22e00;font-weight:700}
 
-#global-header{padding-bottom:20px;font-family:Tahoma, Arial, "Simsun", sans-serif}
+#global-header{padding-bottom:82px;font-family:Tahoma, Arial, "Simsun", sans-serif;
+background:#c40000;}
 #hd-banner{margin:0 auto 20px;}
 #hd-banner img {vertical-align: top;}
 /*topbar-left davy.gao*/
