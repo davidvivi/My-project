@@ -13,9 +13,6 @@ class ImgturnController extends CommonController {
         $Page = new \Think\Page($count,2);
         $show = $Page->show();
         $img = $imgturn->field('id,state,imgurl,category_id,imgname')->limit($Page->firstRow.','.$Page->listRows)->select();
-        //dump($img);
-        //exit;
-
         $this->assign('count', $count);
         $this->assign('page', $show);            
         $this->assign('data',$img);
@@ -60,4 +57,33 @@ class ImgturnController extends CommonController {
         }
     }
     
+    public function add(){
+        
+        $this->display('imgturn/picture-add');
+        
+    }
+
+    public function imgAdd()
+    { 
+        $imgturn = M('imgturn');
+                
+        $category = I('category_id');
+        $imgname = I('imgname');
+        $state = I('state');
+        $imgurl = I('imgurl');
+              
+        $data['category_id'] = $category;
+        $data['imgname'] = $imgname;
+        $data['state'] = $state;
+        $data['imgurl'] = $imgurl;
+        
+        $du = $imgturn->add($data);
+                   
+        if($du){
+           $this->ajaxReturn('1');
+        }else{ 
+            $this->ajaxReturn('0');
+        }
+    }  
+
 }
