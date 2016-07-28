@@ -52,7 +52,7 @@
                 </a>
             </span>
             <h2>
-            <span class="num" id="spanNickname">{$username}</span>
+            <span class="num" id="spanNickname">{$_SESSION['user']['name']}</span>
             <div> <a class="usertitle target_no" ><if condition="$grade eq 1">英勇黄铜<elseif condition="$grade eq 2"/>不屈白银<elseif condition="$grade eq 3" />璀璨钻石<else />普通会员</if>
             </a> </div>
             <p id="greeting" class="greeting">您好，欢迎来到QAQ商城</p>
