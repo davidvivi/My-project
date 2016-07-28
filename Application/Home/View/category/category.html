@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-language" content="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="Cache-control" content="public" max-age="no-cache">
+<link rel="shortcut icon" href="http://static02.fn-mart.com/img/feiniu_favicon.ico">
+<link rel="apple-touch-icon" sizes="114x114" href="http://static02.fn-mart.com/images/touch-icon-iphone-136.png">
+<link rel="alternate" media="only screen and (max-width:640px)" href="http://m.tp-shop.cn/category/C18973">
+<meta name="applicable-device" content="pc">
+<meta name="mobile-agent" content="format=html5;url=http://m.tp-shop.cn/category/C18973">
+<title>QAQ商城-商品分类</title>
+<meta http-equiv="keywords" content="tpshop｜thinkphp shop ｜TPshop 免费开源系统｜ thinkphp 商城 国内最强大的thinkphp shop b2cb2b开源商城">
+<meta name="description" content="tpshop｜thinkphp shop ｜TPshop 免费开源系统｜ thinkphp 商城 国内最强大的thinkphp shop b2cb2b开源商城">
+<!--[if lte IE 9]>
+		<script src="http://static02.fn-mart.com/js/html5.js"></script>
+		<script src="http://static02.fn-mart.com/js/IE9.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://static02.fn-mart.com/css/ie.css"/>
+		<![endif]-->
+        <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css">
+        <link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+        <script src="__PUBLIC__/Home/js/jquery-1.10.2.min.js"></script>
+        <script src="__PUBLIC__/home/js/bootstrap.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/Home/category/category.css">
+	<style type="text/css">
+		.num{bottom: 0 !important;}
+	</style>
+<link style="" id="layui_layer_skinlayercss" href="__PUBLIC__/Home/category/layer.css" rel="stylesheet"><style class="firebugResetStyles" type="text/css" charset="utf-8">/* See license.txt for terms of usage */
+
+
+/** reset styling **/
+
+.firebugResetStyles {
+
+    z-index: 2147483646 !important;
+
+    top: 0 !important;
+
+    left: 0 !important;
+
+    display: block !important;
+
+    border: 0 none !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    outline: 0 !important;
+
+    min-width: 0 !important;
+
+    max-width: none !important;
+
+    min-height: 0 !important;
+
+    max-height: none !important;
+
+    position: fixed !important;
+
+    transform: rotate(0deg) !important;
+
+    transform-origin: 50% 50% !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    background: transparent none !important;
+
+    pointer-events: none !important;
+
+    white-space: normal !important;
+
+}
+
+style.firebugResetStyles {
+
+    display: none !important;
+
+}
+
+
+
+.firebugBlockBackgroundColor {
+
+    background-color: transparent !important;
+
+}
+
+
+
+.firebugResetStyles:before, .firebugResetStyles:after {
+
+    content: "" !important;
+
+}
+
+/**actual styling to be modified by firebug theme**/
+
+.firebugCanvas {
+
+    display: none !important;
+
+}
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.firebugLayoutBox {
+
+    width: auto !important;
+
+    position: static !important;
+
+}
+.firebugLayoutBoxOffset {
+
+    opacity: 0.8 !important;
+
+    position: fixed !important;
+
+}
+.firebugLayoutLine {
+    opacity: 0.4 !important;
+    background-color: #000000 !important;
+}
+.firebugLayoutLineLeft, .firebugLayoutLineRight {
+    width: 1px !important;
+    height: 100% !important;
+}
+.firebugLayoutLineTop, .firebugLayoutLineBottom {
+    width: 100% !important;
+    height: 1px !important;
+}
+.firebugLayoutLineTop {
+    margin-top: -1px !important;
+    border-top: 1px solid #999999 !important;
+}
+.firebugLayoutLineRight {
+    border-right: 1px solid #999999 !important;
+}
+.firebugLayoutLineBottom {
+    border-bottom: 1px solid #999999 !important;
+}
+.firebugLayoutLineLeft {
+    margin-left: -1px !important;
+    border-left: 1px solid #999999 !important;
+}
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.firebugLayoutBoxParent {
+    border-top: 0 none !important;
+    border-right: 1px dashed #E00 !important;
+    border-bottom: 1px dashed #E00 !important;
+    border-left: 0 none !important;
+    position: fixed !important;
+    width: auto !important;
+}
+.firebugRuler{
+    position: absolute !important;
+}
+.firebugRulerH {
+    top: -15px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 14px !important;
+    border-top: 1px solid #BBBBBB !important;
+    border-right: 1px dashed #BBBBBB !important;
+    border-bottom: 1px solid #000000 !important;
+}
+.firebugRulerV {
+    top: 0 !important;
+    left: -15px !important;
+    width: 14px !important;
+    height: 100% !important;
+    border-left: 1px solid #BBBBBB !important;
+    border-right: 1px solid #000000 !important;
+    border-bottom: 1px dashed #BBBBBB !important;
+}
+.overflowRulerX > .firebugRulerV {
+    left: 0 !important;
+}
+.overflowRulerY > .firebugRulerH {
+    top: 0 !important;
+}
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.fbProxyElement {
+    position: fixed !important;
+    pointer-events: auto !important;
+}
+</style>
+</head>
+<body>
+<script type="text/javascript" src="__PUBLIC__/Home/category/jquery-1.js"></script>
+<script src="__PUBLIC__/Home/category/global.js"></script>
+<script src="__PUBLIC__/Home/category/layer.js"></script> 
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/category/common.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/category/main.css">
+<style>.fn-clear .words{ line-height:1.5}.m-top-nav a{color:#000;}</style>
+<div class="rightNav">
+            
+        </div>
+        <div>
+            <div class="topbar">
+                <div class="topbar_content">
+                    <div style="font-size:14px;">
+                        <span><a href="">商城首页</a></span>
+                        <if condition="$name">
+                            <span>Hi~ <a href="">{$name}</a>,欢迎来到QAQ数码商城!</span>
+                            <span><a href="__URL__/logout">退出</a></span>
+                        <else />
+                            <span>Hi~欢迎来到QAQ数码商城，请<a href="__URL__/login">登录</a></span>
+                            <span><a href="__URL__/reg">免费注册</a></span>
+                        </if>
+                    </div>
+                    
+                    <ul>
+                    <li>
+                        <!--判断是否登录，登录后跳转个人中心，否则跳转登录页-->                  
+                        <li><a href="{:U('user/index')}">个人中心</a></li>
+                        <li><a href="{:U('cart/index')}">购物车</a></li>
+                        <li>联系客服</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="top_search" style="margin-left:-15px;">
+                    <div class="logo">
+                        <img src="__PUBLIC__/img/logo.jpg" alt="QAQ商城logo" style="width:180px;height:65px;"/>
+                        <span style="font-size:15px;">QAQ在线网上商城</span>
+                    </div>
+                    <div>
+                        <form action="" method="post">
+                            <div class="search">
+                                <input type="text" name="keyword" style="height:30px;width:440px;top:-4px;"/>
+                                <input type="submit" value="搜索" hidefocus="true" style="height:34px;width:90px;top:-1px;" />
+                            </div>                  
+                        </form>
+                        <ul>
+                            <li><a href="">##########</a></li>
+                            <li><a href="">####</a></li>
+                            <li><a href="">####</a></li>
+                            <li><a href="">###</a></li>
+                            <li><a href="">###</a></li>
+                            <li><a href="">###</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="__PUBLIC__/img/ChMkJlYcpziIdMcxAAB2sdYBFdcAADnzQKpVyIAAHbJ372.jpg" style="width:180px;height:60px;margin-left:55px;"/>
+                    </div>
+                </div>
+
+<div class="m-top-nav editable" moduleid="1539926" style="position:relative;min-height:35px;margin-left:-15px;">
+    <div class="main-container new-year">
+        <div class="main-title-wrap">
+        	<a href="javascript:" target="_blank" style="width:210px" class="main-title">
+          		<span class="ico"><i class="il il-lt"></i><i class="il il-lc"></i><i class="il il-lb"></i>
+          		<i class="il il-rt"></i><i class="il il-rc"></i><i class="il il-rb"></i></span>
+          		商城商品分类
+          	</a>
+            <div class="main-slider" style="display:none;position: absolute;top: 40px;">
+                  <div fnp="nav-list" class="nav-list eidtModule" moduleid="nav">
+                    <ul class="nav-list-warpper">
+                        <foreach name="firstcate" item="val" key="k1">
+                        <li data-role="nav-item" class="nav-item" index="{$k1}">
+        	                <span class="nav-menu-item">
+                                <i class="iconfont icon"></i>
+            	                <span class="title">
+                                    <a href="http://localhost/index.php/Home/Channel/index/id/1.html" target="_blank">{$val.name}</a>
+                                </span>
+        	                </span>
+                        </li> 
+                        </foreach>
+                    </ul>
+                    <foreach name="secondcate" item="vo" key="k2">
+                        <div data-role="menu-sub" class="menu-sub" index="{$k2}" style="height:440px">
+            		        <div class="sub-columns">
+                                <foreach name="vo" item="voo">
+                		        	<div class="fn-clear column-item">
+                                        <div class="tlt">
+                		                    <span class="name">
+                                                <a href="http://localhost/index.php/Home/Goods/goodsList/id/12.html" target="_blank">{$voo.name}</a>
+                                            </span>
+                                        </div>
+                                        <div class="words">
+                                            <foreach name="voo.son" item="vooo">
+                		                  	   <a href="http://localhost/index.php/Home/Goods/goodsList/id/100.html" target="_blank">{$vooo.name}</a>
+                                            </foreach>                  
+                                        </div>
+                                    </div>
+                                </foreach>   
+                            </div>    
+                        </div>
+                    </foreach>   
+                </div>
+            </div>
+        </div>
+
+        <ul class="main-nav">
+            <li class="nav-item">
+                <a class="menu-item menu-item-active" target="_blank" href="http://localhost/" style="overflow: visible;">首页 </a>
+            </li>
+            <li class="nav-item">
+                <a class="menu-item " href="http://localhost/index.php?m=Home&amp;c=Goods&amp;a=goodsList&amp;id=123" style="overflow: visible;">手机城 </a>
+            </li>
+            <li class="nav-item">
+                <a class="menu-item " href="http://localhost/index.php?m=Home&amp;c=Goods&amp;a=goodsList&amp;id=51" style="overflow: visible;">珠宝 </a>
+            </li>
+            <li class="nav-item">
+                <a class="menu-item " href="http://localhost/index.php?m=Home&amp;c=Goods&amp;a=goodsList&amp;id=20" style="overflow: visible;">家电城 </a>
+            </li>
+            <li class="nav-item">
+                <a class="menu-item " href="http://localhost/index.php?m=Home&amp;c=Index&amp;a=promoteList" style="overflow: visible;">促销商品 </a>
+            </li>
+            <li class="nav-item">
+                <a class="menu-item " href="http://localhost/index.php?m=Home&amp;c=Goods&amp;a=goodsList&amp;id=45" style="overflow: visible;">化妆品 </a>
+            </li>
+            <li class="nav-item">
+                <a class="menu-item " href="http://localhost/index.php?m=Home&amp;c=Channel&amp;a=index&amp;id=1" style="overflow: visible;">数码城 </a>
+            </li>
+            <li class="nav-item">
+                <a class="menu-item " target="_blank" href="http://localhost/index.php?m=Home&amp;c=Activity&amp;a=group_list" style="overflow: visible;">团购 </a>
+            </li>
+            <li class="nav-item">
+                <a class="menu-item " target="_blank" href="http://www.tp-shop.cn/" style="overflow: visible;">TPshop商城<i class="e-hot"></i></a>
+            </li>
+        </ul>  
+    </div>
+</div>
+<div>
+  <div class="J_side_nav_trigger"></div>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.main-title').hover(function(){
+	 	$('.main-slider').show();
+	}, function(){
+	 	$('.main-slider').hide();
+	});
+	
+	$('.nav-list-warpper').hover(function(){
+	 	$('.main-slider').show();
+	}, function(){
+	 	$('.main-slider').hide();
+	});
+	     
+	get_cart_num();
+	var uname= getCookie('uname');
+	if(uname == ''){
+		$('.islogin').remove();
+		$('.nologin').show();
+	}else{
+		$('.nologin').remove();
+		$('.islogin').show();
+		$('.userinfo').html(decodeURI(uname));
+	}
+});
+
+
+function get_cart_num(){
+  var cart_cn = getCookie('cn');
+  if(cart_cn == ''){
+	$.ajax({
+		type : "GET",
+		url:"/index.php?m=Home&c=Cart&a=header_cart_list",//+tab,
+		success: function(data){								 
+			cart_cn = getCookie('cn');						
+		}
+	});	
+  }
+  $('#cart_quantity').html(cart_cn);
+  $('#miniCartRightQty').html(cart_cn);
+}
+</script> 
+<script type="text/javascript" src="__PUBLIC__/Home/category/jquery.js"></script> 
+<script src="__PUBLIC__/Home/category/pc_common.js"></script> 
+<div id="global-nav" class="clearfix">
+    <div class="m-nav-content">
+        <div class="m-nav-category"></div>
+        <div class="m-nav-search u-g-search"></div>
+        <div class="m-nav-cart"></div>
+    </div>
+</div>
+<!-- warpper-->
+<div id="warpper" class="clearfix">
+    <div id="path-new" class="clearfix colaaa text13">
+        <div class="item fl">
+            <div class="fl">
+                <span class="u-nav-title">
+                    <a href="javascript:void();">手机 、 数码 、 通信</a> 
+                </span>
+            </div>
+            <div class="fl" id="m-selected-cery">
+                <div class="u-left-icon">   
+                    <i class="z-arrow"></i>
+                </div>
+        
+        <!--如果当前分类是三级分类 则二级也要显示-->
+                <!--当前分类-->
+                <div class="u-nav-attr"> 
+                    <a href="javascript:;">手机<i></i></a>
+                    <span class="z-blank-bar"></span>
+                    <ul class="u-attr-list">
+                        <li>
+                            <a href="http://localhost/index.php/Home/Goods/goodsList/id/12.html">手机配件</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/index.php/Home/Goods/goodsList/id/13.html">摄影摄像</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/index.php/Home/Goods/goodsList/id/14.html">运营商</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/index.php/Home/Goods/goodsList/id/15.html">数码配件</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/index.php/Home/Goods/goodsList/id/16.html">娱乐影视</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/index.php/Home/Goods/goodsList/id/17.html">电子教育</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/index.php/Home/Goods/goodsList/id/18.html">手机通讯</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/index.php/Home/Goods/goodsList/id/123.html">手机</a>
+                        </li>          
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="u-left-icon">
+            <i class="z-arrow"></i>
+        </div>
+        <a title="内存:32G" href="http://localhost/index.php/Home/Goods/goodsList/id/123" class="u-av-label">内存:32G<i></i></a> 
+    </div>
+    <div class="cata_cart_left">
+        <div class="m-cart">
+            <p class="title">   
+                <a href="javascript:;" class="text13 col000">{$firstname}</a> 
+            </p>
+            <!--search/?q=-->
+            <div id="cata_list"> 
+            <!-- 分类树 -->
+                <ul class="menu_3">
+                    <li class="menu_two">
+                        <span name="submenuicon" class="menuminus"></span>
+                        <a href="http://localhost/index.php/Home/Goods/goodsList/id/12.html" class="menu3_title">手机配件</a>
+                        <div class="second_div">
+                            <span class="second_span"></span>
+                            <ul style="display: block;">
+                                <li>    
+                                    <a href="http://localhost/index.php/Home/Goods/goodsList/id/100.html">电池 电源 充电器</a>
+                                </li>
+                                <li>
+                                    <a href="http://localhost/index.php/Home/Goods/goodsList/id/102.html">贴膜,保护套</a>
+                                </li>        
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu_two">
+                        <span name="submenuicon" class="menuplus"></span>
+                        <a href="http://localhost/index.php/Home/Goods/goodsList/id/13.html" class="menu3_title">摄影摄像</a>
+                        <div class="second_div">
+                            <span class="second_span"></span>
+                            <ul style="display: none;">
+                                <li>
+                                    <a href="http://localhost/index.php/Home/Goods/goodsList/id/103.html">数码相机</a>
+                                </li>
+                                <li>
+                                    <a href="http://localhost/index.php/Home/Goods/goodsList/id/104.html">单反相机</a>
+                                </li>
+                                <li>
+                                    <a href="http://localhost/index.php/Home/Goods/goodsList/id/105.html">摄像机</a>
+                                </li>
+                                <li>
+                                    <a href="http://localhost/index.php/Home/Goods/goodsList/id/106.html">镜头</a>
+                                </li>
+                                <li>
+                                    <a href="http://localhost/index.php/Home/Goods/goodsList/id/107.html">数码相框</a>
+                                </li>        
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            <!-- 分类树 -->
+            </div>
+        </div>
+        <!-- 推荐热卖-->
+        <div class="m-rehotbox mt10" style="display:block;">
+            <h2 class="rehottit">推荐热卖</h2>
+            <div class="rehotcon" id="rehotcon">
+             
+            <div class="hotitem">
+                <div class="itemin">
+                     <a class="proname" href="http://localhost/index.php/Home/Goods/goodsInfo/id/1.html">
+                         <img src="__PUBLIC__/Home/category/goods_thumb_1_200_200.jpg">
+                          <span>Apple iPhone 6s Plus 16G 玫瑰金 移动联通电信4G手机</span>
+                     </a>
+                  <p class="itemprice">
+                    <span class="new" rehot="90101748934_201480" style="display: block; float: left;"><i class="fn-rmb">¥</i>6100.00</span>
+                    <span class="old"><i class="fn-rmb">¥</i>6000.00</span>
+                  </p>
+                </div>
+              </div><div class="hotitem">
+                <div class="itemin">
+                     <a class="proname" href="http://localhost/index.php/Home/Goods/goodsInfo/id/39.html">
+                         <img src="__PUBLIC__/Home/category/goods_thumb_39_200_200.jpg">
+                          <span>华为（HUAWEI） M2 10.0 平板电脑 WiFi 月光银</span>
+                     </a>
+                  <p class="itemprice">
+                    <span class="new" rehot="90101748934_201480" style="display: block; float: left;"><i class="fn-rmb">¥</i>2388.00</span>
+                    <span class="old"><i class="fn-rmb">¥</i>2288.00</span>
+                  </p>
+                </div>
+      </div><div class="hotitem">
+        <div class="itemin">
+             <a class="proname" href="http://localhost/index.php/Home/Goods/goodsInfo/id/40.html">
+                 <img src="__PUBLIC__/Home/category/goods_thumb_40_200_200.jpg">
+                  <span>荣耀X2 标准版 双卡双待双通 移动/联通双4G 16GB ROM（月光银）</span>
+             </a>
+          <p class="itemprice">
+            <span class="new" rehot="90101748934_201480" style="display: block; float: left;"><i class="fn-rmb">¥</i>2099.00</span>
+            <span class="old"><i class="fn-rmb">¥</i>1999.00</span>
+          </p>
+        </div>
+      </div><div class="hotitem">
+        <div class="itemin">
+             <a class="proname" href="http://localhost/index.php/Home/Goods/goodsInfo/id/41.html">
+                 <img src="__PUBLIC__/Home/category/goods_thumb_41_200_200.jpg">
+                  <span>华为（HUAWEI） M2 8英寸平板电脑（1920×1200 IPS屏 海思麒麟930 16GB WiFi）香槟金</span>
+             </a>
+          <p class="itemprice">
+            <span class="new" rehot="90101748934_201480" style="display: block; float: left;"><i class="fn-rmb">¥</i>1688.00</span>
+            <span class="old"><i class="fn-rmb">¥</i>1588.00</span>
+          </p>
+        </div>
+      </div><div class="hotitem">
+        <div class="itemin">
+             <a class="proname" href="http://localhost/index.php/Home/Goods/goodsInfo/id/42.html">
+                 <img src="__PUBLIC__/Home/category/goods_thumb_42_200_200.png">
+                  <span>Teclast/台电 X80 Plus WIFI 32GB Win10平板电脑双系统8英寸</span>
+             </a>
+          <p class="itemprice">
+            <span class="new" rehot="90101748934_201480" style="display: block; float: left;"><i class="fn-rmb">¥</i>599.00</span>
+            <span class="old"><i class="fn-rmb">¥</i>499.00</span>
+          </p>
+        </div>
+      </div> 
+       
+    </div>
+  </div>
+</div>
+<div class="cata_shop_right" id="tracker_category"> 
+  
+  <!-- 商品列表 -->
+  <div class="searchbox">
+    <div class="list clearfix">
+      <ul class="left text12" id="order_ul">
+        <!--        <li><a class="col7ac " href1="&sort=recommand&asc=0" style="cursor:pointer;">综合</a></li>-->
+        <li> <a class="col7ac main" href="http://localhost/index.php/Home/Goods/goodsList/id/123/spec/6_28" style="cursor:pointer;"> 默认 </a> </li>
+        <li> <a class="col7ac " href="http://localhost/index.php/Home/Goods/goodsList/id/123/spec/6_28/sort/sales_sum" style="cursor:pointer;"> 销量 </a> </li>
+                
+                	<li><a class="col7ac  " href="http://localhost/index.php/Home/Goods/goodsList/id/123/spec/6_28/sort/shop_price/sort_asc/desc" style="cursor:pointer;">价格<span class="icon_s "></span></a></li>    
+                
+        <li><a class="col7ac " href="http://localhost/index.php/Home/Goods/goodsList/id/123/spec/6_28/sort/comment_count" style="cursor:pointer;">评论</a></li>
+        <li><a class="col7ac " href="http://localhost/index.php/Home/Goods/goodsList/id/123/spec/6_28/sort/is_new" style="cursor:pointer;">新品</a></li>
+      </ul>
+      <!-- Page -->
+      <div class="right text12" id="pagenavi">
+        <div class="all-number">
+          <span>共5个商品</span>
+        </div>
+        <p class="pageArea" data-countpage="1"> 
+          <!--<a class="bg_img1"></a>-->
+          <span class="colf22e01 fontT">1</span>
+          /
+          <span class="page_count fontT">1</span>
+          <!--<a href="" class="bg_img2"></a> </p>-->
+      </p></div>
+      <!-- Page End--> 
+    </div>
+    <!-- list --> 
+  </div>
+  <!-- searchbox -->
+  
+  <ul id="cata_choose_product" class="cart_containt clearfix listContainer">
+    <li>
+        <div class="nosinglemore"></div>
+        <div class="listbox clearfix"> 
+          <!-- 圖片 -->
+          <div class="listPic"> 
+          		<a rel="nofollow" target="_blank" href="http://localhost/index.php/Home/Goods/goodsInfo/id/45.html" style="width:200px;height:200px;">
+                	<img style="display: block;" src="__PUBLIC__/Home/category/imgs/goods_thumb_45_200_200.jpg" class="fn_img_lazy" height="200" width="200"> 
+                </a>             
+          </div>
+          <div class="list-scroll J_scrollBox clearfix"> <a href="javascript:void(0);" class="list-scroll-left cbtn"></a>
+            <div class="list-scroll-warp J_hideBox">
+              <dl class="J_mBox clearfix">            
+              <dd>
+	                    <a href="javascript:void(0);">
+                        	<img data-img="/Public/upload/goods/2016/01-13/5695e931ca316.jpg" src="__PUBLIC__/Home/category/imgs/5695e931ca316.jpg" style="display: block;" height="30" width="30">
+                        </a> 
+                    </dd><dd>
+	                    <a href="javascript:void(0);">
+                        	<img data-img="/Public/upload/goods/2016/01-13/5695e931b2751.jpg" src="__PUBLIC__/Home/category/imgs/5695e931b2751.jpg" style="display: block;" height="30" width="30">
+                        </a> 
+                    </dd><dd>
+	                    <a href="javascript:void(0);">
+                        	<img data-img="/Public/upload/goods/2016/01-13/5695e9319ae9b.jpg" src="__PUBLIC__/Home/category/imgs/5695e9319ae9b.jpg" style="display: block;" height="30" width="30">
+                        </a> 
+                    </dd><dd>
+	                    <a href="javascript:void(0);">
+                        	<img data-img="/Public/upload/goods/2016/01-13/5695e9317eceb.jpg" src="__PUBLIC__/Home/category/imgs/5695e9317eceb.jpg" style="display: block;" height="30" width="30">
+                        </a> 
+                    </dd>              </dl>
+            </div>
+            <a href="javascript:void(0);" class="list-scroll-right cbtn"></a> </div>
+          
+          <!-- 价格 -->
+          <div class="discountPrice">
+            <div class="price-cash">
+              <span class="text13 colf22e01">¥</span>
+              <span class="text18 colf22e01 fontT" id="itemPrice_201510CM130003397">1999.00</span>
+              <del></del> </div>
+          </div>
+          <!-- 价格 end--> 
+          <!-- 品名 -->
+          <div class="listDescript"> <a target="_blank" href="http://www.tp-shop.cn/item/201510CM130003397" class="text13">华为 HUAWEI C199S 麦芒3S 电信4G智能手机FDD-LTE /TD-LTE/CDMA2000/GSM（麦芒金）</a> </div>
+          <!-- 價格及字樣 -->
+          <div class="itemPrice">
+            <div class="cart_wrapper"> <a style="cursor:pointer;" class="cartlimit" href="javascript:void(0);" onclick="javascript:AjaxAddCart(45,1,0);"></a></div>
+          </div>
+        </div>
+      </li><li>
+        <div class="nosinglemore"></div>
+        <div class="listbox clearfix"> 
+          <!-- 圖片 -->
+          <div class="listPic"> 
+          		<a rel="nofollow" target="_blank" href="http://localhost/index.php/Home/Goods/goodsInfo/id/51.html" style="width:200px;height:200px;">
+                	<img style="display: block;" src="__PUBLIC__/Home/category/imgs/56960931469a8.jpg" class="fn_img_lazy" height="200" width="200"> 
+                </a>             
+          </div>
+          
+          
+          <div class="list-scroll J_scrollBox clearfix"> <a href="javascript:void(0);" class="list-scroll-left cbtn"></a>
+            <div class="list-scroll-warp J_hideBox">
+              <dl class="J_mBox clearfix">            
+              <dd>
+	                    <a href="javascript:void(0);">
+                        	<img data-img="/Public/upload/goods/2016/04-22/5719843a87434.jpg" src="__PUBLIC__/Home/category/imgs/5719843a87434.jpg" style="display: block;" height="30" width="30">
+                        </a> 
+                    </dd><dd>
+	                    <a href="javascript:void(0);">
+                        	<img data-img="/Public/upload/goods/2016/04-22/57198456a2514.jpg" src="__PUBLIC__/Home/category/imgs/57198456a2514.jpg" style="display: block;" height="30" width="30">
+                        </a> 
+                    </dd><dd>
+	                    <a href="javascript:void(0);">
+                        	<img data-img="/Public/upload/goods/2016/04-22/57198456932b4.jpg" src="__PUBLIC__/Home/category/imgs/57198456932b4.jpg" style="display: block;" height="30" width="30">
+                        </a> 
+                    </dd><dd>
+	                    <a href="javascript:void(0);">
+                        	<img data-img="/Public/upload/goods/2016/04-22/57198456817bf.jpg" src="__PUBLIC__/Home/category/imgs/57198456817bf.jpg" style="display: block;" height="30" width="30">
+                        </a> 
+                    </dd><dd>
+	                    <a href="javascript:void(0);">
+                        	<img data-img="/Public/upload/goods/2016/04-22/57198455d2e1b.jpg" src="__PUBLIC__/Home/category/imgs/57198455d2e1b.jpg" style="display: block;" height="30" width="30">
+                        </a> 
+                    </dd>              </dl>
+            </div>
+            <a href="javascript:void(0);" class="list-scroll-right cbtn"></a> </div>
+          
+          <!-- 价格 -->
+          <div class="discountPrice">
+            <div class="price-cash">
+              <span class="text13 colf22e01">¥</span>
+              <span class="text18 colf22e01 fontT" id="itemPrice_201510CM130003397">4858.00</span>
+              <del></del> </div>
+          </div>
+          <!-- 价格 end--> 
+          <!-- 品名 -->
+          <div class="listDescript"> <a target="_blank" href="http://www.tp-shop.cn/item/201510CM130003397" class="text13">Apple iPhone 6s 16GB 玫瑰金色 移动联通电信4G手机</a> </div>
+          <!-- 價格及字樣 -->
+          <div class="itemPrice">
+            <div class="cart_wrapper"> <a style="cursor:pointer;" class="cartlimit" href="javascript:void(0);" onclick="javascript:AjaxAddCart(140,1,0);"></a></div>
+          </div>
+        </div>
+      </li>  </ul>
+  
+  <!-- Page -->
+  <div class="fn-page-css-1 pagintion fix" style="display: block;">
+  	<div class="pagenavi text12"><div class="dataTables_paginate paging_simple_numbers"><ul class="pagination">    </ul></div></div>
+  </div>
+  <!-- 商品列表 --> 
+</div>
+</div>
+<!-- ========页面尾部========== -->
+<hr style="color:#3d3d3d;" />
+        
+        <div class="weibu" style="margin:10px 0px 10px 60px;">
+            <ul>
+                <li><i></i>行货保证</li>
+                <li><i></i>发票保障</li>
+                <li><i></i>48小时发货</li>
+                <li><i></i>顺丰包邮</li>
+                <li><i></i>无忧退换</li>
+                <li><i></i>先行赔付</li>
+            </ul>
+        </div>
+        
+        <hr style="color:#3d3d3d;width:1200px;" />
+        <div class="footer" style="margin:10px 0px 10px 70px;">
+            <ul>
+                <li><b>购物指南</b></li>
+                <li>账号注册</li>
+                <li>购物流程</li>
+                <li>付款方式</li>
+            </ul>
+            <ul>
+                <li><b>售后服务</b></li>
+                <li>先行赔付</li>
+                <li>退款退货流程</li>
+                <li>投诉举报</li>
+            </ul>
+            <ul>
+                <li><b>商城保障</b></li>
+                <li>行货保障</li>
+                <li>如实描述</li>
+                <li>物流配送</li>
+                <li>48小时发货</li>
+                <li>发票保障</li>
+            </ul>
+            <ul>
+                <li><b>商家服务</b></li>
+                <li>商家中心</li>
+                <li>商城规则</li>
+                <li>商家帮助</li>
+            </ul>
+            
+            
+        </div>
+        <div class="weiba">
+            <ul>
+                <li>友情链接：</li>
+                <foreach name="link" item="val">
+                    
+                    
+                    <li><a href="{$val.url}" style="color:#337ab7;font-size:14px" target="_blank">{$val.contents}</a></li>
+                </foreach>
+            </ul>
+        </div>
+    </body>
+    
+</html> 
+<script type="text/javascript" src="__PUBLIC__/Home/category/jquery_002.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/category/common.js"></script>
+<script type="text/javascript">
+
+//############   分类导航折叠        ############
+$('span[name="submenuicon"]').each(function(){
+	 $(this).click(function(){
+		 if($(this).hasClass('menuplus')){
+			 $(this).removeClass('menuplus').addClass('menuminus');
+			 $(this).siblings('.second_div').find('ul').show();
+		 }else{
+			 $(this).removeClass('menuminus').addClass('menuplus');
+			 $(this).siblings('.second_div').find('ul').hide();
+		 }
+	 });
+})
+ 
+//############   更多类别属性筛选       ###########
+$('.f-out-more').click(function(){
+	$('.m-tr').each(function(i,o){
+		if(i >  7){
+			var attrdisplay = $(o).css('display');
+			if(attrdisplay == 'none'){
+				$(o).css('display','block');
+			}
+			if(attrdisplay == 'block'){
+				$(o).css('display','none');
+			}	
+		}
+	});
+	if($(this).hasClass('checked')){
+		$(this).removeClass('checked tex-center').html('更多选项');
+	}else{
+
+		$(this).addClass('checked tex-center').html('收起<i class="checked"></i>');
+	}
+})
+$('.f-out-more').trigger('click').html('更多选项'); //  默认点击一下
+
+//############   更多条件选择        ###########
+$('.f-more').click(function(){
+	if($(this).hasClass('checked')){
+		$(this).parent().siblings('ul').removeClass('z-show-more');
+		$(this).removeClass('checked').html('更多<i></i>');
+	}else{
+		$(this).parent().siblings('ul').addClass('z-show-more');
+		$(this).addClass('checked').html('收起<i class="checked"></i>');
+	}	
+})
+
+var cancelBtn = null;
+//############   多选框        ###########
+$('.f-check').click(function(){
+	var _this = this;
+	var st = 0;
+	//关闭前一个多选框
+	if(cancelBtn != null){
+		$(cancelBtn).parent().siblings('ul').removeClass('z-show-more');
+		$(cancelBtn).parent().siblings('ul').find('li >a').each(function(i,o){
+			$(o).removeClass('select selected');
+			$(o).attr('href',$(o).data('href'));
+			$(o).children('i').removeClass('selected').css('display','');
+			$(o).unbind('click');
+		});		
+		$(cancelBtn).parent().siblings('.f-ext').show().children('a').removeClass('checked');
+		$(cancelBtn).parent().hide();
+		$(cancelBtn).siblings().removeClass('u-confirm01');
+	}
+	cancelBtn = $(_this).parent().siblings('div').find('.u-cancel');
+	
+	//打开多选框
+	$(_this).addClass('checked');
+	$(_this).siblings().addClass('checked');
+	$(_this).parent().siblings('.g-btns').show();
+	$(_this).parent().siblings('ul').addClass('z-show-more');
+	$(_this).parent().siblings('ul').find('li>a').each(function(i,o){
+		$(o).addClass('select');
+		$(o).children('i').css('display','inline');
+		$(o).attr('href','javascript:;');
+		$(o).bind('click',function(){			
+			if($(o).hasClass('selected')){
+				$(o).removeClass('selected');
+				$(o).children('i').removeClass('selected');
+				st--;
+			}else{
+				$(o).addClass('selected');
+				$(o).children('i').addClass('selected');
+				$(_this).parent().siblings('.g-btns').children('.u-confirm').addClass('u-confirm01');
+				st++;
+			}
+			//如果没有选中项,确定按钮点不了
+			if(st==0){
+				$(_this).parent().siblings('.g-btns').children('.u-confirm').removeClass('u-confirm01');
+			}
+		});
+	});
+	$(_this).parent().hide();
+})
+
+
+//############   取消多选        ###########
+$('.g-btns .u-cancel').each(function(){
+	$(this).click(function(){
+		$(this).parent().siblings('ul').removeClass('z-show-more');
+		$(this).parent().siblings('ul').find('li >a').each(function(i,o){
+			$(o).removeClass('select selected');
+			$(o).attr('href',$(o).data('href'));
+			$(o).children('i').removeClass('selected').css('display','');
+			$(o).unbind('click');
+		});
+		$(this).parent().siblings('.f-ext').show().children('a').removeClass('checked');
+		$(this).parent().hide();
+		$(this).siblings().removeClass('u-confirm01');
+	});
+})
+
+//############   产品图片切换        ###########
+
+$('.list-scroll-warp').each(function(){
+	var _this = this;
+		
+	$(_this).children().children().each(function(i,o){
+		$(o).mouseover(function(){
+			$(o).siblings().removeClass('cur');
+			$(o).addClass('cur');			
+			var img_src = $(o).children().children().attr('data-img');
+			$(_this).parent().siblings('.listPic').find('a').children().attr('src',img_src);
+		})
+	})
+})
+
+//############   点击多选确定按钮      ############
+// t 为类型  是品牌 还是 规格 还是 属性
+// btn 是点击的确定按钮用于找位置
+ get_parment = {"id":"123","spec":"6_28"};	
+function submitMoreFilter(t,btn)
+{
+	// 没有被勾选的时候
+	if(!$(btn).hasClass("u-confirm01"))
+		return false;
+		
+	// 获取现有的get参数		
+	var key = ''; // 请求的 参数名称
+	var val = new Array(); // 请求的参数值
+	$(btn).parent().siblings(".f-list").find("li > a.selected").each(function(){
+		   key = $(this).data('key');
+		   val.push($(this).data('val'));
+	});
+	//parment = key+'_'+val.join('_');
+    
+	// 品牌
+	if(t == 'brand')
+	{
+		get_parment.brand_id = val.join('_');
+	}
+	// 规格
+	if(t == 'spec')
+	{
+		if(get_parment.hasOwnProperty('spec'))		
+		{		
+			get_parment.spec += '@'+key+'_'+val.join('_');
+		}		
+		else	
+		{		
+			get_parment.spec = key+'_'+val.join('_');
+		}		
+	}
+	// 属性
+	if(t == 'attr')
+	{
+		if(get_parment.hasOwnProperty('attr'))		
+		{		
+			get_parment.attr += '@'+key+'_'+val.join('_');
+		}		
+		else	
+		{		
+			get_parment.attr = key+'_'+val.join('_');
+		}		
+	}
+   // 组装请求的url	
+  var url = '';
+  for ( var k in get_parment )
+  { 
+		url += "&"+k+'='+get_parment[k];
+  } 
+
+	//console.log('get_parment',get_parment);	
+	location.href ="/index.php?m=Home&c=Goods&a=goodsList"+url;
+}
+
+</script>
+
+</body></html>

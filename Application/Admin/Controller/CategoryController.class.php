@@ -22,8 +22,7 @@ class CategoryController extends CommonController {
         $this->assign('count', $count);
         $this->assign('page', $show);
         $this->assign('category',$category);
-
-       
+    
         $this->display('category/category-list');
     }
 
@@ -88,14 +87,10 @@ class CategoryController extends CommonController {
             $category = M('category');
             $data = $category->field('id,pid,name,path')->where("id='{$id}'")->find();
             $num = substr_count($data['path'],',');
-            if($num == 3){ 
-                $this->error('这已经是最后一级分类了，不能再添加子分类！');
-            }else{ 
-                $path = $data['path'].$id.',';
-                $this->assign('path',$path);
-                $this->assign('id',$id);
-                $this->display('category/category-sonadd');
-            }         
+            $path = $data['path'].$id.',';
+            $this->assign('path',$path);
+            $this->assign('id',$id);
+            $this->display('category/category-sonadd');
         }else{ 
             $this->display('category/category-firstadd');   
         }

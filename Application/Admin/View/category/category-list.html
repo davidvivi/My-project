@@ -51,7 +51,12 @@
                     <td style="text-align:left;">{$val.name}</td>
     				<td>{$val.path}</td>
     				<td class="td-manage">
-                        <a title="添加子类" href="javascript:;" onclick="cate_add('添加子类','__URL__/cateAdd?id={$val.id}')" class="add-a" add-id="{$val.id}" style="text-decoration:none"><i class="Hui-iconfont">&#xe600;</i></a>
+                        <!-- 如果是三级分类，这不要添加的选项 -->
+                        <eq name="val.num" value="3">
+                         
+                        <else/>
+                            <a title="添加子类" href="javascript:;" onclick="cate_add('添加子类','__URL__/cateAdd?id={$val.id}')" class="add-a" add-id="{$val.id}" style="text-decoration:none"><i class="Hui-iconfont">&#xe600;</i></a>
+                        </eq>
                         <a title="编辑" href="javascript:;" class="ml-5" onclick="cate_edit('编辑','__URL__/cateEdit?id={$val.id}&name={$val.name}&father={$val.father}','{$val.id}','','510')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
                         <a title="删除" href="javascript:;" class="unable-a" unable-id="{$val.id}" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
     			</tr>

@@ -59,10 +59,11 @@
                 // 根据逗号去填充字符串 |--
                 $str = str_repeat('|--',$num - 1);
                 $data[$key]['name'] = $str . $val['name'];
+                $data[$key]['num'] = $num;
             }   
             return $data;
         }
-
+        // 把pid变成父类
         public function pidSwitch($data)
         { 
             $category = M('category');
