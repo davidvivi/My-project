@@ -73,7 +73,7 @@
 							<td><input name="" type="checkbox" value=""></td>
 							<td>{$vo.id}</td>
 							<td>
-								<img width="60" class="product-thumb" src="__PUBLIC__/admin/images/{$vo.picname}">
+								<img width="60" class="product-thumb" src="__PUBLIC__/img/{$vo.picname}">
 							</td>
 							<td>{$vo.goodname}</td>
 							<td>{$vo.typeid}</td>
@@ -108,6 +108,9 @@
 					
 				</tbody>
 			</table>
+			<div id="page" style="text-align: center;">
+				{$page} 
+			</div>
 		</div>
 	</div>
 </div>
@@ -119,6 +122,32 @@
 <script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.js"></script> 
 <script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.js"></script> 
 <script type="text/javascript">
+
+(function page(){ 
+	$("#page").css("margin-top","15px").find('a').css({'margin': "0 9px",
+		"display": "inline-block",
+		"border":"1px solid #ededed",
+		"text-align": "center",
+		"width":"25px",
+		"height":"25px",
+		"text-decoration":"none"
+		}
+	).hover(function(){
+		$(this).css({"background":"#5A98DE","color":"white"})
+	},function(){
+		$(this).css({"background":"white","color":"black"})
+	});
+
+	$("#page").find('span').css({'margin': "0 9px",
+		"display": "inline-block",
+		"background": "#5A98DE",
+		"text-align": "center",
+		"width":"25px",
+		"height":"25px",
+		"color":"white"
+		}
+	);
+})();
 
 /*商品-添加*/
 function product_add(title,url,w,h){

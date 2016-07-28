@@ -22,6 +22,7 @@ class GoodsController extends CommonController
 		
 		$this->assign('count',$count);
 		$this->assign('list',$list);
+		$this->assign('page',$show);
 		$this->display('Goods/index');
 	}
 	
@@ -70,7 +71,7 @@ class GoodsController extends CommonController
 		$name = I('name');
 		$price = I('price');
 		$keyword = I('keyword');
-		$desc = I('desc');
+		$desc = I('discribe');
 		$cate = I('cate_1').','.I('cate_2').','.I('cate_3').',';
 		$store = I('store');
 		$buy = I('buy');
