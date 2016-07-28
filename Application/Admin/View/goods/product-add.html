@@ -16,6 +16,7 @@
 <link href="__PUBLIC__/admin/lib/icheck/icheck.css" rel="stylesheet" type="text/css" />
 <link href="__PUBLIC__/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
 <link href="__PUBLIC__/admin/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+
 <!--[if IE 6]>
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -24,11 +25,11 @@
 </head>
 <body>
 <div class="pd-20">
-	<form action="__URL__/add" enctype="multipart/form-data" method="post" class="form form-horizontal" id="form-article-add">
+	<form action="" enctype="multipart/form-data" method="post" class="form form-horizontal" id="form-article-add">
 		<div class="row cl">
 			<label class="form-label col-2"><span class="c-red">*</span>商品名称：</label>
-			<div class="formControls col-10">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="name">
+			<div class="formControls col-6">
+				<input type="text" class="input-text" value="" placeholder="" id="goodname" name="name">
 			</div>
 		</div>
 		
@@ -36,20 +37,29 @@
 			<label class="form-label col-2">
 				<span class="c-red">*</span>分类栏目：
 			</label>
-			<div class="formControls col-2"> 
-				<span class="select-box">
-					<select name="cate" class="select">
-						<option value="0">一级分类</option>
-						<option value="1">一级分类</option>
-						<option value="11">├二级分类</option>
-						<option value="12">├二级分类</option>
-						<option value="13">├二级分类</option>
+			<div class="formControls col-10"> 
+				
+					<select name="cate_1" id="cate" class="select" style="width:25%;">
+						<option value="-1">--请选择一级分类--</option>
+						<foreach name="catelist_1" item="vo">
+							<option value="{$vo.id}">{$vo.name}</option>
+						</foreach>
+				
 					</select>
-				</span> 
-			</div>
-			<label class="form-label col-2">排序值：</label>
-			<div class="formControls col-2">
-				<input type="text" class="input-text" value="0" placeholder="" id="" name="">
+					<select name="cate_2" id="cate2" class="select" style="width:25%;">
+						<option value="-1">--请选择二级分类--</option>
+						<foreach name="catelist_2" item="vo">
+							<option value="{$vo.id}">|-{$vo.name}</option>
+						</foreach>
+					</select>
+					<select name="cate_3" id="cate3" class="select" style="width:25%;">
+						<option value="-1">--请选择三级分类--</option>
+						<foreach name="catelist_3" item="vo">
+							<option value="{$vo.id}">|-|-{$vo.name}</option>
+						</foreach>
+					</select>
+					
+				 
 			</div>
 			
 		</div>
@@ -57,22 +67,33 @@
 		<div class="row cl">
 			<label class="form-label col-2">产品展示价格：</label>
 			<div class="formControls col-4">
-				<input type="text" name="price" id="" placeholder="" value="" class="input-text" style="width:90%">
+				<input type="text" name="price" id="price" placeholder="" value="" class="input-text" style="width:90%">
 				元</div>
 			
 		</div>
 		
 		<div class="row cl">
-			<label class="form-label col-2">添加时间：</label>
-			<div class="formControls col-4">
-				<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'datemax\')}'})" id="datemin" class="input-text Wdate" style="width:180px;">
+			<label class="form-label col-2">库存：</label>
+			<div class="formControls col-2">
+				<input type="text" name="store" id="store" placeholder="" value="" class="input-text" style="width:90%">
 			</div>
-			
+			<label class="form-label col-2">浏览量：</label>
+			<div class="formControls col-2">
+				<input type="text" name="view" id="view" placeholder="" value="0" class="input-text" style="width:90%">
+			</div>
+			<label class="form-label col-2">购买量：</label>
+			<div class="formControls col-2">
+				<input type="text" name="buy" id="buy" placeholder="" value="0" class="input-text" style="width:90%">
+			</div>
+				
 		</div>
+		
+		
+		
 		<div class="row cl">
 			<label class="form-label col-2">产品关键字：</label>
 			<div class="formControls col-10">
-				<input type="text" name="keyword" id="" placeholder="多个关键字用英文逗号隔开，限10个关键字" value="" class="input-text">
+				<input type="text" name="keyword" id="keyword" placeholder="多个关键字用英文逗号隔开，限10个关键字" value="" class="input-text">
 			</div>
 		</div>
 		<div class="row cl">
@@ -82,13 +103,10 @@
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
 			</div>
 		</div>
-		
 		<div class="row cl">
 			<label class="form-label col-2">图片上传：</label>
 			<div class="formControls col-10">
-				<input type='file'  name='photo[]'>
-				<input type='file'  name='photo[]'>
-				<input type='file'  name='photo[]'>
+				<input type='file'  name='photo[]' value="" multiple="multiple" />
 			</div>
 		</div>
 		
@@ -100,7 +118,7 @@
 			</div>
 		</div>
 		-->
-		<button class="btn btn-danger radius" style="margin-top:40px;margin-left:560px;">
+		<button class="btn btn-danger radius" style="margin-top:40px;margin-left:350px;">
 			提交
 		</button>
 		
@@ -126,14 +144,51 @@ $(function(){
 		increaseArea: '20%'
 	});
 	
-	$list = $("#fileList"),
-	$btn = $("#btn-star"),
-	state = "pending",
-	uploader;
+	//分类下拉框
+	/*
+	$('#cate').change(function(){
+		val = $(this).val();
+		
+		$.ajax({
+			type:'post',
+			url:'__URL__/add',
+			data:'val='+val,
+			success:function(data){
+				
+			}
+		})
+		
+	});
+	*/
+	
+	//ajax提交
+	$('button').click(function(){
+		name = $('#goodname').val();
+		price = $('#price').val();
+		keyword = $('#keyword').val();
+		desc = $('.textarea').val();
+		cate_1 = $('#cate').val();
+		cate_2 = $('#cate2').val();
+		cate_3 = $('#cate3').val();
+		store = $('#store').val();
+		buy = $('#buy').val();
+		view = $('#view').val();
+		
+		$.ajax({
+			type:'post',
+			url:'{:U('goodsAdd')}',
+			data:'&name='+name+'&price='+price+'&keyword='+keyword+'&discribe='+desc+'&cate_1='+cate_1+'&cate_2='+cate_2+'&cate_3='+cate_3+'&store='+store+'&buy='+buy+'&view='+view,
+			success:function(data){
+				if(data == 1){
+					alert('添加成功');
+					window.parent.location.reload();
+				}
+			}
+		})
+	})
 
-$(function(){
-	var ue = UE.getEditor('editor');
-});
+});	
+
 </script>
 </body>
 </html>
