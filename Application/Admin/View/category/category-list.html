@@ -1,0 +1,156 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,member-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<script type="text/javascript" src="lib/PIE_IE678.js"></script>
+<![endif]-->
+<link href="__PUBLIC__/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>商品分类管理</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 分类管理 <span class="c-gray en">&gt;</span> 商品分类 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div>
+    <div id="div1">
+    <div id="div2">
+	<div class="cl pd-5 bg-1 bk-gray mt-20">
+        <a class="btn btn-primary radius" onclick="cate_add('添加一级分类','__URL__/cateAdd')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加一级分类</a></span>
+        <span class="r">共有数据：<strong><span id="num" >{$count}</span></strong> 条</span> 
+    </div>
+	<div class="mt-20"  class="pd-20">
+	<table class="table table-border table-bordered table-hover table-bg table-sort">
+		<thead>
+			<tr class="text-c">
+				<th width="50">ID</th>
+				<th width="100">父类ID</th>
+                <th width="250">父类名</th>
+                <th width="">分类名</th>
+				<th width="150">分类路径</th>
+				<th width="150">操作</th>
+			</tr>
+		</thead>
+        
+		<tbody>
+            <foreach name="category" item="val">
+    			<tr class="text-c">
+    				<td>{$val.id}</td>
+    				<td>{$val.pid}</td>
+                    <td>{$val.father}</td>
+                    <td style="text-align:left;">{$val.name}</td>
+    				<td>{$val.path}</td>
+    				<td class="td-manage">
+                        <a title="添加子类" href="javascript:;" onclick="cate_add('添加子类','__URL__/cateAdd?id={$val.id}')" class="add-a" add-id="{$val.id}" style="text-decoration:none"><i class="Hui-iconfont">&#xe600;</i></a>
+                        <a title="编辑" href="javascript:;" class="ml-5" onclick="cate_edit('编辑','__URL__/cateEdit?id={$val.id}&name={$val.name}&father={$val.father}','{$val.id}','','510')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                        <a title="删除" href="javascript:;" class="unable-a" unable-id="{$val.id}" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+    			</tr>
+            </foreach>
+		</tbody>
+	</table>
+    </div>
+    <div id="page" style="text-align: center;">
+        {$page}
+    </div>
+    <span id="active" act="{$act}"></span>
+    </div>
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/admin/lib/layer/1.9.3/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/laypage/1.2/laypage.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/admin/lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.js"></script> 
+<script type="text/javascript">
+$(function(){
+/*
+	$('.table-sort').dataTable({
+		"aaSorting": [[ 1, "desc" ]],//默认第几个排序
+		"bStateSave": true,//状态保存
+		"aoColumnDefs": [
+		  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+		  {"orderable":false,"aTargets":[0,8,9]}// 制定列不参与排序
+		]
+	});
+	$('.table-sort tbody').on( 'click', 'tr', function () {
+		if ( $(this).hasClass('selected') ) {
+			$(this).removeClass('selected');
+		}
+		else {
+			table.$('tr.selected').removeClass('selected');
+			$(this).addClass('selected');
+		}
+	});
+*/        
+    // 修改分页的样式
+
+    function page(){ 
+        $("#page").find('a').css({'margin': "0 9px",
+            "display": "inline-block",
+            "background": "blue",
+            "text-align": "center",
+            "width":"25px",
+            "height":"25px",
+            "color":"white"}
+        );
+    
+        $("#page").find('span').css({'margin': "0 9px",
+            "display": "inline-block",
+            "background": "red",
+            "text-align": "center",
+            "width":"25px",
+            "height":"25px",
+            "color":"white"}
+        );
+    }
+    page();
+
+    //删除
+    
+    $('#div1').on("click",'.unable-a',function(){        
+        id = $(this).attr('unable-id');
+        $.get("__URL__/cateDelete",{id:id},
+            function(data){
+                if(data == 1){ 
+                    alert('删除成功!');
+                    $('#div1').load("__SELF__ #div2",function(){ 
+                        page();
+                    });
+                }else if(data == 2){
+                    alert('您要删除的类名下还存在子分类，不能删除！')
+                }else{ 
+                    alert('未知错误，删除失败！');
+                }
+            },'json'
+        );
+
+    });
+});
+/*分类-编辑*/
+function cate_edit(title,url,id,w,h){
+    layer_show(title,url,w,h);
+}
+/*分类-添加*/
+function cate_add(title,url){
+    var index = layer.open({
+        type: 2,
+        title: title,
+        content: url
+    });
+    layer.full(index);
+}
+</script> 
+</body>
+</html>

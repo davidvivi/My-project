@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+        <title>购物车</title>
+        <meta charset="utf-8" />	
+		<link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+		<script src="__PUBLIC__/Home/js/jquery-1.10.2.min.js"></script>
+        <script src="__PUBLIC__/home/js/bootstrap.js"></script>
+		
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			.top-bar{
+				width:1200px;
+				height:81px;
+				margin:10px auto;
+				//border:1px solid red;
+			}
+			.cartnav{
+				width: 574px;
+				height: 34px;
+				float:right;
+				margin-top:36px;
+				overflow: hidden;
+				text-indent: 100%;
+				white-space: nowrap;
+				background: url(__PUBLIC__/Home/image/cartnav.png) no-repeat;
+			}
+			.main{
+				margin-bottom:10px;
+			}
+			.null{
+				text-align:center;
+			}
+			.full{
+				display:none;
+			}
+			.reli{
+				width:235px;
+				height:115px;
+				border:1px solid red;
+				float:left;
+				margin:2px;
+			}
+			.reli img{
+				position:relative;
+				left:10px;
+				top:15px;
+			}
+			.reli a{
+				display:block;
+				float:right;
+				width:120px;
+				height:50px;
+				position:relative;
+				top:15px;
+				left:-10px;
+				border:1px solid yellow;
+			}
+			.reli button{
+				position:relative;
+				left:104px;
+				top:-7px;
+				background:white;
+				color:black;
+			}
+			hr{
+				margin-bottom:20px;
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+		<include file="public/header" />
+		<div style="width:1200px;margin:0 auto;">
+			<div class="top-bar">
+				<img src="__PUBLIC__/Home/image/newlogo.png" style="width:224px;height:40px;margin-top:35px;"/>
+				<div class="cartnav"></div>
+			</div>
+			
+			<div class="main">
+				<if condition="empty($cartlst)">
+					<div class="null">
+						<a href="__MODULE__/index/index">
+							<img src="__PUBLIC__/Home/image/null_cart.jpg" />
+						</a>
+					</div>
+				<else />
+					<div class="full"> 
+						<table>
+							<tr>
+								<th></th>
+							</tr>
+						</table>
+					</div>
+				</if>
+			</div>
+			
+			<div class="recommend">
+				<div><a href=""><font color="red" size="5">为您推荐&nbsp;&gt;&gt;</font></a></div>
+				<div style="height:240px;border:1px solid #ededed;border-top:2px solid #ededed;">
+				<!--
+					
+						<div class="reli">
+							<img src="__PUBLIC__/img/{$vo.pic}" alt="" width="80" height="80"/>
+							<a href="">{$vo.title}</a>
+							<button>加入购物车</button>
+						</div>
+					
+				-->
+					<div class="reli">
+						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
+						<a href="">1111111</a>
+						<button>加入购物车</button>
+					</div>
+					<div class="reli">
+						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
+						<a href="">1111111</a>
+						<button>加入购物车</button>
+					</div>
+					<div class="reli">
+						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
+						<a href="">1111111</a>
+						<button>加入购物车</button>
+					</div>
+					<div class="reli">
+						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
+						<a href="">1111111</a>
+						<button>加入购物车</button>
+					</div>
+					<div class="reli">
+						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
+						<a href="">1111111</a>
+						<button>加入购物车</button>
+					</div>
+					<div class="reli">
+						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
+						<a href="">1111111</a>
+						<button>加入购物车</button>
+					</div>
+					<div class="reli">
+						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
+						<a href="">1111111</a>
+						<button>加入购物车</button>
+					</div>
+					<div class="reli">
+						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
+						<a href="">1111111</a>
+						<button>加入购物车</button>
+					</div>
+					<div class="reli">
+						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
+						<a href="">1111111</a>
+						<button>加入购物车</button>
+					</div>
+					<div class="reli">
+						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
+						<a href="">1111111</a>
+						<button>加入购物车</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		
+		<hr width="100%"  />
+		
+		<include file="public/footer" />
+	</body>
+</html>
+<script>
+
+</script>
