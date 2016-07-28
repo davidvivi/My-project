@@ -12,7 +12,7 @@ class ImgturnController extends CommonController {
         $count = $imgturn->count();
         $Page = new \Think\Page($count,2);
         $show = $Page->show();
-        $img = $imgturn->field('id,state,imgurl,category_id,imgname')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $img = $imgturn->field('id,state,imgurl,category_id,imgname')->order('state')->limit($Page->firstRow.','.$Page->listRows)->select();
         $this->assign('count', $count);
         $this->assign('page', $show);
         
