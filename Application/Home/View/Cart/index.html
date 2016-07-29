@@ -73,10 +73,18 @@
 			}
 			.main table{
 				border:1px solid #dedede;
-				font-size: 12px;
-				font-weight:400;
 				color: #333;
 				border-collapse: collapse;
+			}
+			td{
+				border:1px solid #dedede;
+				text-align:center;
+			}
+			td div{
+				text-align:center;
+				margin:2px;
+				line-height:17px;
+				width:17px;height:17px;float:left;border:1px solid #dedede;
 			}
 			
 		</style>
@@ -91,29 +99,41 @@
 			</div>
 			
 			<div class="main">
-				<if condition="empty($cartlst)">
+				<eq name="count" value="0">
 					<div class="null">
 						<a href="__MODULE__/index/index">
 							<img src="__PUBLIC__/Home/image/null_cart.jpg" />
 						</a>
 					</div>
-				
+				<else />
 					<div class="full"> 
 						<table width="100%" border="0" cellpadding="0" cellspacing="0">
-							<tr style="background:#f7f7f7;display:table-row;vertical-align: inherit;border-color: inherit;height: 30px;font-style: normal;font-weight: 400;}">
-								<th>商品</th>
+							<tr>
+								<th colspan="3">商品</th>
 								<th>单价</th>
-								<th>数量</th>
+								<th >数量</th>
 								<th>小计</th>
 								<th>操作</th>
 							</tr>
+							<foreach name="list" item="vo">
 							<tr>
-								
+								<td><input type="checkbox" /></td>
+								<td width="75"><img src="__PUBLIC__/Home/image/{$vo.picname}" height="70" width="70" alt=""></td>
+								<td width="300">{$vo.goods_name}</td>
+								<td>{$vo.goods_price}元</td>
+								<td width="100" height="80">
+									<div class="act1" gid="{$vo.goods_id}" store="{$vo.store}" style="margin-left:10px;">-</div>
+										<input type="text" class="num" value="{$vo.goods_num}" readonly style="float:left;width:30px;height:17px;position:relative;left:0;top:2px;padding-left:9px;border:1px solid #dedede;">
+									<div class="act2" gid="{$vo.goods_id}" store="{$vo.store}">+</div>
+								</td>
+								<td>{$vo['goods_price'] * $vo['goods_num']}</td>
+								<td><a href="">删除</a></td>
 							</tr>
+							</foreach>
 						</table>
 					</div>
-				<else />
-				</if>
+				
+				</eq>
 			</div>
 			
 			<div class="recommend">
@@ -189,5 +209,55 @@
 	</body>
 </html>
 <script>
-
+$(function(){
+	$('.act1').click(function(){
+		act = $('.act1').text();
+		gid = $('.act1').attr('gid');
+		store = $('.act1').attr('store');
+		//alert(gid);
+		num(act,gid,store);
+	});
+	$('.act2').click(function(){
+		act = $('.act2').text();
+		gid = $('.act2').attr('gid');
+		store = $('.act2').attr('store');
+		alert(act);
+		num(act,gid,store);
+	});
+		function num(act,gid,store){
+			//首先获取本身数量
+			no = $('.num').val();
+			
+			//减少购买数量
+			if(act == '--'){
+				if(no > 1){
+					no --;
+					$.ajax({
+						type:'post',
+						url:"{:U('act')}",
+						data:'&no='+no+'&id='+gid,
+						success:function(data){
+							window.location.reload();
+						}
+					})
+				}else{
+					alert('最少购买一件');
+				}		
+				
+			}else{
+				if(no < store){
+					no ++;
+					$.ajax({
+						type:'post',
+						url:'__URL__/act',
+						data:'&no='+no+'&id='+gid,
+						success:function(data){
+							window.location.reload();
+						}
+					})
+				}
+			}
+		}
+	}
+);
 </script>

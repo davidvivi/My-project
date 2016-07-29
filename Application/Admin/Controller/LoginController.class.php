@@ -39,6 +39,7 @@
                 $this->error('登陆失败');
             }else{  
                 $_SESSION['admin']['name']=$map['name'];
+				
                 $this->success('登陆成功',U('index/index'),2);
             }
 
