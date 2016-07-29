@@ -13,12 +13,13 @@ class UserController extends CommonController
             $name = $_SESSION['user']['name'];
             
         }    
-        
-        //根据用户名查到等级，id
-        $list=D('user_detail')->field('grade,id')->where("name='$name'")->find();
+
+
+        //根据用户名查到等级
+        $list=D('user_detail')->field('grade')->where("name='$name'")->find();
         $grade = $list['grade'];
-        $id = $list['id'];
-        dump($id);
+        
+        
         
         
         $this->assign('grade',$grade);
@@ -48,8 +49,6 @@ class UserController extends CommonController
     /*
      *  用户地址表列
      */
-    public function address_list()
-    {   
-    }
+    
 
 }
