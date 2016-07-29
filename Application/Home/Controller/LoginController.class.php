@@ -12,7 +12,8 @@ class LoginController extends Controller
         
 
         $username = I('post.username');
-        $id = M('user')->field('id')->where(array('username'=>$username))->find();
+        $data= M('user')->field('id')->where(array('username'=>$username))->find();
+        $id = $data['id'];
 
 		$password=M('user')->field('password')->where(array('username'=>$username))->find();
 	    
@@ -25,7 +26,7 @@ class LoginController extends Controller
 		if(!$bool){ 
 			$this->error('登陆失败');
 		}else{  
-            $_SESSION['user']['uid']=$id;
+            $_SESSION['user']['id']=$id;
 			$_SESSION['user']['name']=$username;
 			$this->success('登陆成功',U('index/index'),2);
 		}

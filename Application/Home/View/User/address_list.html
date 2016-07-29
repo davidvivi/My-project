@@ -39,7 +39,7 @@
     		    <h2>
                     
 
-                    <a href="javascript:;" onclick="address_edit('添加地址','__URL__/add','800','500')" class="ml-5" style="text-decoration:none">
+                    <a href="javascript:;" onclick="address_edit('添加地址','__URL__/add')" class="ml-5" style="text-decoration:none">
                                 <i class="Hui-iconfont">&#xe600;</i> 添加地址
                     </a> 
                     
@@ -64,27 +64,30 @@
         </div>
         <!-- 地址列表go -->
         <div id="aa-list" class="aa-list">
-         <volist name="lists" id="list">
-          <ul class="fixed list-on">
-            <li class="td-01" data-add="username">{$list.consignee}</li>
-            <li class="td-02"> 
-            	<span class="ini" style ="line-height: 25px;"> 
-                	<span data-add="mlsa01">
-                    {$region_list[$list['province']]['name']}，{$region_list[$list['city']]['name']}，{$region_list[$list['district']]['name']}，{$list.address}
+        <foreach name="data" item="val">
+            <ul class="fixed list-on">
+                <li class="td-01" data-add="username">{$val.name}</li>
+                <li class="td-02"> 
+            	    <span class="ini" style ="line-height: 25px;"> 
+                        <span data-add="useraddr">{$val.address}</span> 
                     </span> 
-                    <span data-add="useraddr">啊实打实大师的</span> 
-                </span> 
-            </li>
-            <li class="td-03">
-              <p><span data-add="usercell">{$list.mobile}</span></p>              
-            </li>
-            <li class="td-04"><a href="{:U('Home/User/set_default',array('id'=>$list['address_id']))}"  data-act="set" >设为默认收货地址</a></li>
-            <li class="td-05">
-            	<a href="javascript:address_edit({$list['address_id']})" data-act="edit" class="target_no" target="">修改</a> 
-            	<a href="{:U('Home/User/del_address',array('id'=>$list['address_id']))}" class="J_delete target_no" data-act="del" target="">删除</a> 
-            </li>
-          </ul>
-        </volist>  
+                </li>
+                <li class="td-03">
+                    <p><span data-add="usercell">{$val.tel}</span></p>              
+                </li>
+                <li class="td-04"><a href="{:U('Home/User/set_default',array('id'=>$list['address_id']))}"  data-act="set" >设为默认收货地址</a></li>
+                <li class="td-05">
+
+                    <a href="javascript:;" onclick="address_edit('地址编辑','__URL__/edit?id={$val.id}')" class="target_no" style="text-decoration:none">
+                                <i class="Hui-iconfont">&#xe63c;</i>修改
+                    </a>
+                    <!--
+                	<a href="javascript:address_edit({$list['address_id']})" data-act="edit" class="target_no" target="">修改</a>
+                    --> 
+                	<a href="{:U('Home/User/del_address',array('id'=>$list['address_id']))}" class="J_delete target_no" data-act="del" target="">删除</a> 
+                </li>
+            </ul>
+        </foreach>
         </div>         
       </div>
       
@@ -99,8 +102,16 @@
 
 <script>
     /*地址-编辑*/
-    function address_edit(title,url,w,h){
-        layer_show(title,url,w,h);
+    function address_edit(title,url){
+        //layer_show(title,url,w,h);
+        layer.open({
+            type: 2,
+            title: '添加收货地址',
+            shadeClose: true,
+            shade: 0.5,
+            area: ['1000px', '580px'],
+            content: url,
+        });
     }
 
 
