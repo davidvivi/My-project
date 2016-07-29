@@ -88,26 +88,12 @@ class GoodsController extends CommonController
 		$map['buy'] = $buy;
 		$map['view'] = $view;
 		
-		M('goods')->add($map);
+		$act = M('goods')->add($map);
+		
+		$gid = M('goods')->where('goodname='.$name)->getField('id');
 		
 		
-		$upload = new \Think\Upload();// 实例化上传类
-		$upload->maxSize = 3145728;// 设置附件上传大小    
-
-		$upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型   
-
-		$path = $upload->savePath = '__PUBLIC__/img/'; 
-/*
-		 // 设置附件上传目录   
-		if(!$upload->upload()){
-			$this->error($upload->getErrorMsg());die;//输出错误提示
-		}else{
-			$info = $upload->getUploadFileInfo(); //取得成功上传的文件信息
-			foreach($info as $key => $value){
-				$data[$key]['path'] = $path.$value['savename'];//这里以获取在本地的保存路径为例
-			}
-		}
-*/
+		
 		$this->ajaxReturn('1');
 	}
 
@@ -140,5 +126,10 @@ class GoodsController extends CommonController
 			}
 		}
 		
+	}
+
+	public function picAdd(){
+		
+		$this->display('goods/pic-add');
 	}
 }

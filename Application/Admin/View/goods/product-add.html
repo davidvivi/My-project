@@ -15,7 +15,6 @@
 <link href="__PUBLIC__/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
 <link href="__PUBLIC__/admin/lib/icheck/icheck.css" rel="stylesheet" type="text/css" />
 <link href="__PUBLIC__/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/admin/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
 
 <!--[if IE 6]>
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
@@ -103,12 +102,6 @@
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
 			</div>
 		</div>
-		<div class="row cl">
-			<label class="form-label col-2">图片上传：</label>
-			<div class="formControls col-10">
-				<input type='file'  name='photo[]' value="" multiple="multiple" />
-			</div>
-		</div>
 		
 		<!--
 		<div class="row cl">
@@ -118,7 +111,7 @@
 			</div>
 		</div>
 		-->
-		<button class="btn btn-danger radius" style="margin-top:40px;margin-left:350px;">
+		<button id="sub" class="btn btn-danger radius" style="margin-top:40px;margin-left:350px;">
 			提交
 		</button>
 		
@@ -162,7 +155,7 @@ $(function(){
 	*/
 	
 	//ajax提交
-	$('button').click(function(){
+	$('#sub').click(function(){
 		name = $('#goodname').val();
 		price = $('#price').val();
 		keyword = $('#keyword').val();
@@ -180,13 +173,14 @@ $(function(){
 			data:'&name='+name+'&price='+price+'&keyword='+keyword+'&discribe='+desc+'&cate_1='+cate_1+'&cate_2='+cate_2+'&cate_3='+cate_3+'&store='+store+'&buy='+buy+'&view='+view,
 			success:function(data){
 				if(data == 1){
-					alert('添加成功');
-					window.parent.location.reload();
+					alert('赶快添加商品图片吧');
+					window.location.href=('__URL__/picAdd');
 				}
 			}
 		})
 	})
 
+	
 });	
 
 </script>
