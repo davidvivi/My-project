@@ -4,7 +4,7 @@ use Think\Controller;
 class IndexController extends Controller {
     public function index(){
 
-        if($_SESSION['user']){
+        if(!empty($_SESSION['user'])){
 			$name = $_SESSION['user']['name'];
 			$this->assign('name',$name);
         }
@@ -38,6 +38,7 @@ class IndexController extends Controller {
 	public function logout(){
 		
 		unset($_SESSION['user']);
-		redirect('index/index');
+		
+		$this->ajaxReturn('1');
 	}
 }

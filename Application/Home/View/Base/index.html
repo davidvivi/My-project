@@ -33,15 +33,15 @@
 							<span>Hi~欢迎来到QAQ数码商城，请<a href="__URL__/login">登录</a></span>
 							<span><a href="__URL__/reg">免费注册</a></span>
 						<else />
-							<span>Hi~<a href="__MODULE__/User/index">{$name}</a>欢迎来到QAQ数码商城!
-							<span><a href="__URL__/logout">退出</a></span>
+							<span>Hi~<a href="__MODULE__/User/index">{$name}</a>欢迎来到QAQ数码商城!</span>
+							<span><a class="logout" href="javascript:void(0);">退出</a></span>
 						</if>
 					</div>
 					
 					<ul>
-						<li><a href="">我的订单</a></li>
+						
 						<li><a href="">个人中心</a></li>
-						<li><a href="">购物车</a></li>
+						<li><a href="__MODULE__/cart/index">购物车</a></li>
 						<li>联系客服</li>
 					</ul>
 				</div>
@@ -201,6 +201,17 @@
 				$('#catenav').css('display','none')
 			
 			
+		});
+		
+		
+		//用户退出重新加载当前页面
+		$('a.logout').click(function(){
+			$.ajax({
+				url:'__URL__/logout',
+				success:function(data){
+					window.location.reload();
+				}
+			})
 		})
 		
 		
