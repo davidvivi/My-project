@@ -8,10 +8,10 @@ class RegController extends Controller
 {
 
 
-    public function login()
+    public function index()
     {
 
-        $this->display();
+        $this->display('index/reg');
     }
   
     //自动验证

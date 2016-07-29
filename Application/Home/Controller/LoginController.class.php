@@ -3,6 +3,11 @@ namespace Home\Controller;
 use Think\Controller;
 class LoginController extends Controller 
 {
+	public function index(){
+			$this->display('index/login');
+		
+	}
+	
     public function checkLogin(){
         
 
