@@ -14,9 +14,11 @@ class UserController extends CommonController
             
         }    
         
-        //根据用户名查到等级
-        $list=D('user_detail')->field('grade')->where("name='$name'")->find();
+        //根据用户名查到等级，id
+        $list=D('user_detail')->field('grade,id')->where("name='$name'")->find();
         $grade = $list['grade'];
+        $id = $list['id'];
+        dump($id);
         
         
         $this->assign('grade',$grade);
@@ -25,8 +27,8 @@ class UserController extends CommonController
     }
 
     /*
-    *   退出
-    */
+     *   退出
+     */
     public function logout()
     {   
         session_unset();
@@ -35,5 +37,19 @@ class UserController extends CommonController
         exit;
     }
  
+    /*
+     *  用户地址添加
+     */
+    public function add()
+    {
+        $this->display('user/edit_address');
+    }
+
+    /*
+     *  用户地址表列
+     */
+    public function address_list()
+    {   
+    }
 
 }

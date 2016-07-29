@@ -1,31 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=8">
-<title>收货地址</title>
-<meta http-equiv="keywords" content="QAQ商城,笔记本,手机,数码相机,数码影音,DIY硬件" />
-<meta name="description" content="QAQ商城（QAQ.com）具备在3年内成长为中国最大的3C电子商城之潜力，源于中国IT行业第一垂直媒体（QAQ.com.cn）在IT及互联网行业已臻十年的深厚积累。运营核心，只为了给用户打造一个放心、省心、舒心的购物平台！" />
-<body> 
-<!-- 头部-s -->
-<include file="User/header" />
-<!-- 头部-e -->  
-<script src="__PUBLIC__/Home/js/layer.js"></script><!-- 弹窗js 参考文档 http://layer.layui.com/-->
+    <head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>收货地址</title>
+    <meta http-equiv="keywords" content="QAQ商城,笔记本,手机,数码相机,数码影音,DIY硬件" />
+    <meta name="description" content="QAQ商城（QAQ.com）具备在3年内成长为中国最大的3C电子商城之潜力，源于中国IT行业第一垂直媒体（QAQ.com.cn）在IT及互联网行业已臻十年的深厚积累。运营核心，只为了给用户打造一个放心、省心、舒心的购物平台！" />
+    <link href="__PUBLIC__/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/admin/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+    <body> 
+    <!-- 头部-s -->
+    <include file="User/header" />
+    <!-- 头部-e -->  
+    <script type="text/javascript" src="__PUBLIC__/Home/js/jquery.min.js"></script>  
+    <script type="text/javascript" src="__PUBLIC__/Home/js/layer/1.9.3/layer.js"></script> 
+    <script type="text/javascript" src="__PUBLIC__/Home/js/laypage.js"></script> 
+    <script type="text/javascript" src="__PUBLIC__/Home/js/H-ui.js"></script> 
+    <script type="text/javascript" src="__PUBLIC__/Home/js/H-ui.admin.js"></script>
 
-<div class="wrap">
-  <div class="bread_crumbs"> <a href="{:U('Home/User/index')}" class="crumbs_font">我的shop</a>&gt;<span class="color">地址管理</span></div>
-  <!--菜单--> 
-  <include file="User/menu" /> 
-  <!--菜单-->     
-  <!--侧边导航栏结束-->
-  <div class="col_main" id="J_address">
-    <div class="main address_management"> 
-      <!-- themes star -->
-      <div class="themes_title">
-        <h3>地址管理</h3>
-		<h2><a onclick="address_edit()" class="co-red"><span>+添加地址</span></a></h2>
-      </div>
-      <!-- themes end --> 
+    <div class="wrap">
+        <div class="bread_crumbs"> <a href="{:U('Home/User/index')}" class="crumbs_font">我的shop</a>&gt;<span class="color">地址管理</span></div>
+        
+        <!--菜单--> 
+        <include file="User/menu" /> 
+        <!--菜单-->     
+  
+        <!--侧边导航栏结束-->
+        <div class="col_main" id="J_address">
+            <div class="main address_management"> 
+            <!-- themes star -->
+            <div class="themes_title">
+            <h3>地址管理</h3>
+    		    <h2>
+                    
+
+                    <a href="javascript:;" onclick="address_edit('添加地址','__URL__/add','800','500')" class="ml-5" style="text-decoration:none">
+                                <i class="Hui-iconfont">&#xe600;</i> 添加地址
+                    </a> 
+                    
+                    <!--
+                    <a onclick="address_edit()" class="co-red">
+                    <span>+添加地址</span>
+
+                    </a>
+                    -->
+                </h2>
+            </div>
+            <!-- themes end --> 
       <div class="address-adc">
         <div class="aa-title fixed">
           <ul>
@@ -70,13 +96,20 @@
 <div style="clear: both;"></div>
 <include file="User/footer" />
 </body>
+
 <script>
- 
+    /*地址-编辑*/
+    function address_edit(title,url,w,h){
+        layer_show(title,url,w,h);
+    }
+
+
     /**
      * 新增修改收货地址
      * id 为零 则为新增, 否则是修改
      *  使用 公共的 layer 弹窗插件  参考官方手册 http://layer.layui.com/
      */
+    /**
     function address_edit(id)
     {
         if(id > 0)
@@ -97,5 +130,6 @@
         layer.closeAll(); // 关闭窗口
         location.href = location.href;
     }
+    */
 </script>
 </html>

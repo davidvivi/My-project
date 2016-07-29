@@ -241,3 +241,4 @@ create table if not exists `think_category`(
 	`name` varchar(255) not null comment '分类名',
 	`path` varchar(255) not null comment '分类路径'
 )engine=innodb default charset=utf8;
+
