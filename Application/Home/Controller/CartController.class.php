@@ -50,19 +50,11 @@ class CartController extends CommonController {
    }
    
    public function act(){
-		if(IS_POST){
 			$num = I('no');
-			$gid = I('gid');
-			
-			$map['goods_num'] = $num;
-			$da = M('cart')->where('goods_id='.$gid)->save($map);
-			if($da){
-				$this->ajaxReturn('1');
-				
-			}else{
-				$this->ajaxReturn('0');
-			}
-		}
+			$gid = I('id');
+			$data['goods_num'] = $num;
+			$da = M('cart')->where('goods_id='.$gid)->save($data);
+			$this->ajaxReturn('1');
 	   
    }
 }

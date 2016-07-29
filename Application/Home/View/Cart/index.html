@@ -130,6 +130,12 @@
 								<td><a href="">删除</a></td>
 							</tr>
 							</foreach>
+							
+							<tr style="margin-top:20px;">
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
 						</table>
 					</div>
 				
@@ -213,7 +219,7 @@ $(function(){
 	$('.act1').click(function(){
 		act = $('.act1').text();
 		gid = $('.act1').attr('gid');
-		store = $('.act1').attr('store');
+		store =parseInt($('.act1').attr('store'));
 		//alert(gid);
 		num(act,gid,store);
 	});
@@ -221,12 +227,12 @@ $(function(){
 		act = $('.act2').text();
 		gid = $('.act2').attr('gid');
 		store = $('.act2').attr('store');
-		alert(act);
 		num(act,gid,store);
 	});
 		function num(act,gid,store){
 			//首先获取本身数量
-			no = $('.num').val();
+			no = parseInt($('.num').val());
+			
 			
 			//减少购买数量
 			if(act == '--'){
@@ -237,6 +243,7 @@ $(function(){
 						url:"{:U('act')}",
 						data:'&no='+no+'&id='+gid,
 						success:function(data){
+							
 							window.location.reload();
 						}
 					})
@@ -252,7 +259,9 @@ $(function(){
 						url:'__URL__/act',
 						data:'&no='+no+'&id='+gid,
 						success:function(data){
-							window.location.reload();
+						
+								window.location.reload();
+						
 						}
 					})
 				}
