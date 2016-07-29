@@ -8,10 +8,20 @@
 							<span><a href="__MODULE__/reg/index">免费注册</a></span>
 						<else />
 							<span>Hi~ <a href="">{$name}</a>,欢迎来到QAQ数码商城!</span>
-							<span><a href="__MODULE__/index/logout">退出</a></span>
+							<span><a class="logout" href="javascript:void(0);">退出</a></span>
 							
 						</if>
 					</div>
+					<script>
+						$('a.logout').click(function(){
+							$.ajax({
+								url:'__URL__/logout',
+								success:function(data){
+									window.location.href="__MODULE__/index/index";
+								}
+							})
+						})
+					</script>
 					
 					<ul>
                     <li>

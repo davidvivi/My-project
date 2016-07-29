@@ -10,4 +10,11 @@ class CartController extends CommonController {
 	   $this->assign('name',$_SESSION['user']['name']);
 	   $this->display('cart/index');
    }
+   
+   public function logout(){
+	   
+	   unset($_SESSION['user']);
+	   $this->ajaxReturn('1');
+	   
+   }
 }
