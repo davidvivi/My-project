@@ -41,18 +41,31 @@ class CategoryController extends Controller
         // 得到传过来的id
         // $id = I('id');
 
-        // 假设传来的ID一级分类id
+        // 假设从其他页面传来的ID
+        $getid = I('id');
+        // 如果没有id传过来，则赋予id 值1
+        if(!$getid){ 
+            $getid = 1;
+        }
 
-        $id = 1; // 一级id
+        // 到model里处理
+        $categoryclass = new \Home\Model\CategoryModel();
+        $precate = $categoryclass->idHandle($getid);
+
+        $id = $precate['firstid']; // 一级分类id
+        //$floor = $precate['num'];
+
+        //$id = 1; // 假设得到一级id
         //$firstcate1 = $category->field('id,name')->where("id='{$id}'")->find();
         //dump($firstcate1);
         
         // 根据一级id得到一级分类
         //dump($secondcate);
-        echo '121111111111111';
+        
         foreach($firstcate as $k1 => $v1){ 
             if($v1['id'] == $id){ 
                 $firstname = $v1['name'];
+                $firstid = $id;
             }
         }
         // 得到二级分类
@@ -63,14 +76,16 @@ class CategoryController extends Controller
             $thirdca = $category->field('id,pid,name')->where("pid='{$secondid}'")->select();
             $secondca[$k2]['third'] = $thirdca;
         }
-        dump($secondca);
+        //dump($secondca);
         //$second
-
+        //dump($secondca);
         $this->assign('link',$link_list);
         $this->assign('firstcate',$firstcate);
         $this->assign('secondcate',$secondcate);
         $this->assign('firstname',$firstname);
+        $this->assign('firstid',$firstid);
         $this->assign('secondca',$secondca);
+        $this->assign('precate',$precate);
         //$this->assign('thirdcate',$thirdcate);
         $this->display('category/category');
         
