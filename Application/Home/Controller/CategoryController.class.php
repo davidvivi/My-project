@@ -27,19 +27,11 @@ class CategoryController extends Controller
                 $secondcate[$key][$k]['son'] = $thirddata;
             }
         }
-        //dump($thirdcate);
-        //dump($secondcate);
-        //echo '-----';
-        //dump($firstcate);
 
         // 友情链接
         $link = M('link');
         $datalink['state'] = array('GT',0);
         $link_list = $link ->field('contents,url')->where($datalink)->select();
-        
-
-        // 得到传过来的id
-        // $id = I('id');
 
         // 假设从其他页面传来的ID
         $getid = I('id');
@@ -47,20 +39,17 @@ class CategoryController extends Controller
         if(!$getid){ 
             $getid = 1;
         }
-
+        $getid = 17;
         // 到model里处理
         $categoryclass = new \Home\Model\CategoryModel();
         $precate = $categoryclass->idHandle($getid);
+        $goodsdata = $categoryclass->hostShop();
+        //dump($goodsdata);
 
         $id = $precate['firstid']; // 一级分类id
-        //$floor = $precate['num'];
-
-        //$id = 1; // 假设得到一级id
-        //$firstcate1 = $category->field('id,name')->where("id='{$id}'")->find();
-        //dump($firstcate1);
+        
         
         // 根据一级id得到一级分类
-        //dump($secondcate);
         
         foreach($firstcate as $k1 => $v1){ 
             if($v1['id'] == $id){ 
@@ -76,9 +65,20 @@ class CategoryController extends Controller
             $thirdca = $category->field('id,pid,name')->where("pid='{$secondid}'")->select();
             $secondca[$k2]['third'] = $thirdca;
         }
-        //dump($secondca);
-        //$second
-        //dump($secondca);
+
+        // 商品的遍历
+        // getid;
+        // $type = I('type')
+        $type = 'price';
+        $return = $categoryclass->goodsShop($getid,$type);
+        $waresdata = $return[0];
+        $page = $return[1];
+        //dump($waresdata);
+
+
+
+
+
         $this->assign('link',$link_list);
         $this->assign('firstcate',$firstcate);
         $this->assign('secondcate',$secondcate);
@@ -86,7 +86,9 @@ class CategoryController extends Controller
         $this->assign('firstid',$firstid);
         $this->assign('secondca',$secondca);
         $this->assign('precate',$precate);
-        //$this->assign('thirdcate',$thirdcate);
+        $this->assign('goodsdata',$goodsdata);
+        $this->assign('waresdata',$waresdata);
+        $this->assign('page',$page);
         $this->display('category/category');
         
     }

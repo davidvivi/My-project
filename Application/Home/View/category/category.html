@@ -394,70 +394,24 @@
                 </div>
                 <!-- 推荐热卖-->
                 <div class="m-rehotbox mt10" style="display:block;">
-                    <h2 class="rehottit">推荐热卖</h2>
+                    <h2 class="rehottit">推荐热卖九折</h2>
                     <div class="rehotcon" id="rehotcon">
-                        <div class="hotitem">
-                            <div class="itemin">
-                                <a class="proname" href="http://localhost/index.php/Home/Goods/goodsInfo/id/1.html">
-                                    <img src="__PUBLIC__/Home/category/goods_thumb_1_200_200.jpg">
-                                    <span>Apple iPhone 6s Plus 16G 玫瑰金 移动联通电信4G手机</span>
-                                </a>
-                                <p class="itemprice">
-                                    <span class="new" rehot="90101748934_201480" style="display: block; float: left;"><i class="fn-rmb">¥</i>6100.00</span>
-                                    <span class="old">
-                                        <i class="fn-rmb">¥</i>6000.00
-                                    </span>
-                                </p>
+                        <foreach name="goodsdata" item="hostval">
+                            <div class="hotitem">
+                                <div class="itemin">
+                                    <a class="proname" href="http://localhost/index.php/Home/Goods/goodsInfo/id/1.html">
+                                        <img src="__PUBLIC__\admin\lib\webuploader\0.1.5\server\upload\{$hostval.picname}">
+                                        <span>{$hostval.goodname}</span>
+                                    </a>
+                                    <p class="itemprice">
+                                        <span class="new" rehot="90101748934_201480" style="display: block; float: left;"><i class="fn-rmb">¥</i>{$hostval.saleprice}</span>
+                                        <span class="old">
+                                            <i class="fn-rmb">¥</i>{$hostval.price}
+                                        </span>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="hotitem">
-                            <div class="itemin">
-                                <a class="proname" href="http://localhost/index.php/Home/Goods/goodsInfo/id/39.html">
-                                    <img src="__PUBLIC__/Home/category/goods_thumb_39_200_200.jpg">
-                                    <span>华为（HUAWEI） M2 10.0 平板电脑 WiFi 月光银</span>
-                                </a>
-                                <p class="itemprice">
-                                    <span class="new" rehot="90101748934_201480" style="display: block; float: left;"><i class="fn-rmb">¥</i>2388.00</span>
-                                    <span class="old"><i class="fn-rmb">¥</i>2288.00</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="hotitem">
-                            <div class="itemin">
-                                <a class="proname" href="http://localhost/index.php/Home/Goods/goodsInfo/id/40.html">
-                                    <img src="__PUBLIC__/Home/category/goods_thumb_40_200_200.jpg">
-                                    <span>荣耀X2 标准版 双卡双待双通 移动/联通双4G 16GB ROM（月光银）</span>
-                                </a>
-                                <p class="itemprice">
-                                    <span class="new" rehot="90101748934_201480" style="display: block; float: left;"><i class="fn-rmb">¥</i>2099.00</span>
-                                    <span class="old"><i class="fn-rmb">¥</i>1999.00</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="hotitem">
-                            <div class="itemin">
-                                <a class="proname" href="http://localhost/index.php/Home/Goods/goodsInfo/id/41.html">
-                                    <img src="__PUBLIC__/Home/category/goods_thumb_41_200_200.jpg">
-                                    <span>华为（HUAWEI） M2 8英寸平板电脑（1920×1200 IPS屏 海思麒麟930 16GB WiFi）香槟金</span>
-                                </a>
-                                <p class="itemprice">
-                                    <span class="new" rehot="90101748934_201480" style="display: block; float: left;"><i class="fn-rmb">¥</i>1688.00</span>
-                                    <span class="old"><i class="fn-rmb">¥</i>1588.00</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="hotitem">
-                            <div class="itemin">
-                                <a class="proname" href="http://localhost/index.php/Home/Goods/goodsInfo/id/42.html">
-                                    <img src="__PUBLIC__/Home/category/goods_thumb_42_200_200.png">
-                                    <span>Teclast/台电 X80 Plus WIFI 32GB Win10平板电脑双系统8英寸</span>
-                                </a>
-                                <p class="itemprice">
-                                    <span class="new" rehot="90101748934_201480" style="display: block; float: left;"><i class="fn-rmb">¥</i>599.00</span>
-                                    <span class="old"><i class="fn-rmb">¥</i>499.00</span>
-                                </p>
-                            </div>
-                        </div> 
+                        </foreach>
                     </div>
                 </div>
             </div>
@@ -505,132 +459,72 @@
             <!-- searchbox -->
           
             <ul id="cata_choose_product" class="cart_containt clearfix listContainer">
-                <li>
-                    <div class="nosinglemore"></div>
-                    <div class="listbox clearfix"> 
-                        <!-- 圖片 -->
-                        <div class="listPic"> 
-                      		<a rel="nofollow" target="_blank" href="http://localhost/index.php/Home/Goods/goodsInfo/id/45.html" style="width:200px;height:200px;">
-                            	<img style="display: block;" src="__PUBLIC__/Home/category/imgs/goods_thumb_45_200_200.jpg" class="fn_img_lazy" height="200" width="200"> 
-                            </a>             
-                        </div>
-                        <div class="list-scroll J_scrollBox clearfix"> 
-                            <a href="javascript:void(0);" class="list-scroll-left cbtn"></a>
-                            <div class="list-scroll-warp J_hideBox">
-                                <dl class="J_mBox clearfix">            
-                                    <dd>
-        	                           <a href="javascript:void(0);">
-                                	       <img data-img="/Public/upload/goods/2016/01-13/5695e931ca316.jpg" src="__PUBLIC__/Home/category/imgs/5695e931ca316.jpg" style="display: block;" height="30" width="30">
-                                        </a> 
-                                    </dd>
-                                    <dd>
-                	                    <a href="javascript:void(0);">
-                                        	<img data-img="/Public/upload/goods/2016/01-13/5695e931b2751.jpg" src="__PUBLIC__/Home/category/imgs/5695e931b2751.jpg" style="display: block;" height="30" width="30">
-                                        </a> 
-                                    </dd>
-                                    <dd>
-                	                    <a href="javascript:void(0);">
-                                        	<img data-img="/Public/upload/goods/2016/01-13/5695e9319ae9b.jpg" src="__PUBLIC__/Home/category/imgs/5695e9319ae9b.jpg" style="display: block;" height="30" width="30">
-                                        </a> 
-                                    </dd>
-                                    <dd>
-        	                           <a href="javascript:void(0);">
-                                	       <img data-img="/Public/upload/goods/2016/01-13/5695e9317eceb.jpg" src="__PUBLIC__/Home/category/imgs/5695e9317eceb.jpg" style="display: block;" height="30" width="30">
-                                        </a> 
-                                    </dd>
-                                </dl>
+
+                <foreach name="waresdata" item="wareval">
+                    <li>
+                        <div class="nosinglemore"></div>
+                        <div class="listbox clearfix"> 
+                            <!-- 圖片 -->
+                            <div class="listPic"> 
+                          		<a rel="nofollow" target="_blank" href="http://localhost/index.php/Home/Goods/goodsInfo/id/45.html" style="width:200px;height:200px;">
+                                	<img style="display: block;" src="__PUBLIC__\admin\lib\webuploader\0.1.5\server\upload\{$wareval.goods_url.0.picname}" class="fn_img_lazy" height="200" width="200"> 
+                                </a>             
                             </div>
-                            <a href="javascript:void(0);" class="list-scroll-right cbtn"></a>
-                        </div>
-                  
-                        <!-- 价格 -->
-                        <div class="discountPrice">
-                            <div class="price-cash">
-                                <span class="text13 colf22e01">¥</span>
-                                <span class="text18 colf22e01 fontT" id="itemPrice_201510CM130003397">1999.00</span>
-                                <del></del> 
+                            <div class="list-scroll J_scrollBox clearfix"> 
+                                <a href="javascript:void(0);" class="list-scroll-left cbtn"></a>
+                                <div class="list-scroll-warp J_hideBox">
+                                    <dl class="J_mBox clearfix">            
+                                        <foreach name="wareval.goods_url" item="waresv">
+                                            <dd>
+                	                           <a href="javascript:void(0);">
+                                        	       <img  src="__PUBLIC__\admin\lib\webuploader\0.1.5\server\upload\{$waresv.picname}" style="display: block;" height="30" width="30">
+                                                </a>        
+                                            </dd>
+                                        </foreach>
+                                    </dl>
+                                </div>
+                                <a href="javascript:void(0);" class="list-scroll-right cbtn"></a>
                             </div>
-                        </div>
-                        <!-- 价格 end--> 
-                        <!-- 品名 -->
-                        <div class="listDescript"> 
-                            <a target="_blank" href="http://www.tp-shop.cn/item/201510CM130003397" class="text13">华为 HUAWEI C199S 麦芒3S 电信4G智能手机FDD-LTE /TD-LTE/CDMA2000/GSM（麦芒金）</a> 
-                        </div>
-                        <!-- 價格及字樣 -->
-                        <div class="itemPrice">
-                            <div class="cart_wrapper"> 
-                                <a style="cursor:pointer;" class="cartlimit" href="javascript:void(0);" onclick="javascript:AjaxAddCart(45,1,0);"></a>
+                      
+                            <!-- 价格 -->
+                            <div class="discountPrice">
+                                <div class="price-cash">
+                                    <span class="text13 colf22e01">¥</span>
+                                    <span class="text18 colf22e01 fontT" id="itemPrice_201510CM130003397">{$wareval.price}</span>
+                                    <del></del> 
+                                </div>
+                            </div>
+                            <!-- 价格 end--> 
+                            <!-- 品名 -->
+                            <div class="listDescript"> 
+                                <a target="_blank" href="http://www.tp-shop.cn/item/201510CM130003397" class="text13">{$wareval.goodname}</a> 
+                            </div>
+                            <!-- 價格及字樣 -->
+                            <div class="itemPrice">
+                                <div class="cart_wrapper"> 
+                                    <a style="cursor:pointer;" class="cartlimit" href="javascript:void(0);" onclick="javascript:AjaxAddCart(45,1,0);"></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-                <li>
-                <div class="nosinglemore"></div>
-                <div class="listbox clearfix"> 
-                  <!-- 圖片 -->
-                  <div class="listPic"> 
-                  		<a rel="nofollow" target="_blank" href="http://localhost/index.php/Home/Goods/goodsInfo/id/51.html" style="width:200px;height:200px;">
-                        	<img style="display: block;" src="__PUBLIC__/Home/category/imgs/56960931469a8.jpg" class="fn_img_lazy" height="200" width="200"> 
-                        </a>             
-                  </div>
-                  
-                  
-                  <div class="list-scroll J_scrollBox clearfix"> <a href="javascript:void(0);" class="list-scroll-left cbtn"></a>
-                    <div class="list-scroll-warp J_hideBox">
-                      <dl class="J_mBox clearfix">            
-                      <dd>
-        	                    <a href="javascript:void(0);">
-                                	<img data-img="/Public/upload/goods/2016/04-22/5719843a87434.jpg" src="__PUBLIC__/Home/category/imgs/5719843a87434.jpg" style="display: block;" height="30" width="30">
-                                </a> 
-                            </dd><dd>
-        	                    <a href="javascript:void(0);">
-                                	<img data-img="/Public/upload/goods/2016/04-22/57198456a2514.jpg" src="__PUBLIC__/Home/category/imgs/57198456a2514.jpg" style="display: block;" height="30" width="30">
-                                </a> 
-                            </dd><dd>
-        	                    <a href="javascript:void(0);">
-                                	<img data-img="/Public/upload/goods/2016/04-22/57198456932b4.jpg" src="__PUBLIC__/Home/category/imgs/57198456932b4.jpg" style="display: block;" height="30" width="30">
-                                </a> 
-                            </dd><dd>
-        	                    <a href="javascript:void(0);">
-                                	<img data-img="/Public/upload/goods/2016/04-22/57198456817bf.jpg" src="__PUBLIC__/Home/category/imgs/57198456817bf.jpg" style="display: block;" height="30" width="30">
-                                </a> 
-                            </dd><dd>
-        	                    <a href="javascript:void(0);">
-                                	<img data-img="/Public/upload/goods/2016/04-22/57198455d2e1b.jpg" src="__PUBLIC__/Home/category/imgs/57198455d2e1b.jpg" style="display: block;" height="30" width="30">
-                                </a> 
-                            </dd>              </dl>
-                    </div>
-                    <a href="javascript:void(0);" class="list-scroll-right cbtn"></a> </div>
-                  
-                  <!-- 价格 -->
-                  <div class="discountPrice">
-                    <div class="price-cash">
-                      <span class="text13 colf22e01">¥</span>
-                      <span class="text18 colf22e01 fontT" id="itemPrice_201510CM130003397">4858.00</span>
-                      <del></del> </div>
-                  </div>
-                  <!-- 价格 end--> 
-                  <!-- 品名 -->
-                  <div class="listDescript"> <a target="_blank" href="http://www.tp-shop.cn/item/201510CM130003397" class="text13">Apple iPhone 6s 16GB 玫瑰金色 移动联通电信4G手机</a> </div>
-                  <!-- 價格及字樣 -->
-                  <div class="itemPrice">
-                    <div class="cart_wrapper"> <a style="cursor:pointer;" class="cartlimit" href="javascript:void(0);" onclick="javascript:AjaxAddCart(140,1,0);"></a></div>
-                  </div>
-                </div>
-                </li>  
+                    </li>
+                </foreach>  
             </ul>
-          
+            
+            <div id="page" style="text-align: center;">
+                    {$page.page}
+                </div>
             <!-- Page -->
             <div class="fn-page-css-1 pagintion fix" style="display: block;">
                 <div class="pagenavi text12">
                     <div class="dataTables_paginate paging_simple_numbers">
-                        <ul class="pagination">    </ul>
+                        <ul class="pagination"></ul>
                     </div>
                 </div>
             </div>
             <!-- 商品列表 --> 
         </div>
     </div>
+
     <!-- ========页面尾部========== -->
     <hr style="color:#3d3d3d;" />
             
@@ -753,6 +647,7 @@
                 $('#thirdn').css('display','none');
             }
         });   
+        
 
          
         //############   更多类别属性筛选       ###########
@@ -926,7 +821,28 @@
 	
         	location.href ="/index.php?m=Home&c=Goods&a=goodsList"+url;
         }
-
+        $(function(){
+                function page(){ 
+                $("#page").find('a').css({'margin': "0 9px",
+                    "display": "inline-block",
+                    "background": "blue",
+                    "text-align": "center",
+                    "width":"25px",
+                    "height":"25px",
+                    "color":"white"}
+                );
+            
+                $("#page").find('span').css({'margin': "0 9px",
+                    "display": "inline-block",
+                    "background": "red",
+                    "text-align": "center",
+                    "width":"25px",
+                    "height":"25px",
+                    "color":"white"}
+                );
+            }
+            page();
+        });
         </script>
     </body>
 </html>
