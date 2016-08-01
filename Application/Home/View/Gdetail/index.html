@@ -26,6 +26,12 @@
             left:500px;
             top:20px;
             }  
+        .img-comm{  
+            margin:-50px 0px 0px 0px
+        }
+        .p-price-comm{  
+            margin:0px 0px 0px 100px
+        }
         </style>
     </head>
 <body>
@@ -347,11 +353,11 @@ $("#header_cart_list > .micart > .les").hover(function(){
                             <p class="p-img-comm fl">
                                 <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/143.html"><img class="img-comm" src="__PUBLIC__\admin\lib\webuploader\0.1.5\server\upload\{$hostval.picname}" alt=""></a>
                             </p>
-                            <p class="p-name-comm">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/143.html">{$hostval.goodname}</a>
+                            <p class="p-name-comm"style="margin:0px 0px 0px 75px">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/143.html">商品名:{$hostval.goodname}</a>
                             </p>
                             <p class="p-price-comm">
-                                <b>{$hostval.price}</b>
+                                <b>价格:{$hostval.price}</b>
                             </p>
                         </div>
                     </li>

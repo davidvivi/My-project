@@ -180,10 +180,10 @@ header::after { content: ""; clear: both; display: block; }
 .browse-his { line-height: 47px; text-indent: 14px; font-size: 14px; font-family: "Tahoma",微软雅黑; font-weight: 400; color: rgb(51, 51, 51); }
 .product-history-area { border: 1px solid rgb(222, 222, 222); background-color: rgb(255, 255, 255); }
 .ma-to-20 { margin-top: 20px; }
-.history-comm li { border-top: 1px solid rgb(222, 222, 222); padding: 12px 12px 12px 10px; }
+.history-comm li { border-top: 1px solid rgb(222, 222, 222); padding: 62px 0px 10px 5px; }
 .p-img-comm { width: 56px; }
-.img-comm { width: 56px; height: 56px; display: block; }
-.p-name-comm { height: 35px; margin-bottom: 3px; overflow: hidden; font-family: "Tahoma",微软雅黑; margin-left: 56px; padding-left: 17px; }
+.img-comm { width: 100px; height: 100px; display: block; }
+.p-name-comm { height: 35px; margin-bottom: 3px; overflow: hidden; font-family: "Tahoma",微软雅黑; margin-left: 56px; padding-left: 40px; }
 .p-name-comm a { color: rgb(102, 102, 102); }
 .p-price-comm { margin-left: 56px; padding-left: 17px; }
 .p-price-comm b { color: rgb(224, 29, 32); font-weight: 400; }
@@ -252,8 +252,8 @@ header::after { content: ""; clear: both; display: block; }
 .pro-user-score { padding: 14px 19px 0px 14px; }
 .pro-user-impre { width: 465px; padding-top: 7px; }
 .pro-user-time { color: rgb(153, 153, 153); padding: 13px 15px 0px 0px; }
-.starRating-area { display: inline-block; width: 75px; height: 14px; line-height: 1px; overflow: hidden; position: relative; background: transparent url('../image/star7.png') no-repeat scroll 0px 0px; vertical-align: middle; }
-.starRating-area { height: 12px; display: block; line-height: 1px; position: absolute; left: 0px; top: 0px; background: transparent url('../image/star7.png') no-repeat scroll -75px 0px; }
+.starRating-area { display: inline-block; width: 75px; height: 14px; line-height: 1px; overflow: hidden; position: relative;  vertical-align: middle; }
+.starRating-area { height: 12px; display: block; line-height: 1px; position: absolute; left: 0px; top: 0px; }
 .pro-user-score em { padding-left: 14px; position: relative; top: -1px; font-style: normal; font-weight: 400; vertical-align: middle; }
 .comm-t2 { color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; padding: 11px 130px 12px 15px; line-height: 18px; }
 .arrow { background: transparent url('icon33.png') no-repeat scroll -47px -75px; position: absolute; top: 18px; left: 111px; width: 10px; height: 14px; }
