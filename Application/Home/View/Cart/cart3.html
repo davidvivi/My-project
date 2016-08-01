@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>订单支付</title>
+	<link rel="stylesheet" href="__PUBLIC__/home/css/pay.min.css">
+	<link href="__PUBLIC__/home/css/common.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="__PUBLIC__/home/css/jh.css">
+	<script src="__PUBLIC__/home/js/jquery-1.8.2.min.js"></script>    
+	<script src="__PUBLIC__/home/js/global.js"></script>
+	<script src="__PUBLIC__/home/js/pc_common.js"></script>
+	<script src="__PUBLIC__/home/js/layer/layer.js"></script><!-- 弹窗js 参考文档 http://layer.layui.com/-->
+</head>
+<body>
+<div class="m-top-bar editable" moduleid="1539923" style="position:relative;min-height:25px;">
+  <div class="container">
+    <ul class="fl">
+      <li class="fl J_login_status"><a href="__MODULE__/user/index" alt="" title="" target="_self">{$_SESSION['user']['name']}</a>
+      	<a  href="__MODULE__/cart/logout" style="margin:0 10px;" title="退出" target="_self">退出</a></li>
+      </li>
+            <li class="fl sep"></li>
+    </ul>
+    <ul class="fr bar-right">
+      <li class="fl dropdown my-feiniu"><a class="menu-item" target="_blank" href="">
+        <span>我的商城</span><i class="dd"></i></a>
+        <ul class="sub-panel">
+          <li><a class="J_chgurl" target="_blank" href="__MODULE__/User/order_list">我的订单</a></li>
+          <li><a class="J_chgurl" target="_blank" href="__MODULE__/Home/User/account">我的积分</a></li>
+          <li><a class="J_chgurl" target="_blank" href="__MODULE__/Home/User/coupon">我的优惠券</a></li>
+          <li><a class="J_chgurl" target="_blank" href="__MODULE__/Home/User/goods_collect">我的收藏夹</a></li>
+          <li><a class="J_chgurl" target="_blank" href="__MODULE__/Home/User/comment">我的评论</a></li>
+        </ul>
+      </li> 
+      <li class="fl sep"></li>
+      
+      <li class="fl sep"></li>
+      <li class="fl"><a class="menu-item" href="" target="_blank">
+        <span>帮助中心</span>
+        </a></li>
+      <li class="fl sep"></li>
+      
+    </ul>
+  </div>
+</div>
+<div class="fn-cart-pay"> 
+   <!-- cart-title -->
+   <div class="wrapper1190">
+    <div class="order-header">
+    	<div class="layout after">
+        	<div class="fl">
+            	<div class="logo pa-to-36 wi345">
+                	<a href="/"><img src="/Template/pc/soubao/Static/images/newLogo.png" alt=""></a>
+                </div>
+            </div>
+        	<div class="fr">
+            	<div class="pa-to-36 progress-area">
+                	<div class="progress-area-wd" style="display:none">我的购物车</div>
+                	<div class="progress-area-tx" style="display:none">填写核对订单信息</div>
+                	<div class="progress-area-cg">成功提交订单</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end cart-title --> 
+    
+    <div class="layout after-ta order-ha">
+    	<div class="erhuh">
+        	<i class="icon-succ"></i>
+            <h3>订单提交成功，请您尽快付款！</h3>
+            <p class="succ-p">
+			            订单号：&nbsp;&nbsp;201608010854406831&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+			            付款金额（元）：&nbsp;&nbsp;<b>87976.00</b>&nbsp;<b>元</b>
+			</p>
+            <div class="succ-tip">
+            	请您在&nbsp;&nbsp;<b>2016-08-02</b>&nbsp;完成支付，否则订单将自动取消
+            </div>
+        </div>
+        <div class="ddxq-xiaq">
+        	<a href="/index.php/Home/User/order_detail/id/418.html">
+            	订单详情
+                <i></i>
+            </a>
+        </div>
+        <form action="/index.php/Home/Payment/getCode.html" method="post" name="cart4_form" id="cart4_form">
+        <div class="orde-sjyy">
+        	<h3 class="titls">选择支付方式</h3>
+            <div class="bsjy-g">
+            	<dl>
+            		<dd>
+						<div class="order-payment-area">
+                        	<div class="dsfzfpte">
+                            	<b>选择支付方式</b>                               
+                            </div>
+                            <div class="po-re dsfzf-ee">
+                            	<ul>
+                                <li>
+                                    	<div class="payment-area">
+                                        	<input type="radio" id="input-ALIPAY-1" value="pay_code=alipay" class="radio vam" name="pay_radio" >
+                                            <label for="">
+                                            	<img src="/plugins/payment/alipay/logo.jpg" width="120" height="40" onClick="change_pay(this);" />
+                                            </label>
+                                        </div>
+                                    </li><li>
+                                    	<div class="payment-area">
+                                        	<input type="radio" id="input-ALIPAY-1" value="pay_code=cod" class="radio vam" name="pay_radio" >
+                                            <label for="">
+                                            	<img src="/plugins/payment/cod/logo.jpg" width="120" height="40" onClick="change_pay(this);" />
+                                            </label>
+                                        </div>
+                                    </li><li>
+                                    	<div class="payment-area">
+                                        	<input type="radio" id="input-ALIPAY-1" value="pay_code=weixin" class="radio vam" name="pay_radio" >
+                                            <label for="">
+                                            	<img src="/plugins/payment/weixin/logo.jpg" width="120" height="40" onClick="change_pay(this);" />
+                                            </label>
+                                        </div>
+                                    </li><li>
+                                    	<div class="payment-area">
+                                        	<input type="radio" id="input-ALIPAY-1" value="pay_code=unionpay" class="radio vam" name="pay_radio" >
+                                            <label for="">
+                                            	<img src="/plugins/payment/unionpay/logo.jpg" width="120" height="40" onClick="change_pay(this);" />
+                                            </label>
+                                        </div>
+                                    </li>                                                            		 
+                            	</ul>
+                            </div>
+                        </div>  
+                        
+                    <!--第三方网银支付 start-->
+                      <div class="order-payment-area">
+                        	<div class="dsfzfpte">
+                                    <b>支付宝支付</b>
+                                    <em>网银支付</em>
+                                </div>
+                            <div class="po-re dsfzf-ee">
+                                    <ul>
+				                      <li>
+                                            <div class="payment-area">
+                                                <input type="radio" name="pay_radio" class="radio vam" value="pay_code=alipay&bank_code=CMB-DEBIT" id="input-ALIPAY-1">
+                                                <label for="">
+                                            	<img src="/Template/pc/soubao/Static/images/images-out/to_cmb.jpg" width="120" height="40" onClick="change_pay(this);"/>
+                                                </label>
+                                            </div>
+                                        </li><li>
+                                            <div class="payment-area">
+                                                <input type="radio" name="pay_radio" class="radio vam" value="pay_code=alipay&bank_code=ICBC-DEBIT" id="input-ALIPAY-1">
+                                                <label for="">
+                                            	<img src="/Template/pc/soubao/Static/images/images-out/to_icbc.jpg" width="120" height="40" onClick="change_pay(this);"/>
+                                                </label>
+                                            </div>
+                                        </li><li>
+                                            <div class="payment-area">
+                                                <input type="radio" name="pay_radio" class="radio vam" value="pay_code=alipay&bank_code=COMM-DEBIT" id="input-ALIPAY-1">
+                                                <label for="">
+                                            	<img src="/Template/pc/soubao/Static/images/images-out/COMM_OUT.gif" width="120" height="40" onClick="change_pay(this);"/>
+                                                </label>
+                                            </div>
+                                        </li><li>
+                                            <div class="payment-area">
+                                                <input type="radio" name="pay_radio" class="radio vam" value="pay_code=alipay&bank_code=CCB-DEBIT" id="input-ALIPAY-1">
+                                                <label for="">
+                                            	<img src="/Template/pc/soubao/Static/images/images-out/CCB_OUT.gif" width="120" height="40" onClick="change_pay(this);"/>
+                                                </label>
+                                            </div>
+                                        </li><li>
+                                            <div class="payment-area">
+                                                <input type="radio" name="pay_radio" class="radio vam" value="pay_code=alipay&bank_code=CMBC" id="input-ALIPAY-1">
+                                                <label for="">
+                                            	<img src="/Template/pc/soubao/Static/images/images-out/CMBC_OUT.gif" width="120" height="40" onClick="change_pay(this);"/>
+                                                </label>
+                                            </div>
+                                        </li><li>
+                                            <div class="payment-area">
+                                                <input type="radio" name="pay_radio" class="radio vam" value="pay_code=alipay&bank_code=BOC-DEBIT" id="input-ALIPAY-1">
+                                                <label for="">
+                                            	<img src="/Template/pc/soubao/Static/images/images-out/BOC_OUT.gif" width="120" height="40" onClick="change_pay(this);"/>
+                                                </label>
+                                            </div>
+                                        </li><li>
+                                            <div class="payment-area">
+                                                <input type="radio" name="pay_radio" class="radio vam" value="pay_code=alipay&bank_code=ABC" id="input-ALIPAY-1">
+                                                <label for="">
+                                            	<img src="/Template/pc/soubao/Static/images/images-out/ABC_OUT.gif" width="120" height="40" onClick="change_pay(this);"/>
+                                                </label>
+                                            </div>
+                                        </li><li>
+                                            <div class="payment-area">
+                                                <input type="radio" name="pay_radio" class="radio vam" value="pay_code=alipay&bank_code=SHBANK" id="input-ALIPAY-1">
+                                                <label for="">
+                                            	<img src="/Template/pc/soubao/Static/images/images-out/to_bos.jpg" width="120" height="40" onClick="change_pay(this);"/>
+                                                </label>
+                                            </div>
+                                        </li>                                                           
+                                    </ul>
+                            </div> 
+                        </div>                   
+                    <!--第三方网银支付 end -->
+                                                             	
+                    </dd>
+            	</dl>
+                <div class="order-payment-action-area">                    
+                    <a class="button-style-5 button-confirm-payment" href="javascript:void(0);" onClick="$('#cart4_form').submit();" >确认支付方式</a>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="order_id" value="418" />
+       <input type="hidden" name="__hash__" value="c508e9a88ab9dee675ec9b19be7594fb_d67649734b0e122fccb6bc012c19c915" /></form>
+    </div>
+  </div>
+</div>
+
+
+
+<!--微信扫一扫支付对话框  -->
+<div id="wchatQrcodeDlg" class="g-cartpay-dlg" style="display: none;" data-show="" >
+          <div class="g-cartpay-content">
+    <div class="g-h"> <span class="u-close"></span> </div>
+    <div class="g-c">
+              <div class="g-t"> 使用微信支付<span>￥<small class='wx_amount'>118</small></span> </div>
+              <div class="g-qrcode"> <img alt="使用微信支付" src="images/loading.gif" /> </div>
+            </div>
+    <div class="g-f fixed"> <i class="icon_scan"></i>
+              <div class="u-label">
+        <p>请使用微信扫一扫<br>
+                  扫描二维码完成支付</p>
+      </div>
+            </div>
+  </div>
+          <div class="u-mask"></div>
+        </div>
+<!--微信扫一扫支付对话框 / --> 
+<div id="addCardNewBind"></div>
+<!-- footer start [[-->
+<div class="foot">
+          <div class="foot-box container fn-clear fixed">
+    <dl class="foot-item foot-phone">
+              <dt>15871376283</dt>
+              <!--<dd>CEO邮箱：ceo@tp-shop.cn</dd>-->
+              <dd>客服邮箱：CS@tp-shop.cn</dd>
+            </dl>
+	    <dl class="foot-item foot-list">
+              <dt class="">帮助中心</dt>
+              <dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/8.html">购物指南</a></dd><dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/9.html">配送方式</a></dd><dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/10.html">支付方式</a></dd>	        </dl><dl class="foot-item foot-list">
+              <dt class="">技术支持</dt>
+              <dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/16.html">售后网点</a></dd><dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/17.html">常见问题</a></dd>	        </dl><dl class="foot-item foot-list">
+              <dt class="">关于商城</dt>
+              <dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/20.html">公司介绍</a></dd><dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/21.html">商城简介</a></dd><dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/22.html">联系客服</a></dd>	        </dl><dl class="foot-item foot-list">
+              <dt class="">关注我们</dt>
+              <dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/26.html">商城手机版</a></dd>	        </dl><dl class="foot-item foot-list">
+              <dt class="">售后服务</dt>
+              <dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/12.html">保修政策</a></dd><dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/13.html">退换货政策</a></dd><dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/14.html">退换货流程</a></dd>	        </dl>  
+    <dl class="foot-item foot-attention">
+              <dd>
+        <div class="att-weixin"> <img src="/Template/pc/soubao/Static/images/weixin.png" width="85" height="85"> </div>
+        <p>TPshop网微信</p>
+      </dd>
+              <dd>
+        <div class="att-client"> <img src="/Template/pc/soubao/Static/images/app.png" width="85" height="85"> </div>
+        <p>TPshop网客户端</p>
+      </dd>
+            </dl>
+  </div>
+  <div class="foot-info container">
+    <p>Copyright <em>?</em> 2016-2025 深圳搜豹公司  版权所有 保留一切权利 备案号:粤00-86140485号</p> 
+    <ul class="foot-chop">
+              <!--			<li class="icbc">
+							<a href="" target="_blank"></a>
+						</li>
+						<li class="alipay">
+							<a href="" target="_blank"></a>
+						</li>
+						<li class="unionpay">
+							<a href="" target="_blank"></a>
+						</li>
+						<li class="tenpay">
+							<a href="" target="_blank"></a>
+						</li>-->
+              <li class="gongshang"> <a href="" target="_blank"></a> </li>
+              <li class="sh-letter"> <a href="" target="_blank"></a> </li>
+              <li class="honesty"> <a href="" target="_blank"></a> </li>
+              <li> <a href="" target="_blank"> <img src="/Template/pc/soubao/Static/images/time_cnnic.jpg"> </a> </li>
+              <li> <a href="" target="_blank"> <img src="/Template/pc/soubao/Static/images/aqlm.jpg"> </a> </li>
+            </ul>
+  </div>
+</div>
+<script type="text/javascript" src="/Template/pc/soubao/Static/js/jquery.lazyload.js"></script>
+<script src="/Public/js/global.js"></script>
+<script type="text/javascript" src="/Template/pc/soubao/Static/js/common.js"></script>
+<!-- footer end ]]-->
+<script>
+$(document).ready(function(){
+	 $("input[name='pay_radio']").first().trigger('click');
+});
+// 切换支付方式
+function change_pay(obj)
+{
+	$(obj).parent().siblings('input[name="pay_radio"]').trigger('click');
+}
+</script>    
+</body>
+</html>

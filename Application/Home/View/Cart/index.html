@@ -136,7 +136,7 @@
 						</a>
 					</div>
 				<else />
-					<div class="full"> 
+					<div class="full" id = 'full'> 
 						<table width="100%" border="0" cellpadding="0" cellspacing="0">
 							<tr>
 								<th colspan="3">商品</th>
@@ -147,13 +147,13 @@
 							</tr>
 							<foreach name="list" item="vo">
 							<tr>
-								<td width="44"><input class="choose" type="checkbox" /></td>
+								<td width="44"><input class="choose" checked="true"  type="checkbox" /></td>
 								<td width="75"><img src="__PUBLIC__/Home/image/{$vo.picname}" height="70" width="70" alt=""></td>
 								<td>{$vo.goods_name}</td>
 								<td>&yen;{$vo.goods_price}</td>
 								<td width="100" height="80">
 									<div class="act1" gid="{$vo.goods_id}" store="{$vo.store}" style="margin-left:10px;">-</div>
-										<input type="text" class="num" value="{$vo.goods_num}" readonly style="float:left;width:30px;height:17px;position:relative;left:0;top:2px;padding-left:9px;border:1px solid #dedede;">
+										<input type="text" class="{$vo.goods_id}" value="{$vo.goods_num}" readonly style="float:left;width:30px;height:17px;position:relative;left:0;top:2px;padding-left:9px;border:1px solid #dedede;">
 									<div class="act2" gid="{$vo.goods_id}" store="{$vo.store}">+</div>
 								</td>
 								<td>&yen;{$vo['goods_price'] * $vo['goods_num']}</td>
@@ -166,22 +166,22 @@
 							</tr>
 							<tr style="margin-top:20px;height:50px;">
 								<td colspan="4" rowspan="3">
-									<input type="checkbox" class="all" ><label>全选</label>
+									<input type="checkbox" checked class="all" ><label>全选</label>
 									<a href="">删除所选商品</a>
 								</td>
-								<td colspan="3" style="text-align:center;">总计金额：&yen;</td>
+								<td colspan="3" id="total" style="text-align:center;">总计金额：&yen;{$total}</td>
 							</tr>
 							<tr style="margin-top:20px;height:50px;">
 								
-								<td colspan="3" style="text-align:center;">会员价：&yen;</td>
+								<td colspan="3" style="text-align:center;">会员价：&yen;{$total * $zhekou}</td>
 							</tr>
 							<tr style="margin-top:20px;height:50px;">
 								
-								<td colspan="3" style="text-align:center;">共节省：&yen;</td>
+								<td colspan="3" style="text-align:center;">共节省：&yen;{$total - $total * $zhekou}</td>
 							</tr>
 						</table>
 						
-						<a class="but" href="__URL__/cart2">去结算</a>
+						<a class="but" href="__URL__/cart2?total={$total}&zhekou={$zhekou}">去结算</a>
 						<a class="but" href="__MODULE__/index/index">继续购物</a>
 						
 					</div>
@@ -263,14 +263,14 @@
 </html>
 <script>
 $(function(){
-	$('.act1').click(function(){
+	$('.act1').on('click',function(){
 		act = $('.act1').text();
 		gid = $('.act1').attr('gid');
 		store =parseInt($('.act1').attr('store'));
-		//alert(gid);
+		alert(gid);
 		num(act,gid,store);
 	});
-	$('.act2').click(function(){
+	$('.act2').on('click',function(){
 		act = $('.act2').text();
 		gid = $('.act2').attr('gid');
 		store = $('.act2').attr('store');
@@ -278,7 +278,7 @@ $(function(){
 	});
 		function num(act,gid,store){
 			//首先获取本身数量
-			no = parseInt($('.num').val());
+			no = parseInt($('.'+gid).val());
 			
 			
 			//减少购买数量
@@ -290,8 +290,9 @@ $(function(){
 						url:"{:U('act')}",
 						data:'&no='+no+'&id='+gid,
 						success:function(data){
-							
-							window.location.reload();
+							if(data == '1'){
+								$('#full').load('__SELF__ #full');
+							}
 						}
 					})
 				}else{
@@ -307,20 +308,16 @@ $(function(){
 						data:'&no='+no+'&id='+gid,
 						success:function(data){
 						
-								window.location.reload();
+							$('.full').load('__SELF__ .full');
 						
 						}
 					})
 				}
 			}
 		}
-	var bool = true;
 	$('.all').click(function(){
-		
-			$('.choose').attr('checked',bool);
-			bool = !bool;
-		
-		
+			$('.choose').attr('checked','checked');
+			
 	});
 	$('.del').click(function(){
 		gid = $('.act2').attr('gid');
@@ -329,7 +326,9 @@ $(function(){
 			url:'__URL__/del',
 			data:'gid='+gid,
 			success:function(data){
-				
+				if(data == '1'){	
+					window.location.reload();
+					}
 			}
 		});
 	})

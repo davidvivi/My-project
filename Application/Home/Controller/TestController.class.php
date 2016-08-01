@@ -4,6 +4,12 @@ namespace Home\Controller;
 use Think\Controller;
 class TestController extends Controller {
     public function index(){
+		$da = M('cart')->where('user_id='.$_SESSION['user']['id'])->field('goods_price,goods_num')->select();
+		$total = 0;
+		foreach($da as $key =>$val){
+			$total += $val['goods_num'];
+		}
+		dump($total);
 		$this->display('Test/index');
 		
     }

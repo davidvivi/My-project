@@ -7,7 +7,7 @@
 	<script src="__PUBLIC__/home/js/jquery-1.10.2.min.js"></script>
 	<script src="__PUBLIC__/home/js/global.js"></script>
 	<script src="__PUBLIC__/home/js/pc_common.js"></script>
-	<script src="__PUBLIC__/home/js/layer/layer.js"></script>
+	<script src="__PUBLIC__/home/js/layer/1.9.3/layer.js"></script>
 	<link href="__PUBLIC__/home/css/common.min.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="__PUBLIC__/home/css/jh.css">
 </head>
@@ -29,11 +29,11 @@
       <li class="fl dropdown my-feiniu"><a class="menu-item" target="_blank" href="">
         <span>我的商城</span><i class="dd"></i></a>
         <ul class="sub-panel">
-          <li><a class="J_chgurl" target="_blank" href="/index.php/Home/User/order_list.html">我的订单</a></li>
-          <li><a class="J_chgurl" target="_blank" href="/index.php/Home/User/account.html">我的积分</a></li>
-          <li><a class="J_chgurl" target="_blank" href="/index.php/Home/User/coupon.html">我的优惠券</a></li>
-          <li><a class="J_chgurl" target="_blank" href="/index.php/Home/User/goods_collect.html">我的收藏夹</a></li>
-          <li><a class="J_chgurl" target="_blank" href="/index.php/Home/User/comment.html">我的评论</a></li>
+          <li><a class="J_chgurl" target="_blank" href="__MODULE__/User/order_list">我的订单</a></li>
+          <li><a class="J_chgurl" target="_blank" href="__MODULE__/User/account">我的积分</a></li>
+          <li><a class="J_chgurl" target="_blank" href="__MODULE__/User/coupon">我的优惠券</a></li>
+          <li><a class="J_chgurl" target="_blank" href="__MODULE__/User/goods_collect">我的收藏夹</a></li>
+          <li><a class="J_chgurl" target="_blank" href="__MODULE__/User/comment">我的评论</a></li>
         </ul>
       </li> 
       <li class="fl sep"></li>
@@ -54,7 +54,7 @@
 	    	<div class="layout after">
 	        	<div class="fl">
 	            	<div class="logo pa-to-36 wi345">
-	                	<a href="/"><img src="/Template/pc/soubao/Static/images/newLogo.png" alt=""></a>
+	                	<a href="/"><img src="__PUBLIC__/home/image/newLogo.png" alt=""></a>
 	                </div>
 	            </div>
 	        	<div class="fr">
@@ -134,63 +134,24 @@
 		                        <div class="leiliste">
 		                        	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 		                                <tbody>
-		                                <tr>
+										<foreach name="list" item="vo"> 
+											<tr>
+											
 		                                        <td class="tr-pro">
 		                                            <ul class="pro-area-2">
-		                                                <li>
-		                                                  <a title="【0首付分期】蚂蚁摄影联保单反数码相机Canon/佳能 EOS 760D套机" target="_blank" href="/index.php/Home/Goods/goodsInfo/id/125.html" seed="item-name">【0首付分期】蚂蚁摄影联保单反数码相机Canon/佳能 EOS 760D套机</a>
+		                                                <li style="text-align:center;">
+		                                                  <a title="{$vo.goods_name}" target="_blank" href="__MODULE__/" seed="item-name">{$vo.goods_name}</a>
 		                                                </li> 
 		                                             </ul>
 		                                         </td>
 		                                        <!-- 预付订金商品的价格为空 -->
-		                                        <td class="tr-price te-al">¥5499.00</td>
-		                                        		                                        <td class="tr-quantity te-al">8</td>
+		                                        <td class="tr-price te-al">{$vo.goods_price}</td>
+																																		<td class="tr-quantity te-al">{$vo.goods_num}</td>
 		                                        <td rowspan="1" class="tr-subtotal te-al">
-		                                        <p><b>￥43992</b></p>
-		                                        </td>
-		                                    </tr><tr>
-		                                        <td class="tr-pro">
-		                                            <ul class="pro-area-2">
-		                                                <li>
-		                                                  <a title="Canon/佳能 EOS 700D套机（18-55mm)数码单反相机 苏宁易购" target="_blank" href="/index.php/Home/Goods/goodsInfo/id/126.html" seed="item-name">Canon/佳能 EOS 700D套机（18-55mm)数码单反相机 苏宁易购</a>
-		                                                </li> 
-		                                             </ul>
-		                                         </td>
-		                                        <!-- 预付订金商品的价格为空 -->
-		                                        <td class="tr-price te-al">¥3499.00</td>
-		                                        		                                        <td class="tr-quantity te-al">8</td>
-		                                        <td rowspan="1" class="tr-subtotal te-al">
-		                                        <p><b>￥27992</b></p>
-		                                        </td>
-		                                    </tr><tr>
-		                                        <td class="tr-pro">
-		                                            <ul class="pro-area-2">
-		                                                <li>
-		                                                  <a title="Nikon/尼康D3300入门单反相机 升级版AF-P 18-55镜头套机 分期购" target="_blank" href="/index.php/Home/Goods/goodsInfo/id/124.html" seed="item-name">Nikon/尼康D3300入门单反相机 升级版AF-P 18-55镜头套机 分期购</a>
-		                                                </li> 
-		                                             </ul>
-		                                         </td>
-		                                        <!-- 预付订金商品的价格为空 -->
-		                                        <td class="tr-price te-al">¥2399.00</td>
-		                                        		                                        <td class="tr-quantity te-al">5</td>
-		                                        <td rowspan="1" class="tr-subtotal te-al">
-		                                        <p><b>￥11995</b></p>
-		                                        </td>
-		                                    </tr><tr>
-		                                        <td class="tr-pro">
-		                                            <ul class="pro-area-2">
-		                                                <li>
-		                                                  <a title="Canon/佳能 EOS 750D单反套机（18-55mm）高清数码相机苏宁易购" target="_blank" href="/index.php/Home/Goods/goodsInfo/id/123.html" seed="item-name">Canon/佳能 EOS 750D单反套机（18-55mm）高清数码相机苏宁易购</a>
-		                                                </li> 
-		                                             </ul>
-		                                         </td>
-		                                        <!-- 预付订金商品的价格为空 -->
-		                                        <td class="tr-price te-al">¥3997.00</td>
-		                                        		                                        <td class="tr-quantity te-al">1</td>
-		                                        <td rowspan="1" class="tr-subtotal te-al">
-		                                        <p><b>￥3997</b></p>
+		                                        <p><b>{$vo['goods_price']*$vo['goods_num']}</b></p>
 		                                        </td>
 		                                    </tr>  
+										</foreach>	
 		                                </tbody>
 		                            </table>
 		                        </div>
@@ -246,46 +207,39 @@
 		                                <tbody>
 		                                    <tr>
 		                                        <td class="tal">商品总金额：</td>
-		                                        <td class="tar">&nbsp;¥&nbsp;
-		                                           <em id="order-cost-area">87976</em>
+		                                        <td class="tar">&nbsp;&yen;&nbsp;
+		                                           <em id="order-cost-area">{$total}</em>
 		                                        </td>
 		                                    </tr>
-		                                    <tr>
-		                                        <td class="tal">运费：</td>
-		                                        <td class="tar">&nbsp;¥&nbsp;
-		                                               <em id="postFee">0.00</em> 
-		                                        </td>
-		                                    </tr>
-		                                    <tr>
-		                                        <td class="tal">使用优惠券：</td>
-		                                        <td class="tar">-&nbsp;¥&nbsp;
-		                                          <em><span id="couponFee">0.00</span> </em>
-		                                        </td>
-		                                    </tr>
+											
+											<tr>
+												<td class="tal">会员折扣：</td>
+												<td class="tar">&nbsp;
+													<em id="order-cost-area">{$zhekou}</em>
+												</td>
+												
+											</tr>
+											
 		                                    <tr>
 		                                        <td class="tal">使用积分：</td>
 		                                        <td class="tar">-&nbsp;¥&nbsp;
 		                                          <em><span id="pointsFee">0.00</span> </em>
 		                                        </td>
 		                                    </tr>
-                                            <tr>
-                                                <td class="tal">优惠活动：</td>
-                                                <td class="tar">-&nbsp;¥&nbsp;
-                                                  <em><span id="order_prom_amount">0.00</span> </em>
-                                                </td>
-                                            </tr>                                              
+                                                                                 
 		                                    <tr>
 		                                        <td class="tal">使用余额:</td>
 		                                        <td class="tar">-&nbsp;¥&nbsp;
 		                                          <em><span id="balance">0.00</span> </em>
 		                                        </td>
-		                                    </tr>                                    
+		                                    </tr>   
+											
 		                                </tbody>
 		                            </table>
 		                            <p class="yifje-order">
 		                            	<span class="p-subtotal-price"> 应付金额：
-		                                    <b class="total">¥</b>
-		                                    <b class="total" id="payables">0.00</b>
+		                                    <b class="total">&yen;</b>
+		                                    <b class="total" id="payables">{$total * $zhekou}</b>
 		                                </span>
 		                            </p>
 		                        </div>
@@ -300,70 +254,67 @@
 		            </div>
 		        </div>
 		    </div>
-		<input type="hidden" name="__hash__" value="c5e3905e2d2e207782e1b0bd2f2ad29c_ee3858f0c87976a39173a0778520db59" /></form>    
+		</form>    
     </div>
 </div>
 
-<!-- 提示切换省份 -->
-<div id="changeProvince" style="display: none;">
-          <div class="mask mask-cs-05 mask-4">
-    <div class="mk-title">
-              <h3>温馨提示</h3>
-              <i data-x="1" class="mask-close-x changeAddrX"></i> </div>
-    <div class="mk-adc">
-              <div class="cs-01"> 您目前所在的省份为<strong>上海</strong>，选择<strong>安徽省</strong>的收货地址后，您购买的商品及价格将发生变化。 </div>
-              <div class="cs-03">
-        <button class="btn btn-red confirmChangeCity">切换省份</button>
-        <button class="btn mask-close-x changeAddrX" data-x="1">取消</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end 提示切换省份 --> 
-<!-- 提示配送商品 -->
-<div id="sorryTipLayer" style="display:none;">
-    <div class="tipLayerCont">
-    <p class="tip">对不起，以下商品暂时无法送达至<b>江苏省</b><b>无锡市</b><b>锡山区</b></p>
-    <div class="tipLayerList">
-              <div class="listHead"> <span class="name">商品名称</span> <span class="spec">规格</span> <span class="num">数量</span> <span class="price">金额</span> </div>
-              <div class="listCont"> </div>
-     </div>
-  </div>
-</div>
-<!-- end 提示配送商品 --> 
 <!-- footer start [[-->
 <div class="foot">
           <div class="foot-box container fn-clear fixed">
     <dl class="foot-item foot-phone">
-              <dt>15871376283</dt>
-              <!--<dd>CEO邮箱：ceo@tp-shop.cn</dd>-->
-              <dd>客服邮箱：CS@tp-shop.cn</dd>
-            </dl>
+		<dt>15871376283</dt>
+		<!--<dd>CEO邮箱：ceo@tp-shop.cn</dd>-->
+		<dd>客服邮箱：CS@tp-shop.cn</dd>
+	</dl>
 	    <dl class="foot-item foot-list">
-              <dt class="">帮助中心</dt>
-              <dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/8.html">购物指南</a></dd><dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/9.html">配送方式</a></dd><dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/10.html">支付方式</a></dd>	        </dl><dl class="foot-item foot-list">
-              <dt class="">技术支持</dt>
-              <dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/16.html">售后网点</a></dd><dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/17.html">常见问题</a></dd>	        </dl><dl class="foot-item foot-list">
-              <dt class="">关于商城</dt>
-              <dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/20.html">公司介绍</a></dd><dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/21.html">商城简介</a></dd><dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/22.html">联系客服</a></dd>	        </dl><dl class="foot-item foot-list">
-              <dt class="">关注我们</dt>
-              <dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/26.html">商城手机版</a></dd>	        </dl><dl class="foot-item foot-list">
-              <dt class="">售后服务</dt>
-              <dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/12.html">保修政策</a></dd><dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/13.html">退换货政策</a></dd><dd><a target="_blank" href="/index.php/Home/Article/detail/article_id/14.html">退换货流程</a></dd>	        </dl>  
-    <dl class="foot-item foot-attention">
-              <dd>
-        <div class="att-weixin"> <img src="/Template/pc/soubao/Static/images/weixin.png" width="85" height="85"> </div>
-        <p>TPshop网微信</p>
-      </dd>
-              <dd>
-        <div class="att-client"> <img src="/Template/pc/soubao/Static/images/app.png" width="85" height="85"> </div>
-        <p>TPshop网客户端</p>
-      </dd>
-            </dl>
-  </div>
-  <div class="foot-info container">
-    <p>Copyright <em>©</em> 2016-2025 深圳搜豹公司  版权所有 保留一切权利 备案号:粤00-86140485号</p> 
-    <ul class="foot-chop">
+			<dt class="">帮助中心</dt>
+			<dd>
+				<a target="_blank" href="/index.php/Home/Article/detail/article_id/8.html">购物指南</a>
+			</dd>
+			<dd>
+				<a target="_blank" href="/index.php/Home/Article/detail/article_id/9.html">配送方式</a>
+			</dd>
+			<dd>
+				<a target="_blank" href="/index.php/Home/Article/detail/article_id/10.html">支付方式</a>
+			</dd>
+		</dl>
+	    <dl class="foot-item foot-list">
+			<dt class="">技术支持</dt>
+			<dd>
+				<a target="_blank" href="/index.php/Home/Article/detail/article_id/16.html">售后网点</a>
+			</dd>
+			<dd>
+				<a target="_blank" href="/index.php/Home/Article/detail/article_id/17.html">常见问题</a>
+			</dd>
+		</dl>
+		<dl class="foot-item foot-list">
+			<dt class="">关于商城</dt>
+			<dd>
+				<a target="_blank" href="/index.php/Home/Article/detail/article_id/20.html">公司介绍</a>
+			</dd>
+			<dd>
+				<a target="_blank" href="/index.php/Home/Article/detail/article_id/21.html">商城简介</a>
+			</dd>
+			<dd>
+				<a target="_blank" href="/index.php/Home/Article/detail/article_id/22.html">联系客服</a>
+			</dd>	        
+		</dl>
+		<dl class="foot-item foot-list">
+			<dt class="">售后服务</dt>
+			<dd>
+				<a target="_blank" href="/index.php/Home/Article/detail/article_id/12.html">保修政策</a>
+			</dd>
+			<dd>
+				<a target="_blank" href="/index.php/Home/Article/detail/article_id/13.html">退换货政策</a>
+			</dd>
+			<dd>
+				<a target="_blank" href="/index.php/Home/Article/detail/article_id/14.html">退换货流程</a>
+			</dd>	        
+		</dl>  
+    </div>
+    <div class="foot-info container">
+		<p>Copyright <em>©</em> 2016-2025 深圳搜豹公司  版权所有 保留一切权利 备案号:粤00-86140485号</p> 
+		<ul class="foot-chop">
               <!--			<li class="icbc">
 							<a href="" target="_blank"></a>
 						</li>
@@ -376,17 +327,17 @@
 						<li class="tenpay">
 							<a href="" target="_blank"></a>
 						</li>-->
-              <li class="gongshang"> <a href="" target="_blank"></a> </li>
-              <li class="sh-letter"> <a href="" target="_blank"></a> </li>
-              <li class="honesty"> <a href="" target="_blank"></a> </li>
-              <li> <a href="" target="_blank"> <img src="/Template/pc/soubao/Static/images/time_cnnic.jpg"> </a> </li>
-              <li> <a href="" target="_blank"> <img src="/Template/pc/soubao/Static/images/aqlm.jpg"> </a> </li>
-            </ul>
-  </div>
+			<li class="gongshang"> <a href="" target="_blank"></a> </li>
+			<li class="sh-letter"> <a href="" target="_blank"></a> </li>
+			<li class="honesty"> <a href="" target="_blank"></a> </li>
+			<li> <a href="" target="_blank"> <img src="/Template/pc/soubao/Static/images/time_cnnic.jpg"> </a> </li>
+			<li> <a href="" target="_blank"> <img src="/Template/pc/soubao/Static/images/aqlm.jpg"> </a> </li>
+        </ul>
+    </div>
 </div>
-<script type="text/javascript" src="/Template/pc/soubao/Static/js/jquery.lazyload.js"></script>
-<script src="/Public/js/global.js"></script>
-<script type="text/javascript" src="/Template/pc/soubao/Static/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.lazyload.js"></script>
+<script src="__PUBLIC__/home/js/global.js"></script>
+<script type="text/javascript" src="__PUBLIC__/home/js/common.js"></script>
 <!-- footer end ]]-->
 <script>
 $(document).ready(function(){
@@ -400,18 +351,19 @@ $(document).ready(function(){
 */
 function add_edit_address(id)
 {
-	if(id > 0) 
-		var url = "/index.php?m=Home&c=User&a=edit_address&scene=1&call_back=call_back_fun&id="+id; // 修改地址  '/index.php/Home/User/add_address/scene/1/call_back/call_back_fun/id/id.html' //iframe的url /index.php/Home/User/add_address
-	else
-		var url = "/index.php?m=Home&c=User&a=add_address&scene=1&call_back=call_back_fun";	// 新增地址
-	layer.open({
-		type: 2,
-		title: '添加收货地址',
-		shadeClose: true,
-		shade: 0.8,
-		area: ['880px', '580px'],
-		content: url,
-	}); 	
+	if(id > 0){
+		var url = "__MODULE__/user/edit"; // 修改地址  
+	}else{
+		var url = "__MODULE__/user/add_address";	// 新增地址
+		layer.open({
+			type: 2,
+			title: '添加收货地址',
+			shadeClose: true,
+			shade: 0.8,
+			area: ['1000px', '580px'],
+			content: url
+		}); 
+	}		
 } 
 // 添加修改收货地址回调函数 
 function call_back_fun(v){	 
@@ -438,12 +390,11 @@ function del_address(id)
 */
 function ajax_address(){
 	$.ajax({
-		url:"/index.php/Home/Cart/ajaxAddress.html",//+tab,
+		url:"__URL__/ajaxAddress",//+tab,
 		success: function(data){
 			$("#ajax_address").html('');
 			$("#ajax_address").append(data);
-			if(data != '') // 有收货地址列表 再计算价钱
-				ajax_order_price(); // 计算订单价钱
+			
 		}
 	});
 }
@@ -453,40 +404,9 @@ function swidth_address(obj)
 {
         $(".order-address-list").removeClass('address_current');  
         $(obj).parent().parent().parent().parent().parent().addClass('address_current');
-		ajax_order_price(); // 计算订单价格
 }
 
 
-// 获取订单价格
-function ajax_order_price()
-{
-
-	$.ajax({
-		type : "POST",
-		url:"/index.php/Home/Cart/cart3.html",//+tab,
-		data : $('#cart2_form').serialize()+"&act=order_price",// 你的formid
-        dataType: "json",
-		success: function(data){
-			
-			if(data.status != 1)
-			{ 
-				layer.alert(data.msg, {icon: 2});
-				// 登录超时
-				if(data.status == -100) 
-					location.href ="/index.php/Home/User/login.html";
-								
-				return false;
-			}
-			// console.log(data);			
-			$("#postFee").text(data.result.postFee); // 物流费
-			$("#couponFee").text(data.result.couponFee);// 优惠券			
-			$("#balance").text(data.result.balance);// 余额	
-			$("#pointsFee").text(data.result.pointsFee);// 积分支付			
-			$("#payables").text(data.result.payables);// 应付		
-			$("#order_prom_amount").text(data.result.order_prom_amount);// 订单 优惠活动 																
-		}
-	});	
-}
 
 // 提交订单
 function submit_order()
