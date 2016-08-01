@@ -46,7 +46,7 @@ class UserController extends CommonController
      */
     public function add_address()
     {
-        $uid = I('get.uid');
+        $uid = $_SESSION['user']['id'];
         $this->assign('uid',$uid);
         $this->display('user/add_address');
     }
@@ -176,13 +176,14 @@ class UserController extends CommonController
 
         $new_password = I('new_password');
         $confirm_password = I('confirm_password');
-        /*
+        
         if($new_password != $confirm_password){
             $this->ajaxReturn('0');
         }else{  
             $this->ajaxReturn('1');
         }
     
+        /*
         if($bool){  
             
             if($new_password != $confirm_password){
