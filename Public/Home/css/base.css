@@ -108,6 +108,11 @@
     border-bottom: 2px solid #C40000;
 }
 
+#tabaaa li a{
+	
+	border-radius:0;border:0;
+}
+
 #catenav{
 	width:200px;
     height:410px;

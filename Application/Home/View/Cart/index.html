@@ -73,10 +73,48 @@
 			}
 			.main table{
 				border:1px solid #dedede;
-				font-size: 12px;
-				font-weight:400;
-				color: #333;
 				border-collapse: collapse;
+			}
+			th{
+				height:31px;
+				font-weight:lighter;
+			}
+			td{
+				border:1px solid #dedede;
+			}
+			td div{
+				text-align:center;
+				margin:2px;
+				line-height:17px;
+				width:17px;height:17px;float:left;border:1px solid #dedede;
+			}
+			.but{
+				display:block;
+				width:150px;
+				height:37px;
+				line-height:37px;
+				float:right;
+				text-align:center;
+				border:1px solid #dedede;
+				margin-top:20px;
+				font-size:16px;
+				color:black;
+				background:#f9f9f9;
+			}
+			a.but:first-of-type{
+				color:white;
+				background:#e01d20;
+				margin-left:30px;
+			}
+			.but:hover{
+				color: #666;
+				background-color: #f9f9f9;
+				text-decoration: none;
+				opacity: 0.5;
+			}
+			
+			.recommend{
+				margin-top:100px;
 			}
 			
 		</style>
@@ -91,29 +129,64 @@
 			</div>
 			
 			<div class="main">
-				<if condition="empty($cartlst)">
+				<eq name="count" value="0">
 					<div class="null">
 						<a href="__MODULE__/index/index">
 							<img src="__PUBLIC__/Home/image/null_cart.jpg" />
 						</a>
 					</div>
-				
+				<else />
 					<div class="full"> 
 						<table width="100%" border="0" cellpadding="0" cellspacing="0">
-							<tr style="background:#f7f7f7;display:table-row;vertical-align: inherit;border-color: inherit;height: 30px;font-style: normal;font-weight: 400;}">
-								<th>商品</th>
-								<th>单价</th>
-								<th>数量</th>
-								<th>小计</th>
-								<th>操作</th>
-							</tr>
 							<tr>
+								<th colspan="3">商品</th>
+								<th width="115">单价（元）</th>
+								<th width="115">数量</th>
+								<th width="115">小计（元）</th>
+								<th width="115">操作</th>
+							</tr>
+							<foreach name="list" item="vo">
+							<tr>
+								<td width="44"><input class="choose" type="checkbox" /></td>
+								<td width="75"><img src="__PUBLIC__/Home/image/{$vo.picname}" height="70" width="70" alt=""></td>
+								<td>{$vo.goods_name}</td>
+								<td>&yen;{$vo.goods_price}</td>
+								<td width="100" height="80">
+									<div class="act1" gid="{$vo.goods_id}" store="{$vo.store}" style="margin-left:10px;">-</div>
+										<input type="text" class="num" value="{$vo.goods_num}" readonly style="float:left;width:30px;height:17px;position:relative;left:0;top:2px;padding-left:9px;border:1px solid #dedede;">
+									<div class="act2" gid="{$vo.goods_id}" store="{$vo.store}">+</div>
+								</td>
+								<td>&yen;{$vo['goods_price'] * $vo['goods_num']}</td>
+								<td><a class="del" href="javascript:void(0);">删除</a></td>
+							</tr>
+							</foreach>
+							
+							<tr>
+								<td colspan="7" height="40"></td>
+							</tr>
+							<tr style="margin-top:20px;height:50px;">
+								<td colspan="4" rowspan="3">
+									<input type="checkbox" class="all" ><label>全选</label>
+									<a href="">删除所选商品</a>
+								</td>
+								<td colspan="3" style="text-align:center;">总计金额：&yen;</td>
+							</tr>
+							<tr style="margin-top:20px;height:50px;">
 								
+								<td colspan="3" style="text-align:center;">会员价：&yen;</td>
+							</tr>
+							<tr style="margin-top:20px;height:50px;">
+								
+								<td colspan="3" style="text-align:center;">共节省：&yen;</td>
 							</tr>
 						</table>
+						
+						<a class="but" href="__URL__/cart2">去结算</a>
+						<a class="but" href="__MODULE__/index/index">继续购物</a>
+						
 					</div>
-				<else />
-				</if>
+				
+				</eq>
 			</div>
 			
 			<div class="recommend">
@@ -189,5 +262,77 @@
 	</body>
 </html>
 <script>
-
+$(function(){
+	$('.act1').click(function(){
+		act = $('.act1').text();
+		gid = $('.act1').attr('gid');
+		store =parseInt($('.act1').attr('store'));
+		//alert(gid);
+		num(act,gid,store);
+	});
+	$('.act2').click(function(){
+		act = $('.act2').text();
+		gid = $('.act2').attr('gid');
+		store = $('.act2').attr('store');
+		num(act,gid,store);
+	});
+		function num(act,gid,store){
+			//首先获取本身数量
+			no = parseInt($('.num').val());
+			
+			
+			//减少购买数量
+			if(act == '--'){
+				if(no > 1){
+					no --;
+					$.ajax({
+						type:'post',
+						url:"{:U('act')}",
+						data:'&no='+no+'&id='+gid,
+						success:function(data){
+							
+							window.location.reload();
+						}
+					})
+				}else{
+					alert('最少购买一件');
+				}		
+				
+			}else{
+				if(no < store){
+					no ++;
+					$.ajax({
+						type:'post',
+						url:'__URL__/act',
+						data:'&no='+no+'&id='+gid,
+						success:function(data){
+						
+								window.location.reload();
+						
+						}
+					})
+				}
+			}
+		}
+	var bool = true;
+	$('.all').click(function(){
+		
+			$('.choose').attr('checked',bool);
+			bool = !bool;
+		
+		
+	});
+	$('.del').click(function(){
+		gid = $('.act2').attr('gid');
+		$.ajax({
+			type:'post',
+			url:'__URL__/del',
+			data:'gid='+gid,
+			success:function(data){
+				
+			}
+		});
+	})
+ }
+);
 </script>

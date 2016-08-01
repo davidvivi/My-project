@@ -169,7 +169,7 @@ header::after { content: ""; clear: both; display: block; }
 .choice-number { border: 1px solid rgb(178, 178, 178); background-color: rgb(255, 255, 255); height: 24px; text-align: center; display: block; line-height: 24px; cursor: pointer; }
 .choice-number:hover { border-color: rgb(221, 221, 221); color: rgb(221, 221, 221); }
 .wi43 { width: 43px; height: 24px; float: left; text-align: center; margin: 0px 5px; border: 1px solid rgb(178, 178, 178); }
-.jrgwc-shopping-img2 { margin:35px 0px -417px 0px ;background: rgb(224, 29, 32) url('__PUBLIC__/Home/image/icon32.png') no-repeat scroll 29px 11px; width: 188px; height: 40px; cursor: pointer; font-size: 16px; border: 1px solid rgb(224, 29, 32); display: block; line-height: 40px; text-indent: 64px; color: rgb(255, 255, 255); }
+.jrgwc-shopping-img2 { margin:83px 0px -417px 0px ;background: rgb(224, 29, 32) url('__PUBLIC__/Home/image/icon32.png') no-repeat scroll 29px 11px; width: 188px; height: 40px; cursor: pointer; font-size: 16px; border: 1px solid rgb(224, 29, 32); display: block; line-height: 40px; text-indent: 64px; color: rgb(255, 255, 255); }
 .jrgwc-shopping-img { text-align: center; text-indent: inherit; background: rgb(230, 53, 71) none repeat scroll 0% 0%; margin-left: inherit; cursor: pointer; }
 .ma-le-210 { margin-left: 210px; }
 .join-a-shopping-cart { position: absolute; bottom: 20px; }

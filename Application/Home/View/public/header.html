@@ -3,11 +3,11 @@
 				<div class="topbar_content">
 					<div>
 						<span><a href="__MODULE__/index/index">商城首页</a></span>
-						<if condition="empty($name)">
+						<if condition="empty($_SESSION['user'])">
 							<span>Hi~欢迎来到QAQ数码商城，请<a href="__MODULE__/login/index">登录</a></span>
 							<span><a href="__MODULE__/reg/index">免费注册</a></span>
 						<else />
-							<span>Hi~ <a href="">{$name}</a>,欢迎来到QAQ数码商城!</span>
+							<span>Hi~ <a href="">{$_SESSION['user']['name']}</a>,欢迎来到QAQ数码商城!</span>
 							<span><a class="logout" href="javascript:void(0);">退出</a></span>
 							
 						</if>

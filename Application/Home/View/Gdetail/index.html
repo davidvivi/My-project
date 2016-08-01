@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script charset="utf-8" src="__PUBLIC__/Home/js/cm.js"></script><script charset="utf-8"></script>
-<meta charset="utf-8">
-<title>荣耀畅玩5X 双卡双待 移动版 智能手机（破晓银）-tpshop｜thinkphp shop ｜TPshop 免费开源系统｜ thinkphp 商城 国内最强大的thinkphp shop b2cb2b开源商城</title>
-<meta http-equiv="keywords" content="tpshop｜thinkphp shop ｜TPshop 免费开源系统｜ thinkphp 商城 国内最强大的thinkphp shop b2cb2b开源商城">
-<meta name="description" content="tpshop｜thinkphp shop ｜TPshop 免费开源系统｜ thinkphp 商城 国内最强大的thinkphp shop b2cb2b开源商城">
-<meta name="__hash__" content="68fc823c064073733cc6d659691e2a7a_d85d6db9178fc15fec38e1c25cd9c713"><script src="__PUBLIC__/Home/js/_cm.js"></script>
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/Gdetail.css" media="all">
-<link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script charset="utf-8" src="__PUBLIC__/Home/js/cm.js"></script><script charset="utf-8"></script>
+        <meta charset="utf-8">
+        <title>荣耀畅玩5X 双卡双待 移动版 智能手机（破晓银）-tpshop｜thinkphp shop ｜TPshop 免费开源系统｜ thinkphp 商城 国内最强大的thinkphp shop b2cb2b开源商城</title>
+        <meta http-equiv="keywords" content="tpshop｜thinkphp shop ｜TPshop 免费开源系统｜ thinkphp 商城 国内最强大的thinkphp shop b2cb2b开源商城">
+        <meta name="description" content="tpshop｜thinkphp shop ｜TPshop 免费开源系统｜ thinkphp 商城 国内最强大的thinkphp shop b2cb2b开源商城">
+        <meta name="__hash__" content="68fc823c064073733cc6d659691e2a7a_d85d6db9178fc15fec38e1c25cd9c713"><script src="__PUBLIC__/Home/js/_cm.js"></script>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/Gdetail.css" media="all">
+        <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css">
         <link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
         <script src="__PUBLIC__/Home/js/jquery-1.10.2.min.js"></script>
         <script src="__PUBLIC__/home/js/bootstrap.js"></script>
-<style>
+        <style>
           #big{
         
             width:300px;
@@ -25,9 +25,9 @@
             display:none;
             left:500px;
             top:20px;
-        }  
-    </style>
-</head>
+            }  
+        </style>
+    </head>
 <body>
 <!--------头部开始-------------->
 <include file="public/header" />
@@ -46,7 +46,11 @@
     <div class="layout">
     
     <!--logo开始-->
-        <div class="logo"><a href="http://localhost/" title="TPshop"><img src="__PUBLIC__/img/logo.jpg" alt="TPshop" style="margin:-27px 0px"></a></div>
+        <div class="logo">
+            <a href="__MODULE__/index/index" title="TPshop">
+                <img src="__PUBLIC__/img/logo.jpg" alt="TPshop" style="margin:-27px 0px">
+            </a>
+        </div>
     <!--logo结束-->
     
     <!-- 搜索开始-->
@@ -55,7 +59,8 @@
                 <form name="sourch_form" id="sourch_form" method="post" action="http://localhost/index.php/Home/Goods/search.html">
                     <input class="text" name="q" id="q" value="" placeholder="  搜索关键字" type="text">
                     <input class="button" value="搜索" onclick="if($.trim($('#q').val()) != '') $('#sourch_form').submit();" type="button"style="margin:-2px -2px 0px -2px">
-                <input name="__hash__" value="68fc823c064073733cc6d659691e2a7a_d85d6db9178fc15fec38e1c25cd9c713" type="hidden"></form>
+                    <input name="__hash__" value="68fc823c064073733cc6d659691e2a7a_d85d6db9178fc15fec38e1c25cd9c713" type="hidden">
+                </form>
             </div>
             <div class="searchBar-hot">
                 <b>热门搜索</b>
@@ -82,8 +87,46 @@
             
             <div class="ongoods">
             	<ul class="navlist">
-            		<li class="homepage"><a href="http://localhost/"><span>首页</span></a></li>
-                    <li class="page"><a href="http://localhost/index.php?m=Home&amp;c=Goods&amp;a=goodsList&amp;id=123" <span="">手机城</a></li><li class="page"><a href="http://localhost/index.php?m=Home&amp;c=Goods&amp;a=goodsList&amp;id=51" <span="">珠宝</a></li><li class="page"><a href="http://localhost/index.php?m=Home&amp;c=Goods&amp;a=goodsList&amp;id=20" <span="">家电城</a></li><li class="page"><a href="http://localhost/index.php?m=Home&amp;c=Index&amp;a=promoteList" <span="">促销商品</a></li><li class="page"><a href="http://localhost/index.php?m=Home&amp;c=Goods&amp;a=goodsList&amp;id=45" <span="">化妆品</a></li><li class="page"><a href="http://localhost/index.php?m=Home&amp;c=Channel&amp;a=index&amp;id=1" <span="">数码城</a></li><li class="page"><a href="http://localhost/index.php?m=Home&amp;c=Activity&amp;a=group_list" target="_top" <span="">团购</a></li> 
+            		<li class="homepage">
+                        <a href="__MODULE__/index/index">
+                            <span>首页</span>
+                        </a>
+                    </li>
+                    <li class="page">
+                        <a href="#"> 
+                            <span="">手机城
+                        </a>
+                    </li>
+                    <li class="page">
+                        <a href="#">
+                            <span="">珠宝
+                        </a>
+                    </li>
+                    <li class="page">
+                        <a href="#" >
+                            <span="">家电城
+                        </a>
+                    </li>
+                    <li class="page">
+                        <a href="#">
+                            <span="">促销商品
+                        </a>
+                    </li>
+                    <li class="page">
+                        <a href="#">
+                            <span="">化妆品
+                        </a>
+                    </li>
+                    <li class="page">
+                        <a href="#"> 
+                            <span="">数码城
+                        </a>
+                    </li>
+                    <li class="page">
+                        <a href="#" target="_top">
+                            <span="">团购
+                        </a>
+                    </li> 
             	</ul>
             </div>
         </div>
@@ -156,7 +199,7 @@ $("#header_cart_list > .micart > .les").hover(function(){
 <script src="__PUBLIC__/Home/js/layer.js"></script><!--弹窗js 参考文档 http://layer.layui.com/-->
 	<div class="layout">
     	<div class="breadcrumb-area">
-        	<a href="http://localhost/">首页</a> &gt;&gt;
+        	<a href="__MODULE__/index/index">首页</a> &gt;&gt;
             <a href="http://localhost/index.php/Home/Goods/goodsList/id/1.html">手机 、 数码 、 通信</a> &gt;&gt;<a href="http://localhost/index.php/Home/Goods/goodsList/id/123.html">手机</a> &gt;&gt;            <span>荣耀畅玩5X 双卡双待 移动版 智能手机（破晓银）</span>
         </div>
         <div class="layout pa-to-10">            
@@ -276,17 +319,18 @@ $("#header_cart_list > .micart > .les").hover(function(){
                                         </li>                                   
                                      </ul>
                                 </td>
-                              </tr><tr>
+                              </tr>
+                              <tr>
                                 <td align="right" width="60px">网络：</td>
                                 <td>
                                     <ul class="choice-colol ma-le-6">
                                                                             
                                         <li>
                                             <div class="sku  sku-bo-blo">
-                                                <a  class="choice-size">4G</a>
-                                               
+                                                <a  class="choice-size">4G</a>          
                                             </div>
-                                        </li>                                    </ul>
+                                        </li>                                    
+                                    </ul>
                                 </td>
                               </tr>   
                               <tr>
@@ -317,7 +361,8 @@ $("#header_cart_list > .micart > .les").hover(function(){
                     </div>
                 </div>
                     <input name="goods_id" value="49" type="hidden">
-                <input name="__hash__" value="68fc823c064073733cc6d659691e2a7a_d85d6db9178fc15fec38e1c25cd9c713" type="hidden"></form>
+                <input name="__hash__" value="68fc823c064073733cc6d659691e2a7a_d85d6db9178fc15fec38e1c25cd9c713" type="hidden">
+                </form>
             </div>
         </div>
     </div>
@@ -331,150 +376,176 @@ $("#header_cart_list > .micart > .les").hover(function(){
                 <div class="history-bott">
                     <ul class="history-comm">
                      <li>
-                            <div>
-                                <p class="p-img-comm fl">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/143.html"><img class="img-comm" src="goods_thumb_143_60_60.jpeg" alt=""></a>
-                                </p>
-                                <p class="p-name-comm">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/143.html">haier海尔 BC-93TMPF 93升单门冰箱</a>
-                                </p>
-                                <p class="p-price-comm">
-                                    <b>¥0.01</b>
-                                </p>
-                            </div>
-                        </li><li>
-                            <div>
-                                <p class="p-img-comm fl">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/142.html"><img class="img-comm" src="goods_thumb_142_60_60.jpeg" alt=""></a>
-                                </p>
-                                <p class="p-name-comm">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/142.html">海尔（Haier）BCD-251WDGW 251升 无霜两门冰箱（白色）</a>
-                                </p>
-                                <p class="p-price-comm">
-                                    <b>¥2699.00</b>
-                                </p>
-                            </div>
-                        </li><li>
-                            <div>
-                                <p class="p-img-comm fl">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/141.html"><img class="img-comm" src="goods_thumb_141_60_60.jpeg" alt=""></a>
-                                </p>
-                                <p class="p-name-comm">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/141.html">三星 Galaxy A9高配版 (A9100) 精灵黑 全网通4G手机 双卡双待</a>
-                                </p>
-                                <p class="p-price-comm">
-                                    <b>¥3499.00</b>
-                                </p>
-                            </div>
-                        </li><li>
-                            <div>
-                                <p class="p-img-comm fl">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/140.html"><img class="img-comm" src="goods_thumb_140_60_60.jpeg" alt=""></a>
-                                </p>
-                                <p class="p-name-comm">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/140.html">Apple iPhone 6s 16GB 玫瑰金色 移动联通电信4G手机</a>
-                                </p>
-                                <p class="p-price-comm">
-                                    <b>¥4858.00</b>
-                                </p>
-                            </div>
-                        </li><li>
-                            <div>
-                                <p class="p-img-comm fl">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/139.html"><img class="img-comm" src="goods_thumb_139_60_60.jpeg" alt=""></a>
-                                </p>
-                                <p class="p-name-comm">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/139.html">天翼小白49元纯流量卡（随机选号 只发辽宁）60元含100元资费</a>
-                                </p>
-                                <p class="p-price-comm">
-                                    <b>¥60.00</b>
-                                </p>
-                            </div>
-                        </li><li>
-                            <div>
-                                <p class="p-img-comm fl">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/138.html"><img class="img-comm" src="goods_thumb_138_60_60.jpeg" alt=""></a>
-                                </p>
-                                <p class="p-name-comm">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/138.html">广州电信卡|4G定制卡|含50话费|手机卡号码卡|上网卡流量卡靓号</a>
-                                </p>
-                                <p class="p-price-comm">
-                                    <b>¥79.00</b>
-                                </p>
-                            </div>
-                        </li><li>
-                            <div>
-                                <p class="p-img-comm fl">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/137.html"><img class="img-comm" src="goods_thumb_137_60_60.jpeg" alt=""></a>
-                                </p>
-                                <p class="p-name-comm">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/137.html">中麦通信4G联通网络手机靓号 170手机卡电话卡靓号卡可选号包邮</a>
-                                </p>
-                                <p class="p-price-comm">
-                                    <b>¥500.00</b>
-                                </p>
-                            </div>
-                        </li><li>
-                            <div>
-                                <p class="p-img-comm fl">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/136.html"><img class="img-comm" src="goods_thumb_136_60_60.jpeg" alt=""></a>
-                                </p>
-                                <p class="p-name-comm">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/136.html">靓号0元送广东联通4G/3G手机卡上网卡大流量套餐全国无漫游选号</a>
-                                </p>
-                                <p class="p-price-comm">
-                                    <b>¥120.00</b>
-                                </p>
-                            </div>
-                        </li><li>
-                            <div>
-                                <p class="p-img-comm fl">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/135.html"><img class="img-comm" src="goods_thumb_135_60_60.jpeg" alt=""></a>
-                                </p>
-                                <p class="p-name-comm">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/135.html">重庆电信手机卡电话卡语音卡选靓号3G4G卡内部5折卡低资费（飞）</a>
-                                </p>
-                                <p class="p-price-comm">
-                                    <b>¥60.00</b>
-                                </p>
-                            </div>
-                        </li><li>
-                            <div>
-                                <p class="p-img-comm fl">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/134.html"><img class="img-comm" src="goods_thumb_134_60_60.jpeg" alt=""></a>
-                                </p>
-                                <p class="p-name-comm">
-                                    <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/134.html">中国电信4G号卡手机卡电话卡上网卡 177号段套餐可选 预存120全返</a>
-                                </p>
-                                <p class="p-price-comm">
-                                    <b>¥120.00</b>
-                                </p>
-                            </div>
-                        </li>                   
-                    </ul>
-                </div>                
-            </div>
+                        <div>
+                            <p class="p-img-comm fl">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/143.html"><img class="img-comm" src="goods_thumb_143_60_60.jpeg" alt=""></a>
+                            </p>
+                            <p class="p-name-comm">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/143.html">haier海尔 BC-93TMPF 93升单门冰箱</a>
+                            </p>
+                            <p class="p-price-comm">
+                                <b>¥0.01</b>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p class="p-img-comm fl">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/142.html"><img class="img-comm" src="goods_thumb_142_60_60.jpeg" alt=""></a>
+                            </p>
+                            <p class="p-name-comm">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/142.html">海尔（Haier）BCD-251WDGW 251升 无霜两门冰箱（白色）</a>
+                            </p>
+                            <p class="p-price-comm">
+                                <b>¥2699.00</b>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p class="p-img-comm fl">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/141.html"><img class="img-comm" src="goods_thumb_141_60_60.jpeg" alt=""></a>
+                            </p>
+                            <p class="p-name-comm">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/141.html">三星 Galaxy A9高配版 (A9100) 精灵黑 全网通4G手机 双卡双待</a>
+                            </p>
+                            <p class="p-price-comm">
+                                <b>¥3499.00</b>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p class="p-img-comm fl">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/140.html"><img class="img-comm" src="goods_thumb_140_60_60.jpeg" alt=""></a>
+                            </p>
+                            <p class="p-name-comm">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/140.html">Apple iPhone 6s 16GB 玫瑰金色 移动联通电信4G手机</a>
+                            </p>
+                            <p class="p-price-comm">
+                                <b>¥4858.00</b>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p class="p-img-comm fl">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/139.html">
+                                <img class="img-comm" src="goods_thumb_139_60_60.jpeg" alt="">
+                                </a>
+                            </p>
+                            <p class="p-name-comm">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/139.html">天翼小白49元纯流量卡（随机选号 只发辽宁）60元含100元资费
+                                </a>
+                            </p>
+                            <p class="p-price-comm">
+                                <b>¥60.00</b>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p class="p-img-comm fl">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/138.html">
+                                <img class="img-comm" src="goods_thumb_138_60_60.jpeg" alt="">
+                                </a>
+                            </p>
+                            <p class="p-name-comm">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/138.html">广州电信卡|4G定制卡|含50话费|手机卡号码卡|上网卡流量卡靓号</a>
+                            </p>
+                            <p class="p-price-comm">
+                                <b>¥79.00</b>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p class="p-img-comm fl">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/137.html">
+                                <img class="img-comm" src="goods_thumb_137_60_60.jpeg" alt="">
+                                </a>
+                            </p>
+                            <p class="p-name-comm">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/137.html">中麦通信4G联通网络手机靓号 170手机卡电话卡靓号卡可选号包邮
+                                </a>
+                            </p>
+                            <p class="p-price-comm">
+                                <b>¥500.00</b>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p class="p-img-comm fl">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/136.html">
+                                <img class="img-comm" src="goods_thumb_136_60_60.jpeg" alt="">
+                                </a>
+                            </p>
+                            <p class="p-name-comm">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/136.html">靓号0元送广东联通4G/3G手机卡上网卡大流量套餐全国无漫游选号
+                                </a>
+                            </p>
+                            <p class="p-price-comm">
+                                <b>¥120.00</b>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p class="p-img-comm fl">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/135.html">
+                                <img class="img-comm" src="goods_thumb_135_60_60.jpeg" alt="">
+                                </a>
+                            </p>
+                            <p class="p-name-comm">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/135.html">重庆电信手机卡电话卡语音卡选靓号3G4G卡内部5折卡低资费（飞）
+                                </a>
+                            </p>
+                            <p class="p-price-comm">
+                                <b>¥60.00</b>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p class="p-img-comm fl">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/134.html">
+                                <img class="img-comm" src="goods_thumb_134_60_60.jpeg" alt="">
+                                </a>
+                            </p>
+                            <p class="p-name-comm">
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/134.html">中国电信4G号卡手机卡电话卡上网卡 177号段套餐可选 预存120全返
+                                </a>
+                            </p>
+                            <p class="p-price-comm">
+                                <b>¥120.00</b>
+                            </p>
+                        </div>
+                    </li>                   
+                </ul>
+            </div>                
         </div>
-        <div class="wi940 ov-hi fr">
-            <div class="comm-param">
-                <div class="parame-title">
-                    <div class="par-titles co-grey">
-                        <ul class="commodity-xq tab_li" style="margin-bottom:1px">
-                            <li class="current cliks" onclick="switch_tab(this,'tab1')">
-                                <a>商品详情</a>
-                            </li>
-                            <li class="cliks" onclick="switch_tab(this,'tab2')">
-                                <a>用户评价（3）</a>
-                            </li>
-                            <li class="cliks" onclick="switch_tab(this,'tab3')">
-                                <a>规格参数</a>
-                            </li>
-                            <li class="cliks" onclick="switch_tab(this,'tab4')">
-                                <a>售后服务</a>
-                            </li>
-                        </ul>
-                    </div>
+    </div>
+    <div class="wi940 ov-hi fr">
+        <div class="comm-param">
+            <div class="parame-title">
+                <div class="par-titles co-grey">
+                    <ul class="commodity-xq tab_li" style="margin-bottom:1px">
+                        <li class="current cliks" onclick="switch_tab(this,'tab1')">
+                            <a>商品详情</a>
+                        </li>
+                        <li class="cliks" onclick="switch_tab(this,'tab2')">
+                            <a>用户评价（3）</a>
+                        </li>
+                        <li class="cliks" onclick="switch_tab(this,'tab3')">
+                            <a>规格参数</a>
+                        </li>
+                        <li class="cliks" onclick="switch_tab(this,'tab4')">
+                            <a>售后服务</a>
+                        </li>
+                    </ul>
                 </div>
+            </div>
                     <!-------------------商品详情------------------>
                 <div class="parame-bott cliks-bn" style="display:" id="tab1">
                     <div class="commodity-num pro-feature-area">                        
@@ -498,63 +569,81 @@ $("#header_cart_list > .micart > .les").hover(function(){
                 <div class="parame-bott cliks-bn" style="display: none;" id="tab3">
                     <div class="commodity-num pro-feature-area wi850">
                         <table class="modity-zhut" border="0" cellpadding="0" cellspacing="0" width="100%">
-                          <tbody><tr>
-                            <th colspan="2"><h3>商品属性</h3></th>
-                          </tr>                          
-                          <tr>
-                            <td class="wi143">网络制式</td>
-                            <td class="pa-5-0">TD-LTE/TD-SCDMA/GSM，支持中国移动4G/3G/2G，中国联通2G</td>
-                          </tr><tr>
-                            <td class="wi143">尺寸体积</td>
-                            <td class="pa-5-0">151.3mm x 76.3mm x 8.15mm</td>
-                          </tr><tr>
-                            <td class="wi143">外观样式/手机类型</td>
-                            <td class="pa-5-0">直板</td>
-                          </tr><tr>
-                            <td class="wi143">色数/灰度</td>
-                            <td class="pa-5-0">   </td>
-                          </tr><tr>
-                            <td class="wi143">长度</td>
-                            <td class="pa-5-0">151.3mm </td>
-                          </tr><tr>
-                            <td class="wi143">宽度</td>
-                            <td class="pa-5-0">76.3mm </td>
-                          </tr><tr>
-                            <td class="wi143">厚度</td>
-                            <td class="pa-5-0">8.15mm</td>
-                          </tr><tr>
-                            <td class="wi143">内存容量</td>
-                            <td class="pa-5-0">16G</td>
-                          </tr><tr>
-                            <td class="wi143">操作系统</td>
-                            <td class="pa-5-0">EMUI 3.1（兼容Android 5.1）</td>
-                          </tr><tr>
-                            <td class="wi143">待机时间</td>
-                            <td class="pa-5-0">约200小时（注：取决于使用习惯和网络状况）</td>
-                          </tr><tr>
-                            <td class="wi143">标准配置</td>
-                            <td class="pa-5-0">约10小时（注：取决于使用习惯和网络状况）</td>
-                          </tr><tr>
-                            <td class="wi143">天线位置</td>
-                            <td class="pa-5-0">内置</td>
-                          </tr><tr>
-                            <td class="wi143">摄像头</td>
-                            <td class="pa-5-0">1300万像素，堆栈式摄像头，28mm广角，5P镜头，超硬镀膜保护镜片</td>
-                          </tr><tr>
-                            <td class="wi143">彩信/彩e</td>
-                            <td class="pa-5-0">支持</td>
-                          </tr><tr>
-                            <td class="wi143">红外/蓝牙</td>
-                            <td class="pa-5-0">BT4.1</td>
-                          </tr><tr>
-                            <td class="wi143">价格等级</td>
-                            <td class="pa-5-0">低价机</td>
-                          </tr>                        </tbody></table>
+                            <tbody>
+                                <tr>
+                                    <th colspan="2"><h3>商品属性</h3></th>
+                                </tr>       
+                                <tr>
+                                    <td class="wi143">网络制式</td>
+                                    <td class="pa-5-0">TD-LTE/TD-SCDMA/GSM，支持中国移动4G/3G/2G，中国联通2G</td>
+                                </tr>   
+                                <tr>
+                                    <td class="wi143">尺寸体积</td>
+                                    <td class="pa-5-0">151.3mm x 76.3mm x 8.15mm</td>
+                                </tr>   
+                                <tr>
+                                    <td class="wi143">外观样式/手机类型</td>
+                                    <td class="pa-5-0">直板</td>
+                                </tr>   
+                                <tr>
+                                    <td class="wi143">色数/灰度</td>
+                                    <td class="pa-5-0">   </td>
+                                </tr>   
+                                <tr>
+                                    <td class="wi143">长度</td>
+                                    <td class="pa-5-0">151.3mm </td>
+                                </tr>   
+                                <tr>
+                                    <td class="wi143">宽度</td>
+                                    <td class="pa-5-0">76.3mm </td>
+                                </tr>   
+                                <tr>
+                                    <td class="wi143">厚度</td>
+                                    <td class="pa-5-0">8.15mm</td>
+                                </tr>
+                                <tr>
+                                    <td class="wi143">内存容量</td>
+                                    <td class="pa-5-0">16G</td>
+                                </tr>
+                                <tr>
+                                    <td class="wi143">操作系统</td>
+                                    <td class="pa-5-0">EMUI 3.1（兼容Android 5.1）</td>
+                                </tr>
+                                <tr>
+                                    <td class="wi143">待机时间</td>
+                                    <td class="pa-5-0">约200小时（注：取决于使用习惯和网络状况）</td>
+                                </tr>
+                                <tr>
+                                    <td class="wi143">标准配置</td>
+                                    <td class="pa-5-0">约10小时（注：取决于使用习惯和网络状况）</td>
+                                </tr>
+                                <tr>
+                                    <td class="wi143">天线位置</td>
+                                    <td class="pa-5-0">内置</td>
+                                </tr>
+                                <tr>
+                                    <td class="wi143">摄像头</td>
+                                    <td class="pa-5-0">1300万像素，堆栈式摄像头，28mm广角，5P镜头，超硬镀膜保护镜片</td>
+                                </tr>
+                                <tr>
+                                    <td class="wi143">彩信/彩e</td>
+                                    <td class="pa-5-0">支持</td>
+                                </tr>
+                                <tr>
+                                    <td class="wi143">红外/蓝牙</td>
+                                    <td class="pa-5-0">BT4.1</td>
+                                </tr>
+                                <tr>
+                                    <td class="wi143">价格等级</td>
+                                    <td class="pa-5-0">低价机</td>
+                                </tr>                        
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                     <!-------------------售后服务------------------>
                 <div class="parame-bott cliks-bn" style="display: none;" id="tab4">
-                     <div class="commodity-num pro-feature-area wi850 padding36-0-36-0">
+                     <div class="com    modity-num pro-feature-area wi850 padding36-0-36-0">
                         <p class="fo-si-14 li-hi-1-5 fo-fa">
                             本产品全国联保，享受三包服务，质保期为：一年质保
                             <br>
@@ -562,221 +651,212 @@ $("#header_cart_list > .micart > .les").hover(function(){
                             <br>
                             售后服务电话：400-830-8300
                             <br>
-                            <span>TPshop消费者官网： <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/49.html">http://www.tp-shop.com</a></span>
+                            <span>TPshop消费者官网： 
+                            <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/49.html">http://www.tp-shop.com</a>
+                            </span>
                             <br>
                         </p>
                     </div>
                 </div>
                     <!-------------------用户评价------------------>
                 <div class="parame-bott ov-hi" style="display: none;" id="tab2">
-                            <div class="evaluation-top fo-fa di-in-bl">
-                                <div class="eval-le1 fl wi146 te-al">
-                                    <span><b>67</b>%</span>
-                                    <em>好评度</em>
-                                </div>
-                                <div class="eval-le2 fl wi123 pa-to-7">
-                                    <dl>
-                                        <dt>好评<em>(67%)</em></dt>
-                                        <dd><s style="width: 94%;"></s></dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>中评<em>(0%)</em></dt>
-                                        <dd><s style="width: 2%;"></s></dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>差评<em>(34%)</em></dt>
-                                        <dd><s style="width: 4%;"></s></dd>
-                                    </dl>
-                                </div>
-                                <div class="eval-le3 fl wi516">
-                                    <dl>
-                                        <dt>买家评论事项：购买后有什么问题, 满意, 或者不不满, 都可以在这里评论出来, 这里评论全部源于真实的评论.</dt>
-                                    </dl>
-                                </div>
+                    <div class="evaluation-top fo-fa di-in-bl">
+                        <div class="eval-le1 fl wi146 te-al">
+                            <span><b>67</b>%</span>
+                            <em>好评度</em>
+                        </div>
+                        <div class="eval-le2 fl wi123 pa-to-7">
+                            <dl>
+                                <dt>好评<em>(67%)</em></dt>
+                                <dd><s style="width: 94%;"></s></dd>
+                            </dl>
+                            <dl>
+                                <dt>中评<em>(0%)</em></dt>
+                                <dd><s style="width: 2%;"></s></dd>
+                            </dl>
+                            <dl>
+                                <dt>差评<em>(34%)</em></dt>
+                                <dd><s style="width: 4%;"></s></dd>
+                            </dl>
+                        </div>
+                        <div class="eval-le3 fl wi516">
+                            <dl>
+                                <dt>买家评论事项：购买后有什么问题, 满意, 或者不不满, 都可以在这里评论出来, 这里评论全部源于真实的评论.</dt>
+                            </dl>
+                        </div>
                                
+                        </div>
+                        <div class="evaluation-cen fo-fa">
+                            <div class="eval-cen-le fl pa-le-12">
+                                <ul>
+                                    <li class="curres cliks">
+                                        <a href="javascript:void(0);" data-t="1">
+                                            <span>
+                                                全部评价
+                                                <em>(3)</em>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="cliks">
+                                        <a href="javascript:void(0);" data-t="2">
+                                            <span>
+                                            好评
+                                            <em>(2)</em>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="cliks">
+                                        <a href="javascript:void(0);" data-t="3">
+                                            <span>
+                                                中评
+                                                <em>(0)</em>
+                                            </span>
+                                            </a>
+                                    </li>
+                                    <li class="cliks">
+                                        <a href="javascript:void(0);" data-t="4">
+                                            <span>
+                                                差评
+                                                <em>(1)</em>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="evaluation-cen fo-fa">
-                                <div class="eval-cen-le fl pa-le-12">
-                                    <ul>
-                                        <li class="curres cliks">
-                                            <a href="javascript:void(0);" data-t="1">
-                                                <span>
-                                                    全部评价
-                                                    <em>(3)</em>
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="cliks">
-                                            <a href="javascript:void(0);" data-t="2">
-                                                <span>
-                                                    好评
-                                                    <em>(2)</em>
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="cliks">
-                                            <a href="javascript:void(0);" data-t="3">
-                                                <span>
-                                                    中评
-                                                    <em>(0)</em>
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="cliks">
-                                            <a href="javascript:void(0);" data-t="4">
-                                                <span>
-                                                    差评
-                                                    <em>(1)</em>
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
+                        </div>
+                        <!--------用户评价-start------------>
+                        <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css" type="text/css">-->
+                        <div class="evaluation-bott pa-to-25 cliks-bn" style="display: block;" id="ajax_comment_return">
+                        <div class="pro-comment-item po-re pa-bo-20 di-ta">
+                            <div class="pro-comment-user fl te-al pa-0-15 wi90 po-re">
+                                <p class="procomment-img">
+                                <img alt="" src="defaultface_user_small.png">
+                                </p>
+                                <p class="procomment-name">嫦娥</p>
+                                <s class="procomment-tag">
+                                <!--  <i></i>-->
+                                </s>
+                            </div>
+                            <div class="pro-user-comment-main ma-0-25-0-0 ov-hi">
+                                <div class="pro-user-comment">
+                                    <div class="comm-t1 ov-hi">
+                                        <div class="pro-user-score fl">
+                                            <em>发货速度</em>  
+                                            <span class="starRating-area">
+                                            <s style="width: 60%;"></s>
+                                            </span>
+                                            <em>客服态度</em>  
+                                            <span class="starRating-area">
+                                            <s style="width: 0%;"></s>
+                                            </span>
+                                            <em>商品质量</em>  
+                                            <span class="starRating-area">
+                                            <s style="width: 60%;"></s>
+                                            </span>      
+                                        </div>                
+                                        <div class="pro-user-impre fl ov-hi">
+                                        </div>
+                                        <div class="pro-user-time wh-sp">2016-03-12</div>
+                                    </div>
+                                    <div class="comm-t2">
+                                    晒单给大家看看.我刚买的. 
+                                    <!--htmlspecialchars_decode   html_entity_decode-->
+                                    <br>            
+                                    <!--晒单-->
+                                    <a href="569600fcb09e9.jpg" target="_top"><img alt="" src="569600fcb09e9.jpg" height="120" width="120"></a>&nbsp;&nbsp;<a href="569600fc992df.jpg" target="_top"><img alt="" src="569600fc992df.jpg" height="120" width="120"></a>&nbsp;&nbsp;<a href="569600fc73203.jpg" target="_top"><img alt="" src="569600fc73203.jpg" height="120" width="120"></a>&nbsp;&nbsp;                    <!--商家回复-->                    
+                                    </div>
+                                </div>
+                                <div class="arrow"></div>
+                            </div>
+                        </div>
+                        <div class="pro-comment-item po-re pa-bo-20 di-ta">
+                            <div class="pro-comment-user fl te-al pa-0-15 wi90 po-re">
+                                <p class="procomment-img">
+                                <img alt="" src="defaultface_user_small.png">
+                                </p>
+                                <p class="procomment-name">蒙娜丽莎</p>
+                                <s class="procomment-tag"></s>
+                            </div>
+                            <div class="pro-user-comment-main ma-0-25-0-0 ov-hi">
+                                <div class="pro-user-comment">
+                                    <div class="comm-t1 ov-hi">
+                                        <div class="pro-user-score fl">
+                                            <em>发货速度</em>  
+                                            <span class="starRating-area">
+                                              <s style="width: 80%;"></s>
+                                            </span>
+                                            <em>客服态度</em>  
+                                            <span class="starRating-area">
+                                              <s style="width: 100%;"></s>
+                                            </span>
+                                            <em>商品质量</em>  
+                                            <span class="starRating-area">
+                                              <s style="width: 100%;"></s>
+                                            </span>      
+                                        </div>                
+                                        <div class="pro-user-impre fl ov-hi">
+                                        <!--
+                                            <ul>
+                                                <li>不错</li>
+                                                <li>大屏幕</li>
+                                                <li>流畅</li>
+                                            </ul>
+                                          -->  
+                                        </div>
+                                        <div class="pro-user-time wh-sp">2016-03-12</div>
+                                    </div>
+                                    <div class="comm-t2">
+                                    不错,买回来老公很喜欢 
+                                    <!--htmlspecialchars_decode   html_entity_decode-->
+                                    <br>                               
                                 </div>
                             </div>
-                            <!--------用户评价-start------------>
-                            <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css" type="text/css">-->
-                            <div class="evaluation-bott pa-to-25 cliks-bn" style="display: block;" id="ajax_comment_return"><div class="pro-comment-item po-re pa-bo-20 di-ta">
-        <div class="pro-comment-user fl te-al pa-0-15 wi90 po-re">
-            <p class="procomment-img">
-                <img alt="" src="defaultface_user_small.png">
-            </p>
-            <p class="procomment-name">嫦娥</p>
-            <s class="procomment-tag">
-              <!--  <i></i>-->
-            </s>
-        </div>
-        <div class="pro-user-comment-main ma-0-25-0-0 ov-hi">
-            <div class="pro-user-comment">
-                <div class="comm-t1 ov-hi">
-                    <div class="pro-user-score fl">
-                        <em>发货速度</em>  
-                        <span class="starRating-area">
-                          <s style="width: 60%;"></s>
-                        </span>
-                        <em>客服态度</em>  
-                        <span class="starRating-area">
-                          <s style="width: 0%;"></s>
-                        </span>
-                        <em>商品质量</em>  
-                        <span class="starRating-area">
-                          <s style="width: 60%;"></s>
-                        </span>      
-                    </div>                
-                    <div class="pro-user-impre fl ov-hi">
-                    <!--
-                        <ul>
-                            <li>不错</li>
-                            <li>大屏幕</li>
-                            <li>流畅</li>
-                        </ul>
-                      -->  
+                            <div class="arrow"></div>
+                        </div>
                     </div>
-                    <div class="pro-user-time wh-sp">2016-03-12</div>
-                </div>
-                <div class="comm-t2">
-                    晒单给大家看看.我刚买的. 
-                    <!--htmlspecialchars_decode   html_entity_decode-->
-                    <br>            
-                    <!--晒单-->
-                    <a href="569600fcb09e9.jpg" target="_top"><img alt="" src="569600fcb09e9.jpg" height="120" width="120"></a>&nbsp;&nbsp;<a href="569600fc992df.jpg" target="_top"><img alt="" src="569600fc992df.jpg" height="120" width="120"></a>&nbsp;&nbsp;<a href="569600fc73203.jpg" target="_top"><img alt="" src="569600fc73203.jpg" height="120" width="120"></a>&nbsp;&nbsp;                    <!--商家回复-->                    
-                                    </div>
-            </div>
-            <div class="arrow"></div>
-        </div>
-    </div><div class="pro-comment-item po-re pa-bo-20 di-ta">
-        <div class="pro-comment-user fl te-al pa-0-15 wi90 po-re">
-            <p class="procomment-img">
-                <img alt="" src="defaultface_user_small.png">
-            </p>
-            <p class="procomment-name">蒙娜丽莎</p>
-            <s class="procomment-tag">
-              <!--  <i></i>-->
-            </s>
-        </div>
-        <div class="pro-user-comment-main ma-0-25-0-0 ov-hi">
-            <div class="pro-user-comment">
-                <div class="comm-t1 ov-hi">
-                    <div class="pro-user-score fl">
-                        <em>发货速度</em>  
-                        <span class="starRating-area">
-                          <s style="width: 80%;"></s>
-                        </span>
-                        <em>客服态度</em>  
-                        <span class="starRating-area">
-                          <s style="width: 100%;"></s>
-                        </span>
-                        <em>商品质量</em>  
-                        <span class="starRating-area">
-                          <s style="width: 100%;"></s>
-                        </span>      
-                    </div>                
-                    <div class="pro-user-impre fl ov-hi">
-                    <!--
-                        <ul>
-                            <li>不错</li>
-                            <li>大屏幕</li>
-                            <li>流畅</li>
-                        </ul>
-                      -->  
+                    <div class="pro-comment-item po-re pa-bo-20 di-ta">
+                        <div class="pro-comment-user fl te-al pa-0-15 wi90 po-re">
+                            <p class="procomment-img">
+                                <img alt="" src="defaultface_user_small.png">
+                            </p>
+                            <p class="procomment-name">茱莉亚</p>
+                            <s class="procomment-tag"></s>
+                        </div>
+                        <div class="pro-user-comment-main ma-0-25-0-0 ov-hi">
+                            <div class="pro-user-comment">
+                                <div class="comm-t1 ov-hi">
+                                    <div class="pro-user-score fl">
+                                        <em>发货速度</em>  
+                                        <span class="starRating-area">
+                                            <s style="width: 40%;"></s>
+                                        </span>
+                                        <em>客服态度</em>  
+                                        <span class="starRating-area">
+                                          <s style="width: 100%;"></s>
+                                        </span>
+                                        <em>商品质量</em>  
+                                        <span class="starRating-area">
+                                          <s style="width: 80%;"></s>
+                                        </span>      
+                                    </div>                
+                                    <div class="pro-user-impre fl ov-hi">
+                                </div>
+                                <div class="pro-user-time wh-sp">2016-03-12</div>
+                            </div>
+                            <div class="comm-t2">
+                            这东西不错,下次还会来买 
+                            <!--htmlspecialchars_decode   html_entity_decode-->
+                             <br>                    
+                            </div>
+                        </div>
+                        <div class="arrow"></div>
                     </div>
-                    <div class="pro-user-time wh-sp">2016-03-12</div>
                 </div>
-                <div class="comm-t2">
-                    不错,买回来老公很喜欢 
-                    <!--htmlspecialchars_decode   html_entity_decode-->
-                    <br>                               
-                </div>
-            </div>
-            <div class="arrow"></div>
-        </div>
-    </div><div class="pro-comment-item po-re pa-bo-20 di-ta">
-        <div class="pro-comment-user fl te-al pa-0-15 wi90 po-re">
-            <p class="procomment-img">
-                <img alt="" src="defaultface_user_small.png">
-            </p>
-            <p class="procomment-name">茱莉亚</p>
-            <s class="procomment-tag">
-              <!--  <i></i>-->
-            </s>
-        </div>
-        <div class="pro-user-comment-main ma-0-25-0-0 ov-hi">
-            <div class="pro-user-comment">
-                <div class="comm-t1 ov-hi">
-                    <div class="pro-user-score fl">
-                        <em>发货速度</em>  
-                        <span class="starRating-area">
-                          <s style="width: 40%;"></s>
-                        </span>
-                        <em>客服态度</em>  
-                        <span class="starRating-area">
-                          <s style="width: 100%;"></s>
-                        </span>
-                        <em>商品质量</em>  
-                        <span class="starRating-area">
-                          <s style="width: 80%;"></s>
-                        </span>      
-                    </div>                
-                    <div class="pro-user-impre fl ov-hi">
-                    <!--
-                        <ul>
-                            <li>不错</li>
-                            <li>大屏幕</li>
-                            <li>流畅</li>
-                        </ul>
-                      -->  
+                <div class="eval-cen-ri fr pa-to-17 pa-ri-25 te-al-ri di-bl">
+                    <div class="dataTables_paginate paging_simple_numbers">
+                        <ul class="pagination"></ul>
                     </div>
-                    <div class="pro-user-time wh-sp">2016-03-12</div>
                 </div>
-                <div class="comm-t2">
-                    这东西不错,下次还会来买 
-                    <!--htmlspecialchars_decode   html_entity_decode-->
-                    <br>                    
-                </div>
-            </div>
-            <div class="arrow"></div>
-        </div>
-    </div>
-<div class="eval-cen-ri fr pa-to-17 pa-ri-25 te-al-ri di-bl"><div class="dataTables_paginate paging_simple_numbers"><ul class="pagination">    </ul></div></div>
 <script>
     // 点击分页触发的事件
     $("#ajax_comment_return .pagination  a").click(function(){
