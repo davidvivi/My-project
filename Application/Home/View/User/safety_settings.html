@@ -1,53 +1,59 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=8">
-<title>安全中心-{$tpshop_config['shop_info_store_title']}</title>
-<meta http-equiv="keywords" content="{$tpshop_config['shop_info_store_keyword']}" />
-<meta name="description" content="{$tpshop_config['shop_info_store_desc']}" />
-</head>
-<body> 
-<!-- 头部-s -->
-<include file="User/header" />
-<!-- 头部-e -->
-<link rel="stylesheet" type="text/css" href="__STATIC__/css/security_code.css"/>
-<link rel="stylesheet" type="text/css" href="__STATIC__/css/security_set.css"/>
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <title>安全中心</title>
+    <meta http-equiv="keywords" content="QAQ商城,笔记本,手机,数码相机,数码影音,DIY硬件" />
+    <meta name="description" content="QAQ商城（QAQ.com）具备在3年内成长为中国最大的3C电子商城之潜力，源于中国IT行业第一垂直媒体（QAQ.com.cn）在IT及互联网行业已臻十年的深厚积累。运营核心，只为了给用户打造一个放心、省心、舒心的购物平台！" />
+    </head>
+    </head>
+    <body> 
+    <!-- 头部-s -->
+    <include file="User/header" />
+    <!-- 头部-e -->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/security_code.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/security_set.css"/>
 
-<div class="wrap">
-  <div class="bread_crumbs"> <a href="{:U('Home/User/index')}" class="crumbs_font">我的TPshop</a>&gt;<span class="color">安全设置</span></div>
-  <!--菜单--> 
-  <include file="User/menu" /> 
-  <!--菜单-->     
-  <!--侧边导航栏结束-->
-<div class="col_main">
-    <div class="main shop_red"> 
-          <!-- themes star -->
-          <div class="themes_title">
-        <h3>安全设置</h3>
-      </div>
-          <!-- themes end --> 
-          <!-- Security Center star -->
-          <div class="security_center">
-        <div class="security_center_top"> <a href="" class="personal_head target_no"> <img height="100" width="100" src="{$user.head_pic|default='__PUBLIC__/Home/image/headPic.jpg'}" alt=""> </a>
-         <div class="pers_info">
-            <h3 class="name">{$_SESSION['user']['name']}</h3>
-            <p class="rat"> 
-            	<span class='rat_00 <if condition="($user['email_validated'] eq 1) and ($user['email_validated'] eq 0)"> on </if>'>低</span>
-                <span class='rat_01 <if condition="($user['email_validated'] eq 1) or ($user['email_validated'] eq 1)"> on </if>'>中</span>
-                <span class='rat_02 <if condition="($user['mobile_validated'] eq 1) and ($user['email_validated'] eq 1)"> on </if>'>较高</span>
-             </p>
-            <p class="tips">本平台能保障你账户资金安全。</p>
-          </div>
-            </div>
-        <div class="security_center_list">
+    <div class="wrap">
+        <div class="bread_crumbs"> <a href="{:U('Home/User/index')}" class="crumbs_font">我的shop</a>&gt;<span class="color">安全设置</span></div>
+        
+        <!--菜单--> 
+        <include file="User/menu" /> 
+        <!--菜单-->     
+        
+        <!--侧边导航栏结束-->
+        <div class="col_main">
+            <div class="main shop_red"> 
+                
+                <!-- themes star -->
+                <div class="themes_title">
+                <h3>安全设置</h3>
+                </div>
+                <!-- themes end --> 
+          
+                <!-- Security Center star -->
+                <div class="security_center">
+                    <div class="security_center_top"> <a href="" class="personal_head target_no"><img height="100" width="100" src="{$user.head_pic|default='__PUBLIC__/Home/image/headPic.jpg'}" alt=""> </a>
+                    <div class="pers_info">
+                        <h3 class="name">{$_SESSION['user']['name']}</h3>
+                        <p class="rat"> 
+                        	<span class='rat_00 <if condition="($data['tel'] eq '') and ($list['email'] eq '')"> on </if>'>低</span>
+                            <span class='rat_01 <if condition="($data['tel'] neq '') and ($list['email'] eq '')"> on </if>'>中</span>
+                            <span class='rat_02 <if condition="($data['tel'] neq '') and ($list['email'] neq '')"> on </if>'>较高</span>
+                        </p>
+                        <p class="tips">本平台能保障你账户资金安全。</p>
+                    </div>
+                    </div>
+                    
+                    <div class="security_center_list">
           <ul>
-            <li class="list_name"> <i class="<if condition="$user['password'] eq ''">icon_big_warning<else/>icon_correct</if>"></i>登录密码 </li>
+            <li class="list_name"> <i class="<if condition="$data['password'] eq ''">icon_big_warning<else/>icon_correct</if>"></i>登录密码 </li>
             <li class="list_des">互联网账号存在被盗风险，建议您定期更改密码以保护账户安全。</li>
             <li class="list_opear"> <a id="target_no" href="{:U('Home/User/password')}"  class="edit">修改</a> </li>
           </ul>               
           <ul>
-            <li class="list_name"> <i class="<if condition="$user['mobile_validated'] eq 0">icon_big_warning<else/>icon_correct</if>"></i>手机验证 </li>
+            <li class="list_name"> <i class="<if condition="$data['tel'] eq ''">icon_big_warning<else/>icon_correct</if>"></i>手机绑定 </li>
             <li class="list_des">您验证的手机：若已丢失或停用，请立即更换，避免账户被盗。</li>
             <li class="list_opear">
                 <a id="target_no" href="{:U('Home/User/mobile_validate',array('type'=>'mobile','step'=>1))}" class="edit">

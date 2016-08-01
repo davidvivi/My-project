@@ -34,4 +34,4 @@
 .btn_again {width: 192px; height: 28px; line-height: 28px; background: -145px -33px;}
 .btn_again:hover {text-decoration: none; background: -145px 0;}
 .c-btn-02 {width: 117px; height: 30px; line-height: 30px; background: 0 -90px;}
-.btn_recharge,.btn_recharge:hover,.btn_again:hover,.btn_again,.c-btn-02,.fn-s2,.fn-s1,.btn_120:hover,.btn_120,.btn_pay,.btn_pay:hover,.btn_rel,.btn_rel:hover,.btn-02:hover,.btn-01:hover,.btn-01,.btn_batch:hover,.btn_batch,.btn-02,.btn_to_pay:hover,.btn_to_pay{background-image: url(../images/sprite_btn.png);}
+.btn_recharge,.btn_recharge:hover,.btn_again:hover,.btn_again,.c-btn-02,.fn-s2,.fn-s1,.btn_120:hover,.btn_120,.btn_pay,.btn_pay:hover,.btn_rel,.btn_rel:hover,.btn-02:hover,.btn-01:hover,.btn-01,.btn_batch:hover,.btn_batch,.btn-02,.btn_to_pay:hover,.btn_to_pay{background-image: url(../image/sprite_btn.png);}

@@ -16,7 +16,10 @@ class UserController extends CommonController
         //根据用户名查到等级
         $list=D('user_detail')->field('grade')->where("name='$name'")->find();
         $grade = $list['grade'];
-        
+        $data=D('user')->field('tel,id,password,addtime')->where("username='$name'")->find();
+
+        $this->assign('list',$list);
+        $this->assign('data',$data);
         $this->assign('grade',$grade);
         $this->display('');        
 
@@ -128,5 +131,76 @@ class UserController extends CommonController
         }      
     }
     
+
+
+    /**
+        安全设置管理
+    */
+    public function safety_settings()
+    {   
+        $name = $_SESSION['user']['name'];
+            
+        //根据用户名查到手机号
+        $data=D('user')->field('tel,id,password,addtime')->where("username='$name'")->find();
+
+        $this->assign('name',$name);
+        $this->assign('data',$data);
+        $this->display('');
+
+    }
+
+    public function password()
+    {   
+        $name = $_SESSION['user']['name'];
+        //根据name拿到自己的密码
+        $data = M('user')->field('password')->where("username='$name'")->find();
+        
+        $pwd = $data['password'];
+        //dump($pwd);
+        //exit;
+        $this->assign('pwd',$pwd);
+        $this->assign('name',$name);
+        $this->display();
+    }
+
+    /*
+     *  用户地址编辑,添加处理
+     */
+    public function passwordEditForm()
+    {  
+        
+        //得到的是真正的密码
+        $pwd = I('pwd');
+        $name = I('username');
+        $bool = password_verify(I('old_password'),$pwd);
+
+        $new_password = I('new_password');
+        $confirm_password = I('confirm_password');
+        /*
+        if($new_password != $confirm_password){
+            $this->ajaxReturn('0');
+        }else{  
+            $this->ajaxReturn('1');
+        }
+    
+        if($bool){  
+            
+            if($new_password != $confirm_password){
+            $this->ajaxReturn('0');
+        }else{  
+            $this->ajaxReturn('1');
+        }
+            if($new_password == $confirm_password){
+                $data['password'] = $new_password;
+                $res = M('user')->where('username='.$name)->save($data);
+                if($res){
+                    $this->ajaxReturn('1');
+                }
+            }
+        }else{  
+            $this->ajaxReturn('0');
+        }
+        */
+    }
 
 }

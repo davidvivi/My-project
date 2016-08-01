@@ -380,7 +380,7 @@
   right: -17px;
   width: 27px;
   height: 33px;
-  background: url('../images/pw-step.png') no-repeat;
+  background: url('../image/pw-step.png') no-repeat;
 }
 .pub-step .steps-nav > p.go {
   color: #ff8401;
@@ -719,7 +719,7 @@
   right: -17px;
   width: 27px;
   height: 33px;
-  background: url('../images/pw-step.png') no-repeat;
+  background: url('../image/pw-step.png') no-repeat;
 }
 .security_passwd .pub-step .steps-nav > p.go {
   color: #ff8401;

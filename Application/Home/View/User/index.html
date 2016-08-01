@@ -101,7 +101,7 @@
                 <div class="account_security">
                     <span class="title">账户安全：</span>
                     <div class="progress_bar">
-                        <div style="width:20%" class="progress"></div>
+                        <div style="width:40%" class="progress"></div>
                     </div>
                 <span class="security_tips">低</span>
                 <!--  <a class="security_up blue target_no" href="https://i.tp-shop.cn/safetySettings/view">强化</a>-->
@@ -110,15 +110,15 @@
                 <ul class="genre clearfix">
                     <li>
                         <span class="gray"><i class="icon_phone"></i>手机</span>
-                        <a class="blue target_no" href="{:U('/Home/User/mobile_validate',array('type'=>'mobile','step'=>1))}">
-                            <if condition="$user['mobile_validate'] eq 0">未绑定<else/>更换绑定</if>
+                        <a class="blue target_no" >
+                            <if condition="$data['tel'] eq ''">未绑定<else/>已绑定</if>
                         </a>
                     </li>
                     
                     <li>
                         <span class="gray"><i class="icon_email"></i>邮箱</span>
                         <a class="red target_no" href="{:U('/Home/User/mobile_validate',array('type'=>'email','step'=>1))}">
-                            <if condition="$user['email_validated'] eq 0">未绑定<else/>更换绑定</if>
+                            <if condition="$list['email'] eq ''">未绑定<else/>已绑定</if>
                         </a>
                     </li>
                 </ul>
