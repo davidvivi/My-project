@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script charset="utf-8" src="__PUBLIC__/Home/js/cm.js"></script><script charset="utf-8"></script>
         <meta charset="utf-8">
-        <title>荣耀畅玩5X 双卡双待 移动版 智能手机（破晓银）-tpshop｜thinkphp shop ｜TPshop 免费开源系统｜ thinkphp 商城 国内最强大的thinkphp shop b2cb2b开源商城</title>
+        <title>{$GoodsDetail.goodname}-QAQ商城详情页</title>
         <meta http-equiv="keywords" content="tpshop｜thinkphp shop ｜TPshop 免费开源系统｜ thinkphp 商城 国内最强大的thinkphp shop b2cb2b开源商城">
         <meta name="description" content="tpshop｜thinkphp shop ｜TPshop 免费开源系统｜ thinkphp 商城 国内最强大的thinkphp shop b2cb2b开源商城">
         <meta name="__hash__" content="68fc823c064073733cc6d659691e2a7a_d85d6db9178fc15fec38e1c25cd9c713"><script src="__PUBLIC__/Home/js/_cm.js"></script>
@@ -200,7 +200,7 @@ $("#header_cart_list > .micart > .les").hover(function(){
 	<div class="layout">
     	<div class="breadcrumb-area">
         	<a href="__MODULE__/index/index">首页</a> &gt;&gt;
-            <a href="http://localhost/index.php/Home/Goods/goodsList/id/1.html">手机 、 数码 、 通信</a> &gt;&gt;<a href="http://localhost/index.php/Home/Goods/goodsList/id/123.html">手机</a> &gt;&gt;            <span>荣耀畅玩5X 双卡双待 移动版 智能手机（破晓银）</span>
+            <a href="http://localhost/index.php/Home/Goods/goodsList/id/1.html">乐器、家居、家电、数码、男装</a> &gt;&gt;<a href="http://localhost/index.php/Home/Goods/goodsList/id/123.html">{$GoodsDetail.typename}</a> &gt;&gt;            <span>{$GoodsDetail.goodname}</span>
         </div>
         <div class="layout pa-to-10">            
             <!--商品图片轮播-->            
@@ -244,9 +244,9 @@ $("#header_cart_list > .micart > .les").hover(function(){
 
                 <div class="right-area">
                     <div class="right-area-le30">
-                        <h1>荣耀畅玩5X 双卡双待 移动版 智能手机（破晓银）</h1>
+                        <h1>{$GoodsDetail.goodname}</h1>
                         <div class="cpxq-explain">
-                        今日起商城搞活动,注册立马送30元代金券,全场满69全国包邮,全场满299送20元优惠券,全场满399送电影票,满999送美国旅游景点门票1张                        
+                        {$GoodsDetail.discribe}                      
                         </div>
                     </div>  
                 </div>
@@ -262,7 +262,7 @@ $("#header_cart_list > .micart > .les").hover(function(){
                                 <td align="right" width="60px">价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：</td>
                                 <td>
                                     <p class="co-red fo-si-24 ma-le-6">
-                                        ￥<span class="co-red fo-si-24" id="goods_price">999</span>
+                                        ￥<span class="co-red fo-si-24" id="goods_price">{$GoodsDetail.price}</span>
                                     </p>                                    
                                 </td>
                               </tr>
@@ -273,9 +273,9 @@ $("#header_cart_list > .micart > .les").hover(function(){
                                     <!--------用户评价-end---------------->                           
                                 </td>
                               </tr>
-                              <tr>
-                                <td align="right" width="60px">运&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;费：</td>
-                                <td><p class="ma-le-6">满99免运费</p></td>
+                               <tr>
+                                <td align="right" width="60px">上架时间：</td>
+                                <td><p class="ma-le-6">{$GoodsDetail.addtime}</p></td>
                               </tr>
                               <tr>
                                 <td align="right" width="60px">服&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;务：</td>
@@ -295,44 +295,7 @@ $("#header_cart_list > .micart > .les").hover(function(){
                     <div class="right-area-le30 pa-3-0-0-30">
                         <div class="pro-promotions-area">
                             <table class="promotions-tab he40-tr-td" border="0" cellpadding="0" cellspacing="0" width="100%">
-                            <tbody><tr>
-                                <td align="right" width="60px">内存：</td>
-                                <td>
-                                    <ul class="choice-colol ma-le-6">
-                                                                            
-                                        <li>
-                                            <div class="sku  sku-bo-blo">
-                                                <a class="choice-size">16G</a>
-                                            </div>
-                                        </li>                                    
-                                    </ul>
-                                </td>
-                              </tr><tr>
-                                <td align="right" width="60px">屏幕：</td>
-                                <td>
-                                    <ul class="choice-colol ma-le-6">
-                                                                            
-                                        <li>
-                                            <div class="sku  sku-bo-blo">
-                                                <a class="choice-size">触屏</a>
-                                            </div>
-                                        </li>                                   
-                                     </ul>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td align="right" width="60px">网络：</td>
-                                <td>
-                                    <ul class="choice-colol ma-le-6">
-                                                                            
-                                        <li>
-                                            <div class="sku  sku-bo-blo">
-                                                <a  class="choice-size">4G</a>          
-                                            </div>
-                                        </li>                                    
-                                    </ul>
-                                </td>
-                              </tr>   
+                            <tbody>
                               <tr>
                                 <td align="right" width="60px">购买数量：</td>
                                 <td>
@@ -341,6 +304,9 @@ $("#header_cart_list > .micart > .les").hover(function(){
                                             <a onclick="switch_num(-1);" class="choice-number fl" title="减" style="width:24px">-</a>
                                             <input class="wi43 fl" value="1" name="goods_num" id="goods_num" readonly="" type="text">
                                             <a onclick="switch_num(1);" class="choice-number fl" title="加" style="width:24px">+</a>
+                                        </li>
+                                        <li style="margin:5px 0px 0px 0px">
+                                            <span>(库存{$GoodsDetail.store})</span>
                                         </li>
                                     </ul>
                                 </td>
@@ -375,153 +341,22 @@ $("#header_cart_list > .micart > .les").hover(function(){
                 </div>
                 <div class="history-bott">
                     <ul class="history-comm">
+                    <foreach name="goodsdata" item="hostval">
                      <li>
                         <div>
                             <p class="p-img-comm fl">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/143.html"><img class="img-comm" src="goods_thumb_143_60_60.jpeg" alt=""></a>
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/143.html"><img class="img-comm" src="__PUBLIC__\admin\lib\webuploader\0.1.5\server\upload\{$hostval.picname}" alt=""></a>
                             </p>
                             <p class="p-name-comm">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/143.html">haier海尔 BC-93TMPF 93升单门冰箱</a>
+                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/143.html">{$hostval.goodname}</a>
                             </p>
                             <p class="p-price-comm">
-                                <b>¥0.01</b>
+                                <b>{$hostval.price}</b>
                             </p>
                         </div>
                     </li>
-                    <li>
-                        <div>
-                            <p class="p-img-comm fl">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/142.html"><img class="img-comm" src="goods_thumb_142_60_60.jpeg" alt=""></a>
-                            </p>
-                            <p class="p-name-comm">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/142.html">海尔（Haier）BCD-251WDGW 251升 无霜两门冰箱（白色）</a>
-                            </p>
-                            <p class="p-price-comm">
-                                <b>¥2699.00</b>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <p class="p-img-comm fl">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/141.html"><img class="img-comm" src="goods_thumb_141_60_60.jpeg" alt=""></a>
-                            </p>
-                            <p class="p-name-comm">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/141.html">三星 Galaxy A9高配版 (A9100) 精灵黑 全网通4G手机 双卡双待</a>
-                            </p>
-                            <p class="p-price-comm">
-                                <b>¥3499.00</b>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <p class="p-img-comm fl">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/140.html"><img class="img-comm" src="goods_thumb_140_60_60.jpeg" alt=""></a>
-                            </p>
-                            <p class="p-name-comm">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/140.html">Apple iPhone 6s 16GB 玫瑰金色 移动联通电信4G手机</a>
-                            </p>
-                            <p class="p-price-comm">
-                                <b>¥4858.00</b>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <p class="p-img-comm fl">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/139.html">
-                                <img class="img-comm" src="goods_thumb_139_60_60.jpeg" alt="">
-                                </a>
-                            </p>
-                            <p class="p-name-comm">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/139.html">天翼小白49元纯流量卡（随机选号 只发辽宁）60元含100元资费
-                                </a>
-                            </p>
-                            <p class="p-price-comm">
-                                <b>¥60.00</b>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <p class="p-img-comm fl">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/138.html">
-                                <img class="img-comm" src="goods_thumb_138_60_60.jpeg" alt="">
-                                </a>
-                            </p>
-                            <p class="p-name-comm">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/138.html">广州电信卡|4G定制卡|含50话费|手机卡号码卡|上网卡流量卡靓号</a>
-                            </p>
-                            <p class="p-price-comm">
-                                <b>¥79.00</b>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <p class="p-img-comm fl">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/137.html">
-                                <img class="img-comm" src="goods_thumb_137_60_60.jpeg" alt="">
-                                </a>
-                            </p>
-                            <p class="p-name-comm">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/137.html">中麦通信4G联通网络手机靓号 170手机卡电话卡靓号卡可选号包邮
-                                </a>
-                            </p>
-                            <p class="p-price-comm">
-                                <b>¥500.00</b>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <p class="p-img-comm fl">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/136.html">
-                                <img class="img-comm" src="goods_thumb_136_60_60.jpeg" alt="">
-                                </a>
-                            </p>
-                            <p class="p-name-comm">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/136.html">靓号0元送广东联通4G/3G手机卡上网卡大流量套餐全国无漫游选号
-                                </a>
-                            </p>
-                            <p class="p-price-comm">
-                                <b>¥120.00</b>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <p class="p-img-comm fl">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/135.html">
-                                <img class="img-comm" src="goods_thumb_135_60_60.jpeg" alt="">
-                                </a>
-                            </p>
-                            <p class="p-name-comm">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/135.html">重庆电信手机卡电话卡语音卡选靓号3G4G卡内部5折卡低资费（飞）
-                                </a>
-                            </p>
-                            <p class="p-price-comm">
-                                <b>¥60.00</b>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <p class="p-img-comm fl">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/134.html">
-                                <img class="img-comm" src="goods_thumb_134_60_60.jpeg" alt="">
-                                </a>
-                            </p>
-                            <p class="p-name-comm">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/134.html">中国电信4G号卡手机卡电话卡上网卡 177号段套餐可选 预存120全返
-                                </a>
-                            </p>
-                            <p class="p-price-comm">
-                                <b>¥120.00</b>
-                            </p>
-                        </div>
-                    </li>                   
+                    </foreach>
+                    
                 </ul>
             </div>                
         </div>
@@ -741,25 +576,17 @@ $("#header_cart_list > .micart > .les").hover(function(){
                                 <div class="pro-user-comment">
                                     <div class="comm-t1 ov-hi">
                                         <div class="pro-user-score fl">
-                                            <em>发货速度</em>  
+                                            <em>商品评分</em>  
                                             <span class="starRating-area">
                                             <s style="width: 60%;"></s>
-                                            </span>
-                                            <em>客服态度</em>  
-                                            <span class="starRating-area">
-                                            <s style="width: 0%;"></s>
-                                            </span>
-                                            <em>商品质量</em>  
-                                            <span class="starRating-area">
-                                            <s style="width: 60%;"></s>
-                                            </span>      
+                                            </span>    
                                         </div>                
                                         <div class="pro-user-impre fl ov-hi">
                                         </div>
                                         <div class="pro-user-time wh-sp">2016-03-12</div>
                                     </div>
                                     <div class="comm-t2">
-                                    晒单给大家看看.我刚买的. 
+                                    {$assess.contents}
                                     <!--htmlspecialchars_decode   html_entity_decode-->
                                     <br>            
                                     <!--晒单-->
@@ -806,7 +633,7 @@ $("#header_cart_list > .micart > .les").hover(function(){
                                         <div class="pro-user-time wh-sp">2016-03-12</div>
                                     </div>
                                     <div class="comm-t2">
-                                    不错,买回来老公很喜欢 
+                                    {$assess.contents}
                                     <!--htmlspecialchars_decode   html_entity_decode-->
                                     <br>                               
                                 </div>
@@ -819,7 +646,7 @@ $("#header_cart_list > .micart > .les").hover(function(){
                             <p class="procomment-img">
                                 <img alt="" src="defaultface_user_small.png">
                             </p>
-                            <p class="procomment-name">茱莉亚</p>
+                            <p class="procomment-name">{$assess.uid}</p>
                             <s class="procomment-tag"></s>
                         </div>
                         <div class="pro-user-comment-main ma-0-25-0-0 ov-hi">
@@ -896,6 +723,7 @@ $("#header_cart_list > .micart > .les").hover(function(){
             </div>       
             
 <script>
+
 //------------自己写的放大镜------------------
                         $image = $('#zs-focus-list ul').find('img');
                         $small = $('#zs-big-pic').find('img');
