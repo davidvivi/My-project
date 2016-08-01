@@ -57,4 +57,11 @@ class CartController extends CommonController {
 			$this->ajaxReturn('1');
 	   
    }
+
+   public function del(){
+	   
+	   
+	   M('cart')->where()->delete();
+	   
+   }
 }

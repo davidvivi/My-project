@@ -7,6 +7,10 @@ class TestController extends Controller {
 		$this->display('Test/index');
 		
     }
+	public function base(){
+		
+		$this->display('base/index');
+	}
 	
 	public function upload(){   
 		$upload = new \Think\Upload();// 实例化上传类    
