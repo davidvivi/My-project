@@ -73,7 +73,7 @@ class CategoryModel extends Model
             $gid = $val['id'];
             $picname = $goods_pic->where("gid='{$gid}'")->getField('picname');
             $goodsdata[$key]['picname'] = $picname;
-            $goodsdata[$key]['saleprice'] = $val['price'] * 0.9;
+            $goodsdata[$key]['saleprice'] = intval($val['price'] / 0.9);
         }
         return $goodsdata;
     }

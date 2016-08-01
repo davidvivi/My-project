@@ -399,14 +399,14 @@
                         <foreach name="goodsdata" item="hostval">
                             <div class="hotitem">
                                 <div class="itemin">
-                                    <a class="proname" href="__MODULE__/Gdetail/index/goodsId='$hostval.id'">
+                                    <a class="proname" href="__MODULE__/Gdetail/index?goodsId={$hostval.id}">
                                         <img src="__PUBLIC__\admin\lib\webuploader\0.1.5\server\upload\{$hostval.picname}">
                                         <span>{$hostval.goodname}</span>
                                     </a>
                                     <p class="itemprice">
-                                        <span class="new" rehot="90101748934_201480" style="display: block; float: left;"><i class="fn-rmb">¥</i>{$hostval.saleprice}</span>
+                                        <span class="new" rehot="90101748934_201480" style="display: block; float: left;"><i class="fn-rmb">¥</i>{$hostval.price}</span>
                                         <span class="old">
-                                            <i class="fn-rmb">¥</i>{$hostval.price}
+                                            <i class="fn-rmb">¥</i>{$hostval.saleprice}
                                         </span>
                                     </p>
                                 </div>

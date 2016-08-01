@@ -79,7 +79,7 @@ class CategoryController extends Controller
         $waresdata = $return[0];
         // 分页
         //$page = $return[1];
-        dump($goodsdata);
+        //dump($goodsdata);
         $this->assign('link',$link_list);
         $this->assign('getid',$getid);
         $this->assign('firstcate',$firstcate);

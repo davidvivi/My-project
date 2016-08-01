@@ -10,6 +10,7 @@ class GdetailController extends Controller {
 
 
 	   $goodsId = I('goodsId');
+     
        if(!$goodsId){   
             $goodsId = 25;
        }
