@@ -852,16 +852,16 @@ body {
 	float:left
 }
 #cata_choose_product .itemPrice a {
-	background:url(../images/list/iconall_mod.png?03231649) -447px -150px no-repeat;
-	color:#6c6c6c;
+	font-size: 18px;
+	color:white;
 	display:inline-block;
 	height:27px;
-	line-height:23px;
+	line-height:27px;
 	text-align:center;
 	vertical-align:middle;
 	width:92px;
-	margin:-2px 0 0;
-	float:left
+	
+	
 }
 #cata_choose_product .itemPrice a.Jreserve:hover {
 	background:url(../images/list/iconall_mod.png?03231649) -930px -150px no-repeat

@@ -39,7 +39,7 @@ class CategoryController extends Controller
         if(!$getid){ 
             $getid = 1;
         }
-        $getid = 17;
+        $getid = 6;
         // 到model里处理
         $categoryclass = new \Home\Model\CategoryModel();
         $precate = $categoryclass->idHandle($getid);
@@ -68,18 +68,20 @@ class CategoryController extends Controller
 
         // 商品的遍历
         // getid;
-        // $type = I('type')
-        $type = 'price';
+       
+        $type = I('type');
+        if(!$type){
+            $type = 'id';
+        }
+        
         $return = $categoryclass->goodsShop($getid,$type);
+        // 商品数据
         $waresdata = $return[0];
+        // 分页
         $page = $return[1];
-        //dump($waresdata);
-
-
-
-
 
         $this->assign('link',$link_list);
+        $this->assign('getid',$getid);
         $this->assign('firstcate',$firstcate);
         $this->assign('secondcate',$secondcate);
         $this->assign('firstname',$firstname);

@@ -91,11 +91,16 @@ class CategoryModel extends Model
         // 一级分类时
         if($num == 1){
             $path = $data['path'].$getid.',';
-            $count = $goods->count();
+            $where['typeid'] = array('like',"{$path}%");
+            $count = $goods->where($where)->count();
             $Page = new \Think\Page($count,4);
             $show = $Page->show();
-            $where['typeid'] = array('like',"{$path}%");
-            $goodsdata = $goods->field('id,goodname,price')->where($where)->order($type)->limit($Page->firstRow.','.$Page->listRows)->select();
+            // 当是新品和购买量是倒序查询
+            if($type != 'addtime' && $type != 'buy'){
+                $goodsdata = $goods->field('id,goodname,price')->where($where)->order($type)->limit($Page->firstRow.','.$Page->listRows)->select();
+            }else{ 
+                $goodsdata = $goods->field('id,goodname,price')->where($where)->order("{$type} desc")->limit($Page->firstRow.','.$Page->listRows)->select();
+            }
             foreach($goodsdata as $key => $val){ 
                 $gid = $val['id'];
                 $goods_url = $goods_pic->field('picname')->where("gid='{$gid}'")->select();    
@@ -105,8 +110,15 @@ class CategoryModel extends Model
 
         }else if($num == 2){ // 二级分类时
             $path = $data['path'].$getid.',';
-            
-            $goodsdata = $goods->field('id,goodname,price')->where("typeid='{$path}'")->order($type)->select();
+            $count = $goods->where("typeid='{$path}'")->count();
+            $Page = new \Think\Page($count,4);
+            $show = $Page->show();
+            // 当是新品和购买量是倒序查询
+            if($type != 'addtime' && $type != 'buy'){
+                $goodsdata = $goods->field('id,goodname,price,buy')->where("typeid='{$path}'")->order($type)->limit($Page->firstRow.','.$Page->listRows)->select();
+            }else{
+                $goodsdata = $goods->field('id,goodname,price')->where("typeid='{$path}'")->order("{$type} desc")->limit($Page->firstRow.','.$Page->listRows)->select(); 
+            }
             foreach($goodsdata as $key => $val){ 
                 $gid = $val['id'];
                 $goods_url = $goods_pic->field('picname')->where("gid='{$gid}'")->select();    
@@ -118,7 +130,12 @@ class CategoryModel extends Model
             $count = $goods->where("typeid='{$path}'")->count();
             $Page = new \Think\Page($count,4);
             $show = $Page->show();
-            $goodsdata = $goods->field('id,goodname,price')->where("typeid='{$path}'")->order($type)->limit($Page->firstRow.','.$Page->listRows)->select();
+            // 当是新品和购买量是倒序查询
+            if($type != 'addtime' && $type != 'buy'){
+                $goodsdata = $goods->field('id,goodname,price')->where("typeid='{$path}'")->order($type)->limit($Page->firstRow.','.$Page->listRows)->select();
+            }else{
+                $goodsdata = $goods->field('id,goodname,price')->where("typeid='{$path}'")->order("{$type} desc")->limit($Page->firstRow.','.$Page->listRows)->select();
+            }
             foreach($goodsdata as $key => $val){ 
                 $gid = $val['id'];
                 $goods_url = $goods_pic->field('picname')->where("gid='{$gid}'")->select();    
