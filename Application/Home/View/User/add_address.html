@@ -5,65 +5,121 @@
     <title>收货地址</title>
     <meta http-equiv="keywords" content="QAQ商城,笔记本,手机,数码相机,数码影音,DIY硬件" />
     <meta name="description" content="QAQ商城（QAQ.com）具备在3年内成长为中国最大的3C电子商城之潜力，源于中国IT行业第一垂直媒体（QAQ.com.cn）在IT及互联网行业已臻十年的深厚积累。运营核心，只为了给用户打造一个放心、省心、舒心的购物平台！" />
-    <link rel="stylesheet" href="__PUBLIC__/Home/css/edit_address.css" type="text/css">
-    <script src="__PUBLIC__/Home/js/jquery-1.10.2.min.js"></script>
-    <script src="__PUBLIC__/Home/js/slider.js"></script>
-	<script src="__PUBLIC__/Home/js/layer/layer-min.js"></script><!--弹窗js 参考文档 http://layer.layui.com/-->
+    <link href="__PUBLIC__/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/admin/lib/icheck/icheck.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+    <title>添加地址</title>
 </head>
-
-    <style type="text/css">
-        .wi80-BFB{width:80%}
-        .wi40-BFB{width:40%}
-        .seauii{ padding:7px 10px; margin-right:10px}
-        .he110{ height:110px}
-        .di-bl{ display:inherit}
-    </style>
 <body>
-<div class="adderss-add">
-    <div class="ner-reac ol_box_4" style="visibility: visible; position: fixed; z-index: 500; width: 100%; height:100%">
-        <div class="box-ct">
-            <div class="box-header">
-                <!-- <a href="" class="box-close"></a> -->
-                <span class="box-title">添加地址</span>
+<div class="pd-20">
+    <form action="" method="post" class="form form-horizontal" id="form-address-edit">
+        
+        <div class="row cl">
+            <!--
+            <label class="form-label col-3"><span class="c-red">*</span>ID：</label>
+            -->
+            <div class="formControls col-5">
+                <input type="hidden" class="input-text" disabled="none" value="{$uid}" placeholder="" id="address-uid" name="address-uid">
             </div>
-            <form action="" method="post" onSubmit="return checkForm()">
-                <table width="90%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td align="right"><span class="xh">*</span>收货人：&nbsp;</td>
-                        <td><input class="wi80-BFB" name="consignee" type="text" value="{$address.consignee}" maxlength="12" /></td>
-                    </tr>
-                    <tr>
-                        
-                    </tr>
-                    <tr>
-                    	<td align="right" valign="top"><span class="xh">*</span>详细地址：&nbsp;</td>
-                    	<td><textarea class="he110 wi80-BFB re-no" name="address" id="address" placeholder="详细地址" maxlength="100">{$address.address}</textarea></td>
-                    </tr>
-                    <tr>
-                        <td align="right">邮编：&nbsp;</td>
-                        <td><input class="wi80-BFB" type="text" name="zipcode" value="{$address.zipcode}" onpaste="this.value=this.value.replace(/[^\d]/g,'')" onKeyUp="this.value=this.value.replace(/[^\d]/g,'')" maxlength="10"/></td>
-                    </tr>
-                    <tr>
-                        <td align="right"><span class="xh">*</span>手机或固定电话：&nbsp;</td>
-                        <td><input class="wi40-BFB" type="text" name="mobile" value="{$address.mobile}" onpaste="this.value=this.value.replace(/[^\d-]/g,'')" onKeyUp="this.value=this.value.replace(/[^\d-]/g,'')" maxlength="15"/></td>
-                    </tr>
-                    <tr>
-                        <td class="pa-50-0">&nbsp;</td>
-                        <td align="right">
-                            <button type="submit" class="box-ok ma-le--70"><span>保存收货地址</span></button>
-                        </td>    
-                    </tr>
-                </table>
-
-            </form>
+            <div class="col-4"> </div>
         </div>
-    </div>
-</div>
-<script src="__PUBLIC__/Home/js/global.js"></script>
-<script src="__PUBLIC__/Home/js/pc_common.js"></script>
-
-<script>
     
+        <div class="row cl">
+            <label class="form-label col-3"><span class="c-red">*</span>收货人：</label>
+            <div class="formControls col-5">
+                <input type="text" class="input-text" value="{$data['name']}" placeholder="请填写收货人姓名" id="consignee" name="consignee" datatype="/^[\u4E00-\u9FA5\uf900-\ufa2d]{2,10}$/" nullmsg="姓名不能为空">               
+            </div>
+            <div class="col-4" > </div>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-3"><span class="c-red">*</span>收货地址：</label>
+            <div class="formControls col-5">
+                <input type="text" class="input-text" value="{$data['address']}" placeholder="请填收货地址" id="address" name="address" datatype="/^[\w\u4E00-\u9FA5\uF900-\uFA2D]*$/" nullmsg="收货地址不能为空">
+            </div>
+            <div class="col-4"> </div>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-3"><span class="c-red">*</span>邮编：</label>
+            <div class="formControls col-5">
+                <input type="text" class="input-text" value="{$data['postcode']}" placeholder="请填邮编" id="postcode" name="postcode" datatype="p" nullmsg="邮编不能为空">
+            </div>
+        <div class="col-4"> </div>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-3"><span class="c-red">*</span>手机：</label>
+            <div class="formControls col-5">
+                <input type="text" class="input-text" value="{$data['tel']}" placeholder="请填写手机号" id="tel" name="tel" datatype="m" nullmsg="手机号不能为空">
+            </div>
+        <div class="col-4"> </div>
+        </div>
+      
+    <div class="row cl">
+      <div class="col-9 col-offset-3">
+        <button type="button" class="btn btn-primary radius" id="up" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">提交</button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/admin/lib/icheck/jquery.icheck.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/admin/lib/Validform/5.3.2/Validform.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/layer/1.9.3/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.js"></script>
+<script type="text/javascript">
+$(function(){
+   
+    $('.skin-minimal input').iCheck({
+        checkboxClass: 'icheckbox-blue',
+        radioClass: 'iradio-blue',
+        increaseArea: '20%'
+    });
+    
+    $("#form-address-edit").Validform({
+        tiptype:2,
+        callback:function(form){
+            form[0].submit();
+            var index = parent.layer.getFrameIndex(window.name);
+            parent.$('.btn-refresh').click();
+            parent.layer.close(index);
+        }
+    });
+
+    $('#up').click(function(){
+        uid = $('#address-uid').val();    
+        consignee = $('#consignee').val();
+        address = $('#address').val();
+        postcode = $('#postcode').val();
+        tel = $('#tel').val();
+        if(!(consignee == '' || address == '' || postcode == '' || tel =='')){
+            $.ajax({ 
+                type:"post",
+                url:"{:U('addressEditForm')}",
+                data:'uid='+uid+'&consignee='+consignee+'&address='+address+'&tel='+tel+'&postcode='+postcode,
+                success:function(data){ 
+                    if(data == 1){                     
+                        alert('添加成功！');
+                        window.parent.location.reload();        
+                    }else{ 
+                        alert('添加失败！');
+                        window.parent.location.reload();
+                    }
+                }
+
+            });
+        }
+    });    
+});
+
 </script>
 </body>
 </html>

@@ -32,12 +32,19 @@ class UserController extends CommonController
         header("location:".U('Home/Index/index'));
         exit;
     }
+
+
  
+    /**
+        个人中心地址管理
+    */
     /*
      *  用户地址添加页面
      */
-    public function add()
+    public function add_address()
     {
+        $uid = I('get.uid');
+        $this->assign('uid',$uid);
         $this->display('user/add_address');
     }
 
@@ -47,19 +54,38 @@ class UserController extends CommonController
     public function edit()
     {   
         $id = I('get.id');
+        $uid = I('get.uid');
         $data = M('address')->field('id,uid,address,name,tel,postcode')->where('id='.$id)->find();
         $this->assign('data',$data);
+        $this->assign('uid',$uid);
         $this->assign('id',$id);               
         $this->display('user/edit_address');
     }
 
+    /*
+     *  用户地址编辑,添加处理
+     */
     public function addressEditForm()
     {  
-        $id = I('get.id');
-        $email = I('email');
-       
-        $data['postcode'] = $email;        
-        $res = M('address')->where('id='.$id)->save($data);
+        //接收用户编辑时的id
+        $id = I('id');
+        $uid = I('uid');
+        $consignee = I('consignee');
+        $postcode = I('postcode');
+        $tel = I('tel');
+        $address = I('address');
+
+        $data['uid']=$uid;
+        $data['postcode'] = $postcode;
+        $data['name'] = $consignee;
+        $data['tel'] = $tel;
+        $data['address'] = $address;        
+        //如果有id,则是编辑否则是添加
+        if($id){
+            $res = M('address')->where('id='.$id)->save($data);
+        }else{    
+            $res = M('address')->add($data);
+        }
                 
         if($res){
            $this->ajaxReturn('1');
@@ -79,8 +105,27 @@ class UserController extends CommonController
         $data = M('address')->field('id,uid,address,name,tel,postcode')->where('uid='.$uid)->select();
         //dump($data);
         //exit;
+        $this->assign('uid',$uid);
         $this->assign('data',$data);
         $this->display();
+    }
+
+    /*
+     *  用户地址删除处理
+     */
+    public function del_address()
+    {   
+        $id = I('id');
+        if($id){ 
+            $res = M('address')->where('id='.$id)->delete();
+            if($res){ 
+                $this->ajaxReturn('1');
+            }else{ 
+                $this->ajaxReturn('0');
+            }
+        }else{ 
+            $this->ajaxReturn('0');
+        }      
     }
     
 

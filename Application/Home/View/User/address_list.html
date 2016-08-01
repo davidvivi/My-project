@@ -39,7 +39,7 @@
     		    <h2>
                     
 
-                    <a href="javascript:;" onclick="address_edit('添加地址','__URL__/add')" class="ml-5" style="text-decoration:none">
+                    <a href="javascript:;" onclick="address_edit('添加地址','__URL__/add_address/uid/{$uid}')" class="ml-5" style="text-decoration:none">
                                 <i class="Hui-iconfont">&#xe600;</i> 添加地址
                     </a> 
                     
@@ -52,44 +52,53 @@
                 </h2>
             </div>
             <!-- themes end --> 
-      <div class="address-adc">
-        <div class="aa-title fixed">
-          <ul>
-            <li class="th-01">收货人</li>
-            <li class="th-02">收货地址</li>
-            <li class="th-03">联系电话</li>
-            <li class="th-04"></li>
-            <li class="th-05">操作</li>
-          </ul>
+        <div class="address-adc">
+            <div class="aa-title fixed">
+                <ul>
+                    <li class="th-01">收货人</li>
+                    <li class="th-02">收货地址</li>
+                    <li class="th-03">联系电话</li>
+                    <li class="th-04">邮编</li>
+                    <li class="th-05">操作</li>
+                </ul>
+            </div>
+            <!-- 地址列表go -->
+            <div id="aa-list" class="aa-list">
+                <foreach name="data" item="val">
+                    <ul class="fixed list-on">
+                        <li class="td-01" data-add="username">{$val.name}</li>
+                        <li class="td-02"> 
+                    	    <span class="ini" style ="line-height: 25px;"> 
+                                <span data-add="useraddr">{$val.address}</span> 
+                            </span> 
+                        </li>
+                        <li class="td-03">
+                            <p><span data-add="usercell">{$val.tel}</span></p>              
+                        </li>
+                        <!--
+                        <li class="td-04"><a href="{:U('Home/User/set_default',array('id'=>$list['address_id']))}"  data-act="set" >设为默认收货地址</a></li>
+                        -->
+                        <li class="td-04">
+                            <p><span data-add="usercell">{$val.postcode}</span></p>              
+                        </li>
+                        <li class="td-05">
+                            <a href="javascript:;" onclick="address_edit('地址编辑','__URL__/edit?id={$val.id}&uid={$val.uid}')" class="target_no" style="text-decoration:none" title="编辑">
+                                <i class="Hui-iconfont">&#xe63c;</i>
+                            </a>
+                            <!--
+                        	<a href="javascript:address_edit({$list['address_id']})" data-act="edit" class="target_no" target="">修改</a>
+                            --> 
+                            
+                            </a> <a title="删除" href="javascript:;" id="del" class="J_delete target_no" unable-id="{$val.id}" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                        
+                            <!--
+                        	<a href="{:U('Home/User/del_address',array('id'=>$val['id']))}" class="J_delete target_no" id="del" data-act="del" target="">删除</a>
+                            --> 
+                        </li>
+                    </ul>
+                </foreach>
+            </div>         
         </div>
-        <!-- 地址列表go -->
-        <div id="aa-list" class="aa-list">
-        <foreach name="data" item="val">
-            <ul class="fixed list-on">
-                <li class="td-01" data-add="username">{$val.name}</li>
-                <li class="td-02"> 
-            	    <span class="ini" style ="line-height: 25px;"> 
-                        <span data-add="useraddr">{$val.address}</span> 
-                    </span> 
-                </li>
-                <li class="td-03">
-                    <p><span data-add="usercell">{$val.tel}</span></p>              
-                </li>
-                <li class="td-04"><a href="{:U('Home/User/set_default',array('id'=>$list['address_id']))}"  data-act="set" >设为默认收货地址</a></li>
-                <li class="td-05">
-
-                    <a href="javascript:;" onclick="address_edit('地址编辑','__URL__/edit?id={$val.id}')" class="target_no" style="text-decoration:none">
-                                <i class="Hui-iconfont">&#xe63c;</i>修改
-                    </a>
-                    <!--
-                	<a href="javascript:address_edit({$list['address_id']})" data-act="edit" class="target_no" target="">修改</a>
-                    --> 
-                	<a href="{:U('Home/User/del_address',array('id'=>$list['address_id']))}" class="J_delete target_no" data-act="del" target="">删除</a> 
-                </li>
-            </ul>
-        </foreach>
-        </div>         
-      </div>
       
       <!-- Address Management end --> 
     </div>
@@ -101,12 +110,13 @@
 </body>
 
 <script>
-    /*地址-编辑*/
+
+/*地址-编辑*/
     function address_edit(title,url){
         //layer_show(title,url,w,h);
         layer.open({
             type: 2,
-            title: '添加收货地址',
+            title: '收货地址',
             shadeClose: true,
             shade: 0.5,
             area: ['1000px', '580px'],
@@ -114,7 +124,39 @@
         });
     }
 
+$(function(){
+    /*地址-编辑*/
+    function address_edit(title,url){
+        //layer_show(title,url,w,h);
+        layer.open({
+            type: 2,
+            title: '收货地址',
+            shadeClose: true,
+            shade: 0.5,
+            area: ['1000px', '580px'],
+            content: url,
+        });
+    }
 
+    $('.address-adc').on("click",'#del',function(){        
+        id = $(this).attr('unable-id');
+        var ob = $(this);
+        $.get(
+                "__URL__/del_address",
+                {id:id},
+                function(data){ 
+                    if(data == 1){ 
+                        alert('删除成功!');
+                        ob.parent().parent().remove();
+                    }else{ 
+                        alert('删除失败！');
+                    }
+                },
+                'json'
+        );
+
+    });
+});
     /**
      * 新增修改收货地址
      * id 为零 则为新增, 否则是修改

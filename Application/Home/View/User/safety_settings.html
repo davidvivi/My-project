@@ -29,9 +29,9 @@
           <!-- themes end --> 
           <!-- Security Center star -->
           <div class="security_center">
-        <div class="security_center_top"> <a href="" class="personal_head target_no"> <img height="100" width="100" src="{$user.head_pic|default='__STATIC__/images/headPic.jpg'}" alt=""> </a>
+        <div class="security_center_top"> <a href="" class="personal_head target_no"> <img height="100" width="100" src="{$user.head_pic|default='__PUBLIC__/Home/image/headPic.jpg'}" alt=""> </a>
          <div class="pers_info">
-            <h3 class="name">{$user['nickname']}</h3>
+            <h3 class="name">{$_SESSION['user']['name']}</h3>
             <p class="rat"> 
             	<span class='rat_00 <if condition="($user['email_validated'] eq 1) and ($user['email_validated'] eq 0)"> on </if>'>低</span>
                 <span class='rat_01 <if condition="($user['email_validated'] eq 1) or ($user['email_validated'] eq 1)"> on </if>'>中</span>
