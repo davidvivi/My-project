@@ -39,7 +39,6 @@ class CategoryController extends Controller
         if(!$getid){ 
             $getid = 1;
         }
-        $getid = 6;
         // 到model里处理
         $categoryclass = new \Home\Model\CategoryModel();
         $precate = $categoryclass->idHandle($getid);
