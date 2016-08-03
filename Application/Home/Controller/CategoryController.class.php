@@ -33,51 +33,65 @@ class CategoryController extends Controller
         $datalink['state'] = array('GT',0);
         $link_list = $link ->field('contents,url')->where($datalink)->select();
 
-        // 假设从其他页面传来的ID
-        $getid = I('id');
-        // 如果没有id传过来，则赋予id 值1
-        if(!$getid){ 
-            $getid = 1;
-        }
-        // 到model里处理
-        $categoryclass = new \Home\Model\CategoryModel();
-        $precate = $categoryclass->idHandle($getid);
-        $goodsdata = $categoryclass->hostShop();
-        //dump($goodsdata);
+        $search = I('search');
+        dump($search);
+        if($search){
+         
+            $categoryclass = new \Home\Model\CategoryModel();
+            $goodsdata = $categoryclass->hostShop();
+            $goodssearch = $categoryclass->catesearch($search);
+            $waresdata = $goodssearch['data'];
+            $page = $goodssearch['page'];
 
-        $id = $precate['firstid']; // 一级分类id
-        
-        
-        // 根据一级id得到一级分类
-        
-        foreach($firstcate as $k1 => $v1){ 
-            if($v1['id'] == $id){ 
-                $firstname = $v1['name'];
-                $firstid = $id;
+
+            dump($goodssearch);
+
+        }else{
+            // 假设从其他页面传来的ID
+            $getid = I('id');
+            // 如果没有id传过来，则赋予id 值1
+            if(!$getid){ 
+                $getid = 1;
             }
-        }
-        // 得到二级分类
-        $secondca = $category->field('id,pid,name')->where("pid='{$id}'")->select();
-        //dump($secondca);
-        foreach($secondca as $k2 => $v2){
-            $secondid = $v2['id'];
-            $thirdca = $category->field('id,pid,name')->where("pid='{$secondid}'")->select();
-            $secondca[$k2]['third'] = $thirdca;
-        }
+            // 到model里处理
+            $categoryclass = new \Home\Model\CategoryModel();
+            $precate = $categoryclass->idHandle($getid);
+            $goodsdata = $categoryclass->hostShop();
+            //dump($goodsdata);
 
-        // 商品的遍历
-        // getid;
-       
-        $type = I('type');
-        if(!$type){
-            $type = 'id';
-        }
+            $id = $precate['firstid']; // 一级分类id
+            
+            
+            // 根据一级id得到一级分类
+            
+            foreach($firstcate as $k1 => $v1){ 
+                if($v1['id'] == $id){ 
+                    $firstname = $v1['name'];
+                    $firstid = $id;
+                }
+            }
+            // 得到二级分类
+            $secondca = $category->field('id,pid,name')->where("pid='{$id}'")->select();
+            //dump($secondca);
+            foreach($secondca as $k2 => $v2){
+                $secondid = $v2['id'];
+                $thirdca = $category->field('id,pid,name')->where("pid='{$secondid}'")->select();
+                $secondca[$k2]['third'] = $thirdca;
+            }
         
-        $return = $categoryclass->goodsShop($getid,$type);
-        // 商品数据
-        $waresdata = $return[0];
-        // 分页
-        $page = $return[1];
+
+            // 商品的遍历
+            $type = I('type');
+            if(!$type){
+                $type = 'id';
+            }
+            
+            $return = $categoryclass->goodsShop($getid,$type);
+            // 商品数据
+            $waresdata = $return[0];
+            // 分页
+            $page = $return[1];
+        }
         
         $this->assign('link',$link_list);
         $this->assign('getid',$getid);

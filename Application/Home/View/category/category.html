@@ -204,10 +204,10 @@
                 <div style="font-size:14px;">
                     <span><a href="__MODULE__/index/index">商城首页</a></span>
                     <if condition="$name">
-                        <span>Hi~ <a href="">{$name}</a>,欢迎来到QAQ数码商城!</span>
+                        <span>Hi~ <a href="">{$name}</a>,欢迎来到QAQ网上商城!</span>
                         <span><a href="__URL__/logout">退出</a></span>
                     <else />
-                        <span>Hi~欢迎来到QAQ数码商城，请<a href="__URL__/login">登录</a></span>
+                        <span>Hi~欢迎来到QAQ网上商城，请<a href="__URL__/login">登录</a></span>
                         <span><a href="__URL__/reg">免费注册</a></span>
                     </if>
                 </div>
@@ -225,12 +225,12 @@
             <div class="top_search" style="margin-left:-15px;">
                 <div class="logo">
                     <img src="__PUBLIC__/img/logo.jpg" alt="QAQ商城logo" style="width:180px;height:65px;"/>
-                    <span style="font-size:15px;">QAQ在线网上商城</span>
+                    <span style="font-size:15px;">QAQ网上商城</span>
                 </div>
                 <div>
-                    <form action="" method="post">
+                    <form action="__URL__/index" method="post">
                         <div class="search">
-                            <input type="text" name="keyword" style="height:30px;width:440px;top:-4px;"/>
+                            <input type="text" name="search" style="height:30px;width:440px;top:-4px;font-size: 18px;"/>
                             <input type="submit" value="搜索" hidefocus="true" style="height:34px;width:90px;top:-1px;" />
                         </div>                  
                     </form>
@@ -275,7 +275,7 @@
                                                     <div class="words">
                                                         <foreach name="voo.son" item="vooo">
                             		                  	   <a href="__URL__/index?id={$vooo.id}" target="_blank">{$vooo.name}</a>
-                                                        </foreach>              
+                                                        </foreach> 
                                                     </div>
                                                 </div>
                                             </foreach>   
@@ -303,7 +303,7 @@
                             <a class="menu-item " href="http://localhost/index.php?m=Home&amp;c=Index&amp;a=promoteList" style="overflow: visible;">促销商品 </a>
                         </li>
                         <li class="nav-item">
-                            <a class="menu-item " href="http://localhost/index.php?m=Home&amp;c=Channel&amp;a=index&amp;id=1" style="overflow: visible;">数码城 </a>
+                            <a class="menu-item " href="http://localhost/index.php?m=Home&amp;c=Channel&amp;a=index&amp;id=1" style="overflow: visible;">网上城 </a>
                         </li>
                         <li class="nav-item">
                             <a class="menu-item " target="_blank" href="http://localhost/index.php?m=Home&amp;c=Activity&amp;a=group_list" style="overflow: visible;">团购 </a>
@@ -350,7 +350,7 @@
                     <div class="u-left-icon">
                         <i class="z-arrow"></i>
                     </div>
-                    <a title="" href="__URL__/index?id={$precate.thirdid}" target="_blank" class="u-av-label">{$precate.thirdname}<i></i></a>
+                    <a title="" style="padding-left: 23px;" href="__URL__/index?id={$precate.thirdid}" target="_blank" class="u-av-label">{$precate.thirdname}</a>
                 </div> 
             </div>
             <div class="cata_cart_left">
@@ -415,16 +415,16 @@
                     <ul class="left text12" id="order_ul">
                     <!--        <li><a class="col7ac " href1="&sort=recommand&asc=0" style="cursor:pointer;">综合</a></li>-->
                         <li> 
-                            <a class="col7ac main" href="__URL__/index?getid={$getid}&type=id" style="cursor:pointer;"> 默认 </a>
+                            <a class="col7ac" href="__URL__/index?getid={$getid}&type=id" style="cursor:pointer;"> 默认 </a>
                         </li>
                         <li> 
-                            <a class="col7ac " href="__URL__/index?getid={$getid}&type=buy" style="cursor:pointer;"> 销量 </a>
+                            <a class="col7ac" href="__URL__/index?getid={$getid}&type=buy" style="cursor:pointer;"> 销量 </a>
                         </li>
                         <li>
-                            <a class="col7ac  " href="__URL__/index?getid={$getid}&type=price" style="cursor:pointer;">价格<span class="icon_s "></span></a>
+                            <a class="col7ac" href="__URL__/index?getid={$getid}&type=price" style="cursor:pointer;">价格<span class="icon_s "></span></a>
                         </li>   
                         <li>
-                            <a class="col7ac " href="__URL__/index?getid={$getid}&type=addtime" style="cursor:pointer;">新品</a>
+                            <a class="col7ac" href="__URL__/index?getid={$getid}&type=addtime" style="cursor:pointer;">新品</a>
                         </li>
                     </ul>
                     
@@ -445,26 +445,26 @@
                     <li>
                         <div class="nosinglemore"></div>
                         <div class="listbox clearfix"> 
-                            <!-- 圖片 -->
+                            <!-- 图片 -->
                             <div class="listPic"> 
-                          		<a rel="nofollow" target="_blank" href="http://localhost/index.php/Home/Goods/goodsInfo/id/45.html" style="width:200px;height:200px;">
+                          		<a rel="nofollow" target="_blank" href="__MODULE__/Gdetail/index?goodsId={$wareval.id}" style="width:200px;height:200px;">
                                 	<img style="display: block;" src="__PUBLIC__\admin\lib\webuploader\0.1.5\server\upload\{$wareval.goods_url.0.picname}" class="fn_img_lazy" height="200" width="200"> 
                                 </a>             
                             </div>
                             <div class="list-scroll J_scrollBox clearfix"> 
-                                <a href="javascript:void(0);" class="list-scroll-left cbtn"></a>
+                                
                                 <div class="list-scroll-warp J_hideBox">
-                                    <dl class="J_mBox clearfix">            
+                                    <dl class="J_mBox clearfix" style="margin-left: 20px;">            
                                         <foreach name="wareval.goods_url" item="waresv">
                                             <dd>
-                	                           <a href="javascript:void(0);">
+                	                           <a href="__MODULE__/Gdetail/index?goodsId={$wareval.id}" target="_blank">
                                         	       <img  src="__PUBLIC__\admin\lib\webuploader\0.1.5\server\upload\{$waresv.picname}" style="display: block;" height="30" width="30">
                                                 </a>        
                                             </dd>
                                         </foreach>
                                     </dl>
                                 </div>
-                                <a href="javascript:void(0);" class="list-scroll-right cbtn"></a>
+                                
                             </div>
                       
                             <!-- 价格 -->
@@ -478,12 +478,12 @@
                             <!-- 价格 end--> 
                             <!-- 品名 -->
                             <div class="listDescript" style="text-align:center;"> 
-                                <a target="_blank" href="http://www.tp-shop.cn/item/201510CM130003397" class="text13">{$wareval.goodname}</a> 
+                                <a target="_blank" href="__MODULE__/Gdetail/index?goodsId={$wareval.id}" class="text13">{$wareval.goodname}</a> 
                             </div>
                             <!-- 價格及字樣 -->
-                            <div class="itemPrice" style="width: 180px;height: 27px;background: rgb(224, 29, 32);">
+                            <div class="itemPrice" style="width: 18 0px;height: 27px;background: rgb(224, 29, 32);">
                                 <div class="cart_wrapper" style="text-align: center;"> 
-                                    <a style="cursor:pointer;" class="" href="javascript:void(0);" onclick="javascript:AjaxAddCart(45,1,0);">购物车</a>
+                                    <a style="cursor:pointer;" target="_blank" class="" href="__MODULE__/Gdetail/index?goodsId={$wareval.id}" >购 &nbsp;买</a>
                                 </div>
                             </div>
                         </div>
@@ -623,179 +623,6 @@
             }
         });   
         
-
-         
-        //############   更多类别属性筛选       ###########
-        $('.f-out-more').click(function(){
-        	$('.m-tr').each(function(i,o){
-        		if(i >  7){
-        			var attrdisplay = $(o).css('display');
-        			if(attrdisplay == 'none'){
-        				$(o).css('display','block');
-        			}
-        			if(attrdisplay == 'block'){
-        				$(o).css('display','none');
-        			}	
-        		}
-        	});
-        	if($(this).hasClass('checked')){
-        		$(this).removeClass('checked tex-center').html('更多选项');
-        	}else{
-
-        		$(this).addClass('checked tex-center').html('收起<i class="checked"></i>');
-        	}
-        })
-        $('.f-out-more').trigger('click').html('更多选项'); //  默认点击一下
-
-        //############   更多条件选择        ###########
-        $('.f-more').click(function(){
-        	if($(this).hasClass('checked')){
-        		$(this).parent().siblings('ul').removeClass('z-show-more');
-        		$(this).removeClass('checked').html('更多<i></i>');
-        	}else{
-        		$(this).parent().siblings('ul').addClass('z-show-more');
-        		$(this).addClass('checked').html('收起<i class="checked"></i>');
-        	}	
-        })
-
-        var cancelBtn = null;
-        //############   多选框        ###########
-        $('.f-check').click(function(){
-        	var _this = this;
-        	var st = 0;
-        	//关闭前一个多选框
-        	if(cancelBtn != null){
-        		$(cancelBtn).parent().siblings('ul').removeClass('z-show-more');
-        		$(cancelBtn).parent().siblings('ul').find('li >a').each(function(i,o){
-        			$(o).removeClass('select selected');
-        			$(o).attr('href',$(o).data('href'));
-        			$(o).children('i').removeClass('selected').css('display','');
-        			$(o).unbind('click');
-        		});		
-        		$(cancelBtn).parent().siblings('.f-ext').show().children('a').removeClass('checked');
-        		$(cancelBtn).parent().hide();
-        		$(cancelBtn).siblings().removeClass('u-confirm01');
-        	}
-        	cancelBtn = $(_this).parent().siblings('div').find('.u-cancel');
-        	
-        	//打开多选框
-        	$(_this).addClass('checked');
-        	$(_this).siblings().addClass('checked');
-        	$(_this).parent().siblings('.g-btns').show();
-        	$(_this).parent().siblings('ul').addClass('z-show-more');
-        	$(_this).parent().siblings('ul').find('li>a').each(function(i,o){
-        		$(o).addClass('select');
-        		$(o).children('i').css('display','inline');
-        		$(o).attr('href','javascript:;');
-        		$(o).bind('click',function(){			
-        			if($(o).hasClass('selected')){
-        				$(o).removeClass('selected');
-        				$(o).children('i').removeClass('selected');
-        				st--;
-        			}else{
-        				$(o).addClass('selected');
-        				$(o).children('i').addClass('selected');
-        				$(_this).parent().siblings('.g-btns').children('.u-confirm').addClass('u-confirm01');
-        				st++;
-        			}
-        			//如果没有选中项,确定按钮点不了
-        			if(st==0){
-        				$(_this).parent().siblings('.g-btns').children('.u-confirm').removeClass('u-confirm01');
-        			}
-        		});
-        	});
-        	$(_this).parent().hide();
-        })
-
-
-        //############   取消多选        ###########
-        $('.g-btns .u-cancel').each(function(){
-        	$(this).click(function(){
-        		$(this).parent().siblings('ul').removeClass('z-show-more');
-        		$(this).parent().siblings('ul').find('li >a').each(function(i,o){
-        			$(o).removeClass('select selected');
-        			$(o).attr('href',$(o).data('href'));
-        			$(o).children('i').removeClass('selected').css('display','');
-        			$(o).unbind('click');
-        		});
-        		$(this).parent().siblings('.f-ext').show().children('a').removeClass('checked');
-        		$(this).parent().hide();
-        		$(this).siblings().removeClass('u-confirm01');
-        	});
-        })
-
-        //############   产品图片切换        ###########
-
-        $('.list-scroll-warp').each(function(){
-        	var _this = this;
-        		
-        	$(_this).children().children().each(function(i,o){
-        		$(o).mouseover(function(){
-        			$(o).siblings().removeClass('cur');
-        			$(o).addClass('cur');			
-        			var img_src = $(o).children().children().attr('data-img');
-        			$(_this).parent().siblings('.listPic').find('a').children().attr('src',img_src);
-        		})
-        	})
-        })
-
-        //############   点击多选确定按钮      ############
-        // t 为类型  是品牌 还是 规格 还是 属性
-        // btn 是点击的确定按钮用于找位置
-         get_parment = {"id":"123","spec":"6_28"};	
-        function submitMoreFilter(t,btn)
-        {
-        	// 没有被勾选的时候
-        	if(!$(btn).hasClass("u-confirm01"))
-        		return false;
-        		
-        	// 获取现有的get参数		
-        	var key = ''; // 请求的 参数名称
-        	var val = new Array(); // 请求的参数值
-        	$(btn).parent().siblings(".f-list").find("li > a.selected").each(function(){
-        		   key = $(this).data('key');
-        		   val.push($(this).data('val'));
-        	});
-        	//parment = key+'_'+val.join('_');
-            
-        	// 品牌
-        	if(t == 'brand')
-        	{
-        		get_parment.brand_id = val.join('_');
-        	}
-        	// 规格
-        	if(t == 'spec')
-        	{
-        		if(get_parment.hasOwnProperty('spec'))		
-        		{		
-        			get_parment.spec += '@'+key+'_'+val.join('_');
-        		}		
-        		else	
-        		{		
-        			get_parment.spec = key+'_'+val.join('_');
-        		}		
-        	}
-        	// 属性
-        	if(t == 'attr')
-        	{
-        		if(get_parment.hasOwnProperty('attr'))		
-        		{		
-        			get_parment.attr += '@'+key+'_'+val.join('_');
-        		}		
-        		else	
-        		{		
-        			get_parment.attr = key+'_'+val.join('_');
-        		}		
-        	}
-           // 组装请求的url	
-          var url = '';
-          for ( var k in get_parment )
-          { 
-        		url += "&"+k+'='+get_parment[k];
-          } 
-	
-        	location.href ="/index.php?m=Home&c=Goods&a=goodsList"+url;
-        }
         $(function(){
         		// 分页
                 function page(){ 
@@ -822,6 +649,9 @@
                 );
             }
             page();
+
+            
+
         });
         </script>
     </body>
