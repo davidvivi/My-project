@@ -47,35 +47,36 @@
                     </div>
                     
                     <div class="security_center_list">
-          <ul>
-            <li class="list_name"> <i class="<if condition="$data['password'] eq ''">icon_big_warning<else/>icon_correct</if>"></i>登录密码 </li>
-            <li class="list_des">互联网账号存在被盗风险，建议您定期更改密码以保护账户安全。</li>
-            <li class="list_opear"> <a id="target_no" href="{:U('Home/User/password')}"  class="edit">修改</a> </li>
-          </ul>               
-          <ul>
-            <li class="list_name"> <i class="<if condition="$data['tel'] eq ''">icon_big_warning<else/>icon_correct</if>"></i>手机绑定 </li>
-            <li class="list_des">您验证的手机：若已丢失或停用，请立即更换，避免账户被盗。</li>
-            <li class="list_opear">
-                <a id="target_no" href="{:U('Home/User/mobile_validate',array('type'=>'mobile','step'=>1))}" class="edit">
-	                 <if condition="$user['mobile_validated'] eq 0">未验证(点击验证)<else/>已验证(点击修改)</if>
-                </a> 
-            </li>
-          </ul>
-          <ul>
-            <li class="list_name"> <i class="<if condition="$user['email_validated'] eq 0">icon_big_warning<else/>icon_correct</if>"></i>邮箱验证 </li>
-            <li class="list_des">邮箱,互联网账号存在被盗风险，建议您立即绑定以保护账户安全。 </li>
-            <li class="list_opear"> 
-            	<a id="target_no" class="target_no" href="{:U('Home/User/email_validate',array('type'=>'email','step'=>1))}">
-	                <if condition="$user['email_validated'] eq 0">未验证(点击验证)<else/>已验证(点击修改)</if>
-                </a> 
-            </li>
-          </ul>
-            </div>
-      </div>
+                        
+                        <ul>
+                            <li class="list_name"> <i class="<if condition="$data['password'] eq ''">icon_big_warning<else/>icon_correct</if>"></i>登录密码 </li>
+                            <li class="list_des">互联网账号存在被盗风险，建议您定期更改密码以保护账户安全。</li>
+                            <li class="list_opear"> <a id="target_no" href="{:U('Home/User/password')}"  class="edit">修改</a> </li>
+                        </ul>               
+                        <ul>
+                            <li class="list_name"> <i class="<if condition="$data['tel'] eq ''">icon_big_warning<else/>icon_correct</if>"></i>手机验证 </li>
+                            <li class="list_des">您验证的手机：若已丢失或停用，请立即更换，避免账户被盗。</li>
+                            <li class="list_opear">
+                            <a id="target_no" href="{:U('Home/User/mobile_validate',array('type'=>'mobile','step'=>1))}" class="edit">
+	                        <if condition="$data['tel'] eq ''">未验证(点击验证)<else/>已验证(点击修改)</if>
+                            </a> 
+                            </li>
+                        </ul>
+                        <ul>
+                            <li class="list_name"> <i class="<if condition="$list['email'] eq ''">icon_big_warning<else/>icon_correct</if>"></i>邮箱验证 </li>
+                            <li class="list_des">邮箱,互联网账号存在被盗风险，建议您立即绑定以保护账户安全。 </li>
+                            <li class="list_opear"> 
+                            	<a id="target_no" class="target_no" href="{:U('Home/User/email_validate',array('type'=>'email','step'=>1))}">
+                	                <if condition="$list[email] eq ''">未验证(点击验证)<else/>已验证(点击修改)</if>
+                                </a> 
+                            </li>
+                        </ul>
+                    </div>
+                </div>
           <!-- Security Center end --> 
-        </div>
-  </div>    
-</div>
+            </div>
+        </div>    
+    </div>
  
 <div style="clear: both;"></div>
 <include file="User/footer" />
