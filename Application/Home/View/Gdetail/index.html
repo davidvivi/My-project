@@ -27,11 +27,12 @@
             top:20px;
             }  
         .img-comm{  
-            margin:-50px 0px 0px 0px
+            margin:-150px 25px 0px 
         }
         .p-price-comm{  
-            margin:0px 0px 0px 100px
+            margin:10px 0px 0px 53px
         }
+       
         </style>
     </head>
 <body>
@@ -175,27 +176,7 @@ function get_cart_num(){
 /**
 * 鼠标移动端到头部购物车上面 就ajax 加载
 */
-// 鼠标是否移动到了上方
-var header_cart_list_over = 0; 
-$("#header_cart_list > .micart > .les").hover(function(){	 
-       if(header_cart_list_over == 1) 
-			return false;	
-        header_cart_list_over = 1; 
-		$.ajax({
-			type : "GET",
-			url:"/index.php?m=Home&c=Cart&a=header_cart_list",//+tab,
-			success: function(data){								 
-			 	$("#header_cart_list > .micart > .ris").html(data);	
-			 	get_cart_num();
-			}
-		});			
-}).mouseout(function(){
-	
-	 (typeof(t) == "undefined") || clearTimeout(t); 	 
-	 t = setTimeout(function () { 
-			header_cart_list_over = 0; /// 标识鼠标已经离开
-		}, 1000);		
-});
+
 </script>
 <!--------头部结束-------------->
 
@@ -206,7 +187,7 @@ $("#header_cart_list > .micart > .les").hover(function(){
 	<div class="layout">
     	<div class="breadcrumb-area">
         	<a href="__MODULE__/index/index">首页</a> &gt;&gt;
-            <a href="http://localhost/index.php/Home/Goods/goodsList/id/1.html">乐器、家居、家电、数码、男装</a> &gt;&gt;<a href="http://localhost/index.php/Home/Goods/goodsList/id/123.html">{$GoodsDetail.typename}</a> &gt;&gt;            <span>{$GoodsDetail.goodname}</span>
+            <a href="http://localhost/index.php/Home/Goods/goodsList/id/1.html">乐器、家居、家电、数码、男装</a> &gt;&gt;<a href="http://localhost/index.php/Home/Goods/goodsList/id/123.html">{$GoodsDetail.typename}</a> &gt;&gt;<span>{$GoodsDetail.goodname}</span>
         </div>
         <div class="layout pa-to-10">            
             <!--商品图片轮播-->            
@@ -349,12 +330,12 @@ $("#header_cart_list > .micart > .les").hover(function(){
                     <ul class="history-comm">
                     <foreach name="goodsdata" item="hostval">
                      <li>
-                        <div>
+                        <div style="margin:10px 0px 0px 0px">
                             <p class="p-img-comm fl">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/143.html"><img class="img-comm" src="__PUBLIC__\admin\lib\webuploader\0.1.5\server\upload\{$hostval.picname}" alt=""></a>
+                                <a href="__MODULE__/Gdetail/index?goodsId={$hostval.id}"><img class="img-comm" src="__PUBLIC__\admin\lib\webuploader\0.1.5\server\upload\{$hostval.picname}" alt=""></a>
                             </p>
-                            <p class="p-name-comm"style="margin:0px 0px 0px 75px">
-                                <a href="http://localhost/index.php/Home/Goods/goodsInfo/id/143.html">商品名:{$hostval.goodname}</a>
+                            <p class="p-name-comm" >
+                                <a href="">商品名:{$hostval.goodname}</a>
                             </p>
                             <p class="p-price-comm">
                                 <b>价格:{$hostval.price}</b>
@@ -573,18 +554,19 @@ $("#header_cart_list > .micart > .les").hover(function(){
                                 <p class="procomment-img">
                                 <img alt="" src="defaultface_user_small.png">
                                 </p>
-                                <p class="procomment-name">嫦娥</p>
+                                <p class="procomment-name"></p>
                                 <s class="procomment-tag">
                                 <!--  <i></i>-->
                                 </s>
                             </div>
+                            
                             <div class="pro-user-comment-main ma-0-25-0-0 ov-hi">
                                 <div class="pro-user-comment">
                                     <div class="comm-t1 ov-hi">
                                         <div class="pro-user-score fl">
                                             <em>商品评分</em>  
                                             <span class="starRating-area">
-                                            <s style="width: 60%;"></s>
+                                            <s style="width: 60%;"> </s>
                                             </span>    
                                         </div>                
                                         <div class="pro-user-impre fl ov-hi">

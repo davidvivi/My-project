@@ -31,15 +31,6 @@ class GdetailModel extends Model
         //dump($data);
         return $data;
     }
-    public function assess()
-    {   
-        $Assess = M('assess');
-        $Assessuid = M('user');
-        $assess = $Assess->select();
-    
-
-
-    }
    
      public function hostShop()
     {
