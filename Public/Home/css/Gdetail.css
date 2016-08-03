@@ -180,10 +180,10 @@ header::after { content: ""; clear: both; display: block; }
 .browse-his { line-height: 47px; text-indent: 14px; font-size: 14px; font-family: "Tahoma",微软雅黑; font-weight: 400; color: rgb(51, 51, 51); }
 .product-history-area { border: 1px solid rgb(222, 222, 222); background-color: rgb(255, 255, 255); }
 .ma-to-20 { margin-top: 20px; }
-.history-comm li { border-top: 1px solid rgb(222, 222, 222); padding: 62px 0px 10px 5px; }
+.history-comm li { border-top: 1px solid rgb(222, 222, 222); padding: 150px 0px 10px 5px; }
 .p-img-comm { width: 56px; }
-.img-comm { width: 100px; height: 100px; display: block; }
-.p-name-comm { height: 35px; margin-bottom: 3px; overflow: hidden; font-family: "Tahoma",微软雅黑; margin-left: 56px; padding-left: 40px; }
+.img-comm { width: 170px;  display: block; }
+.p-name-comm {margin-bottom: 3px; overflow: hidden; font-family: "Tahoma",微软雅黑; margin-left: 56px; padding: 23px 12px 0px 13px; }
 .p-name-comm a { color: rgb(102, 102, 102); }
 .p-price-comm { margin-left: 56px; padding-left: 17px; }
 .p-price-comm b { color: rgb(224, 29, 32); font-weight: 400; }

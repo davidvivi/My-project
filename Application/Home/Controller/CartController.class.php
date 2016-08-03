@@ -114,7 +114,95 @@ class CartController extends CommonController {
 	   $this->assign('list',$data);
 	   $this->display('cart/cart2');
    }
-   
+ 
+	 /**
+     * ajax 获取订单商品价格 或者提交 订单
+     */
+    public function cart3(){
+        
+        $address_id = I("address_id"); //  收货地址id
+        $shipping_code =  I("shipping_code"); //  物流种类       
+        $invoice_title = I('invoice_title'); // 发票
+        $pay_points =  I("pay_points",0); //  使用积分
+        $user_money =  I("user_money",0); //  使用余额  
+		$total= I('total');
+        $user_money = $user_money ? $user_money : 0;
+
+        if(!$address_id) exit(json_encode(array('status'=>-3,'msg'=>'请先填写收货人信息','result'=>null))); // 返回结果状态
+        if(!$shipping_code) exit(json_encode(array('status'=>-4,'msg'=>'请选择物流信息','result'=>null))); // 返回结果状态
+	
+		$order_goods = M('cart')->where("user_id =".$_SESSION['user']['id'])->select();
+		//dump($order_goods);
+		//添加订单
+		function addOrder($user_id,$address_id,$shipping_code,$car_price,$total)
+		{
+			
+			 // 0插入订单 order
+			$address = M('address')->where("id =".$address_id)->find();
+			$data = array(
+					'numid'         => date('YmdHis').rand(1000,9999), // 订单编号
+					'uid'          =>$_SESSION['user']['id'], // 用户id
+					'consignee'        =>$address['name'], // 收货人
+					'address'          =>$address['address'],//'详细地址',
+					'tel'           =>$address['tel'],//'手机',
+					'emailno'          =>$address['postcode'],//'邮编',            
+					'shipping'    =>$shipping_code, //'物流名称',                                       
+					'buy'     =>$total,// 订单总额
+					'written'         =>'',
+					'addtime'         =>time(), // 下单时间                
+			);
+			//dump($data);
+			$order_id = M("Order")->data($data)->add();
+			//echo $order_id;
+			if(!$order_id){ 
+				return array('status'=>-8,'msg'=>'添加订单失败','result'=>NULL);        
+			}
+			$order = M('order')->where("orderid =".$order_id)->find();                
+			
+			$cartList = M('cart')->where("user_id =".$_SESSION['user']['id'])->select();
+			foreach($cartList as $key => $val)
+			{
+			   
+			   $data2['oid']           = $order_id; // 订单id
+			   $data2['gid']           = $val['goods_id']; // 商品id
+			   $data2['uid']           = $_SESSION['user']['id'];
+			   $data2['num']          = $val['goods_num']; // 购买数量
+			   $pic = M('goods_pic')->where("gid =".$val['goods_id'])->find();
+			   $data2['pic']          = $pic['picname'];
+			   $data2['guige']        = '';
+			   $data2['price']        = $val['goods_price']; // 商品价
+			   $order_goods_id              = M("orderdetail")->data($data2)->add(); 
+			   // 扣除商品库存  扣除库存移到 付完款后扣除
+			   //M('Goods')->where("goods_id = ".$val['goods_id'])->setDec('store_count',$val['goods_num']); // 商品减少库存
+			}                        
+			// 4 删除已提交订单商品
+			M('Cart')->where("user_id =".$_SESSION['user']['id'])->delete();
+		  
+			return array('status'=>1,'msg'=>'提交订单成功','result'=>$order_id); // 返回新增的订单id        
+		}
+
+		 
+        // 提交订单        
+        if($_POST['act'] == 'submit_order')
+        {      
+		
+            $result = addOrder($this->user_id,$address_id,$shipping_code,$car_price,$total); // 添加订单                        
+            exit(json_encode($result));            
+        }           
+    }
+
+	public function cart4(){
+		$oid = I('get.order_id');
+		$list = M('order')->where('orderid='.$oid)->field('numid,buy')->find();
+		$numid = $list['numid'];
+		$total = $list['buy'];
+		$date = date('Y-m-d',time()+24*3600); 
+		$this->assign('date',$date);
+		$this->assign('numid',$numid);
+		$this->assign('total',$total);
+		$this->display('cart/cart3');
+		
+	}
     /*
      * ajax 获取用户收货地址 用于购物车确认订单页面
      */

@@ -148,7 +148,33 @@ class CategoryModel extends Model
 
         $return = array($goodsdata,$page);
         return $return;
-        
+    }
 
+    // 搜索
+    public function cateSearch($search)
+    {
+        $goods = M('goods');
+        $goods_pic = M('goods_pic');
+
+        $data['goodname'] = array('like',"%{$search}%");
+        $data['keyword'] = array('like',"%{$search}%");
+        $data['discribe'] = array('like',"%{$search}%");
+        $data['_logic'] = 'or';
+        $map['_complex'] = $data;
+        $map['state'] = 1;
+        $count = $goods->where($map)->count();
+        $Page = new \Think\Page($count,1);
+        $show = $Page->show();
+        $goodscate = $goods->field('id,price,goodname')->where($map)->limit($Page->firstRow.','.$Page->listRows)->select();
+        foreach($goodscate as $key => $val){
+            $gid = $val['id'];
+            $pic = $goods_pic->field('picname')->where("gid='{$gid}'")->select();
+            $goodscate[$key]['goods_url'] = $pic;
+            
+        }
+        $cate['page']['page'] = $show;
+        $cate['page']['count'] = $count;
+        $cate['data'] = $goodscate;
+        return $cate;
     }
 }

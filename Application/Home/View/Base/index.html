@@ -60,14 +60,6 @@
 								<input type="submit" value="搜索" hidefocus="true" />
 							</div>					
 						</form>
-						<ul>
-							<li><a href="">##########</a></li>
-							<li><a href="">####</a></li>
-							<li><a href="">####</a></li>
-							<li><a href="">###</a></li>
-							<li><a href="">###</a></li>
-							<li><a href="">###</a></li>
-						</ul>
 					</div>
 					<div>
 						<img src="__PUBLIC__/img/ChMkJlYcpziIdMcxAAB2sdYBFdcAADnzQKpVyIAAHbJ372.jpg" style="width:180px;height:60px;margin-left:55px;"/>
@@ -76,32 +68,76 @@
 				
 				<ul class="nav nav-tabs" id = "tabaaa">
 					<li role="presentation" class="active" style="text-align:center;"><a style="width:200px;background:#C40000;position:relative;top:1px;">商品分类</a></li>
-					<li role="presentation"><a href="#">首页</a></li>
+					<li role="presentation"><a href="__MODULE__/index/index">首页</a></li>
 					<li role="presentation"><a href="#">Messages</a></li>
 				</ul>
 				<div>
 					<div id="catenav">
 						<ul class="catenav" style="margin-bottom:0px;padding-left:0px;">
-							<li class="navnav">手机</li>
-							<li>电脑</li>
-							<li>摄影</li>
+							<foreach name="categorydata" item="catevalo">
+								<li class="navnav" look="{$catevalo.id}"><a href="__MODULE__/category/index?id={$catevalo.id}" target="_blank">{$catevalo.name}</a></li>
+							</foreach>
 						</ul>
 						
 						<img src="__PUBLIC__/img/ChMkJ1Z7xxmIJIRaAAAVx_5H8MsAAGjZwDgKK0AABXf118.gif" />
+						
 					</div>
+					<div class="navnone" style="width:500px;height:400px;display: none;position: relative;z-index:500;margin:0px 0px 0px 200px;">
 					
+						<foreach name="categorydata" item="catevals">
+							<ul class='seconds' id="{$catevals.id}" look="{$catevals.id}" style="display:none;">
+								<script type="text/javascript">
+									$(
+										$('li.navnav').hover(function(){
+											if($(this).attr('look') == $('#{$catevals.id}').attr('look') ){
+												$('#{$catevals.id}').css({'display':'block'})
+											}else{ 
+												$('#{$catevals.id}').css({'display':'none'})
+											}
+										},function(){
+											if($(this).attr('look') == $('#{$catevals.id}').attr('look') ){
+												
+												$('.navnone').hover(function(){
+														
+															$('.navnone').css({'display':'block'})
+															$('.gonggao').css({'margin-top':'-410px'})
+														
+															$('.seconds').css({'display':'none'})
+															$('#{$catevals.id}').css({'display':'block'})
+															$('.carousel').css({'display':'none'})
+														},function(){
+															$('.navnone').css({'display':'none'})
+															$('.gonggao').css({'margin-top':'0px'})
+															$('.carousel').css({'display':'block'})
+															$('.navnone').attr('sel','22');
+															$('.seconds').css({'display':'none'})
+												})	
+											}else{ 
+												$('#{$catevals.id}').css({'display':'none'})
+											}
+										})
+									);
+								</script>
+								
+								<foreach name="catevals.seconddata" item="catev">
+									<span style="width:100px;height:410px;float: left;">
+										<div><b><a href="__MODULE__/category/index?id={$catev.id}" target="_blank">{$catev.name}</a></b></div>
+										<foreach name="catev.son" item="catet">
+											<li style="width:100px;height:50px;"><a href="__MODULE__/category/index?id={$catet.id}" target="_blank">{$catet.name}</a></li>
+										</foreach>
+									</span>
+								</foreach>
+							</ul>
+						</foreach>
+					</div>
 					<block name="gaoshi">
 					
 					</block>
 				</div>
-				<div class="navnone">
-						
-				</div>
-					
-		
+
 				<!-- ======主体部分接口======= -->
 				<block name="main">
-					<div></div>
+					
 				</block>
 			</div>
 		</div>
@@ -154,8 +190,6 @@
 			<ul>
                 <li>友情链接：</li>
                 <foreach name="link" item="val">
-    				
-    				
     				<li><a href="{$val.url}" target="_blank">{$val.contents}</a></li>
 				</foreach>
 			</ul>
@@ -168,39 +202,37 @@
 	$(
 		$('li.navnav').hover(function(){
 			//console.log('1');
-			$(this).css({'background':'white','color':'black',})
-			$('.navnone').css({'display':'block','width':'750px','height':'410px','background':'red',"position":'relative',"left":"200px"});
-		},function(){
-			$(this).css({'background':'#2D2D2D','color':'white',})
-			$('.navnone').css('display','none');
 			
-		}).next().hover(function(){
-			//console.log('1');
 			$(this).css({'background':'white','color':'black',})
-			$('.navnone').css({'display':'block','width':'750px','height':'410px','background':'yellow',"position":'relative',"left":"200px"});
-		},function(){
-			$(this).css({'background':'#2D2D2D','color':'white',})
-			$('.navnone').css('display','none');
 			
-		}).next().hover(function(){
-			//console.log('1');
-			$(this).css({'background':'white','color':'black',})
-			$('.navnone').css({'display':'block','width':'750px','height':'410px','background':'green',"position":'relative',"left":"200px"});
+			
+			$('.navnone').css({'display':'block','width':'750px','height':'410px','background':'white'})
+			$('.carousel').css({'display':'none'})
+			$('.gonggao').css({'margin-top':'-410px'});
+			
+
 		},function(){
 			$(this).css({'background':'#2D2D2D','color':'white',})
-			$('.navnone').css('display','none');
+			$('.navnone').css('display','none')
+			$('.carousel').css({'display':'block'})
+			$('.gonggao').css({'margin-top':'0px'});
 		})
+
+
+		
 	);
+
+		
+
+
 		$('.active').hover(function(){
-			//console.log('1');
 			
 			$('#catenav').css('display','block')
 			
 		},function(){
 				
 				$('#catenav').css('display','none')
-			
-			
+				
 		});
 		
 		

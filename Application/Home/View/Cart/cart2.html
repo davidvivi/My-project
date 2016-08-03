@@ -96,18 +96,27 @@
 		                <div class="order-invoice-list">
 		            		<ul>
 		                    <li>
-		                            <div class="invoice-main">
-		                                <input id="shentong" type="radio" name="shipping_code" value="shentong" onClick="ajax_order_price();" checked="checked" />
-		                                <label for="gr">申通物流</label>
-		                                <em>(申通物流插件 )</em>
-		                            </div>
-		                        </li><li>
-		                            <div class="invoice-main">
-		                                <input id="shunfeng" type="radio" name="shipping_code" value="shunfeng" onClick="ajax_order_price();"  />
-		                                <label for="gr">顺丰物流</label>
-		                                <em>(顺丰物流插件 )</em>
-		                            </div>
-		                        </li>			            	</ul>
+								<div class="invoice-main">
+									<input id="shentong" type="radio" name="shipping_code" value="2" checked="checked" />
+									<label for="gr">圆通物流</label>
+									
+								</div>
+		                    </li>
+							<li>
+								<div class="invoice-main">
+									<input id="shentong" type="radio" name="shipping_code" value="1" checked="checked" />
+									<label for="gr">申通物流</label>
+									
+								</div>
+		                    </li>
+							<li>
+								<div class="invoice-main">
+									<input id="shunfeng" type="radio" name="shipping_code" value="0" />
+									<label for="gr">顺丰物流</label>
+								   
+								</div>
+		                    </li>			            	
+							</ul>
 		            	</div>
 		                <p class="tips"><em>注意：</em>如果商品由第三方卖家销售，发票内容由其卖家决定，发票由卖家开具并寄出</p>
 		            </div>            
@@ -146,7 +155,9 @@
 		                                         </td>
 		                                        <!-- 预付订金商品的价格为空 -->
 		                                        <td class="tr-price te-al">{$vo.goods_price}</td>
-																																		<td class="tr-quantity te-al">{$vo.goods_num}</td>
+																																		<td class="tr-quantity te-al">
+													{$vo.goods_num}
+												</td>
 		                                        <td rowspan="1" class="tr-subtotal te-al">
 		                                        <p><b>{$vo['goods_price']*$vo['goods_num']}</b></p>
 		                                        </td>
@@ -208,7 +219,7 @@
 		                                    <tr>
 		                                        <td class="tal">商品总金额：</td>
 		                                        <td class="tar">&nbsp;&yen;&nbsp;
-		                                           <em id="order-cost-area">{$total}</em>
+		                                           <em class="total" id="order-cost-area">{$total}</em>
 		                                        </td>
 		                                    </tr>
 											
@@ -411,37 +422,20 @@ function swidth_address(obj)
 // 提交订单
 function submit_order()
 {
+	total = $('em.total').text();
 	$.ajax({
 		type : "POST",
-		url:"/index.php/Home/Cart/cart3.html",//+tab,
-		data : $('#cart2_form').serialize()+"&act=submit_order",// 你的formid
+		url:"__URL__/cart3",//+tab,
+		data : $('#cart2_form').serialize()+"&act=submit_order"+"&total="+total,// 你的formid
         dataType: "json",
 		success: function(data){
 						
-			if(data.status != '1')
-			{
-				// alert(data.msg); //执行有误
-				layer.alert(data.msg, {icon: 2});				
-				
-				// 登录超时
-				if(data.status == -100) 
-					location.href ="/index.php/Home/User/login.html";
-				
-				return false;
-			}
-			// console.log(data);			
-			$("#postFee").text(data.result.postFee); // 物流费
-			$("#couponFee").text(data.result.couponFee);// 优惠券			
-			$("#balance").text(data.result.balance);// 余额	
-			$("#pointsFee").text(data.result.pointsFee);// 积分支付			
-			$("#payables").text(data.result.payables);// 应付	
-			$("#order_prom_amount").text(data.result.order_prom_amount);// 订单 优惠活动 						
-			//layer.alert('订单提交成功，跳转支付页面!', {icon: 1}); //alert('订单提交成功，跳转支付页面!');						
+									
 			layer.msg('订单提交成功，跳转支付页面!', {
 			  icon: 1,   // 成功图标
 			  time: 2000 //2秒关闭（如果不配置，默认是3秒）
 			}, function(){ // 关闭后执行的函数
-					location.href = "/index.php?m=Home&c=Cart&a=cart4&order_id="+data.result; // 跳转到结算页
+					location.href = "__URL__/cart4?order_id="+data.result; // 跳转结算页
 			});			
 										
 		}
