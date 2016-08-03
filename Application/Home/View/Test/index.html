@@ -1,5 +1,18 @@
-<form action="__URL__/upload" enctype="multipart/form-data" method="post" >
-	
-	<input type="file" name="photo[]" multiple="multiple"/>
-	<input type="submit" value="提交" >
-</form>
+<!-- 商品相册-->
+                        <div class="tab-pane" id="tab_goods_images">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>                                    
+                                    <td>                                    
+                                                                        
+                                        <div class="goods_xc" style="width:100px; text-align:center; margin: 5px; display:inline-block;">
+                                            <input type="hidden" name="goods_images[]" value="" />
+                                            <a href="javascript:void(0);" onclick="GetUploadify(10,'','goods','call_back2');"><img src="__PUBLIC__/admin/images/add-button.jpg" width="100" height="100" /></a>
+                                            <br/>
+                                            <a href="javascript:void(0)">&nbsp;&nbsp;</a>
+                                        </div>                                        
+                                    </td>
+                                </tr>                                              
+                                </tbody>
+                            </table>
+                        </div>

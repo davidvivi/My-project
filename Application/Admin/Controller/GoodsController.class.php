@@ -4,7 +4,6 @@ namespace Admin\Controller;
 
 use Think\Controller;
 
-// 模型的名字与表名要一致
 class GoodsController extends CommonController
 {
 	public function index(){
@@ -68,33 +67,36 @@ class GoodsController extends CommonController
 	}
 	
 	public function goodsAdd(){
-		$name = I('name');
-		$price = I('price');
-		$keyword = I('keyword');
-		$desc = I('discribe');
-		$cate = I('cate_1').','.I('cate_2').','.I('cate_3').',';
-		$store = I('store');
-		$buy = I('buy');
-		$view = I('view');
+		if(IS_POST){
+			$name = I('name');
+			$price = I('price');
+			$keyword = I('keyword');
+			$desc = I('desc');
+			$cate = I('cate_1').','.I('cate_2').','.I('cate_3').',';
+			$store = I('store');
+			$buy = I('buy');
+			$view = I('view');
+			
+			$map['goodname'] = $name;
+			$map['price'] = $price;
+			$map['keyword'] = $keyword;
+			$map['discribe'] = $desc;
+			$map['typeid'] = $cate;
+			$map['state'] = 1;
+			$map['store'] = $store;
+			$map['addtime'] = time();
+			$map['buy'] = $buy;
+			$map['view'] = $view;
+			//dump($map);
+			$data = M('goods')->add($map);
+			
+			//$gid = M('goods')->where('goodname='.$name)->getField('id');
+			if($data){
+				$this->ajaxReturn('1');
+				
+			}
+		}
 		
-		$map['goodname'] = $name;
-		$map['price'] = $price;
-		$map['keyword'] = $keyword;
-		$map['discribe'] = $desc;
-		$map['typeid'] = $cate;
-		$map['state'] = 1;
-		$map['store'] = $store;
-		$map['addtime'] = time();
-		$map['buy'] = $buy;
-		$map['view'] = $view;
-		
-		$act = M('goods')->add($map);
-		
-		$gid = M('goods')->where('goodname='.$name)->getField('id');
-		
-		
-		
-		$this->ajaxReturn('1');
 	}
 
 	public function goodsDelete(){
@@ -131,5 +133,26 @@ class GoodsController extends CommonController
 	public function picAdd(){
 		
 		$this->display('goods/pic-add');
+	}
+	
+	public function webuploader() {
+		$upload = new \Think\Upload();// 实例化上传类
+		$upload->maxSize   =     3145728 ;// 设置附件上传大小
+		$upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+		$upload->rootPath  =      './Public/Uploads/'; // 设置附件上传根目录
+		$upload->savePath  =      ''; // 设置附件上传（子）目录
+		$upload->autoSub = false;  // 关闭子目录
+
+		// 上传文件
+		$info   =   $upload->upload();
+		if(!$info) {// 上传错误提示错误信息
+			$this->error($upload->getError());
+		}else{// 上传成功 获取上传文件信息
+			$pathArr = array();
+			foreach($info as $file){
+				array_push($pathArr, "Public/Uploads/".$file['savepath'].$file['savename']);
+			}
+			echo json_encode($pathArr);
+		}
 	}
 }
