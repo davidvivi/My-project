@@ -45,10 +45,7 @@ class GoodsController extends CommonController
 		$catelist_1 = $sort->field('id,name')->where('pid=0')->select();
 		
 		//二级分类
-		if(IS_POST){
-			$pid = I('id');
-			$catelist_2 = $sort->field('id,name')->where('pid='.$pid)->select();
-			/*
+
 			$pid = [];
 			foreach($catelist_1 as $key =>$val){
 				
@@ -66,14 +63,11 @@ class GoodsController extends CommonController
 			$data['pid'] = array('IN',$da);
 			$catelist_3 = $sort->field('id,pid,name')->where($data)->select();
 			
-			$ppid = I('pid');
-			$catelist_3 = $sort->field('id,name')->where('pid='.$ppid)->select();
-			*/
-			$this->ajaxReturn($catelist_2);
-		}
+			
+		
 		$this->assign('catelist_1',$catelist_1);
 		$this->assign('catelist_2',$catelist_2);
-		//$this->assign('catelist_3',$catelist_3);
+		$this->assign('catelist_3',$catelist_3);
 		$this->display('goods/product-add');
 		
 		

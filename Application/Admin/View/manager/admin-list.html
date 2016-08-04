@@ -97,7 +97,7 @@
 									</td>
 								</eq>
 								<td class="td-manage">
-									<a style="text-decoration:none" onClick="admin_stop(this,'10001')" href="javascript:;" title="停用">
+									<a style="text-decoration:none" onClick="stop({$vo.id})" href="javascript:;" title="停用">
 										<i class="Hui-iconfont">&#xe631;</i>
 									</a> 
 									<a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','__URL__/edit/id/{$vo.id}','1','800','500')" class="ml-5" style="text-decoration:none">
@@ -202,28 +202,43 @@
 		layer_show(title,url,w,h);
 	}
 	/*管理员-停用*/
-	function admin_stop(obj,id){
+	function stop(id){
 		layer.confirm('确认要停用吗？',function(index){
 			//此处请求后台程序，下方是成功后的前台处理……
+			$.ajax({
+				type:'post',
+				data:'id='+id,
+				url:'__URL__/stop',
+				success:function(data){
+					$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_start({$vo.id})" href="javascript:;" title="启用" style="text-decoration:none"><i class="Hui-iconfont">&#xe615;</i></a>');
+					$(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已禁用</span>');
+					$(obj).remove();
+					layer.msg('已停用!',{icon: 5,time:1000});
+				}
+			})
 			
-			$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_start(this,id)" href="javascript:;" title="启用" style="text-decoration:none"><i class="Hui-iconfont">&#xe615;</i></a>');
-			$(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已禁用</span>');
-			$(obj).remove();
-			layer.msg('已停用!',{icon: 5,time:1000});
+			
 		});
 	}
 
 	/*管理员-启用*/
-	function admin_start(obj,id){
+	function admin_start(id){
 		layer.confirm('确认要启用吗？',function(index){
 			//此处请求后台程序，下方是成功后的前台处理……
+			$.ajax({
+				type:'post',
+				data:'id='+id,
+				url:'__URL__/start',
+				success:function(data){
 			
 			
-			$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_stop(this,id)" href="javascript:;" title="停用" style="text-decoration:none"><i class="Hui-iconfont">&#xe631;</i></a>');
-			$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
-			$(obj).remove();
-			layer.msg('已启用!', {icon: 6,time:1000});
-		});
+					$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_stop({$vo.id})" href="javascript:;" title="停用" style="text-decoration:none"><i class="Hui-iconfont">&#xe631;</i></a>');
+					$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
+					$(obj).remove();
+					layer.msg('已启用!', {icon: 6,time:1000});
+				}
+			});
+		})
 	}
 	</script>
 </body>

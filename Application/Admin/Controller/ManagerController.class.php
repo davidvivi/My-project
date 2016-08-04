@@ -295,4 +295,17 @@ class ManagerController extends CommonController {
         }
     }
     
+	public function stop(){
+		$id = I('id');
+		$map['status'] = 0;
+		M('admin')->where('id='.$id)->save($map);
+		$tihs->ajaxReturn('1');
+	}
+	
+	public function start(){
+		$id = I('id');
+		$map['status'] = 1;
+		M('admin')->where('id='.$id)->save($map);
+		$tihs->ajaxReturn('1');
+	}
 }

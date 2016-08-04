@@ -29,7 +29,9 @@ class IndexController extends Controller {
         $categorydata = $categoryclass->cateData();
 
         // dump($categorydata);
-
+		
+		$hot = M('goods')->field('id,')->order('buy desc')->limit(4)->select();
+		
 
         $this->assign('img',$imgurl);
         $this->assign('link',$link_list);

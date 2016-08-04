@@ -91,8 +91,6 @@
 										$('li.navnav').hover(function(){
 											if($(this).attr('look') == $('#{$catevals.id}').attr('look') ){
 												$('#{$catevals.id}').css({'display':'block'})
-											}else{ 
-												$('#{$catevals.id}').css({'display':'none'})
 											}
 										},function(){
 											if($(this).attr('look') == $('#{$catevals.id}').attr('look') ){
@@ -203,7 +201,7 @@
 		$('li.navnav').hover(function(){
 			//console.log('1');
 			
-			$(this).css({'background':'white','color':'black',})
+			$(this).css({'background':'white'}).find('a').css('color','black');
 			
 			
 			$('.navnone').css({'display':'block','width':'750px','height':'410px','background':'white'})
@@ -212,7 +210,7 @@
 			
 
 		},function(){
-			$(this).css({'background':'#2D2D2D','color':'white',})
+			$(this).css({'background':'#2D2D2D'}).find('a').css('color','white');
 			$('.navnone').css('display','none')
 			$('.carousel').css({'display':'block'})
 			$('.gonggao').css({'margin-top':'0px'});

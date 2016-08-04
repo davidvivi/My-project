@@ -136,13 +136,10 @@
 	line-height:40px;
 	border-bottom:1px solid #3D3D3D;
 	text-align:center;
+}
+.catenav li a{
 	color:white;
 }
-.navenone{
-    display:none;
-	z-index:2;
-}
-
 .weibu{
 	width:1200px;
 	height:110px;
