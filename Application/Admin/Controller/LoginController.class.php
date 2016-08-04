@@ -9,9 +9,9 @@
             $this->display();
         }
 
-        /**
+        /*
             登录检查
-        **/
+        */
 
         public function checkLogin()
         {
@@ -56,12 +56,12 @@
 
 
 
-        /**
+        /*
             生成验证码
-        **/
+        */
         public function verify() {
             $Verify = new \Think\Verify(array(   
-            'length' => 3,
+            'length' => 4,
             'useNoise' => FALSE,
             'fontSize' => 14,
             'imageW'   =>100,
@@ -72,9 +72,9 @@
             $Verify->entry();
         }
 
-        /**
+        /*
             ajax 验证用户名
-        **/
+        */
         public function ajaxCheckName()
         {
             if (IS_AJAX)
@@ -92,9 +92,9 @@
         }
 
 
-        /**
+        /*
             注销
-        **/
+        */
         public function lyout ()
         {
             unset($_SESSION['admin']);

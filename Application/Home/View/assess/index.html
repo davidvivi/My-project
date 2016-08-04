@@ -9,10 +9,10 @@
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/comment.css" media="all">
 <link rel="stylesheet" href="__PUBLIC__/Home/css/dropzone.css">
 <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css">
-        <link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
-	<script  src="__PUBLIC__/Home/js/jquery.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+<script  src="__PUBLIC__/Home/js/jquery.js"></script>
 <script  src="./js/dropzone.js"></script>
-	<script type="text/javascript">
+<script type="text/javascript">
 /*
 		$(document).ready(function() {
 			jQuery("#loginsumbit").click(function() {
@@ -39,7 +39,7 @@
 			});
 		});
 */
-	</script>
+</script>
 
 
 </head>
@@ -51,13 +51,13 @@
 		<h3>商城动态评分</h3>
 	</div>
 	<div class="listbd">
-		<form id="rateListForm" target="_top" action="{:U('add')}?oid=1" name="addfeedback" method="post"><!--  {:U('add')}?oid=1  使用问号来传递订单id -->
-				<ul class="labels">
-					<li class="itemdetail">宝贝</li>
-					<li class="level">请为宝贝来个总评吧！<span class="exp">(打分匿名)</span></li>
-				</ul>
-						<ul class="rate-list">
-						<li data-id="" class="rate-box st-show-msg-box" data-prompt="">
+		<form id="rateListForm" target="_top" action="__URL__/add?oid=1" name="addfeedback" method="post"><!--  {:U('add')}?oid=1  使用问号来传递订单id -->
+			<ul class="labels">
+				<li class="itemdetail">宝贝</li>
+				<li class="level">请为宝贝来个总评吧！<span class="exp">(打分匿名)</span></li>
+			</ul>
+			<ul class="rate-list">
+				<li data-id="" class="rate-box st-show-msg-box" data-prompt="">
 					<div class="item-rate-info" data-spm="1000328">
 						<div class="item-detail">							
 							<h3>
@@ -66,19 +66,13 @@
 							<p></p>
 						</div>
 						<div class="item-rate-score">
-						<span id="assess" class="dsr-score"><em></em> </span>
+							<span id="assess" class="dsr-score"><em></em> </span>
 						</div>
 					</div>
-						<div class="item-rate-main">
-
-
-
+					<div class="item-rate-main">
 						<div class="item-rate-act">
-								<span id="attitude1" style="margin:-20px 0 0 0" class="ks-simplestar"><img class="triangle"><img class="triangle"><img class="triangle"><img class="triangle"><img class="triangle"></span>
-							<input name="" value="有很多input框哦..." type="hidden">
-							<div class="rate-msg-handle">
-								<button style="display: none;" type="button" class="J_show_comment tb-rate-btn special-link"><i class="tb-rate-ico-bg ico-bubble"></i><span class="J_txt">添加评论</span></button>
-							</div>
+							<span id="attitude1" style="margin:-20px 0 0 0" class="ks-simplestar"><img class="triangle"><img class="triangle"><img class="triangle"><img class="triangle"><img class="triangle"></span>
+							<input name="goal" id="go" value="" type="hidden">
 						</div>
 
 						<div id="pf">
@@ -95,17 +89,17 @@
 							<div class="ft">
 								
 								<ul class="rate-msg-option">	
-									</li>
+								
 								</ul>
 							</div>
 						</div>
 					</div>
 				</li>
-			
+			</ul>		
 			<div class="submitbox">
 				<button type="submit" class="J_btn_submit tb-rate-btn type-primary wide-xxl" style="margin:0px 0px 0px 380px" id="loginsumbit">发表评论</button>
-			</div>	
-		</div>
+			</div>
+		</form>		
 	</div>
 </div>
 <include file="public/footer" />
@@ -131,7 +125,9 @@ $(function(){
 		}else{
 			attitude1 = '商品评分5';
 		}
-		$('#assess em').text(attitude1);
+		//$('#assess em').text(attitude1);
+		$('#go').attr('value',goal);
+
 	});
 	
 });

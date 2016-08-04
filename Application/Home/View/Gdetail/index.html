@@ -138,44 +138,8 @@
             </div>
         </div>
     </div>
-   <!-- 导航-结束-->
-<script>
-$(function(){
-    var active_li = '';
-    if(active_li){
-        $('li').remove('curr-res');
-        $('#'+active_li).addClass('curr-res');
-    }
-   	
-    var uname= getCookie('uname');
-    if(uname == ''){
-    	$('.islogin').remove();
-    	$('.nologin').show();
-    }else{
-    	$('.nologin').remove();
-    	$('.islogin').show();
-    	$('.userinfo').html(decodeURI(uname));
-    }
-    get_cart_num();
-})
 
-function get_cart_num(){
-	  var cart_cn = getCookie('cn');
-	  if(cart_cn == ''){
-		$.ajax({
-			type : "GET",
-			url:"/index.php?m=Home&c=Cart&a=header_cart_list",//+tab,
-			success: function(data){								 
-				cart_cn = getCookie('cn');		
-				$('#cart_quantity').html(cart_cn);
-			}
-		});	
-	  }
-	  $('#cart_quantity').html(cart_cn);
-}
-/**
-* 鼠标移动端到头部购物车上面 就ajax 加载
-*/
+
 
 </script>
 <!--------头部结束-------------->
@@ -712,10 +676,6 @@ function switch_tab(cur,tab)
 	$(cur).addClass("current"); //  单独的给当前点击这个加上		
 }
  
-// 验证码切换
-function verify(){
-   $('#verify_code').attr('src','/index.php?m=Home&c=Index&a=verify&type=consult&fontSize=20&length=4&r='+Math.random());
-}
 
 
 </script>
