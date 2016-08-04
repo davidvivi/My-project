@@ -45,9 +45,7 @@
 				</div>
 				<div class="cl pd-5 bg-1 bk-gray mt-20">
 					<span class="l">
-						<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
-							<i class="Hui-iconfont">&#xe6e2;</i> 批量删除
-						</a> 
+
 						<a href="javascript:;" onclick="admin_add('添加管理员','__URL__/add','800','500')" class="btn btn-primary radius">
 							<i class="Hui-iconfont">&#xe600;</i> 添加管理员
 						</a>
@@ -129,7 +127,7 @@
 
 
 	// 修改分页的样式
-	(function page(){ 
+	function page(){ 
 			$("#page").css("margin-top","15px").find('a').css({'margin': "0 9px",
 				"display": "inline-block",
 				"border":"1px solid #ededed",
@@ -153,7 +151,8 @@
 				"color":"white"
 				}
 			);
-	})();
+	}
+	page();
 	
 	//删除
     

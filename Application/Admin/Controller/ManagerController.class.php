@@ -10,7 +10,7 @@ class ManagerController extends CommonController {
     {   
         $admin = M('admin');
         $count = $admin->count();
-        $Page = new \Think\Page($count,8);
+        $Page = new \Think\Page($count,5);
         $show = $Page->show();
    
         $data = $admin->field('id,name,addtime,tel,email,status')->limit($Page->firstRow.','.$Page->listRows)->select();
@@ -69,16 +69,14 @@ class ManagerController extends CommonController {
 		
 		$du = $admin->add($data);
 		
-		$uid = $admin->where('name='.$name)->getField('id');
+		$uid = $admin->where('addtime='.$addtime)->getField('id');
 		
 		$map['uid'] = $uid;
 		$map['group_id'] = $group;
-		
 		$da = $access->add($map);
 		
 		
-        
-        if($da){
+        if($uid){
            $this->ajaxReturn('1');
         }else{ 
             $this->ajaxReturn('0');

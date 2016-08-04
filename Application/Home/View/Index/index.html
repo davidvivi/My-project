@@ -121,9 +121,11 @@
 		<div>
 			<h2>热卖商品</h2>
 			<a>更多&gt;&gt;</a>
-			<div class="hot">
+			<div class="hot" style="border:0;">
 				<foreach name="hot" item="vo">
-					<div class="hotgoods" style="width:300px;height:180px;float:left;border:0;"><img src="__PUBLIC__/uploads/{$vo.picname}" /></div>
+					<div class="hotgoods" style="width:300px;height:180px;float:left;border:0;">
+						<img style="width:300px;height:180px;position:relative;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}" />
+					</div>
 				</foreach>
 									
 			</div>

@@ -112,7 +112,7 @@ class GoodsController extends CommonController
 			$da = M('goods')->where('id='.$id)->delete();
 			$db = M('goods_pic')->where('gid='.$id)->delete();
 			
-			if($da && $db){
+			if($da){
 				
 				$this->ajaxReturn('1');
 			}else{
@@ -159,6 +159,8 @@ class GoodsController extends CommonController
 				$map['gid'] = $id;
 				M('goods_pic')->add($map);
 			}   
+			
+			$this->display('goods/index');
 			
 		 }
 		 

@@ -82,7 +82,7 @@
 						<option value="4" disabled>超级管理员</option>
 						<option value="2">商品组</option>
 						<option value="1">客服组</option>
-						<option value="3">管理层</option>
+						<option value="3" selected>管理层</option>
 					</select>
 				</span> 
 			</div>
@@ -127,7 +127,9 @@ $(function(){
 		group = $('#admin-role option:selected').val();
 		
         if(!(name == '' || password == '' || tel == '' || email == '' || group  == '')){  
-            $.ajax({ 
+            //alert($('#form-admin-add').serialize());
+			$.ajax({ 
+				
                 type:"post",
                 url:"{:U('adminAddForm')}",
                 data:'name='+name+'&password='+password+'&tel='+tel+'&email='+email+'&group='+group,

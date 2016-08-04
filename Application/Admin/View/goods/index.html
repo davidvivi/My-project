@@ -33,7 +33,7 @@
 			<i class="Hui-iconfont">&#xe68f;</i>
 		</a>
 	</nav>
-	<div class="pd-20">
+	<div id="12345" class="pd-20">
 		<div class="text-c">
 			<input type="text" name="" id="" placeholder=" 产品名称" style="width:250px" class="input-text">
 			<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜商品</button>
@@ -50,7 +50,7 @@
 			<span class="r">共有数据：<strong>{$count}</strong> 条</span> 
 		</div>
 		<div class="mt-20">
-			<table class="table table-border table-bordered table-bg table-hover table-sort">
+			<table  class="table table-border table-bordered table-bg table-hover table-sort">
 				<thead>
 					<tr class="text-c">
 						<th width="40"><input name="" type="checkbox" value=""></th>
@@ -123,7 +123,7 @@
 <script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.js"></script> 
 <script type="text/javascript">
 
-(function page(){ 
+function page(){ 
 	$("#page").css("margin-top","15px").find('a').css({'margin': "0 9px",
 		"display": "inline-block",
 		"border":"1px solid #ededed",
@@ -147,7 +147,8 @@
 		"color":"white"
 		}
 	);
-})();
+};
+page();
 
 /*商品-添加*/
 function product_add(title,url,w,h){
@@ -204,8 +205,9 @@ function product_del(obj,id){
 			url:'__URL__/goodsDelete',
 			data:'&id='+id,
 			success:function(data){
-				if(data == '1'){
-					window.location.reload();
+				if(data == 1){
+					$('#12345').load('__SELF__ #12345',function(){page()});
+					
 				}else{
 					alert('操作失败');
 					window.location.reload();
