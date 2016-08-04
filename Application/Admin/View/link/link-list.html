@@ -141,7 +141,7 @@ $(function(){
     
     $('#div1').on("click",'.unable-a',function(){        
         id = $(this).attr('unable-id');
-        $.get("__URL__/adminDelete",{id:id},
+        $.get("__URL__/linkDelete",{id:id},
             function(data){ 
                 if(data == 1){ 
                     alert('删除成功!');
