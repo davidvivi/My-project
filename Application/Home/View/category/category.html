@@ -392,7 +392,7 @@
                             <div class="hotitem">
                                 <div class="itemin">
                                     <a class="proname" href="__MODULE__/Gdetail/index?goodsId={$hostval.id}">
-                                        <img src="__PUBLIC__\admin\lib\webuploader\0.1.5\server\upload\{$hostval.picname}">
+                                        <img src="__PUBLIC__\Uploads\{$hostval.addtime}\{$hostval.picname}">
                                         <span>{$hostval.goodname}</span>
                                     </a>
                                     <p class="itemprice">
@@ -448,7 +448,7 @@
                             <!-- 图片 -->
                             <div class="listPic"> 
                           		<a rel="nofollow" target="_blank" href="__MODULE__/Gdetail/index?goodsId={$wareval.id}" style="width:200px;height:200px;">
-                                	<img style="display: block;" src="__PUBLIC__\admin\lib\webuploader\0.1.5\server\upload\{$wareval.goods_url.0.picname}" class="fn_img_lazy" height="200" width="200"> 
+                                	<img style="display: block;" src="__PUBLIC__\Uploads\{$wareval.addtime}\{$wareval.goods_url.0.picname}" class="fn_img_lazy" height="200" width="200"> 
                                 </a>             
                             </div>
                             <div class="list-scroll J_scrollBox clearfix"> 
@@ -458,7 +458,7 @@
                                         <foreach name="wareval.goods_url" item="waresv">
                                             <dd>
                 	                           <a href="__MODULE__/Gdetail/index?goodsId={$wareval.id}" target="_blank">
-                                        	       <img  src="__PUBLIC__\admin\lib\webuploader\0.1.5\server\upload\{$waresv.picname}" style="display: block;" height="30" width="30">
+                                        	       <img  src="__PUBLIC__\Uploads\{$wareval.addtime}\{$waresv.picname}" style="display: block;" height="30" width="30">
                                                 </a>        
                                             </dd>
                                         </foreach>
@@ -470,8 +470,11 @@
                             <!-- 价格 -->
                             <div class="discountPrice">
                                 <div class="price-cash" style="text-align:center;">
+                                    <b style="float: left;margin-left:10px;">
                                     <span class="text13 colf22e01">¥</span>
-                                    <span class="text18 colf22e01 fontT" id="itemPrice_201510CM130003397">{$wareval.price}</span>
+                                    <span class="text18 colf22e01 fontT" id="itemPrice_201510CM130003397">{$wareval.price}包邮</span>
+                                    </b>
+                                    <span style="float: right;color: #777;">{$wareval.buy}人付款</span>
                                     <del></del> 
                                 </div>
                             </div>
