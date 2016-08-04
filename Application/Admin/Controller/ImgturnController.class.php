@@ -12,15 +12,14 @@ class ImgturnController extends CommonController {
         $count = $imgturn->count();
         $Page = new \Think\Page($count,2);
         $show = $Page->show();
-        $img = $imgturn->field('id,state,imgurl,category_id,imgname')->order('state')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $data = $imgturn->order('state')->limit($Page->firstRow.','.$Page->listRows)->select();
+        foreach($data as $key =>$val){
+            $data[$key]['addtime']= date('Y-m-d',$val['addtime']);
+        }
+        //dump($data);
         $this->assign('count', $count);
-        $this->assign('page', $show);
-        
-       
-        
-        
-            
-        $this->assign('data',$img);
+        $this->assign('page', $show);            
+        $this->assign('data',$data);
         $this->display('imgturn/imgturn-list');
       
     }
@@ -84,7 +83,7 @@ class ImgturnController extends CommonController {
         $this->display('imgturn/picture-add');
         
     }
-
+    /*
     public function imgAdd()
     { 
         $imgturn = M('imgturn');
@@ -106,6 +105,37 @@ class ImgturnController extends CommonController {
         }else{ 
             $this->ajaxReturn('0');
         }
-    }  
+    } 
+    */ 
 
+    public function upload(){
+        $upload = new \Think\Upload();// 实例化上传类    
+        $upload->maxSize = 3145728 ;// 设置附件上传大小    
+        $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型 
+        $upload->rootPath = './Public/';
+        $upload->savePath  = './imgturnUploads/'; // 设置附件上传目录  
+        //$upload->saveName = time().'_'.mt_rand(); //设置上传文件名
+        // 上传文件     
+        $info = $upload->upload();
+        $imgname = I('imgname');
+        $state = I('state');
+
+        //dump($imgname);
+        //dump($state);
+
+        //dump($info);
+        $data['imgname']=$imgname;
+        $data['state']=$state;
+        $data['imgurl']=$info['photo']['savename'];
+        $data['addtime'] = time();
+
+        if(!$info) {
+            // 上传错误提示错误信息        
+            $this->error($upload->getError());    
+        }else{
+            M('imgturn')->add($data);
+            $this->success('上传成功！');
+        
+        }
+    }
 }

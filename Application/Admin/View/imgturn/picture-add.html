@@ -23,7 +23,8 @@
 </head>
 <body>
 <div class="pd-20">
-    <form action="" method="post" class="form form-horizontal" id="form-img-add">
+    <form action="__URL__/upload" method="post" enctype="multipart/form-data" class="form form-horizontal" id="form-img-add">
+        <!--
         <div class="row cl">
             <label class="form-label col-3">
                 <span class="c-red">*</span>分类：
@@ -33,7 +34,8 @@
             </div>
             <div class="col-4"> </div>
         </div>
-        
+        -->
+    
         <div class="row cl">
             <label class="form-label col-3">
                 <span class="c-red">*</span>图片名称：
@@ -44,16 +46,17 @@
             <div class="col-4"> </div>
         </div>
 
+
         <div class="row cl">
             <label class="form-label col-3">
-                <span class="c-red">*</span>图片文件名：
+                <span class="c-red">*</span>图片上传：
             </label>
             <div class="formControls col-5">
-                <input type="text"  name="imgurl" placeholder="请填写图片文件名" id="img-url" autocomplete="off" value="" class="input-text" datatype="*1-100" nullmsg="图片地址不能为空">
+               <input type="file" name="photo">
             </div>
             <div class="col-4"> </div>
         </div>
-
+        
         <div class="row cl">
             <label class="form-label col-3">
                 <span class="c-red">*</span>发布状态：
@@ -67,7 +70,7 @@
         
         <div class="row cl">
             <div class="col-9 col-offset-3">
-                <input class="btn btn-primary radius" id="up" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                <input class="btn btn-primary radius" id="up" type="submit" name="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
             </div>
         </div>
     </form>
@@ -95,7 +98,7 @@ $(function(){
             parent.layer.close(index);
         }
     });
-    
+    /*
     $('#up').click(function(){
         category = $('#category_id').val();
         name = $('#img-name').val();
@@ -122,6 +125,7 @@ $(function(){
             });
         }
     });
+*/
     
 });
 </script>
