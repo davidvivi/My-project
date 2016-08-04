@@ -228,7 +228,7 @@
                     <span style="font-size:15px;">QAQ网上商城</span>
                 </div>
                 <div>
-                    <form action="__URL__/index" method="post">
+                    <form action="__URL__/cateSearch" method="post">
                         <div class="search">
                             <input type="text" name="search" style="height:30px;width:440px;top:-4px;font-size: 18px;"/>
                             <input type="submit" value="搜索" hidefocus="true" style="height:34px;width:90px;top:-1px;" />
@@ -412,7 +412,7 @@
             <!-- 商品列表 -->
             <div class="searchbox">
                 <div class="list clearfix">
-                    <ul class="left text12" id="order_ul">
+                    <ul class="left text12" id="order_ul" sele="{$getid}" style="display: block">
                     <!--        <li><a class="col7ac " href1="&sort=recommand&asc=0" style="cursor:pointer;">综合</a></li>-->
                         <li> 
                             <a class="col7ac" href="__URL__/index?getid={$getid}&type=id" style="cursor:pointer;"> 默认 </a>
@@ -622,6 +622,13 @@
                 $('#thirdn').css('display','none');
             }
         });   
+
+        // 搜索之后无排序
+        if(!$('#order_ul').attr('sele')){           
+            $('#order_ul').css({'display':'none'})
+        }else{ 
+            $('#order_ul').css({'display':'block'})
+        }
         
         $(function(){
         		// 分页
