@@ -4,7 +4,6 @@ namespace Home\Model;
 
 use Think\Model;
 
-// 模型的名字与表名要一致
 class GdetailModel extends Model
 {
 
@@ -26,7 +25,6 @@ class GdetailModel extends Model
     {   
         $Cate = D('category');
         //$goods = D('goods');
-
         $cateid = $data['typeid'];
         //dump($cateid);
         $catename = $Cate -> field('name')->where("path = '{$cateid}'")->find();
@@ -40,13 +38,15 @@ class GdetailModel extends Model
 
         $goods = M('goods');
         $goods_pic = M('goods_pic');
-        $goodsdata = $goods->field('id,goodname,price,buy')->where('state=1')->order('buy desc')->limit(5)->select();   
+        $goodsdata = $goods->field('id,goodname,price,buy,addtime')->where('state=1')->order('buy desc')->limit(5)->select();  
         foreach($goodsdata as $key => $val){ 
             $gid = $val['id'];
             $picname = $goods_pic->where("gid='{$gid}'")->getField('picname');
             $goodsdata[$key]['picname'] = $picname;
-            $goodsdata[$key]['saleprice'] = $val['price'] * 0.9;
+            $goodsdata[$key]['saleprice'] = intval($val['price'] / 0.9);
+            // 时间转换
+            $goodsdata[$key]['addtime'] = date('Y-m-d',$goodsdata[$key]['addtime']);
         }
         return $goodsdata;
-    }       
+    }
 }
