@@ -63,7 +63,7 @@ class CartController extends CommonController {
 	   $map['addtime'] = time();
 	   
 	   M('cart')->add($map);
-	   
+	   $this->ajaxReturn('1');
    }
    
    public function logout(){
