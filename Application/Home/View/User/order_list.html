@@ -89,11 +89,12 @@
                                     
             						<if condition="($list[orderstatus] neq 3) AND ($list[paystatus] eq 0)">
                                        <a class="btn_pay" href="{:U('/Home/Cart/cart3',array('orderid'=>$list[orderid]))}" target="_blank">立即支付</a>
-                                    </if>                            
+                                    </if> 
+                                    <!--                           
             						<if condition="$list.receive_btn eq 1">
                                    		 <a class="btn_pay" onclick=" if(confirm('你确定收到货了吗?')) location.href='{:U('Home/User/order_confirm',array('id'=>$list['order_id']))}'" target="_blank">收货确认</a>
                                     </if> 
-                                                                         
+                                    -->                                     
                                 </div>
                                 </td>
                             </tr>
@@ -102,7 +103,7 @@
                                 <tr class="list_cont ">
                                     <td class="td_01">                  
                                         <div class="list_main clearfix"> 
-                                            <a class="J_hover" href="{:U('Home/Goods/goodsInfo',array('id'=>$good['goods_id']))}" target="_blank"><img alt="{$good.goods_name}" src="{$good.goods_id}"></a> 
+                                            <a class="J_hover" href="{:U('Home/Gdetail/index',array('goodsId'=>$good['gid']))}" target="_blank"><img alt="{$good.goods_name}" src="{$good.goods_id}"></a> 
                                             {$good.goodsname}
                                         </div>
                                     </td>     

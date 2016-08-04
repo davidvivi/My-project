@@ -14,7 +14,8 @@ class UserController extends CommonController
             $uid = $_SESSION['user']['id'];            
         }    
         //查询首页的订单部分
-        $order = M('order')->field('addtime,numid,buy')->where('uid='.$uid)->select();
+        $order = M('order')->order('orderid desc')->where('uid='.$uid)->select();
+        
         //dump($order);
         $count=count($order);
         //dump($count);
@@ -257,7 +258,7 @@ class UserController extends CommonController
         }
        
         $count = M('order')->where($where)->count();
-        $Page  = new \Think\Page($count,2);
+        $Page  = new \Think\Page($count,3);
 
         $show = $Page->show();
         $order_str = "orderid DESC";
