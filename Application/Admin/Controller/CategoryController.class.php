@@ -62,12 +62,17 @@ class CategoryController extends CommonController {
         $id = I('id');        
         $category = M('category');
         if($id){
-            
+            // 如果查询有结果，则表明次id下还有子分类
             $ds = $category->field('id')->where("pid='{$id}'")->find();
             if($ds){ 
                 $this->ajaxReturn('2');
             }else{ 
+                // 没有子分类在这执行
+                // 如果是第三级分类，还得把相应的图片下架。
+                $categoryclass = new \Admin\Model\CategoryModel();
+                $goodspic = $categoryclass->picState($id);
                 $du = $category->where("id='{$id}'")->delete();
+
                 if($du){ 
                     $this->ajaxReturn('1');
                 }else{ 
