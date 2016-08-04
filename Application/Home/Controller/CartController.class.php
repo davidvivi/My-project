@@ -163,17 +163,22 @@ class CartController extends CommonController {
 			foreach($cartList as $key => $val)
 			{
 			   
-			   $data2['oid']           = $order_id; // 订单id
-			   $data2['gid']           = $val['goods_id']; // 商品id
-			   $data2['uid']           = $_SESSION['user']['id'];
+			   $data2['oid']          = $order_id; // 订单id
+			   $data2['gid']          = $val['goods_id']; // 商品id
+			   $data2['uid']          = $_SESSION['user']['id'];
 			   $data2['num']          = $val['goods_num']; // 购买数量
 			   $pic = M('goods_pic')->where("gid =".$val['goods_id'])->find();
 			   $data2['pic']          = $pic['picname'];
 			   $data2['guige']        = '';
 			   $data2['price']        = $val['goods_price']; // 商品价
-			   $order_goods_id              = M("orderdetail")->data($data2)->add(); 
-			   // 扣除商品库存  扣除库存移到 付完款后扣除
-			   //M('Goods')->where("goods_id = ".$val['goods_id'])->setDec('store_count',$val['goods_num']); // 商品减少库存
+			   $order_goods_id        = M("orderdetail")->data($data2)->add(); 
+			   
+			   /** 扣除商品库存 **/ 
+			   $store = M('goods')->where("id = ".$val['goods_id'])->Getfield('store');
+			   $sto = $store - $val['goods_num'];
+			   $map['store'] = $sto;
+			   M('goods')->where("id = ".$val['goods_id'])->save($map);
+			  
 			}                        
 			// 4 删除已提交订单商品
 			M('Cart')->where("user_id =".$_SESSION['user']['id'])->delete();

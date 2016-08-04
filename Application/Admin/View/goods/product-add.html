@@ -59,15 +59,20 @@
 					
 					<select name="cate_2" id="cate2" class="select" style="width:25%;">
 						<option value="-1">--请选择二级分类--</option>
+						<!--
 						<foreach name="catelist_2" item="val">
 							<option value="{$val.id}">|-{$val.name}</option>
 						</foreach>
+						-->
 					</select>
 					<select name="cate_3" id="cate3" class="select" style="width:25%;">
+						
 						<option value="-1">--请选择三级分类--</option>
+						<!--
 						<foreach name="catelist_3" item="vo">
 							<option value="{$vo.id}">|-|-{$vo.name}</option>
 						</foreach>
+						-->
 					</select>
 					
 				 
@@ -156,9 +161,8 @@ $(function(){
 	});
 	
 	//分类下拉框
-	/*
 	$('#cate').change(function(){
-		id = $(this).val();
+		id = $('#cate').val();
 		//alert(id);
 		//alert('option.'+id);
 		//$(this).next().find('option.'+id).attr('disabled',false);
@@ -167,13 +171,13 @@ $(function(){
 			data:'id='+id,
 			url:'__URL__/add',
 			success:function(data){
-				$('#cate2').load('__SELF__ #cate2');
+				//console.log(data);
+				alert(data);
+				$('#cate2').append(data);
 			}
 		})
 		
-		
 	})
-	*/
 	/*
 	.next().change(function(){
 		pid = $(this).val();
