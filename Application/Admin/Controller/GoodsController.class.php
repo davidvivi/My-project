@@ -28,6 +28,22 @@ class GoodsController extends CommonController
 		$this->assign('page',$show);
 		$this->display('Goods/index');
 	}
+
+	public function liandong(){
+		$sort = M('category');
+		if(IS_POST){
+			$val = I('id');
+			$catelist_3= $sort->field('id,name')->where('pid='.$val)->select();
+			
+			$a='';
+			foreach($catelist_3 as $key =>$val){
+				$id = $val['id'];
+				$name = $val['name'];
+				$a.='<option class="cat2" value='.$id.'>'.$name.'</option>';
+			}
+			$this->ajaxReturn($a);
+		}
+	}
 	
 	public function add(){
 		
@@ -42,7 +58,7 @@ class GoodsController extends CommonController
 			foreach($catelist_2 as $key =>$val){
 				$id = $val['id'];
 				$name = $val['name'];
-				$a.='<option value='.$id.'>'.$name.'</option>';
+				$a.='<option class="cat" value='.$id.'>'.$name.'</option>';
 			}
 			$this->ajaxReturn($a);
 		}

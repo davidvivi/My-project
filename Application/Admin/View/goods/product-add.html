@@ -162,6 +162,8 @@ $(function(){
 	
 	//分类下拉框
 	$('#cate').change(function(){
+		$('.cat').remove();
+		$('.cat2').remove();
 		id = $('#cate').val();
 		//alert(id);
 		//alert('option.'+id);
@@ -172,11 +174,25 @@ $(function(){
 			url:'__URL__/add',
 			success:function(data){
 				//console.log(data);
-				alert(data);
+				//alert(data);
 				$('#cate2').append(data);
 			}
 		})
 		
+	}).next().change(function(){
+		
+		$('.cat2').remove();
+		id = $(this).val();
+		$.ajax({
+			type:'post',
+			data:'id='+id,
+			url:'__URL__/liandong',
+			success:function(data){
+				//console.log(data);
+				//alert(data);
+				$('#cate3').append(data);
+			}
+		})
 	})
 	/*
 	.next().change(function(){
