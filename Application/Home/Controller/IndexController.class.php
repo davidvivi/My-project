@@ -39,8 +39,17 @@ class IndexController extends Controller {
 
         // dump($categorydata);
 		
-		//首页热卖推荐商品 遍历		$hot = M('goods')->field('id,goodname,addtime')->order('buy desc')->limit(4)->select();		foreach($hot as $key =>$val){			$gid = $val['id'];			$hot[$key]['addtime'] = date('Y-m-d',$val['addtime']);			$data = M('goods_pic')->where('gid='.$gid)->field('picname')->limit(1)->find();			$hot[$key]['picname'] = $data['picname'];		}		
-		$this->assign('hot',$hot);        $this->assign('imgurl',$imgurl);
+		//首页热卖推荐商品 遍历		
+		$hot = M('goods')->field('id,goodname,addtime')->order('buy desc')->limit(4)->select();		
+		
+		foreach($hot as $key =>$val){			
+			$gid = $val['id'];			
+			$hot[$key]['addtime'] = date('Y-m-d',$val['addtime']);			
+			$data = M('goods_pic')->where('gid='.$gid)->field('picname')->limit(1)->find();
+			$hot[$key]['picname'] = $data['picname'];		
+		}		
+		$this->assign('hot',$hot);        
+		$this->assign('imgurl',$imgurl);
         $this->assign('addtime',$addtime);
         $this->assign('link',$link_list);
 		$this->assign('list',$list);
