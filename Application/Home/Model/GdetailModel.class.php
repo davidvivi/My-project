@@ -14,6 +14,9 @@ class GdetailModel extends Model
     $Good = D('goods');
     $detail = $Good -> where('id ='.$data)->find();
     $detail['addtime'] = date('Y-m-d',$detail['addtime']);
+    $view = $Good -> field('view') -> where('id ='.$data) ->find()['view']; 
+        $view += 1;
+        $Good -> where('id ='.$data) -> setField('view',$view);
     $data = $this->deal($detail);
     //dump($detail);
     return $data;

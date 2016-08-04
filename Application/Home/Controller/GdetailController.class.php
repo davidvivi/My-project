@@ -10,7 +10,6 @@ class GdetailController extends Controller {
 
 
 	   $goodsId = I('goodsId');
-        dump($goodsId);
        if(!$goodsId){   
             $goodsId = 25;
        }
@@ -36,7 +35,6 @@ class GdetailController extends Controller {
         }
         
         $data = $assessinfo;
-        dump($assessinfo);
         return $data; 
    }
 
