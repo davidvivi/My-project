@@ -122,9 +122,10 @@
 			<h2>热卖商品</h2>
 			<a>更多&gt;&gt;</a>
 			<div class="hot">
-				
-					<div class="hotgoods"></div>
-				
+				<foreach name="hot" item="vo">
+					<div class="hotgoods" style="width:300px;height:180px;float:left;border:0;"><img src="__PUBLIC__/uploads/{$vo.picname}" /></div>
+				</foreach>
+									
 			</div>
 		</div>
 		<div>
@@ -140,10 +141,10 @@
 		<div class="floor">
 			<h2>1F 手机通讯</h2>
 			<ul>
-				<li><a>####</a></li>
-				<li><a>#####</a></li>
-				<li><a>####</a></li>
-				<li><a>####</a></li>
+				<li><a>魅族</a></li>
+				<li><a>小米</a></li>
+				<li><a>华为</a></li>
+				<li><a>iphone</a></li>
 			</ul>
 			<div class="hot"></div>
 		</div>

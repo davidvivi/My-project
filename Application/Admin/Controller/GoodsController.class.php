@@ -69,10 +69,11 @@ class GoodsController extends CommonController
 			$ppid = I('pid');
 			$catelist_3 = $sort->field('id,name')->where('pid='.$ppid)->select();
 			*/
+			$this->assign('catelist_2',$catelist_2);
 			$this->ajaxReturn($catelist_2);
 		}
 		$this->assign('catelist_1',$catelist_1);
-		$this->assign('catelist_2',$catelist_2);
+		
 		//$this->assign('catelist_3',$catelist_3);
 		$this->display('goods/product-add');
 		
