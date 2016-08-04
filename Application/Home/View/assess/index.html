@@ -2,24 +2,56 @@
 <html >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>QAQ商城评价</title>
+<title>ZOL商城评价</title>
 <meta name="spm-id" content="a1z0b"><link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-<script src="__PUBLIC__/Home/js/jquery-1.8.3.min.js"></script>
+<script src="./js/jquery-1.8.3.min.js"></script>
 <!-- <script src="./js/jquery.js"></script> -->
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/comment.css" media="all">
 <link rel="stylesheet" href="__PUBLIC__/Home/css/dropzone.css">
 <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css">
-<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
-<script  src="__PUBLIC__/Home/js/dropzone.js"></script>
+        <link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+	<script  src="__PUBLIC__/Home/js/jquery.js"></script>
+<script  src="./js/dropzone.js"></script>
+	<script type="text/javascript">
+/*
+		$(document).ready(function() {
+			jQuery("#loginsumbit").click(function() {
+				var cont= $('#cont').val();
+				alert(cont);
+				jQuery.ajax({
+					url: "{:U('add')}?oid=1",
+					type: "post",
+					data: {'content': cont },
+					dataType: "text",
+					success: function(msg) {
+						alert(msg);
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						alert("ajax出错");
+						//alert(XMLHttpRequest.status);
+						//alert(XMLHttpRequest.readyState);
+						//alert(textStatus);
+					},
+					complete: function(XMLHttpRequest, textStatus) {
+						this; // 调用本次AJAX请求时传递的options参数
+					}
+				});
+			});
+		});
+*/
+	</script>
+
+
 </head>
 <body data-spm="6">
-    <include file="public/header" />
+<include file="public/header" />
+
 <div class="itemlist tb-rate-mb-m" style="border: 1px solid rgb(221, 221, 221);">
 	<div class="listhd">
 		<h3>商城动态评分</h3>
 	</div>
 	<div class="listbd">
-		<form id="rateListForm" target="_top" action="#" name="addfeedback" method="post">
+		<form id="rateListForm" target="_top" action="{:U('add')}?oid=1" name="addfeedback" method="post"><!--  {:U('add')}?oid=1  使用问号来传递订单id -->
 				<ul class="labels">
 					<li class="itemdetail">宝贝</li>
 					<li class="level">请为宝贝来个总评吧！<span class="exp">(打分匿名)</span></li>
@@ -37,19 +69,26 @@
 						<span id="assess" class="dsr-score"><em></em> </span>
 						</div>
 					</div>
-					<div class="item-rate-main">
+						<div class="item-rate-main">
+
+
+
 						<div class="item-rate-act">
-								<span id="attitude1" style="margin:-40px 0 0 0" class="ks-simplestar"><img class="triangle"><img class="triangle"><img class="triangle"><img class="triangle"><img class="triangle"><img class="triangle"></span>
-							<input name="" value="有很多input框哦..." type="hidden">			
+								<span id="attitude1" style="margin:-20px 0 0 0" class="ks-simplestar"><img class="triangle"><img class="triangle"><img class="triangle"><img class="triangle"><img class="triangle"></span>
+							<input name="" value="有很多input框哦..." type="hidden">
 							<div class="rate-msg-handle">
 								<button style="display: none;" type="button" class="J_show_comment tb-rate-btn special-link"><i class="tb-rate-ico-bg ico-bubble"></i><span class="J_txt">添加评论</span></button>
 							</div>
+						</div>
+
+						<div id="pf">
+
 						</div>
 						<div class="rate-msg-box" style="display: block;">
 							<div class="bd">
 								<div style="margin:20px 0 0 0"class="textinput">
 									<span style="" class="ph-label"></span>
-									<textarea name="rateContents2084148163160202" maxlength="100" aria-labelby="label-ti-2084148163160202" class="rate-msg"></textarea>
+									<textarea name="rateContents" id="cont" maxlength="100" aria-labelby="label-ti-2084148163160202" class="rate-msg"></textarea>
 									<p class="text-counter">还可以输入<strong class="r-t-counter">100</strong>字</p>
 								</div>
 							</div>
@@ -64,7 +103,7 @@
 				</li>
 			
 			<div class="submitbox">
-				<button type="submit" class="J_btn_submit tb-rate-btn type-primary wide-xxl" style="margin:0px 0px 0px 380px">发表评论</button>
+				<button type="submit" class="J_btn_submit tb-rate-btn type-primary wide-xxl" style="margin:0px 0px 0px 380px" id="loginsumbit">发表评论</button>
 			</div>	
 		</div>
 	</div>
@@ -81,19 +120,19 @@ $(function(){
 		$(this).attr('class', 'red').prevAll().attr('class','red');
 		goal = $('#attitude1 img').filter('.red').length;
 		var attitude1
-		if(goal<=2){
-			attitude1 = "差评";
-		}else if(goal>2 && goal<=4){
-			attitude1 = "中评";
+		if(goal<=1){
+			attitude1 = "商品评分1";
+		}else if(goal>1 && goal<=2){
+			attitude1 = "商品评分2";
+        }else if(goal>2 && goal<=3){
+            attitude1 = "商品评分3";
+        }else if(goal>3 && goal<=4){
+            attitude1 = "商品评分4";
 		}else{
-			attitude1 = '好评';
+			attitude1 = '商品评分5';
 		}
 		$('#assess em').text(attitude1);
 	});
-	$(".J_btn_submi").click(function(){  
-        var formData = $("#rateListForm").serialize();
-        alert(formData);
-        return false;
-    });
+	
 });
 </script>

@@ -88,7 +88,7 @@ class RegController extends Controller
 
     public function verify() {
             $Verify = new \Think\Verify(array(   
-            'length' => 3,
+            'length' => 4,
             'useNoise' => FALSE,
             'fontSize' => 15,
             'imageW'   =>100,

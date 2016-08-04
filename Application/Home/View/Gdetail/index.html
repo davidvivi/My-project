@@ -63,7 +63,7 @@
     <!-- 搜索开始-->
         <div class="searchBar">
             <div class="searchBar-form">
-                <form name="sourch_form" id="sourch_form" method="post" action="http://localhost/index.php/Home/Goods/search.html">
+                <form name="sourch_form" id="sourch_form" method="post" action="__MODULE__/category/cateSearch">
                     <input class="text" name="q" id="q" value="" placeholder="  搜索关键字" type="text">
                     <input class="button" value="搜索" onclick="if($.trim($('#q').val()) != '') $('#sourch_form').submit();" type="button"style="margin:-2px -2px 0px -2px">
                     <input name="__hash__" value="68fc823c064073733cc6d659691e2a7a_d85d6db9178fc15fec38e1c25cd9c713" type="hidden">
@@ -187,7 +187,7 @@ function get_cart_num(){
 	<div class="layout">
     	<div class="breadcrumb-area">
         	<a href="__MODULE__/index/index">首页</a> &gt;&gt;
-            <a href="http://localhost/index.php/Home/Goods/goodsList/id/1.html">乐器、家居、家电、数码、男装</a> &gt;&gt;<a href="http://localhost/index.php/Home/Goods/goodsList/id/123.html">{$GoodsDetail.typename}</a> &gt;&gt;<span>{$GoodsDetail.goodname}</span>
+            <a href="#">乐器、家居、家电、数码、男装</a> &gt;&gt;<a href="#">{$GoodsDetail.typename}</a> &gt;&gt;<span>{$GoodsDetail.goodname}</span>
         </div>
         <div class="layout pa-to-10">            
             <!--商品图片轮播-->            
@@ -256,8 +256,18 @@ function get_cart_num(){
                               <tr>
                                 <td align="right" width="60px">商品编号：</td>
                                 <td>
-                                    <p class=" ma-le-6">TP0000049 <a onclick="collect_goods(49);" style="color:#00F;">收藏</a></p>                      
+                                    <p class=" ma-le-6" style="width:140px">TP0000049 <span style="color:blue">收藏<span></p>                      
                                     <!--------用户评价-end---------------->                           
+                                </td>
+                              </tr>
+                              <tr>
+                                <td align="right" width="60px">浏览量：</td>
+                                <td style="width:10px">
+                                    <b class=" ma-le-6" style="color:red">{$GoodsDetail.view}</b>               
+                                </td>
+                                <td align="right" width="60px">购买量：</td>
+                                <td>
+                                    <b class=" ma-le-6" style="color:red">{$GoodsDetail.buy}</b>               
                                 </td>
                               </tr>
                                <tr>
@@ -266,7 +276,7 @@ function get_cart_num(){
                               </tr>
                               <tr>
                                 <td align="right" width="60px">服&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;务：</td>
-                                <td><p class="ma-le-6">由tpshop商城负责发货，并提供售后服务</p></td>
+                                <td><p class="ma-le-6">由QAQ商城负责发货</p></td>
                                 <td>
                                
                                 <script type="text/javascript" src="__PUBLIC__/Home/js/jia.js" charset="utf-8"></script><script type="text/javascript" src="__PUBLIC__/Home/js/plugin.client.js" charset="utf-8"></script>
@@ -335,7 +345,7 @@ function get_cart_num(){
                                 <a href="__MODULE__/Gdetail/index?goodsId={$hostval.id}"><img class="img-comm" src="__PUBLIC__\admin\lib\webuploader\0.1.5\server\upload\{$hostval.picname}" alt=""></a>
                             </p>
                             <p class="p-name-comm" >
-                                <a href="">商品名:{$hostval.goodname}</a>
+                                <a href="__MODULE__/Gdetail/index?goodsId={$hostval.id}">商品名:{$hostval.goodname}</a>
                             </p>
                             <p class="p-price-comm">
                                 <b>价格:{$hostval.price}</b>
@@ -357,7 +367,7 @@ function get_cart_num(){
                             <a>商品详情</a>
                         </li>
                         <li class="cliks" onclick="switch_tab(this,'tab2')">
-                            <a>用户评价（3）</a>
+                            <a>用户评价</a>
                         </li>
                         <li class="cliks" onclick="switch_tab(this,'tab3')">
                             <a>规格参数</a>
@@ -482,32 +492,7 @@ function get_cart_num(){
                 </div>
                     <!-------------------用户评价------------------>
                 <div class="parame-bott ov-hi" style="display: none;" id="tab2">
-                    <div class="evaluation-top fo-fa di-in-bl">
-                        <div class="eval-le1 fl wi146 te-al">
-                            <span><b>67</b>%</span>
-                            <em>好评度</em>
-                        </div>
-                        <div class="eval-le2 fl wi123 pa-to-7">
-                            <dl>
-                                <dt>好评<em>(67%)</em></dt>
-                                <dd><s style="width: 94%;"></s></dd>
-                            </dl>
-                            <dl>
-                                <dt>中评<em>(0%)</em></dt>
-                                <dd><s style="width: 2%;"></s></dd>
-                            </dl>
-                            <dl>
-                                <dt>差评<em>(34%)</em></dt>
-                                <dd><s style="width: 4%;"></s></dd>
-                            </dl>
-                        </div>
-                        <div class="eval-le3 fl wi516">
-                            <dl>
-                                <dt>买家评论事项：购买后有什么问题, 满意, 或者不不满, 都可以在这里评论出来, 这里评论全部源于真实的评论.</dt>
-                            </dl>
-                        </div>
-                               
-                        </div>
+                    
                         <div class="evaluation-cen fo-fa">
                             <div class="eval-cen-le fl pa-le-12">
                                 <ul>
@@ -515,31 +500,6 @@ function get_cart_num(){
                                         <a href="javascript:void(0);" data-t="1">
                                             <span>
                                                 全部评价
-                                                <em>(3)</em>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="cliks">
-                                        <a href="javascript:void(0);" data-t="2">
-                                            <span>
-                                            好评
-                                            <em>(2)</em>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="cliks">
-                                        <a href="javascript:void(0);" data-t="3">
-                                            <span>
-                                                中评
-                                                <em>(0)</em>
-                                            </span>
-                                            </a>
-                                    </li>
-                                    <li class="cliks">
-                                        <a href="javascript:void(0);" data-t="4">
-                                            <span>
-                                                差评
-                                                <em>(1)</em>
                                             </span>
                                         </a>
                                     </li>
@@ -547,14 +507,13 @@ function get_cart_num(){
                             </div>
                         </div>
                         <!--------用户评价-start------------>
-                        <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css" type="text/css">-->
+                        <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css" type="text/css">
+                        <foreach name="assess" item="val">
                         <div class="evaluation-bott pa-to-25 cliks-bn" style="display: block;" id="ajax_comment_return">
                         <div class="pro-comment-item po-re pa-bo-20 di-ta">
                             <div class="pro-comment-user fl te-al pa-0-15 wi90 po-re">
-                                <p class="procomment-img">
-                                <img alt="" src="defaultface_user_small.png">
-                                </p>
-                                <p class="procomment-name"></p>
+                                <p>用户名:</p>
+                                <p class="procomment-name">{$val.username}</p>
                                 <s class="procomment-tag">
                                 <!--  <i></i>-->
                                 </s>
@@ -564,113 +523,33 @@ function get_cart_num(){
                                 <div class="pro-user-comment">
                                     <div class="comm-t1 ov-hi">
                                         <div class="pro-user-score fl">
-                                            <em>商品评分</em>  
+                                            <em>商品评分:{$val.grade}</em>  
                                             <span class="starRating-area">
                                             <s style="width: 60%;"> </s>
                                             </span>    
                                         </div>                
                                         <div class="pro-user-impre fl ov-hi">
                                         </div>
-                                        <div class="pro-user-time wh-sp">2016-03-12</div>
+                                        <div class="pro-user-time wh-sp">{$val.addtime}</div>
                                     </div>
                                     <div class="comm-t2">
-                                    {$assess.contents}
-                                    <!--htmlspecialchars_decode   html_entity_decode-->
-                                    <br>            
-                                    <!--晒单-->
-                                    <a href="569600fcb09e9.jpg" target="_top"><img alt="" src="569600fcb09e9.jpg" height="120" width="120"></a>&nbsp;&nbsp;<a href="569600fc992df.jpg" target="_top"><img alt="" src="569600fc992df.jpg" height="120" width="120"></a>&nbsp;&nbsp;<a href="569600fc73203.jpg" target="_top"><img alt="" src="569600fc73203.jpg" height="120" width="120"></a>&nbsp;&nbsp;                    <!--商家回复-->                    
+                                    <em>&nbsp;&nbsp;&nbsp;&nbsp;{$val.contents}<em>
+                                    <br>                        
                                     </div>
                                 </div>
                                 <div class="arrow"></div>
                             </div>
                         </div>
-                        <div class="pro-comment-item po-re pa-bo-20 di-ta">
-                            <div class="pro-comment-user fl te-al pa-0-15 wi90 po-re">
-                                <p class="procomment-img">
-                                <img alt="" src="defaultface_user_small.png">
-                                </p>
-                                <p class="procomment-name">蒙娜丽莎</p>
-                                <s class="procomment-tag"></s>
-                            </div>
-                            <div class="pro-user-comment-main ma-0-25-0-0 ov-hi">
-                                <div class="pro-user-comment">
-                                    <div class="comm-t1 ov-hi">
-                                        <div class="pro-user-score fl">
-                                            <em>发货速度</em>  
-                                            <span class="starRating-area">
-                                              <s style="width: 80%;"></s>
-                                            </span>
-                                            <em>客服态度</em>  
-                                            <span class="starRating-area">
-                                              <s style="width: 100%;"></s>
-                                            </span>
-                                            <em>商品质量</em>  
-                                            <span class="starRating-area">
-                                              <s style="width: 100%;"></s>
-                                            </span>      
-                                        </div>                
-                                        <div class="pro-user-impre fl ov-hi">
-                                        <!--
-                                            <ul>
-                                                <li>不错</li>
-                                                <li>大屏幕</li>
-                                                <li>流畅</li>
-                                            </ul>
-                                          -->  
-                                        </div>
-                                        <div class="pro-user-time wh-sp">2016-03-12</div>
-                                    </div>
-                                    <div class="comm-t2">
-                                    {$assess.contents}
-                                    <!--htmlspecialchars_decode   html_entity_decode-->
-                                    <br>                               
-                                </div>
-                            </div>
-                            <div class="arrow"></div>
-                        </div>
                     </div>
                     <div class="pro-comment-item po-re pa-bo-20 di-ta">
-                        <div class="pro-comment-user fl te-al pa-0-15 wi90 po-re">
-                            <p class="procomment-img">
-                                <img alt="" src="defaultface_user_small.png">
-                            </p>
-                            <p class="procomment-name">{$assess.uid}</p>
-                            <s class="procomment-tag"></s>
-                        </div>
-                        <div class="pro-user-comment-main ma-0-25-0-0 ov-hi">
-                            <div class="pro-user-comment">
-                                <div class="comm-t1 ov-hi">
-                                    <div class="pro-user-score fl">
-                                        <em>发货速度</em>  
-                                        <span class="starRating-area">
-                                            <s style="width: 40%;"></s>
-                                        </span>
-                                        <em>客服态度</em>  
-                                        <span class="starRating-area">
-                                          <s style="width: 100%;"></s>
-                                        </span>
-                                        <em>商品质量</em>  
-                                        <span class="starRating-area">
-                                          <s style="width: 80%;"></s>
-                                        </span>      
-                                    </div>                
-                                    <div class="pro-user-impre fl ov-hi">
-                                </div>
-                                <div class="pro-user-time wh-sp">2016-03-12</div>
-                            </div>
-                            <div class="comm-t2">
-                            这东西不错,下次还会来买 
-                            <!--htmlspecialchars_decode   html_entity_decode-->
-                             <br>                    
-                            </div>
-                        </div>
-                        <div class="arrow"></div>
-                    </div>
+                        
                 </div>
-                <div class="eval-cen-ri fr pa-to-17 pa-ri-25 te-al-ri di-bl">
-                    <div class="dataTables_paginate paging_simple_numbers">
-                        <ul class="pagination"></ul>
+                    <div class="eval-cen-ri fr pa-to-17 pa-ri-25 te-al-ri di-bl">
+                        <div class="dataTables_paginate paging_simple_numbers">
+                            <ul class="pagination"></ul>
+                        </div>
                     </div>
+                </foreach>
                 </div>
 <script>
     // 点击分页触发的事件

@@ -1426,7 +1426,7 @@ body {
   height: 40px;
   width: 40px;
   line-height: 40px;
-  background: url(../images/step.png) 0 -41px no-repeat;
+  background: url(../image/step.png) 0 -41px no-repeat;
   overflow: hidden;
   text-align: center;
   font-weight: bold;
@@ -1436,7 +1436,7 @@ body {
 }
 .ui_step .step_line {
   height: 8px;
-  background: url(../images/step_line.png) 0 0 repeat-x;
+  background: url(../image/step_line.png) 0 0 repeat-x;
   display: block;
   overflow: hidden;
   margin-left: 40px;
