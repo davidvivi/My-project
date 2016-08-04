@@ -32,19 +32,25 @@ class GoodsController extends CommonController
 	public function add(){
 		
 		$sort = M('category');
-		/*
+		
 		if(IS_POST){
-			$val = I('val');
+			$val = I('id');
 			$catelist_2= $sort->field('id,name')->where('pid='.$val)->select();
-			$this->assign('catelist_2',$catelist_2);
-			
-			$this->ajaxReturn('1');
+			//$this->ajaxReturn($catelist_2);
+			//$this->assign('catelist_2',$catelist_2);
+			$a='';
+			foreach($catelist_2 as $key =>$val){
+				$id = $val['id'];
+				$name = $val['name'];
+				$a.='<option value='.$id.'>'.$name.'</option>';
+			}
+			$this->ajaxReturn($a);
 		}
-		*/
+		
 		//一级分类
 		$catelist_1 = $sort->field('id,name')->where('pid=0')->select();
 		
-		//二级分类
+		/*/二级分类
 
 			$pid = [];
 			foreach($catelist_1 as $key =>$val){
@@ -63,11 +69,11 @@ class GoodsController extends CommonController
 			$data['pid'] = array('IN',$da);
 			$catelist_3 = $sort->field('id,pid,name')->where($data)->select();
 			
-			
+		*/	
 		
 		$this->assign('catelist_1',$catelist_1);
-		$this->assign('catelist_2',$catelist_2);
-		$this->assign('catelist_3',$catelist_3);
+		//$this->assign('catelist_2',$catelist_2);
+		//$this->assign('catelist_3',$catelist_3);
 		$this->display('goods/product-add');
 		
 		
