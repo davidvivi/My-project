@@ -33,7 +33,7 @@
                     <div class="info_box">
                         <div class="info_L"> 订单状态： </div>
                         <div class="info_R">
-                            <span class="df"><if condition="$order_info[orderstatus] eq 0">新订单<elseif condition="$order_info[orderstatus] eq 1" />已发货<elseif condition="$order_info[orderstatus] eq 2" />已收货<elseif condition="$order_info[orderstatus] eq 3" />无效订单</if></span>
+                            <span class="df"><if condition="($order_info[orderstatus] neq 3) AND ($order_info[paystatus] eq 0)">待支付<elseif condition="($order_info[orderstatus] neq 3) AND ($order_info[paystatus] eq 1)"/>已支付<elseif condition="$order_info[orderstatus] eq 3"/>已取消</if></span>
                         </div>
                     </div>
                     <div class="info_box">
@@ -43,7 +43,13 @@
                             <span class="way_tips" style="display:inline-block;">{$order_info.pay_name}</span>            
                         </div>
                     </div>
-		            
+		            <div class="info_box">
+                        <div class="info_L"> 支付方式： </div>
+                        <div class="info_R">
+                            <span class="num"><if condition="$order_info[payment] eq 0">货到付款<elseif condition="$order_info[payment] eq 1"/>微信支付<elseif condition="$order_info[payment] eq 2"/>支付宝支付<elseif condition="$order_info[payment] eq 3"/>银联支付</if></span>
+                        </div>
+                    </div>
+                    <!--
                     <div class="info_box">
                         <div class="info_L"> 积&nbsp;&nbsp;分： </div>
                         <div class="info_R">
@@ -69,13 +75,14 @@
                         <div class="info_R">
                             <span class="num">￥{$order_info.order_prom_amount}</span>
                         </div>
-                    </div>          
+                    </div>
+                    -->          
                     <div class="info_box">
                         <div class="info_L"> 收货信息： </div>
                         <div class="info_R">{$order_info.consignee} {$order_info.tel} {$order_info.address} </div>
                     </div> 
                     <div class="info_box">
-                        <div class="info_L">发票信息：{$order_info.invoice_title}</div>
+                        <div class="info_L">留言信息：{$order_info.written}</div>
                             <div class="info_R" id="invoiceDetail" ogNo="201603CP09721849" ogSeq="201603CO09721849" invkind="5" > </div>
                             <div class="ui_poptip money_info m_ord_lnk J-zdsw">
                                 <div class="ui_poptip_container"> <i class="icon_order_up"></i>
@@ -93,9 +100,12 @@
                             <li class =" active">
                                 <a href="javascript:void(0);" class="detail_packNo">订单</a>
                             </li>
-                            <li class="opeating" id="opeating_1" style="display:block;">          
-                                <if condition="$order_info.cancel_btn eq 1"><button class="btn_pay" onClick="cancel_order({$order_info.order_id})">取消订单</button></if>
-                                <if condition="$order_info.pay_btn eq 1"><button class="btn_pay"  onclick="location.href='{:U('/Home/Cart/cart4',array('order_id'=>$order_info[order_id]))}'">立即支付</button></if>                
+                            <li class="opeating" id="opeating_1" style="display:block;">    <!--      
+                                <if condition="$order_info[paystatus] eq 0"><button class="btn_pay" onClick="cancel_order({$order_info.orderid})">取消订单</button></if>
+                                
+                                <if condition="$order_info[paystatus] eq 0"><button class="btn_pay"  onclick="location.href='{:U('/Home/Cart/cart3',array('orderid'=>$orderinfo[orderid]))}'">立即支付</button></if> 
+                                -->               
+                                
                                 <if condition="$order_info.receive_btn eq 1"><button class="btn_pay"  onClick=" if( confirm('你确定收到货了吗?')) location.href='{:U('Home/User/order_confirm',array('id'=>$order_info['order_id']))}'">收货确认</button></if>    
                             </li>
                         </ul>
@@ -110,7 +120,7 @@
                                         <div class="info_box">
                                             <div class="info_L"> 运费：</div>
                                                 <div class="info_R">
-                                                    <span class="num">￥{$order_info.shipping_price}</span>
+                                                    <span class="num">￥0.00</span>
                                                 </div>
                                         </div>
                                     <div class="info_box">
@@ -147,13 +157,14 @@
                                             <div class="ui_step_time">{$order_info.addtime|date='Y-m-d H:i:s',###}</div>
                                     </li>
                                     
-                                    <li class="<if condition="$order_info[paystatus] gt 0">step_start</if>">
-                                        <div class="ui_step_title">付款成功</div>
+                                    <li class="<if condition="$order_info[paystatus] eq 1">step_start</if>">
+                                        <div class="ui_step_title">付款方式</div>
                                         <div class="ui_step_bg">
                                             <div class="step_bg">2</div>
                                             <div class="step_line"></div>
                                         </div>
-                                        <div class="ui_step_time" ><if condition="$order_info[paystatus] gt 0">已付款</if></div>
+                                        <div class="ui_step_time" ><if condition="$order_info[payment] eq 0">货到付款<elseif condition="$order_info[payment] eq 1"/>微信支付
+                                        <elseif condition="$order_info[payment] eq 2"/>支付宝<elseif condition="$order_info[payment] eq 3"/>银联支付</if></div>
                                     </li>
                                     
                                     <li class="<if condition="$order_info[shipping_time] gt 0">step_start</if>">
@@ -193,23 +204,26 @@
                             
                             <div class="details_list_cont">
               
-                            <volist name="order_info.goods_list" id="good">
+                            <volist name="orderdetail" id="good">
                             
                                 <div class="item_details">
                                     <ol class="clearfix">
                                         <li class="col_w40">
                                             <div class="item_container clearfix">
+                                                <!--
                                                 <a href="{:U('Home/Goods/goodsInfo',array('id'=>$good['goods_id']))}" class="item_img">
-    	                                            <img src="{$good.goods_id|goods_thum_images=78,78}"/>
+    	                                            <img src="{$good.goods_id}"/>
                                                 </a>
+                                                -->
+                                                
                                                 <div class="item_meta">  
-                                                    <a href="{:U('Home/Goods/goodsInfo',array('id'=>$good['goods_id']))}" class="order_name">{$good.goods_name}</a> 
+                                                    <a href="{:U('Home/Gdetail/index',array('goodsId'=>$good['gid']))}" class="order_name">{$good.goodsname}</a> 
                                                 </div>
                                             </div>
                                         </li>
                                         <li class="col_w15">{$good.spec_key_name}</li>
-                                        <li class="col_w15 num">￥{$good.member_goods_price}&nbsp;&nbsp; *&nbsp;&nbsp; {$good.goods_num}</li>
-                                        <li class="col_w15 num">￥{$good['member_goods_price'] * $good['goods_num']}</li>
+                                        <li class="col_w15 num">￥{$good.price}&nbsp;&nbsp; *&nbsp;&nbsp; {$good.num}</li>
+                                        <li class="col_w15 num">￥{$good['price'] * $good['num']}</li>
                                         <li class="cont_05 col_w15 num">                        
                                             <if condition="($order_info[return_btn] eq 1) and ($good[is_send] eq 1)">    
                                                 <p class="p-link"><a style="color:#999;" href="{:U('Home/User/return_goods',array('order_id'=>$order_info['order_id'],'order_sn'=>$order_info['order_sn'],'goods_id'=>$good['goods_id'],'spec_key'=>$good['spec_key']))}">申请退款</a></p>    
@@ -239,7 +253,7 @@
     function cancel_order(id){
         if(!confirm("确定取消订单?"))
             return false;
-        location.href = "/index.php?m=Home&c=User&a=cancel_order&id="+id;
+        //location.href = "/index.php?m=Home&c=User&a=cancel_order&id="+id;
     }
 </script>
 </body>

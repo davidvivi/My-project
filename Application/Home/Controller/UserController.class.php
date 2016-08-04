@@ -288,11 +288,32 @@ class UserController extends CommonController
         $map['orderid'] = $id;
         $order_info = M('order')->where($map)->find();
         //dump($order_info);
-        //exit;
+            
+        $orderdetail= M('orderdetail')->where('oid='.$order_info['orderid'])->select();
+        //dump($orderdetail);
+
+
         
         $this->assign('order_info',$order_info);
+        $this->assign('orderdetail',$orderdetail);
         $this->display();
     }
+
+    /*
+     * 当未支付时(paystatus=0)才可以取消订单，取消订单后将orderstatus改为4，即为无效订单
+     */
+    public function cancel_order()
+    {   
+        $orderid = I('get.orderid');
+        //dump($id);
+        $map['orderstatus'] = 3;
+        $res = M('order')->where('orderid='.$orderid)->save($map);
+        if($res){   
+            $this->success('订单取消成功',U('order_list'),1);
+        }
+    }
+
+
 
 
 }

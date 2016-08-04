@@ -81,16 +81,19 @@
                                 
                                 <div class="f_right order_tip">
                     	            <span class="num">应付金额：<em class="rmb">￥</em>{$list['buy']}</span>
-						            
-                                    <if condition="$list.cancel_btn eq 1"><a class="cancel J_cancel" onClick="cancel_order({$list.order_id})" >取消订单</a></if>
+
+						            <if condition="($list[orderstatus] neq 3) AND ($list[paystatus] eq 0)"><a class="cancel J_cancel" href="{:U('/Home/user/cancel_order',array('orderid'=>$list[orderid]))}" >取消订单</a></if>
                                     <!--
-            						<if condition="$list.pay_btn eq 1">
-                                       <a class="btn_pay" href="{:U('/Home/Cart/cart4',array('order_id'=>$list[order_id]))}" target="_blank">立即支付</a>
+                                    <if condition="$list[paystatus] eq 0"><a class="cancel J_cancel" onClick="cancel_order({$list.order_id})" >取消订单</a></if>
+                                    -->
+                                    
+            						<if condition="($list[orderstatus] neq 3) AND ($list[paystatus] eq 0)">
+                                       <a class="btn_pay" href="{:U('/Home/Cart/cart3',array('orderid'=>$list[orderid]))}" target="_blank">立即支付</a>
                                     </if>                            
             						<if condition="$list.receive_btn eq 1">
                                    		 <a class="btn_pay" onclick=" if(confirm('你确定收到货了吗?')) location.href='{:U('Home/User/order_confirm',array('id'=>$list['order_id']))}'" target="_blank">收货确认</a>
                                     </if> 
-                                    -->                                     
+                                                                         
                                 </div>
                                 </td>
                             </tr>
@@ -106,25 +109,29 @@
                                     
                                     <if condition="$k eq 1">             
                                       <td class="td_02"  rowspan="<?php echo count($orderdetail);?>">
-                                        <p>{$list['order_status_desc']}</p>
+                                        <p><if condition="($list[orderstatus] neq 3) AND ($list[paystatus] eq 0)">待支付<elseif condition="($list[orderstatus] neq 3) AND ($list[paystatus] eq 1)"/>已支付<elseif condition="$list[orderstatus] eq 3"/>已取消</if></p>
                                         <p><a href="{:U('Home/User/order_detail',array('id'=>$list['orderid']))}" class="target_no">订单详情</a></p>
                                       </td>
                                    </if>
-                                  
-                                    <td class="td_03">                      
-                                        <if condition="($list[comment_btn] eq 1) and ($good[is_comment] eq 0)">
+                                    
+                                    <td class="td_03"> 
+                                    <!--                     
+                                    <if condition="($list[comment_btn] eq 1) and ($good[is_comment] eq 0)">
             	                        <p><a class="btn-02" href="{:U('Home/User/comment')}">评价</a></p>                            
                                     </if>
-                                    <p><a class="btn-02" href="{:U('Home/Goods/goodsInfo',array('id'=>$good['goods_id']))}">再次购买</a></p>
+                                    -->
+                                    <p><a class="btn-02" href="{:U('Home/Gdetail/index',array('goodsId'=>$good['gid']))}">再次购买</a></p>
+                                    <!--
                                     <if condition="($list[return_btn] eq 1) and ($good[is_send] eq 1)">
                                         <p class="p-link"><a style="color:#999;" href="{:U('Home/User/return_goods',array('order_id'=>$list['order_id'],'order_sn'=>$list['order_sn'],'goods_id'=>$good['goods_id'],'spec_key'=>$good['spec_key']))}">申请退款</a></p>    
-                                    </if> 
+                                    </if>
+                                    --> 
                                     </td>
                                 </tr>                
                             </volist>             
                         </tbody>
                     </table>
-            </volist>  
+                </volist>  
             </div>            
             <!-- page next star -->
             <div class="operating fixed" id="bottom">
@@ -133,12 +140,12 @@
                 </div>
             </div>             
             <!-- page next end --> 
-          </div>
         </div>
-      </div>
+        </div>
+        </div>
+        </div>
+        </div>
     </div>
-  </div>
-</div>
  
 <div style="clear: both;"></div>
 <include file="User/footer" />
