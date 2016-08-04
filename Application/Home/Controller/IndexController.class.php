@@ -47,7 +47,10 @@ class IndexController extends Controller {
 			$hot[$key]['addtime'] = date('Y-m-d',$val['addtime']);			
 			$data = M('goods_pic')->where('gid='.$gid)->field('picname')->limit(1)->find();
 			$hot[$key]['picname'] = $data['picname'];		
-		}		
+		}	
+		
+		$count = count(M('cart')->where('user_id='.$_SESSION['user']['id'])->select());
+		$this->assign('count',$count);
 		$this->assign('hot',$hot);        
 		$this->assign('imgurl',$imgurl);
         $this->assign('addtime',$addtime);

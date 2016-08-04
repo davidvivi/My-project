@@ -21,7 +21,9 @@
 	<body>
 		<!-- ======页面头部======= -->
 		<div class="rightNav">
-			
+			<a href="__MODULE__/User/order_list"><img title="我的订单" class="order" style="position:relative;top:100px;" src="__PUBLIC__/img/2016-08-04_231421.jpg" /></a>
+			<div id="cartnum" style="width:18px;height:18px;color:white;text-align:center;border-radius:50%;background:red;position:relative;left:14px;top:183px;z-index:111;">{$count}</div>
+			<a href="__MODULE__/Cart/index"><img title="我的购物车" class="cart" style="position:relative;top:180px;left:;" src="__PUBLIC__/img/2016-08-04_231459.jpg" /></a>
 		</div>
 		<div>
 			<div class="topbar">
@@ -94,7 +96,7 @@
 											}
 										},function(){
 											if($(this).attr('look') == $('#{$catevals.id}').attr('look') ){
-												
+												$('#{$catevals.id}').css({'display':'none'})
 												$('.navnone').hover(function(){
 														
 															$('.navnone').css({'display':'block'})
@@ -243,6 +245,14 @@
 				}
 			})
 		})
+		
+		//侧边导航图标
+		$('.order').hover(function(){
+			$(this).css({'opacity':'0.6'});
+		},function(){
+			$(this).css('opacity','1');
+		});
+		
 		
 		
 	
