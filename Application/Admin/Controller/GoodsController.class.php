@@ -7,17 +7,21 @@ use Think\Controller;
 class GoodsController extends CommonController
 {
 	public function index(){
-		$model = M();
 		$goods = M('goods');
 		$count = $goods->count();
 		$Page = new \Think\Page($count,3);
 		$show = $Page->show();
-        $list = $model->field('a.id,goodname,typeid,price,store,view,buy,state,discribe,addtime,picname')
-        ->where('a.id=ud.gid')
-		->order('addtime')->limit($Page->firstRow.','.$Page->listRows)
-        //可以使用table()指明你要查询的表
-        ->table( array('think_goods'=>'a','think_goods_pic'=>'ud') )
+        $list = $goods->field('id,goodname,typeid,price,store,view,buy,state,discribe,addtime')
+		->order('addtime desc')->limit($Page->firstRow.','.$Page->listRows)
         ->select();
+		foreach($list as $key =>$val){
+			$gid = $val['id'];
+			$time = date('Y-m-d',$val['addtime']);
+			$data = M('goods_pic')->field('picname')->where('gid='.$gid)->limit(1)->select();
+			$list[$key]['time'] = $time;
+			$list[$key]['picname'] = $data['0']['picname'];
+		}
+		//dump($list);
 		
 		$this->assign('count',$count);
 		$this->assign('list',$list);
@@ -41,26 +45,35 @@ class GoodsController extends CommonController
 		$catelist_1 = $sort->field('id,name')->where('pid=0')->select();
 		
 		//二级分类
-		$pid = [];
-		foreach($catelist_1 as $key =>$val){
+		if(IS_POST){
+			$pid = I('id');
+			$catelist_2 = $sort->field('id,name')->where('pid='.$pid)->select();
+			/*
+			$pid = [];
+			foreach($catelist_1 as $key =>$val){
+				
+				$pid[] = $val['id'];
+			}
+			$map['pid'] = array('IN',$pid);
+			$catelist_2 = $sort->field('id,pid,name')->where($map)->select();
 			
-			$pid[] = $val['id'];
-		}
-		$map['pid'] = array('IN',$pid);
-		$catelist_2 = $sort->field('id,name')->where($map)->select();
-		
-		//三级分类
-		$data = [];
-		foreach($catelist_2 as $key =>$val){
+			//三级分类
+			$data = [];
+			foreach($catelist_2 as $key =>$val){
+				
+				$da[] = $val['id'];
+			}
+			$data['pid'] = array('IN',$da);
+			$catelist_3 = $sort->field('id,pid,name')->where($data)->select();
 			
-			$da[] = $val['id'];
+			$ppid = I('pid');
+			$catelist_3 = $sort->field('id,name')->where('pid='.$ppid)->select();
+			*/
+			$this->ajaxReturn($catelist_2);
 		}
-		$data['pid'] = array('IN',$da);
-		$catelist_3 = $sort->field('id,name')->where($data)->select();
-		
 		$this->assign('catelist_1',$catelist_1);
 		$this->assign('catelist_2',$catelist_2);
-		$this->assign('catelist_3',$catelist_3);
+		//$this->assign('catelist_3',$catelist_3);
 		$this->display('goods/product-add');
 		
 		
@@ -88,11 +101,11 @@ class GoodsController extends CommonController
 			$map['buy'] = $buy;
 			$map['view'] = $view;
 			//dump($map);
-			$data = M('goods')->add($map);
+			M('goods')->add($map);
 			
-			//$gid = M('goods')->where('goodname='.$name)->getField('id');
-			if($data){
-				$this->ajaxReturn('1');
+			$gid = M('goods')->field('id')->order('id desc')->limit(1)->select();
+			if($gid){
+				$this->ajaxReturn($gid);
 				
 			}
 		}
@@ -130,29 +143,31 @@ class GoodsController extends CommonController
 		
 	}
 
-	public function picAdd(){
-		
-		$this->display('goods/pic-add');
-	}
-	
-	public function webuploader() {
-		$upload = new \Think\Upload();// 实例化上传类
-		$upload->maxSize   =     3145728 ;// 设置附件上传大小
-		$upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
-		$upload->rootPath  =      './Public/Uploads/'; // 设置附件上传根目录
-		$upload->savePath  =      ''; // 设置附件上传（子）目录
-		$upload->autoSub = false;  // 关闭子目录
-
-		// 上传文件
-		$info   =   $upload->upload();
-		if(!$info) {// 上传错误提示错误信息
-			$this->error($upload->getError());
-		}else{// 上传成功 获取上传文件信息
-			$pathArr = array();
-			foreach($info as $file){
-				array_push($pathArr, "Public/Uploads/".$file['savepath'].$file['savename']);
-			}
-			echo json_encode($pathArr);
-		}
+	public function upload(){
+		 $upload = new \Think\Upload();// 实例化上传类    
+		 $upload->maxSize = 3145728 ;// 设置附件上传大小    
+		 $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型 
+		 $upload->rootPath = './Public/';
+		 $upload->savePath  = './Uploads/'; // 设置附件上传目录  
+		 //$upload->saveName = time().'_'.mt_rand(); //设置上传文件名
+		 // 上传文件     
+		 $info = $upload->upload();    
+		 if(!$info) {
+			 // 上传错误提示错误信息        
+			 $this->error($upload->getError());    
+		 }else{
+			 // 上传成功   
+			$list = M('goods')->field('id')->order('id desc')->limit(1)->select();
+			$id = $list['0']['id'];
+			//echo $id;
+			foreach($info as $file){        
+				$map['picname'] = $file['savename'];
+				$map['gid'] = $id;
+				M('goods_pic')->add($map);
+			}   
+			
+		 }
+		 
+		 
 	}
 }
