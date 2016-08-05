@@ -306,13 +306,21 @@ class UserController extends CommonController
             
             //查找订单的名字和图片
             $orderdetail= M('orderdetail')->where('oid='.$v['orderid'])->select();
+            
+            foreach($orderdetail as $key=>$val){    
+                $goodsaddtime = M('goods')->where('id='.$val['gid'])->find();
+                //dump($goodsaddtime);
+                $orderdetail[$key]['addtime']=date("Y-m-d",$goodsaddtime['addtime']);
+                //dump($orderdetail);
+
+            }
             $orderlist[$k]['goodslist']=$orderdetail;
 
 
         }
-        
-        //exit;
         //dump($orderdetail);
+        
+        //dump($orderlist);        
         //exit;
         $this->assign('page',$show);
         $this->assign('orderdetail',$orderdetail);
