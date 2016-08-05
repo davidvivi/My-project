@@ -110,6 +110,7 @@ class UserController extends CommonController {
     }
     public function userEditForm()
     { 
+
         $id = I('id');
         $grade = I('grade');
         if($id){ 
@@ -121,7 +122,9 @@ class UserController extends CommonController {
         }else{ 
             $this->ajaxReturn('0');
         }
+    
     }  
+
     public function userSearch()
     { 
         $data = I('text');

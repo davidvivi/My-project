@@ -220,19 +220,54 @@ class UserController extends CommonController
         //如果session里面有user
         if($_SESSION['user']){
             $name = $_SESSION['user']['name'];
-            
+            $uid = $_SESSION['user']['id'];
         }    
         
         //根据用户名查到等级
         $list=D('user_detail')->field('grade')->where("name='$name'")->find();
         $grade = $list['grade'];
         $data=D('user')->field('tel,id,password,addtime')->where("username='$name'")->find();
+        $gradearr=array('','英勇黄铜','不屈白银','璀璨钻石');
+        $dengji = $gradearr[$grade];    
 
+        //查询用户详细信息
+        $detail = M('user_detail')->where('uid='.$uid)->find();
+        //dump($detail);
+        //exit;        
+        //dump($dengji); 
+        //dump($grade);
+        //dump($data);
+        //exit;
+        
+        $this->assign('detail',$detail);
+        $this->assign('dengji',$dengji);
         $this->assign('list',$list);
         $this->assign('data',$data);
         $this->assign('grade',$grade);
         $this->display(''); 
     }
+
+    public function userinfoForm()
+    { 
+        $uid = I('uid');
+        $nickname = I('nickname');
+        $address = I('address');
+        $sex = I('sex');
+        
+        $data['nickname'] = $nickname;
+        $data['address'] = $address;
+        $data['sex'] = $sex;
+
+        $res = M('user_detail')->where('uid='.$uid)->save($data);
+        
+        if($res){   
+            $this->ajaxReturn('1');
+        }else{  
+            $this->ajaxReturn('0');
+        }
+
+    }  
+
 
     /**
         我的订单列表
@@ -281,7 +316,6 @@ class UserController extends CommonController
         $this->assign('orderlist',$orderlist);
         $this->display();
     }
-
 
     public function order_detail()
     {   

@@ -129,15 +129,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                
+                    <foreach name="goods" item="val">
                     <tr>
-                        <td class="text-left">外星人笔记本</td>
+                        <td class="text-left">{$val.goodsname}</td>
                         <td class="text-left">是用图片还是。。</td>
-                        <td class="text-right">1</td>
-                        <td class="text-right">666</td>
-                        <td class="text-right">666</td>
+                        <td class="text-right">{$val.num}</td>
+                        <td class="text-right">{$val.price}</td>
+                        <td class="text-right">{$val[num]*$val[price]}</td>
                     </tr>
-                
+                    </foreach>
                 <tr>
                     <td colspan="4" class="text-right">总金额:</td>
                     <td class="text-right">666</td>
