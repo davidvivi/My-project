@@ -95,6 +95,7 @@ class CategoryModel extends Model
             // 拼接goods表的typeid
             $path = $getid.',';
             $where['typeid'] = array('like',"{$path}%");
+            $where['state'] = 1;
             $count = $goods->where($where)->count();
             
             $Page = new \Think\Page($count,4);
@@ -119,6 +120,7 @@ class CategoryModel extends Model
             $path2 = substr($data['path'], 2);
             $path = $path2.$getid.',';
             $where['typeid'] = array('like',"{$path}%");
+            $where['state'] = 1;
             $count = $goods->where($where)->count();
             $Page = new \Think\Page($count,4);
             $show = $Page->show();
@@ -141,14 +143,16 @@ class CategoryModel extends Model
             // 拼接goods表的typeid
             $path3 = substr($data['path'], 2);
             $path = $path3.$getid.',';
-            $count = $goods->where("typeid='{$path}'")->count();
+            $where['typeid'] = $path;
+            $where['state'] = 1;
+            $count = $goods->where($where)->count();
             $Page = new \Think\Page($count,4);
             $show = $Page->show();
             // 当是新品和购买量是倒序查询
             if($type != 'addtime' && $type != 'buy'){
-                $goodsdata = $goods->field('id,goodname,price,addtime,buy')->where("typeid='{$path}'")->order($type)->limit($Page->firstRow.','.$Page->listRows)->select();
+                $goodsdata = $goods->field('id,goodname,price,addtime,buy')->where($where)->order($type)->limit($Page->firstRow.','.$Page->listRows)->select();
             }else{
-                $goodsdata = $goods->field('id,goodname,price,addtime,buy')->where("typeid='{$path}'")->order("{$type} desc")->limit($Page->firstRow.','.$Page->listRows)->select();
+                $goodsdata = $goods->field('id,goodname,price,addtime,buy')->where($where)->order("{$type} desc")->limit($Page->firstRow.','.$Page->listRows)->select();
             }
             foreach($goodsdata as $key => $val){ 
                 $gid = $val['id'];

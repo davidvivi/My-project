@@ -84,4 +84,22 @@
             return $data;
         }
 
+        public function picState($id)
+        {
+            $category = M('category');
+            $goods = M('goods');
+            $data = $category->field('pid,path')->where("id='{$id}'")->find();
+            // 计算路径中的逗号有几个，可以得知几级分类
+            $num = substr_count($data['path'],',');
+            $cate['num'] = $num;
+            // 当num等于3时，是三级分类id，则下架对应的图片
+            if($num == 3){
+                $path3 = substr($data['path'], 2);
+                $path = $path3.$id.',';
+                $data['state'] = 0;
+                $goodsdata = $goods->where("typeid='{$path}'")->save($data);
+            }
+
+        }
+
 	}

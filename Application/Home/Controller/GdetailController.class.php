@@ -13,10 +13,17 @@ class GdetailController extends Controller {
        if(!$goodsId){   
             $goodsId = 25;
        }
+
        $detail = new \Home\Model\GdetailModel();
+       
        $goodsdata = $detail->hostShop();
+       //商品详细信息
        $GoodsDetail = $detail ->shows($goodsId); 
+       //
+       //dump($GoodsDetail);
+
        $assess = $this->assess($goodsId);
+       
        $this->assign('assess',$assess);
        $this->assign('GoodsDetail', $GoodsDetail);
        $this->assign('goodsdata',$goodsdata);
@@ -27,7 +34,8 @@ class GdetailController extends Controller {
    {    
         $Assess = D('assess');
         $User = D('user');
-        $assessinfo = $Assess -> where('goodsid = '.$data)->select();
+        $assessInfo['count'] = $Assess -> where('goodsid ='.$data) -> count();
+        //$assessinfo = $Assess -> where('goodsid = '.$data)->select();
         foreach($assessinfo as $k => $v){ 
             $assessinfo[$k]['addtime'] = date('Y-m-d',$assessinfo[$k]['addtime']);
             $username = $User -> field('username') -> where('id ='.$v['uid']) -> select();
@@ -37,6 +45,4 @@ class GdetailController extends Controller {
         $data = $assessinfo;
         return $data; 
    }
-
-
 }

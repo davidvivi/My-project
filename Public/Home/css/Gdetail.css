@@ -183,9 +183,9 @@ header::after { content: ""; clear: both; display: block; }
 .history-comm li { border-top: 1px solid rgb(222, 222, 222); padding: 150px 0px 10px 5px; }
 .p-img-comm { width: 56px; }
 .img-comm { width: 170px;  display: block; }
-.p-name-comm {margin-bottom: 3px; overflow: hidden; font-family: "Tahoma",微软雅黑; margin-left: 56px; padding: 23px 12px 0px 13px; }
+.p-name-comm {margin-bottom: 3px; overflow: hidden; font-family: "Tahoma",微软雅黑; margin-left: 13px; padding: 23px 12px 0px 13px;width:200px; }
 .p-name-comm a { color: rgb(102, 102, 102); }
-.p-price-comm { margin-left: 56px; padding-left: 17px; }
+.p-price-comm { margin-left: 13px; padding-left: 17px;  }
 .p-price-comm b { color: rgb(224, 29, 32); font-weight: 400; }
 .wi940 { width: 940px; }
 .commodity-xq { display: table; }
