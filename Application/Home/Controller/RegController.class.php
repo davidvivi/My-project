@@ -47,6 +47,12 @@ class RegController extends Controller
 
         $User = M("user"); 
         $data['username'] = I('post.username');
+        // 用户名不能重复
+        $have = $User->field('id')->where($data)->find();
+        if($have){ 
+            $this->error("用户名已存在！");
+        }
+
         $data['password'] = $hash;
         $data['tel']   = I('post.tel');
         $data['status'] = 1;
