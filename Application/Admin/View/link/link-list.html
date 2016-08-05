@@ -34,11 +34,6 @@
 		<div id="div1">
 			<div id="div2">
 				<div class="cl pd-5 bg-1 bk-gray mt-20"> 
-					<span class="l">
-						<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
-							<i class="Hui-iconfont">&#xe6e2;</i> 批量删除
-						</a>
-					</span>&nbsp;
 					<a class="btn btn-primary radius" onclick="link_add('添加链接','__URL__/linkAdd')" href="javascript:;">
 						<i class="Hui-iconfont">&#xe600;</i> 添加链接
 					</a></span>
@@ -50,7 +45,6 @@
 				<table class="table table-border table-bordered table-hover table-bg table-sort">
 					<thead>
 						<tr class="text-c">
-							<th width="25"><input type="checkbox" name="" value=""></th>
 							<th width="50">ID</th>
 							<th width="350">链接地址</th>
 							<th width="">链接标题</th>
@@ -62,7 +56,6 @@
 					<tbody>
 						<foreach name="list" item="val">
 							<tr class="text-c">
-								<td><input type="checkbox" value="1" name=""></td>
 								<td>{$val.id}</td>
 								<td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">{$val.url}</u></td>
 								<td>{$val.contents}</td>
@@ -95,25 +88,7 @@
 <script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.js"></script> 
 <script type="text/javascript">
 $(function(){
-/*
-	$('.table-sort').dataTable({
-		"aaSorting": [[ 1, "desc" ]],//默认第几个排序
-		"bStateSave": true,//状态保存
-		"aoColumnDefs": [
-		  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-		  {"orderable":false,"aTargets":[0,8,9]}// 制定列不参与排序
-		]
-	});
-	$('.table-sort tbody').on( 'click', 'tr', function () {
-		if ( $(this).hasClass('selected') ) {
-			$(this).removeClass('selected');
-		}
-		else {
-			table.$('tr.selected').removeClass('selected');
-			$(this).addClass('selected');
-		}
-	});
-*/        
+        
     // 修改分页的样式
 
     function page(){ 

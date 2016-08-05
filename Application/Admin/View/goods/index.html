@@ -40,9 +40,6 @@
 		</div>
 		<div class="cl pd-5 bg-1 bk-gray mt-20"> 
 			<span class="l">
-				<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
-					<i class="Hui-iconfont">&#xe6e2;</i> 批量删除
-				</a> 
 				<a class="btn btn-primary radius" onclick="product_add('添加产品','__URL__/add','800','500')" href="javascript:;">
 					<i class="Hui-iconfont">&#xe600;</i> 添加商品
 				</a>
@@ -53,24 +50,23 @@
 			<table  class="table table-border table-bordered table-bg table-hover table-sort">
 				<thead>
 					<tr class="text-c">
-						<th width="40"><input name="" type="checkbox" value=""></th>
 						<th width="40">ID</th>
 						<th width="60">缩略图</th>
 						<th width="100">商品名称</th>
 						<th width="100">商品类别</th>
-						<th>商品描述</th>
+						<th width="120">商品描述</th>
 						<th width="100">价格</th>
-						<th width="100">库存</th>
-						<th width="100">浏览量</th>
-						<th width="100">购买量</th>
-						<th width="60">发布状态</th>
+						<th width="80">库存</th>
+						<th width="80">浏览量</th>
+						<th width="80">购买量</th>
+						<th width="100">发布状态</th>
 						<th width="100">操作</th>
 					</tr>
 				</thead>
 				<tbody>
 					<foreach name="list" item="vo">
 						<tr class="text-c va-m">
-							<td><input name="" type="checkbox" value=""></td>
+							
 							<td>{$vo.id}</td>
 							<td>
 								<img width="60" class="product-thumb" src="__PUBLIC__/uploads/{$vo.time}/{$vo.picname}">

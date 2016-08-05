@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="__PUBLIC__/home/css/pay.min.css">
 	<link href="__PUBLIC__/home/css/common.min.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="__PUBLIC__/home/css/jh.css">
-	<script src="__PUBLIC__/home/js/jquery-1.8.2.min.js"></script>    
+	<script src="__PUBLIC__/home/js/jquery-1.10.2.min.js"></script>    
 	<script src="__PUBLIC__/home/js/global.js"></script>
 	<script src="__PUBLIC__/home/js/pc_common.js"></script>
 	<script src="__PUBLIC__/home/js/layer/1.9.3/layer.js"></script><!-- 弹窗js 参考文档 http://layer.layui.com/-->
@@ -82,7 +82,7 @@
                 <i></i>
             </a>
         </div>
-        <form action="/index.php/Home/Payment/getCode.html" method="post" name="cart4_form" id="cart4_form">
+        <form action="" method="post" name="cart4_form" id="cart4_form">
         <div class="orde-sjyy">
         	<h3 class="titls">选择支付方式</h3>
             <div class="bsjy-g">
@@ -96,32 +96,32 @@
                             	<ul>
 									<li>
                                     	<div class="payment-area">
-                                        	<input type="radio" id="input-ALIPAY-1" value="pay_code=alipay" class="radio vam" name="pay_radio" >
-                                            <label for="">
+                                        	<input type="radio" id="input-ALIPAY-1" value="2" class="radio vam" name="pay_radio" >
+                                            <label for="input-ALIPAY-1">
                                             	<img src="/plugins/payment/alipay/logo.jpg" width="120" height="40" onClick="change_pay(this);" />
                                             </label>
                                         </div>
                                     </li>
 									<li>
                                     	<div class="payment-area">
-                                        	<input type="radio" id="input-ALIPAY-1" value="pay_code=cod" class="radio vam" name="pay_radio" >
-                                            <label for="">
+                                        	<input type="radio" id="input-ALIPAY-2" value="0" class="radio vam" name="pay_radio" >
+                                            <label for="input-ALIPAY-2">
                                             	<img src="/plugins/payment/cod/logo.jpg" width="120" height="40" onClick="change_pay(this);" />
                                             </label>
                                         </div>
                                     </li>
 									<li>
                                     	<div class="payment-area">
-                                        	<input type="radio" id="input-ALIPAY-1" value="pay_code=weixin" class="radio vam" name="pay_radio" >
-                                            <label for="">
+                                        	<input type="radio" id="input-ALIPAY-3" value="1" class="radio vam" name="pay_radio" >
+                                            <label for="input-ALIPAY-3">
                                             	<img src="/plugins/payment/weixin/logo.jpg" width="120" height="40" onClick="change_pay(this);" />
                                             </label>
                                         </div>
                                     </li>
 									<li>
                                     	<div class="payment-area">
-                                        	<input type="radio" id="input-ALIPAY-1" value="pay_code=unionpay" class="radio vam" name="pay_radio" >
-                                            <label for="">
+                                        	<input type="radio" id="input-ALIPAY-4" value="3" class="radio vam" name="pay_radio" >
+                                            <label for="input-ALIPAY-4">
                                             	<img src="/plugins/payment/unionpay/logo.jpg" width="120" height="40" onClick="change_pay(this);" />
                                             </label>
                                         </div>
@@ -134,11 +134,11 @@
                     </dd>
             	</dl>
                 <div class="order-payment-action-area" style="text-align:center;">                    
-                    <a class="button-style-5 button-confirm-payment" href="javascript:void(0);" onClick="$('#cart4_form').submit();" >立即支付</a>
+                    <a id="pay" class="button-style-5 button-confirm-payment" href="javascript:void(0);">立即支付</a>
                 </div>
             </div>
         </div>
-        <input type="hidden" name="order_id" value="{$order_id}" />
+        <input type="hidden" name="order_id" value="{$oid}" />
       </form>
     </div>
   </div>
@@ -146,24 +146,7 @@
 
 
 
-<!--微信扫一扫支付对话框  -->
-<div id="wchatQrcodeDlg" class="g-cartpay-dlg" style="display: none;" data-show="" >
-          <div class="g-cartpay-content">
-    <div class="g-h"> <span class="u-close"></span> </div>
-    <div class="g-c">
-              <div class="g-t"> 使用微信支付<span>￥<small class='wx_amount'>118</small></span> </div>
-              <div class="g-qrcode"> <img alt="使用微信支付" src="images/loading.gif" /> </div>
-            </div>
-    <div class="g-f fixed"> <i class="icon_scan"></i>
-              <div class="u-label">
-        <p>请使用微信扫一扫<br>
-                  扫描二维码完成支付</p>
-      </div>
-            </div>
-  </div>
-          <div class="u-mask"></div>
-        </div>
-<!--微信扫一扫支付对话框 / --> 
+
 <div id="addCardNewBind"></div>
 <!-- footer start [[-->
 <div class="foot">
@@ -231,6 +214,23 @@ function change_pay(obj)
 {
 	$(obj).parent().siblings('input[name="pay_radio"]').trigger('click');
 }
+
+$('#pay').click(function(){
+	oid = $('input[type=hidden]').val();
+	payment = $("input[type=radio]:checked").val(); 
+	//alert(payment);
+	$.ajax({
+		type:'post',
+		url:'__URL__/pay',
+		data:'oid='+oid+'&payment='+payment,
+		success:function(data){
+			if(data == 1){
+				alert('支付成功!');
+				location.href='__MODULE__/user/index';
+			}
+		}
+	})
+})
 </script>    
 </body>
 </html>
