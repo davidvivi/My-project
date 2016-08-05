@@ -56,12 +56,11 @@ class CartController extends CommonController {
 	   $map['goods_id'] = I('post.id');
 	   $map['user_id'] = $_SESSION['user']['id'];
 	   $map['goods_num'] = I('post.num');
-	   
-	   $data = M('goods')->field('goodname,price')->where('id='.$goods_id)->select();
-	   $map['goods_name']->$data[0]['goodname'];
-	   $map['goods_price']->$data[0]['price'];
+	   $goods_id = I('post.id');
+	   $data = M('goods')->field('goodname,price')->where("id='{$goods_id}'")->select();
+       $map['goods_name'] = $data[0]['goodname'];
+	   $map['goods_price'] = $data[0]['price'];
 	   $map['addtime'] = time();
-	   
 	   M('cart')->add($map);
 	   $this->ajaxReturn('1');
    }
