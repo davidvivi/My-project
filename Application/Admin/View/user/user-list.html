@@ -29,12 +29,13 @@
 	</div>
     <div id="div1">
     <div id="div2">
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span> <span class="r">共有数据：<strong><span id="num" >{$count}</span></strong> 条</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20">
+        <span class="r">共有数据：<strong><span id="num" >{$count}</span></strong> 条</span> 
+    </div>
 	<div class="mt-20"  class="pd-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
 			<tr class="text-c">
-				<th width="25"><input type="checkbox" name="" value=""></th>
 				<th width="35">ID</th>
 				<th width="65">用户名</th>
                 <th width="80">会员等级</th>
@@ -51,7 +52,6 @@
 		<tbody>
             <foreach name="userdata" item="val">
     			<tr class="text-c">
-    				<td><input type="checkbox" value="1" name=""></td>
     				<td>{$val.id}</td>
     				<td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">{$val.username}</u></td>
                     <td>{$val.grade}</td>
