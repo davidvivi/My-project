@@ -20,7 +20,7 @@ class OrderController extends CommonController {
         $orderlist = M('order')->field('orderid,uid,numid,buy,written,emailno,consignee,address,tel,orderstatus,addtime,paystatus,payment,shipping')->select();
         //dump($orderlist);
         $count = M('order')->count(); //查询总条数
-        $Page = new \Think\Page($count,1);  
+        $Page = new \Think\Page($count,5);  
         $show = $Page->show();
         $orderlist = $order->limit($Page->firstRow.','.$Page->listRows)->order('addtime desc')->select();
 
@@ -65,6 +65,12 @@ class OrderController extends CommonController {
         $uid = $order['uid'];
         //查询会员信息
         $user = M('user')->where("id = $uid")->find();
+
+        //查询商品信息
+        $goods = M('orderdetail')->where('oid='.$orderid)->select();
+        dump($goods);
+
+        $this->assign('goods',$goods);
         $this->assign('user',$user);
         $this->assign('order',$order);
 
@@ -115,11 +121,11 @@ class OrderController extends CommonController {
 
         //dump($a);
         //exit;
-        //$b = M('orderdetail')->where("orderid = $orderid")->delete();
+        $b = M('orderdetail')->where('oid='.$orderid)->delete();
         //$a = 1;
         //$b = 1;
 
-        if($a){   
+        if($a && $b){   
             //echo $_SERVER['HTTP_REFERER'];
             $this->success('删除订单成功',U('index'),3);
             //redirect(U('order/index'));
