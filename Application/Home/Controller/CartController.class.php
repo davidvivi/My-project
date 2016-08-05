@@ -26,13 +26,14 @@ class CartController extends CommonController {
 				break;
 	   }
 	   
-	   $list = M('cart')->where('user_id='.$id)->field('goods_name,goods_price,goods_num,goods_id')->select();
+	   $list = M('cart')->where('user_id='.$id)->field('goods_name,goods_price,goods_num,goods_id,addtime')->select();
 	
 	   $count = count($list);
 	   for($i=0;$i<$count;$i++){
 		   $gid = $list[$i]['goods_id'];
 		   $data = M('goods_pic')->where('gid='.$gid)->field('picname')->limit(1)->find();
 		   $d = M('goods')->where('id='.$gid)->field('store')->find();
+		   $list[$i]['addtime'] = date('Y-m-d',$list[$i]['addtime']);
 		   $list[$i]['store'] = $d['store'];
 		   $list[$i]['picname'] = $data['picname'];
 	   }
@@ -121,7 +122,7 @@ class CartController extends CommonController {
         
         $address_id = I("address_id"); //  收货地址id
         $shipping_code =  I("shipping_code"); //  物流种类       
-        $invoice_title = I('invoice_title'); // 发票
+        $invoice = I('invoice_title'); // 留言
         $pay_points =  I("pay_points",0); //  使用积分
         $user_money =  I("user_money",0); //  使用余额  
 		$total= I('total');
@@ -133,10 +134,11 @@ class CartController extends CommonController {
 		$order_goods = M('cart')->where("user_id =".$_SESSION['user']['id'])->select();
 		//dump($order_goods);
 		//添加订单
-		function addOrder($user_id,$address_id,$shipping_code,$car_price,$total)
+		function addOrder($user_id,$address_id,$shipping_code,$car_price,$total,$invoice)
 		{
 			
 			 // 0插入订单 order
+			 //Global $invoice;
 			$address = M('address')->where("id =".$address_id)->find();
 			$data = array(
 					'numid'         => date('YmdHis').rand(1000,9999), // 订单编号
@@ -147,7 +149,7 @@ class CartController extends CommonController {
 					'emailno'          =>$address['postcode'],//'邮编',            
 					'shipping'    =>$shipping_code, //'物流名称',                                       
 					'buy'     =>$total,// 订单总额
-					'written'         =>'',
+					'written'         =>$invoice,
 					'addtime'         =>time(), // 下单时间                
 			);
 			//dump($data);
@@ -166,6 +168,7 @@ class CartController extends CommonController {
 			   $data2['gid']          = $val['goods_id']; // 商品id
 			   $data2['uid']          = $_SESSION['user']['id'];
 			   $data2['num']          = $val['goods_num']; // 购买数量
+			   $data2['goodsname']   = $val['goods_name'];
 			   $pic = M('goods_pic')->where("gid =".$val['goods_id'])->find();
 			   $data2['pic']          = $pic['picname'];
 			   $data2['guige']        = '';
@@ -190,7 +193,7 @@ class CartController extends CommonController {
         if($_POST['act'] == 'submit_order')
         {      
 		
-            $result = addOrder($this->user_id,$address_id,$shipping_code,$car_price,$total); // 添加订单                        
+            $result = addOrder($this->user_id,$address_id,$shipping_code,$car_price,$total,$invoice); // 添加订单                        
             exit(json_encode($result));            
         }           
     }
