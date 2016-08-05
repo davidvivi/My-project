@@ -148,11 +148,11 @@
 <script src="__PUBLIC__/Home/js/pc_common.js"></script>
 
 <script src="__PUBLIC__/Home/js/jquery.jqzoom.js"></script>
-<script src="__PUBLIC__/Home/js/layer.js"></script><!--弹窗js 参考文档 http://layer.layui.com/-->
+
 	<div class="layout">
     	<div class="breadcrumb-area">
         	<a href="__MODULE__/index/index">首页</a> &gt;&gt;
-            <a href="#">乐器、家居、家电、数码、男装</a> &gt;&gt;<a href="#">{$GoodsDetail.typename}</a> &gt;&gt;<span>{$GoodsDetail.goodname}</span>
+            <a href="#">乐器、家居、家电、数码、女装</a> &gt;&gt;<a href="#">{$GoodsDetail.keyword}</a> &gt;&gt;<span>{$GoodsDetail.goodname}</span>
         </div>
         <div class="layout pa-to-10">            
             <!--商品图片轮播-->            
@@ -236,11 +236,7 @@
                               <tr>
                                 <td align="right" width="60px">服&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;务：</td>
                                 <td><p class="ma-le-6">由QAQ商城负责发货</p></td>
-                                <td>
-                               
-                                <script type="text/javascript" src="__PUBLIC__/Home/js/jia.js" charset="utf-8"></script><script type="text/javascript" src="__PUBLIC__/Home/js/plugin.client.js" charset="utf-8"></script>
-                                <!-- JiaThis Button END 分享商品链接-->
-                                </td>
+                                
                               </tr>
                             </tbody></table>
                         </div>
@@ -274,7 +270,7 @@
                                                 <!-- 购买数量end -->
                                                 <!-- 立即购买 -->
 
-                        <div class="join-a-shopping-cart ma-le-210 fl">
+                        <div class="join-a-shopping-cart ma-le-210 fl" style="position:relative;;bottom:-55px;left: -157px; "">
                             <button type=""submit class="jrgwc-shopping-img2" id="loginsumbit">
                                 <span style="margin:0px 0px 0px -55px">加入购物车</span>
                             </a>
@@ -463,6 +459,9 @@
                             </div>
                         </div>
                         <!--------用户评价-start------------>
+                        <if condition="$count eq 0">
+                            暂无评论，请继续浏览商品。
+                        <else />
                         <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css" type="text/css">
                         <foreach name="assess" item="val">
                         <div class="evaluation-bott pa-to-25 cliks-bn" style="display: block;" id="ajax_comment_return">
@@ -506,43 +505,11 @@
                         </div>
                     </div>
                 </foreach>
+                </if>
                 </div>
-<script>
-    // 点击分页触发的事件
-    $("#ajax_comment_return .pagination  a").click(function(){
-        cur_page = $(this).data('p');
-        ajaxComment(commentType,cur_page);
-    });
-</script>
+
         </div>
-                <script>
-                    $(document).ready(function(){
-                         commentType = 1; // 评论类型
-                        ajaxComment(1,1);// ajax 加载评价列表
-                          });
-        
-        // 好评差评 切换
-          $(".eval-cen-le a").click(function(){
-                $(".eval-cen-le li").removeClass('curres'); 
-                $(this).parent().addClass('curres');    
-                commentType = $(this).data('t');// 评价类型   好评 中评  差评
-                ajaxComment(commentType,1);
-                    });
-                                                    
-                           // 用ajax分页显示评论
-                          function ajaxComment(commentType,page){
-                                  $.ajax({
-                                      type : "GET",
-                                      url:"/php?m=Home&c=Goods&a=ajaxComment&goods_id=49&commentTcommentType+"&p="+page,//+tab,"
-                                      success: function(data){
-                                          $("#ajax_comment_return").html('');
-                                          $("#ajax_comment_return").append(data);
-                                      }
-                                  });
-                              } 
-                            </script>   
-                        <!--------用户评价-end---------------->
-                </div>
+                           </div>
             </div>       
             
 <script>
@@ -563,12 +530,12 @@ $().ready(function(){
                         //购物车传过来的
                         success:function(data){
 
-                            alert("加入成功");
+                            alert("加入成功，请去购物车付款");
                             
                             //console.log(msg);
                         },
                         error:function(xhr){
-                            alert("出错");
+                            alert("请登录");
                         }
                     });
                     return false; // 阻止表单自动提交事件
@@ -611,7 +578,7 @@ $().ready(function(){
                         });
                         
                         //-------------放大镜结束-------------------------
-//---------放大镜结束-------------------------
+
 
 $(document).ready(function(){	
 	// 更新商品价格
@@ -670,20 +637,10 @@ function sortNumber(a,b)
 		$("input[name^='goods_spec']:checked").each(function(){
 			 goods_spec_arr.push($(this).val());
 		});    
-		var spec_key = goods_spec_arr.sort(sortNumber).join('_');  //排序后组合成 key			
-		goods_price = spec_goods_price[spec_key]['price']; // 找到对应规格的价格		
-		store_count = spec_goods_price[spec_key]['store_count']; // 找到对应规格的库存
+		
 	}
 	
-	var goods_num = parseInt($("#goods_num").val()); 
-	// 库存不足的情况
-	if(goods_num > store_count)
-	{
-	   goods_num = store_count;	   
-	   layer.msg('库存仅剩 '+store_count+' 件', {icon: 2}); //alert('库存仅剩 '+store_count+' 件');
-	   $("#goods_num").val(goods_num);
-	}	
-	$("#goods_price").html(goods_price * goods_num); // 变动价格显示
+	
  }
   
 /**

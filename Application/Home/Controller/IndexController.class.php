@@ -48,6 +48,29 @@ class IndexController extends Controller {
 				$data = M('goods_pic')->where('gid='.$gid)->field('picname')->limit(1)->find();
 				$hot[$key]['picname'] = $data['picname'];		
 			}
+		
+		//首页人气推荐商品 遍历		
+			$loved = M('goods')->field('id,goodname,addtime')->order('view desc')->limit(4)->select();		
+			
+			foreach($loved as $key =>$val){			
+				$gid = $val['id'];			
+				$loved[$key]['addtime'] = date('Y-m-d',$val['addtime']);			
+				$data = M('goods_pic')->where('gid='.$gid)->field('picname')->limit(1)->find();
+				$loved[$key]['picname'] = $data['picname'];		
+			}
+		
+		//首页手机遍历
+		$a = '2,4,';
+		$map['typeid'] = array('like',"{$a}%");
+		$map['state'] = '1';
+		$phone = M('goods')->where($map)->field('id,goodname,addtime')->limit(8)->select();
+		foreach($phone as $key =>$val){			
+				$gid = $val['id'];			
+				$phone[$key]['addtime'] = date('Y-m-d',$val['addtime']);			
+				$data1= M('goods_pic')->where('gid='.$gid)->field('picname')->limit(1)->find();
+				$phone[$key]['picname'] = $data1['picname'];		
+			}
+		
 		if($_SESSION['user']){
 				
 			
@@ -56,7 +79,9 @@ class IndexController extends Controller {
 			$count = 0;
 		}
 		$this->assign('count',$count);
-		$this->assign('hot',$hot);        
+		$this->assign('hot',$hot);
+		$this->assign('phone',$phone);
+		$this->assign('loved',$loved);        
 		$this->assign('imgurl',$imgurl);
         $this->assign('addtime',$addtime);
         $this->assign('link',$link_list);

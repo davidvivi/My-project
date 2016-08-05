@@ -147,7 +147,7 @@
 							</tr>
 							<foreach name="list" item="vo">
 							<tr>
-								<td width="44"><input class="choose" checked="true"  type="checkbox" /></td>
+								<td width="44"><!--<input class="choose" checked="true"  type="checkbox" />--></td>
 								<td width="75"><img src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}" height="70" width="70" alt=""></td>
 								<td>{$vo.goods_name}</td>
 								<td>&yen;{$vo.goods_price}</td>
@@ -157,7 +157,7 @@
 									<div class="act2" gid="{$vo.goods_id}" store="{$vo.store}">+</div>
 								</td>
 								<td>&yen;{$vo['goods_price'] * $vo['goods_num']}</td>
-								<td><a class="del" href="javascript:void(0);">删除</a></td>
+								<td><a gid="{$vo.goods_id}" class="del" href="javascript:void(0);">删除</a></td>
 							</tr>
 							</foreach>
 							
@@ -166,8 +166,9 @@
 							</tr>
 							<tr style="margin-top:20px;height:50px;">
 								<td colspan="4" rowspan="3">
-									<input type="checkbox" checked class="all" ><label>全选</label>
-									<a href="">删除所选商品</a>
+									<!--<input type="checkbox" checked class="all" ><label >全选&nbsp;</label>
+									
+									<a id="adddel" href="javascript:void(0);">删除所选商品</a>-->
 								</td>
 								<td colspan="3" id="total" style="text-align:center;">总计金额：&yen;{$total}</td>
 							</tr>
@@ -192,65 +193,14 @@
 			<div class="recommend">
 				<div><a href=""><font color="red" size="5">为您推荐&nbsp;&gt;&gt;</font></a></div>
 				<div style="height:240px;border:1px solid #ededed;border-top:2px solid #ededed;">
-				<!--
-					
-						<div class="reli">
-							<img src="__PUBLIC__/img/{$vo.pic}" alt="" width="80" height="80"/>
-							<a href="">{$vo.title}</a>
-							<button>加入购物车</button>
+			
+					<foreach name='go' item="vo">
+						<div class="reli" style="font-size:12px;">
+							<img src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}" alt="" width="80" height="80"/>
+							<a href="__MODULE__/Gdetail/index?goodsId={$vo.id}">{$vo.goodname}</a>
+							<button gid="{$vo.id}" class="addcar">加入购物车</button>
 						</div>
-					
-				-->
-					<div class="reli">
-						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
-						<a href="">1111111</a>
-						<button>加入购物车</button>
-					</div>
-					<div class="reli">
-						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
-						<a href="">1111111</a>
-						<button>加入购物车</button>
-					</div>
-					<div class="reli">
-						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
-						<a href="">1111111</a>
-						<button>加入购物车</button>
-					</div>
-					<div class="reli">
-						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
-						<a href="">1111111</a>
-						<button>加入购物车</button>
-					</div>
-					<div class="reli">
-						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
-						<a href="">1111111</a>
-						<button>加入购物车</button>
-					</div>
-					<div class="reli">
-						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
-						<a href="">1111111</a>
-						<button>加入购物车</button>
-					</div>
-					<div class="reli">
-						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
-						<a href="">1111111</a>
-						<button>加入购物车</button>
-					</div>
-					<div class="reli">
-						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
-						<a href="">1111111</a>
-						<button>加入购物车</button>
-					</div>
-					<div class="reli">
-						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
-						<a href="">1111111</a>
-						<button>加入购物车</button>
-					</div>
-					<div class="reli">
-						<img src="__PUBLIC__/img/logo.jpg" alt="" width="80" height="80"/>
-						<a href="">1111111</a>
-						<button>加入购物车</button>
-					</div>
+					</foreach>
 
 				</div>
 			</div>
@@ -264,16 +214,18 @@
 <script>
 $(function(){
 	$('.act1').on('click',function(){
-		act = $('.act1').text();
-		gid = $('.act1').attr('gid');
+		act = $(this).text();
+		gid = $(this).attr('gid');
 		store =parseInt($('.act1').attr('store'));
-		alert(gid);
+		//alert(act);
+		
 		num(act,gid,store);
+		//$('.main').load('__SELF__ .main');
 	});
 	$('.act2').on('click',function(){
-		act = $('.act2').text();
-		gid = $('.act2').attr('gid');
-		store = $('.act2').attr('store');
+		act = $(this).text();
+		gid = $(this).attr('gid');
+		store =parseInt($(this).attr('store'));
 		num(act,gid,store);
 	});
 		function num(act,gid,store){
@@ -282,7 +234,7 @@ $(function(){
 			
 			
 			//减少购买数量
-			if(act == '--'){
+			if(act == '-'){
 				if(no > 1){
 					no --;
 					$.ajax({
@@ -291,7 +243,8 @@ $(function(){
 						data:'&no='+no+'&id='+gid,
 						success:function(data){
 							if(data == '1'){
-								$('#full').load('__SELF__ #full');
+								//$('.main').load('__SELF__ .main');
+								window.location.reload()
 							}
 						}
 					})
@@ -307,8 +260,8 @@ $(function(){
 						url:'__URL__/act',
 						data:'&no='+no+'&id='+gid,
 						success:function(data){
-						
-							$('.full').load('__SELF__ .full');
+							window.location.reload()
+							//$('.full').load('__SELF__ .full');
 						
 						}
 					})
@@ -316,21 +269,44 @@ $(function(){
 			}
 		}
 	$('.all').click(function(){
-			$('.choose').attr('checked','checked');
+			$('.choose').prop('checked',!$('.choose').prop('checked'));
 			
 	});
 	$('.del').click(function(){
-		gid = $('.act2').attr('gid');
+		gid = $(this).attr('gid');
 		$.ajax({
 			type:'post',
 			url:'__URL__/del',
 			data:'gid='+gid,
 			success:function(data){
 				if(data == '1'){	
-					window.location.reload();
+					//$('.main').load('__SELF__ .main');
+					window.location.reload()
 					}
 			}
 		});
+	})
+
+	$('.addcar').click(function(){
+		gid = $(this).attr('gid');
+		$.ajax({
+			type:'post',
+			url:'__URL__/add',
+			data:'id='+gid+'&num=1',
+			success:function(data){
+				//console.log(data)
+				if(data == 1){
+					alert('已添加');
+					$('.main').load('__SELF__ .main');
+				}else if(data == 0){
+					alert('购物车已存在该商品!');
+				}
+			}
+		})
+	})
+	
+	$('#alldel').click(function(){
+		
 	})
  }
 );

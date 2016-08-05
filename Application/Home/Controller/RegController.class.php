@@ -91,7 +91,7 @@ class RegController extends Controller
 
 
     }
-
+    //验证码
     public function verify() {
             $Verify = new \Think\Verify(array(   
             'length' => 4,
@@ -104,7 +104,7 @@ class RegController extends Controller
             ));
             $Verify->entry();
         }
-
+        //验证码判断
         public function check_verify($code){    
         $verify = new \Think\Verify();  
         return $verify->check($code);

@@ -5,6 +5,8 @@
     <title>支付成功</title>
     <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css">
         <link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+                <script src="__PUBLIC__/Home/js/jquery-1.10.2.min.js"></script>
+
     <style type="text/css">
     .zhifu{ 
         height:300px;
@@ -45,11 +47,13 @@
         </ul>
     </div>
     <div>
-            <h2>限时抢购</h2>
-            <div class="hot"  style="border:0;margin:0px 0px 0px 30px">
+            <h2>热销商品</h2>
+            <div class="hot"  style="border:0;margin:10px 0px 130px 30px;">
                 <foreach name="hot" item="vo">
-                    <div class="hotgoods" style="width:150px;height:120px;float:left;border:0;">
+                    <div class="hotgoods" style="width:150px;height:120px;float:left;">
+                    <a href="__MODULE__/Gdetail/index?goodsId={$vo.id}">
                         <img style="width:150px;height:120px;position:relative;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}" />
+                    </a>
                     </div>
                 </foreach>
             </div>
@@ -63,5 +67,6 @@
                 </foreach>
             </ul>
         </div>
+
 </body>
 </html>

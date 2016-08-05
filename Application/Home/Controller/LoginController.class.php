@@ -12,13 +12,15 @@ class LoginController extends Controller
         
 
         $username = I('post.username');
+        //查找id
         $data= M('user')->field('id')->where(array('username'=>$username))->find();
+        
         $id = $data['id'];
-
+        //查找密码
 		$password=M('user')->field('password')->where(array('username'=>$username))->find();
 	    
 
-	   
+	   //密码加盐处理
 		$bool = password_verify(I('post.password'),$password['password']);
 
 
