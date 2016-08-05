@@ -11,6 +11,16 @@ class CartController extends CommonController {
 	   $id = $_SESSION['user']['id'];
 	   $detail = M('user_detail');
 	   
+	   //购物车推荐商品
+	   $go = M('goods')->field('id,goodname,addtime')->order('view desc')->limit(10)->select();
+	   foreach($go as $key =>$val){
+		   $map['gid'] = $val['id'];
+		   $go[$key]['addtime'] = date('Y-m-d',$go[$key]['addtime']);
+		   $aa = M('goods_pic')->field('picname')->where($map)->limit(1)->select();
+		   $go[$key]['picname'] = $aa[0]['picname']; 
+	   }
+	   
+	   
 	   $detail->where('uid='.$id)->field('grade')->find();
 	   switch($detail){
 		   case 1:
@@ -45,7 +55,8 @@ class CartController extends CommonController {
 			$num = $val['goods_num'];
 			$total += $price * $num;
 		}
-	   $this->assign('total',$total);
+	   $this->assign('go',$go);
+   	   $this->assign('total',$total);
 	   $this->assign('zhekou',$zhekou);
 	   $this->assign('count',$count);
 	   $this->assign('list',$list);
@@ -58,6 +69,15 @@ class CartController extends CommonController {
 	   $map['user_id'] = $_SESSION['user']['id'];
 	   $map['goods_num'] = I('post.num');
 	   $goods_id = I('post.id');
+	   $uid = $_SESSION['user']['id'];
+	   //检查购物车中有无相同商品
+	   $arr = M('cart')->where("user_id='{$uid}'")->field('goods_id')->select();
+	   //$this->ajaxReturn($arr);
+	   foreach($arr as $key =>$val){
+		   if(in_array($goods_id,$val)){
+			   $this->ajaxReturn('0');
+		   }
+	   }
 	   $data = M('goods')->field('goodname,price')->where("id='{$goods_id}'")->select();
        $map['goods_name'] = $data[0]['goodname'];
 	   $map['goods_price'] = $data[0]['price'];

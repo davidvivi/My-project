@@ -15,6 +15,8 @@ return array(
 
     //Auth配置
     'AUTH_CONFIG' => array(
+		//'AUTH_ON' => true,
+		 //'AUTH_TYPE' => 1,
       // 用户组数据表名
         'AUTH_GROUP' => 'think_auth_group',
         // 用户-用户组关系表
