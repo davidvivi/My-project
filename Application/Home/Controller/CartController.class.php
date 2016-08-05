@@ -204,6 +204,7 @@ class CartController extends CommonController {
 		$numid = $list['numid'];
 		$total = $list['buy'];
 		$date = date('Y-m-d',time()+24*3600); 
+		$this->assign('oid',$oid);
 		$this->assign('date',$date);
 		$this->assign('numid',$numid);
 		$this->assign('total',$total);
@@ -223,4 +224,15 @@ class CartController extends CommonController {
         $this->assign('address_list', $address_list);
         $this->display('ajax_address');
     }
+	
+	//模拟支付
+	public function pay(){
+		$oid = I('oid');
+		$map['payment'] = I('payment');
+		$map['paystatus'] = '1';
+		$a = M('order')->where('orderid='.$oid)->save($map);
+		if($a){
+			$this->ajaxReturn('1');
+		}
+	} 
 }
