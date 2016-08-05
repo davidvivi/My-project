@@ -129,13 +129,15 @@ class ImgturnController extends CommonController {
         $data['imgurl']=$info['photo']['savename'];
         $data['addtime'] = time();
 
+        $res = M('imgturn')->where('state='.$state)->find();
         if(!$info) {
             // 上传错误提示错误信息        
             $this->error($upload->getError());    
-        }else{
+        }elseif($info && !$res){
             M('imgturn')->add($data);
-            $this->success('上传成功！');
-        
+            $this->success('上传成功！');        
+        }elseif($res){  
+            $this->error('图片状态不能与已有状态重复');
         }
     }
 }
