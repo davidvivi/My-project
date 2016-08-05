@@ -124,7 +124,7 @@
 			<div class="hot" style="border:0;">
 				<foreach name="hot" item="vo">
 					<div class="hotgoods" style="width:300px;height:180px;float:left;border:0;">
-						<img style="width:300px;height:180px;position:relative;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}" />
+						<a href="__MODULE__/Gdetail/index?goodsId={$vo.id}"><img style="width:300px;height:180px;position:relative;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}" />
 					</div>
 				</foreach>
 									

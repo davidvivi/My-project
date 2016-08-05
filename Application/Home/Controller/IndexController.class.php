@@ -38,8 +38,8 @@ class IndexController extends Controller {
         $categorydata = $categoryclass->cateData();
 
         // dump($categorydata);
-		if($_SESSION['user']){
-			//首页热卖推荐商品 遍历		
+		
+		//首页热卖推荐商品 遍历		
 			$hot = M('goods')->field('id,goodname,addtime')->order('buy desc')->limit(4)->select();		
 			
 			foreach($hot as $key =>$val){			
@@ -47,7 +47,9 @@ class IndexController extends Controller {
 				$hot[$key]['addtime'] = date('Y-m-d',$val['addtime']);			
 				$data = M('goods_pic')->where('gid='.$gid)->field('picname')->limit(1)->find();
 				$hot[$key]['picname'] = $data['picname'];		
-			}	
+			}
+		if($_SESSION['user']){
+				
 			
 			$count = count(M('cart')->where('user_id='.$_SESSION['user']['id'])->select());
 		}else{
