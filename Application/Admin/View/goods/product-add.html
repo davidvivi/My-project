@@ -194,24 +194,6 @@ $(function(){
 			}
 		})
 	})
-	/*
-	.next().change(function(){
-		pid = $(this).val();
-		//alert(id);
-		//alert('option.'+id);
-		//$(this).next().find('option.'+id).attr('disabled',false);
-		$.ajax({
-			type:'post',
-			data:'pid='+pid,
-			url:'__URL__/add',
-			success:function(){
-				$('#cate3').load('__SELF__ #cate3');
-			}
-		})
-		
-		
-	})
-	*/
 	
 	//ajax提交
 	$('#upload').click(function(){
@@ -232,7 +214,9 @@ $(function(){
 		})
 	});
 	
-	
+	$('#sub').click(function(){
+		window.parent.location.reload();
+	})
 
 	
 });	

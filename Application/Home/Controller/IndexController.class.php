@@ -38,18 +38,21 @@ class IndexController extends Controller {
         $categorydata = $categoryclass->cateData();
 
         // dump($categorydata);
-		
-		//首页热卖推荐商品 遍历		
-		$hot = M('goods')->field('id,goodname,addtime')->order('buy desc')->limit(4)->select();		
-		
-		foreach($hot as $key =>$val){			
-			$gid = $val['id'];			
-			$hot[$key]['addtime'] = date('Y-m-d',$val['addtime']);			
-			$data = M('goods_pic')->where('gid='.$gid)->field('picname')->limit(1)->find();
-			$hot[$key]['picname'] = $data['picname'];		
-		}	
-		
-		$count = count(M('cart')->where('user_id='.$_SESSION['user']['id'])->select());
+		if($_SESSION['user']){
+			//首页热卖推荐商品 遍历		
+			$hot = M('goods')->field('id,goodname,addtime')->order('buy desc')->limit(4)->select();		
+			
+			foreach($hot as $key =>$val){			
+				$gid = $val['id'];			
+				$hot[$key]['addtime'] = date('Y-m-d',$val['addtime']);			
+				$data = M('goods_pic')->where('gid='.$gid)->field('picname')->limit(1)->find();
+				$hot[$key]['picname'] = $data['picname'];		
+			}	
+			
+			$count = count(M('cart')->where('user_id='.$_SESSION['user']['id'])->select());
+		}else{
+			$count = 0;
+		}
 		$this->assign('count',$count);
 		$this->assign('hot',$hot);        
 		$this->assign('imgurl',$imgurl);

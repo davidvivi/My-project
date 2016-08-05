@@ -133,14 +133,26 @@
 		<div>
 			<h2>限时抢购</h2>
 			<a>更多&gt;&gt;</a>
-			<div class="hot"></div>
+			<div class="hot"  style="border:0;">
+				<foreach name="hot" item="vo">
+					<div class="hotgoods" style="width:300px;height:180px;float:left;border:0;">
+						<img style="width:300px;height:180px;position:relative;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}" />
+					</div>
+				</foreach>
+			</div>
 		</div>
 		<div>
 			<h2>精品推荐</h2>
 			<a>更多&gt;&gt;</a>
-			<div class="hot"></div>
+			<div class="hot"  style="border:0;">
+				<foreach name="hot" item="vo">
+					<div class="hotgoods" style="width:300px;height:180px;float:left;border:0;">
+						<img style="width:300px;height:180px;position:relative;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}" />
+					</div>
+				</foreach>
+			</div>
 		</div>
-		<div class="floor">
+		<div class="floor" style="border:0;">
 			<h2>1F 手机通讯</h2>
 			<ul>
 				<li><a>魅族</a></li>
@@ -148,7 +160,13 @@
 				<li><a>华为</a></li>
 				<li><a>iphone</a></li>
 			</ul>
-			<div class="hot"></div>
+			<div class="hot" style="border:0;">
+				<foreach name="hot" item="vo">
+					<div class="hotgoods" style="width:300px;height:180px;float:left;border:0;">
+						<img style="width:300px;height:180px;position:relative;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}" />
+					</div>
+				</foreach>
+			</div>
 		</div>
 		<div class="floor">
 			<h2>2F 电脑数码</h2>
@@ -158,7 +176,13 @@
 				<li><a>####</a></li>
 				<li><a>####</a></li>
 			</ul>
-			<div class="hot"></div>
+			<div class="hot" style="border:0;">
+				<foreach name="hot" item="vo">
+					<div class="hotgoods" style="width:300px;height:180px;float:left;border:0;">
+						<img style="width:300px;height:180px;position:relative;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}" />
+					</div>
+				</foreach>
+			</div>
 		</div>
 		<div class="floor">
 			<h2>3F 摄影生活</h2>
@@ -168,7 +192,13 @@
 				<li><a>####</a></li>
 				<li><a>####</a></li>
 			</ul>
-			<div class="hot"></div>
+			<div class="hot" style="border:0;">
+				<foreach name="hot" item="vo">
+					<div class="hotgoods" style="width:300px;height:180px;float:left;border:0;">
+						<img style="width:300px;height:180px;position:relative;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}" />
+					</div>
+				</foreach>
+			</div>
 		</div>
 	</block>
 	
