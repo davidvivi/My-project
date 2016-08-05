@@ -88,7 +88,7 @@
                                     -->
                                     
             						<if condition="($list[orderstatus] neq 3) AND ($list[paystatus] eq 0)">
-                                       <a class="btn_pay" href="{:U('/Home/Cart/cart3',array('orderid'=>$list[orderid]))}" target="_blank">立即支付</a>
+                                       <a class="btn_pay" href="{:U('/Home/Cart/cart4',array('order_id'=>$list[orderid]))}" target="_blank">立即支付</a>
                                     </if> 
                                     <!--                           
             						<if condition="$list.receive_btn eq 1">
@@ -108,8 +108,9 @@
                                         </div>
                                     </td>     
                                     
-                                    <if condition="$k eq 1">             
-                                      <td class="td_02"  rowspan="<?php echo count($orderdetail);?>">
+                                    <if condition="$k eq 1"> 
+                                               
+                                      <td class="td_02"  rowspan="<?php echo count($list[goodslist]);?>">
                                         <p><if condition="($list[orderstatus] neq 3) AND ($list[paystatus] eq 0)">待支付<elseif condition="($list[orderstatus] neq 3) AND ($list[paystatus] eq 1)"/>已支付<elseif condition="$list[orderstatus] eq 3"/>已取消</if></p>
                                         <p><a href="{:U('Home/User/order_detail',array('id'=>$list['orderid']))}" class="target_no">订单详情</a></p>
                                       </td>

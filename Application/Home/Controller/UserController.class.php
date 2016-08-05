@@ -258,7 +258,7 @@ class UserController extends CommonController
         $data['address'] = $address;
         $data['sex'] = $sex;
 
-        $res = M('user_detail')->where('uid='.$uid)->save($data);
+        $res = M('userdetail')->where('uid='.$uid)->save($data);
         
         if($res){   
             $this->ajaxReturn('1');
@@ -308,8 +308,11 @@ class UserController extends CommonController
             $orderdetail= M('orderdetail')->where('oid='.$v['orderid'])->select();
             $orderlist[$k]['goodslist']=$orderdetail;
 
+
         }
-        //dump($orderlist);
+        
+        //exit;
+        //dump($orderdetail);
         //exit;
         $this->assign('page',$show);
         $this->assign('orderdetail',$orderdetail);
