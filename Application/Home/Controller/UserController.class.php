@@ -258,7 +258,7 @@ class UserController extends CommonController
         $data['address'] = $address;
         $data['sex'] = $sex;
 
-        $res = M('userdetail')->where('uid='.$uid)->save($data);
+        $res = M('user_detail')->where('uid='.$uid)->save($data);
         
         if($res){   
             $this->ajaxReturn('1');
@@ -333,13 +333,18 @@ class UserController extends CommonController
         $id = I('get.id');
         $map['orderid'] = $id;
         $order_info = M('order')->where($map)->find();
-        //dump($order_info);
+        dump($order_info);
             
         $orderdetail= M('orderdetail')->where('oid='.$order_info['orderid'])->select();
+        //根据orderdetail的gid查询goods表中的添加时间
+        foreach($orderdetail as $key=>$val){    
+            $addtime = M('goods')->where('id='.$val['gid'])->find();
+            $orderdetail[$key]['addtime'] = date('Y-m-d',$addtime['addtime']);
+        }
+
         //dump($orderdetail);
 
-
-        
+        //exit;
         $this->assign('order_info',$order_info);
         $this->assign('orderdetail',$orderdetail);
         $this->display();

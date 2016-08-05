@@ -167,7 +167,7 @@
                                         <elseif condition="$order_info[payment] eq 2"/>支付宝<elseif condition="$order_info[payment] eq 3"/>银联支付</if></div>
                                     </li>
                                     
-                                    <li class="<if condition="$order_info[shipping_time] gt 0">step_start</if>">
+                                    <li class="<if condition="$order_info[orderstatus] eq 1">step_start</if>">
                                         <div class="ui_step_title">卖家发货</div>
                                             <div class="ui_step_bg">
                                                 <div class="step_bg">3</div>
@@ -195,7 +195,9 @@
                             <div class="details_list_tit clearfix">
                                 <ul>
                                     <li class="col_w40">商品名称</li>
+                                    <!--
                                     <li class="col_w15">规格</li>
+                                    -->
                                     <li class="col_w15">价格 / 数量</li>
                                     <li class="col_w15">合计（元）</li>
                                     <li class="tit_05 col_w15">订单状态及操作</li>
@@ -210,18 +212,20 @@
                                     <ol class="clearfix">
                                         <li class="col_w40">
                                             <div class="item_container clearfix">
-                                                <!--
-                                                <a href="{:U('Home/Goods/goodsInfo',array('id'=>$good['goods_id']))}" class="item_img">
-    	                                            <img src="{$good.goods_id}"/>
+                                    
+                                                <a href="{:U('Home/Gdetail/index',array('goodsId'=>$good['gid']))}" class="item_img">
+    	                                            <img src="__PUBLIC__/Uploads/{$good.addtime}/{$good.pic}"/>
                                                 </a>
-                                                -->
+                                            
                                                 
                                                 <div class="item_meta">  
                                                     <a href="{:U('Home/Gdetail/index',array('goodsId'=>$good['gid']))}" class="order_name">{$good.goodsname}</a> 
                                                 </div>
                                             </div>
                                         </li>
+                                        <!--
                                         <li class="col_w15">{$good.spec_key_name}</li>
+                                        -->
                                         <li class="col_w15 num">￥{$good.price}&nbsp;&nbsp; *&nbsp;&nbsp; {$good.num}</li>
                                         <li class="col_w15 num">￥{$good['price'] * $good['num']}</li>
                                         <li class="cont_05 col_w15 num">                        

@@ -64,11 +64,13 @@ class OrderController extends CommonController {
         
         $uid = $order['uid'];
         //查询会员信息
-        $user = M('user')->where("id = $uid")->find();
+        $user = M('user')->where('id='.$uid)->find();
+        //dump($user);
+        //exit;
 
         //查询商品信息
         $goods = M('orderdetail')->where('oid='.$orderid)->select();
-        dump($goods);
+        //dump($goods);
 
         $this->assign('goods',$goods);
         $this->assign('user',$user);
@@ -133,5 +135,63 @@ class OrderController extends CommonController {
             $this->error('订单删除失败');           
         }   
     }
+
+
+    /*
+    *  发货单列表
+    */
+    public function fahuo()
+    {   
+        $order = M('order');
+        $orderstatus = array('新订单','已发货','已收货','无效订单');
+        $paystatus = array('未支付','已支付');
+        $payment = array('货到付款','微信支付','支付宝','银联支付');
+        $shipping = array('顺丰','圆通','申通');
+
+        $orderlist = M('order')->where('orderstatus=0')->select();
+        //dump($orderlist);
+        //exit;
+        $count = M('order')->where('orderstatus=0')->count(); //查询总条数
+        //dump($count);
+        //exit;
+        $Page = new \Think\Page($count,3);  
+        $show = $Page->show();
+        $orderlist = $order->limit($Page->firstRow.','.$Page->listRows)->order('addtime desc')->where('orderstatus=0')->select();
+
+    
+        foreach($orderlist as $k=>$v){  
+            $orderlist[$k]['orderstatus'] = $orderstatus[$orderlist[$k]['orderstatus']];
+            $orderlist[$k]['paystatus'] = $paystatus[$orderlist[$k]['paystatus']];
+            $orderlist[$k]['payment'] = $payment[$orderlist[$k]['payment']];
+            $orderlist[$k]['shipping'] = $shipping[$orderlist[$k]['shipping']];
+            $orderlist[$k]['addtime'] = date('Y-m-d H:i:s',$orderlist[$k]['addtime']);
+        }
+        //dump($orderlist);
+        //exit;
+        $this->assign('page',$show);
+        $this->assign('count', $count);
+        $this->assign('orderlist',$orderlist);
+
+        $this->display('order/fahuo');
+    }
+
+
+    public function send()
+    {   
+        $orderid = I('id');
+
+        $data['orderstatus'] = 1;
+
+        $res = M('order')->where('orderid='.$orderid)->save($data);
+
+        if($res){   
+            $this->ajaxReturn('1');
+        }else{  
+            $this->ajaxReturn('0');
+        }
+
+    }
+
+
 
 }   
