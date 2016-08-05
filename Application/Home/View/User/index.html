@@ -282,15 +282,15 @@
                         <!--为你推荐-->
                             <div id="guessShow" class="slide_box J_slide_box">
                                 <ul class="clearfix">
-                                    <tpshop sql="select * from __PREFIX__goods order by goods_id desc limit 4"  item="v" key="k" >
+                                    <foreach name="goodsdata" item="val">
                                     <li class="heig_tz">
-                                        <a class="items_tit items_tz" href="{:U('Home/Goods/goodsInfo',array('id'=>$v[goods_id]))}">
-                                            <img width="150" height="150" src="{$v.goods_id}">
-                                            <span class="items_tit">{$v[goods_name]}</span>
-                                            <span class="num"><em class="rmb">￥</em>{$v[shop_price]}</span>                             
+                                        <a class="items_tit items_tz" href="{:U('Home/Gdetail/index',array('goodsId'=>$val['id']))}">
+                                            <img width="150" height="150" src="__PUBLIC__/Uploads/{$val[addtime]}/{$val[picname]}">
+                                            <span class="items_tit">{$val[goodname]}</span>
+                                            <span class="num"><em class="rmb">￥</em>{$val[price]}</span>                             
                                         </a>                      
                                     </li>
-                                    </tpshop> 
+                                    </foreach>
                                 </ul>
                             </div>
                             <!--为你推荐 end--> 

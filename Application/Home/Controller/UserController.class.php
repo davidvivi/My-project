@@ -30,6 +30,23 @@ class UserController extends CommonController
         $data=D('user')->field('tel,id,password,addtime')->where("username='$name'")->find();
 
 
+        //遍历推荐商品
+        $goods = M('goods');
+        $goods_pic = M('goods_pic');
+        $goodsdata = $goods->field('id,goodname,price,buy,addtime')->where('state=1')->order('buy desc')->limit(4)->select();  
+        foreach($goodsdata as $key => $val){ 
+            $gid = $val['id'];
+            $picname = $goods_pic->where("gid='{$gid}'")->getField('picname');
+            $goodsdata[$key]['picname'] = $picname;
+            $goodsdata[$key]['saleprice'] = intval($val['price'] / 0.9);
+            // 时间转换
+            $goodsdata[$key]['addtime'] = date('Y-m-d',$goodsdata[$key]['addtime']);
+        }
+        //dump($goodsdata);
+        //exit;
+
+
+        $this->assign('goodsdata',$goodsdata);
         $this->assign('count',$count);
         $this->assign('order',$order);
         $this->assign('uid',$uid);
@@ -39,6 +56,11 @@ class UserController extends CommonController
         $this->display('');        
 
     }
+
+    
+
+
+
 
     /*
      *   退出
