@@ -160,27 +160,21 @@
               <div class="left-area-tb">
                <div class="pro-gallery-img" >
                <!--小图-->
-                <div style="width: 400px; height:400px;" class="zs-big-pic" id="zs-big-pic" rel="gal1" ><img width="480" height="400"  id="sim93503" src="__PUBLIC__/Home/image/GD1.jpg"></div>
+                <div style="width: 400px; height:400px;" class="zs-big-pic" id="zs-big-pic" rel="gal1" ><img width="480" height="400"  id="sim93503" src="__PUBLIC__/Uploads/{$geipic.0}"></div>
                         <!-- 大图 -->
-                        <div style="display: none;width: 400px; height: 400px;overflow:hidden; position:absolute;display:none;left:550px;top:0px;" id="zoom1-big"><img src="__PUBLIC__/Home/image/GD1.jpg"><div style="color: rgb(204, 204, 204); font-size: 10px; font-family: Tahoma; position: absolute; width: 100%; text-align: center; left: 0px; top: 380px;"></div>
+                        <div style="display: none;width: 400px; height: 400px;overflow:hidden; position:absolute;display:none;left:550px;top:0px;" id="zoom1-big"><img src="__PUBLIC__/Uploads/{$geipic.0}"><div style="color: rgb(204, 204, 204); font-size: 10px; font-family: Tahoma; position: absolute; width: 100%; text-align: center; left: 0px; top: 380px;"></div>
                         </div>
+
                         <div class="zs-focus-thumb">
                             <div class="zs-focus-list" id="zs-focus-list">
                                 <ul>
+                                <foreach name="geipic" item="val">
                                     <li id="1" style="cursor: pointer;float:left;padding:0px 10px 0px 0px;" class="" >
-                                       <img width="70" height="70" style="padding: 0px;" src="__PUBLIC__/Home/image/GD1.jpg">
+                                       <img width="70" height="70" style="padding: 0px;" src="__PUBLIC__/Uploads/{$val}">
                                         
-                                    </li>        
-                                    <li class="" id="2" style="cursor: pointer; float:left;padding:0px 10px 0px 0px;">
-                                        <img width="70" height="70" style="padding: 0px;" src="__PUBLIC__/Home/image/GD2.jpg">
-                                        
-                                    </li>        
-                                    <li class="" id="3" style="cursor: pointer; float:left;padding:0px 10px 0px 0px;">
-                                       <img width="70" height="70" style="padding: 0px;" src="oYYBAFbPtG6AZe85AAIE3loCxUE225.jpg">                
-                                    </li>        
-                                    <li class="" id="4" style="cursor: pointer; float:left;padding:0px 10px 0px 0px;">
-                                        <img width="70" height="70" style="padding: 0px;" src="Cg-4WVUokb6IQPdTAAEk0pLkpPwAABVOAJWtiQAASTq246.jpg">           
-                                    </li>        
+                                    </li>
+                                </foreach>
+
                                 </ul>
                             </div>
                         </div>
@@ -261,11 +255,7 @@
                               
                             </tbody></table>
                         </div>
-                        <div class="join-a-shopping-cart fl"><!-- location.href='/index.php/Home/Cart/cart.html-->
-                        <form action="__MODULE__/Order/confirmOrder" method="post" name="nowBuySubmit" id="nowBuySubmit">
-                                        <input type="hidden" name="goodname" id="goodname" value="{$GoodsDetail.goodsname}">
-                                        <input type="hidden" name="goodId" id="goodId" value="{$GoodsDetail.id}"> 
-                                        <input type="hidden" name="goodPrice" id="goodPrice" value="{$GoodsDetail.price}">                  <!-- 购买数量 -->
+                                        <!-- 购买数量 -->
                                                 <tr>
                                                     <td align="right" width="60px" margin="0px 0px 10px 0px">购买数量：</td>
                                                 <td>
@@ -284,12 +274,6 @@
                                                 <!-- 购买数量end -->
                                                 <!-- 立即购买 -->
 
-                                <button class="jrgwc-shopping-img jrgwc-shopping-img2"type="submit">立即购买</button>
-                                                <!-- 立即购买end -->
-                                            </form>
-
-                            
-                        </div>
                         <div class="join-a-shopping-cart ma-le-210 fl">
                             <button type=""submit class="jrgwc-shopping-img2" id="loginsumbit">
                                 <span style="margin:0px 0px 0px -55px">加入购物车</span>
@@ -359,13 +343,9 @@
                     <div class="commodity-num pro-feature-area">                        
                         <div class="pro-disclaimer-area ma-to-20">
                             <p>
-                                <img src="__PUBLIC__/Home/image/569600f51fcb8.jpg" style="float: none;" title="428_428_1000x1000.jpg">
-                            </p>
-                            <p>
-                                <img src="__PUBLIC__/Home/image/569600f53946c.jpg" style="float: none;" title="428_428_1445240615061.jpg">
-                            </p>
-                            <p>
-                                <img src="__PUBLIC__/Home/image/569600f548057.jpg" style="float: none;" title="800_800_1000x1000.jpg">
+                                <foreach name="geipic" item="val">
+                                <img src="__PUBLIC__/Uploads/{$val}" style="float: none;padding:32px 0px 0px 0px;margin:0px 0px 0px 35px" title="428_428_1000x1000.jpg">
+                                </foreach>
                             </p>
                             <p>
                             <br>
