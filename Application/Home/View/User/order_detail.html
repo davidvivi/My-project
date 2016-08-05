@@ -104,9 +104,12 @@
                                 <if condition="$order_info[paystatus] eq 0"><button class="btn_pay" onClick="cancel_order({$order_info.orderid})">取消订单</button></if>
                                 
                                 <if condition="$order_info[paystatus] eq 0"><button class="btn_pay"  onclick="location.href='{:U('/Home/Cart/cart3',array('orderid'=>$orderinfo[orderid]))}'">立即支付</button></if> 
-                                -->               
-                                
-                                <if condition="$order_info.receive_btn eq 1"><button class="btn_pay"  onClick=" if( confirm('你确定收到货了吗?')) location.href='{:U('Home/User/order_confirm',array('id'=>$order_info['order_id']))}'">收货确认</button></if>    
+                                --> 
+                                <!--              
+                                <a title="删除" href="javascript:;" id="del" class="J_delete target_no" unable-id="{$val.id}" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                                -->
+
+                                <if condition="$order_info.orderstatus eq 1"><button class="btn_pay"  id="confirm" confirm-id="{$order_info['orderid']}">收货确认</button></if>    
                             </li>
                         </ul>
                         
@@ -167,22 +170,22 @@
                                         <elseif condition="$order_info[payment] eq 2"/>支付宝<elseif condition="$order_info[payment] eq 3"/>银联支付</if></div>
                                     </li>
                                     
-                                    <li class="<if condition="$order_info[orderstatus] eq 1">step_start</if>">
+                                    <li class="<if condition="$order_info[sendtime] gt 0">step_start</if>">
                                         <div class="ui_step_title">卖家发货</div>
                                             <div class="ui_step_bg">
                                                 <div class="step_bg">3</div>
                                                 <div class="step_line"></div>
                                             </div>
-                                            <div class="ui_step_time" ><if condition="$order_info[shipping_time] gt 0">{$order_info.shipping_time|date='Y-m-d H:i:s',###}</if></div>
+                                            <div class="ui_step_time" ><if condition="$order_info[sendtime] gt 0">{$order_info.sendtime|date='Y-m-d H:i:s',###}</if></div>
                                     </li>
                   
-                                    <li  class="step_end <if condition="$order_info[confirm_time] gt 0">step_start</if>">
+                                    <li  class="step_end <if condition="$order_info[confirmtime] gt 0">step_start</if>">
                                         <div class="ui_step_title"> 完成 </div>
                                             <div class="ui_step_bg">
                                                 <div class="step_bg">4</div>
                                                 <div class="step_line"></div>
                                             </div>
-                                            <div class="ui_step_time" ><if condition="$order_info[confirm_time] gt 0">{$order_info.confirm_time|date='Y-m-d H:i:s',###}</if></div>
+                                            <div class="ui_step_time" ><if condition="$order_info[confirmtime] gt 0">{$order_info.confirmtime|date='Y-m-d H:i:s',###}</if></div>
                                     </li>
                                 </ul>
                             </div>
@@ -252,6 +255,7 @@
     </div>
 <div style="clear: both;"></div>
 <include file="User/footer" />
+<script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script>
     //取消订单
     function cancel_order(id){
@@ -259,6 +263,30 @@
             return false;
         //location.href = "/index.php?m=Home&c=User&a=cancel_order&id="+id;
     }
+
+    $(function(){
+
+
+    $('#confirm').click(function(){        
+        id = $(this).attr('confirm-id');
+        alert(id);
+        
+        $.get(
+                "__URL__/order_confirm",
+                {id:id},
+                function(data){ 
+                    if(data == 1){ 
+                        alert('已确认!');
+                        window.location.reload();                        
+                    }else{ 
+                        alert('失败！');
+                    }
+                },
+                'json'
+        );
+
+    });
+});
 </script>
 </body>
 </html>

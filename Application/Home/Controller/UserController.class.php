@@ -333,7 +333,7 @@ class UserController extends CommonController
         $id = I('get.id');
         $map['orderid'] = $id;
         $order_info = M('order')->where($map)->find();
-        dump($order_info);
+        //dump($order_info);
             
         $orderdetail= M('orderdetail')->where('oid='.$order_info['orderid'])->select();
         //根据orderdetail的gid查询goods表中的添加时间
@@ -364,7 +364,25 @@ class UserController extends CommonController
         }
     }
 
+    /*
+    *  确认收货
+    */
 
+    public function order_confirm()
+    {   
+        $id = I('id');
+        //dump($id);
+        //exit;
+        $data['orderstatus'] = 2;
+        $data['confirmtime'] = time();
 
+        $res =M('order')->where('orderid='.$id)->save($data);
+        
+        if($res){   
+            $this->ajaxReturn('1');
+        }else{  
+            $this->ajaxReturn('0');
+        }
+    }
 
 }
