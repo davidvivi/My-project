@@ -13,13 +13,16 @@ class GdetailController extends Controller {
        if(!$goodsId){   
             $goodsId = 25;
        }
-
        $detail = new \Home\Model\GdetailModel();
-       
+       //推荐商品
        $goodsdata = $detail->hostShop();
        //商品详细信息
        $GoodsDetail = $detail ->shows($goodsId); 
-       //
+       //友情链接
+       $link = M('link');
+        $datalink['state'] = array('GT',0);
+        $link_list = $link ->field('contents,url')->where($datalink)->select();
+        $this->assign('link',$link_list);
        //dump($GoodsDetail);
        $goodsimg = $this -> geipic($goodsId);
        $assess = $this->assess($goodsId);
@@ -29,7 +32,7 @@ class GdetailController extends Controller {
        $this->assign('goodsdata',$goodsdata);
 	   $this->display();
    }
-
+   //评论
    public function assess($data)
    {    
         $Assess = D('assess');
@@ -45,6 +48,7 @@ class GdetailController extends Controller {
         $data = $assessinfo;
         return $data; 
    }
+   //商品图
    public function geipic($data)
    {    
         $Goodspic = D('goods_pic');

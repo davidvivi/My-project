@@ -704,6 +704,14 @@ function switch_tab(cur,tab)
 <script src="__PUBLIC__/Home/js/jqueryurlget.js"></script><!--获取get参数插件-->
 <script> set_first_leader(); //设置推荐人 </script>
 <include file="public/footer" />
+<div class="weiba">
+            <ul>
+                <li>友情链接：</li>
+                <foreach name="link" item="val">
+                    <li><a href="{$val.url}" target="_blank">{$val.contents}</a></li>
+                </foreach>
+            </ul>
+        </div>
 <!--------footer-开始-------------->
 
 </body>

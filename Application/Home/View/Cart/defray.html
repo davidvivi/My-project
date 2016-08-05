@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>支付成功</title>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css">
+        <link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+    <style type="text/css">
+    .zhifu{ 
+        height:300px;
+        background-color: #F5FFF1;
+        border:1px solid #ABDC97;
+        }
+    .text{  
+        margin:44px 0px 0px 82px;
+        font-size: 20px;
+        color:red;
+    }
+    .text1{  
+        margin:2px 84px 0px ;
+        font-size:12px;
+    }
+    .img{   
+
+        margin:5px -41px -102px;
+    }
+    .aaa li{  
+        padding:2px 0px 0px 0px;
+    }
+    </style>
+</head>
+<body>
+    <include file="public/header" />
+    <div class="zhifu">
+        <img src="__PUBLIC__/Home/image/1.png" class="img">
+        <p class="text">你已成功支付，请等待收货</p>
+        <p class="text1" styel="color:#999999">系统已通知卖家发货，您本次付款受QAQ商城保护，您验货满意并进行“确认收货”操作后，QAQ才会打款给卖家。
+        </p>
+        <span style="margin:0px 0px 0px 83px;color:#ABDC97">------------------------------------------------------------------------------------------------------</span>
+        <ul class="aaa" style="margin:5px 0px 0px 55px;font-size:12px;">
+            <li><a href="__MODULE__/index/index">返回首页继续购买</a>,你是否还有什么东西没买，去看看</li>
+            <li>卖家会收到您已付款的通知，你也可以用电话联系卖家，联系卖家发货</li>
+            <li>预计送达3天后送达</li>
+            <li>亲，您得到QAQ最新推出的<img src="__PUBLIC__/Home/image/2.bmp" style="margin:10px 0px 0px 0px">,如果在购物中遇到问题，你可以根据保障卡内容享受相应的售后服务哦。</li>
+        </ul>
+    </div>
+    <div>
+            <h2>限时抢购</h2>
+            <div class="hot"  style="border:0;margin:0px 0px 0px 30px">
+                <foreach name="hot" item="vo">
+                    <div class="hotgoods" style="width:150px;height:120px;float:left;border:0;">
+                        <img style="width:150px;height:120px;position:relative;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}" />
+                    </div>
+                </foreach>
+            </div>
+        </div>
+    <include file="public/footer" />
+    <div class="weiba">
+            <ul>
+                <li>友情链接：</li>
+                <foreach name="link" item="val">
+                    <li><a href="{$val.url}" target="_blank">{$val.contents}</a></li>
+                </foreach>
+            </ul>
+        </div>
+</body>
+</html>

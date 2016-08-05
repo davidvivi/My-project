@@ -98,7 +98,7 @@ class CategoryModel extends Model
             $where['state'] = 1;
             $count = $goods->where($where)->count();
             
-            $Page = new \Think\Page($count,4);
+            $Page = new \Think\Page($count,8);
             $show = $Page->show();
             // 当是新品和购买量是倒序查询
             if($type != 'addtime' && $type != 'buy'){
@@ -122,7 +122,7 @@ class CategoryModel extends Model
             $where['typeid'] = array('like',"{$path}%");
             $where['state'] = 1;
             $count = $goods->where($where)->count();
-            $Page = new \Think\Page($count,4);
+            $Page = new \Think\Page($count,8);
             $show = $Page->show();
 
             // 当是新品和购买量是倒序查询
@@ -146,7 +146,7 @@ class CategoryModel extends Model
             $where['typeid'] = $path;
             $where['state'] = 1;
             $count = $goods->where($where)->count();
-            $Page = new \Think\Page($count,4);
+            $Page = new \Think\Page($count,8);
             $show = $Page->show();
             // 当是新品和购买量是倒序查询
             if($type != 'addtime' && $type != 'buy'){
@@ -184,7 +184,7 @@ class CategoryModel extends Model
         $map['_complex'] = $data;
         $map['state'] = 1;
         $count = $goods->where($map)->count();
-        $Page = new \Think\Page($count,1);
+        $Page = new \Think\Page($count,8);
         $show = $Page->show();
         $goodscate = $goods->field('id,price,goodname,buy,addtime')->where($map)->limit($Page->firstRow.','.$Page->listRows)->select();
         foreach($goodscate as $key => $val){
