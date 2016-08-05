@@ -202,13 +202,13 @@
         <div class="topbar">
             <div class="topbar_content">
                 <div style="font-size:14px;">
-                    <span><a href="__MODULE__/index/index">商城首页</a></span>
+                    <span><a href="__MODULE__/index/index"><b style="color: #337ab7;">商城首页</b></a></span>
                     <if condition="$name">
-                        <span>Hi~ <a href="">{$name}</a>,欢迎来到QAQ网上商城!</span>
-                        <span><a href="__URL__/logout">退出</a></span>
+                        <span>Hi~ <a href="__MODULE__/User/index"><b style="color: #337ab7;">{$name}</b></a>,欢迎来到QAQ网上商城!</span>
+                        <span><a class="logout" href="javascript:void(0);"><b style="color: #337ab7;">退出</b></a></span>
                     <else />
-                        <span>Hi~欢迎来到QAQ网上商城，请<a href="__URL__/login">登录</a></span>
-                        <span><a href="__URL__/reg">免费注册</a></span>
+                        <span>Hi~欢迎来到QAQ网上商城，请<a href="__MODULE__/login/index"><b style="color: #337ab7;">登录</b></a></span>
+                        <span><a href="__MODULE__/reg/index"><b style="color: #337ab7;">免费注册</b></a></span>
                     </if>
                 </div>
                 <ul>
@@ -625,6 +625,16 @@
                 $('#thirdn').css('display','none');
             }
         });   
+
+        //用户退出重新加载当前页面
+        $('a.logout').click(function(){
+            $.ajax({
+                url:'__MODULE__/index/logout',
+                success:function(data){
+                    window.location.reload();
+                }
+            })
+        })
 
         // 搜索之后无排序
         if(!$('#order_ul').attr('sele')){           

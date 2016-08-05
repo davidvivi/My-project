@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<block name="title">
-            <title>QAQ数码商城首页</title>
+            <title>QAQ在线商城首页</title>
         </block>
         <meta charset="utf-8" />
 
@@ -32,10 +32,10 @@
 						<span><a href="">商城首页</a></span>
 						<if condition="empty($_SESSION['user'])">
 						
-							<span>Hi~欢迎来到QAQ数码商城，请<a href="__URL__/login">登录</a></span>
+							<span>Hi~欢迎来到QAQ在线商城，请<a href="__URL__/login">登录</a></span>
 							<span><a href="__URL__/reg">免费注册</a></span>
 						<else />
-							<span>Hi~<a href="__MODULE__/User/index">{$name}</a>欢迎来到QAQ数码商城!</span>
+							<span>Hi~<a href="__MODULE__/User/index">{$name}</a>欢迎来到QAQ在线商城!</span>
 							<span><a class="logout" href="javascript:void(0);">退出</a></span>
 						</if>
 					</div>
@@ -53,7 +53,7 @@
 				<div class="top_search">
 					<div class="logo">
 						<img src="__PUBLIC__/img/logo.jpg" alt="QAQ商城logo" style="width:180px;height:50px;"/>
-						<span>QAQ在线网上数码商城</span>
+						<span>QAQ在线商城</span>
 					</div>
 					<div>
 						<form action="" method="post">
@@ -208,33 +208,23 @@
 			
 			$('.navnone').css({'display':'block','width':'750px','height':'410px','background':'white'})
 			$('.carousel').css({'display':'none'})
-			$('.gonggao').css({'margin-top':'-410px'});
-			
+			$('.gonggao').css({'margin-top':'-410px'});		
 
 		},function(){
 			$(this).css({'background':'#2D2D2D'}).find('a').css('color','white');
 			$('.navnone').css('display','none')
 			$('.carousel').css({'display':'block'})
 			$('.gonggao').css({'margin-top':'0px'});
-		})
-
-
-		
+		})	
 	);
-
-		
-
-
 		$('.active').hover(function(){
 			
 			$('#catenav').css('display','block')
 			
 		},function(){
 				
-				$('#catenav').css('display','none')
-				
-		});
-		
+				$('#catenav').css('display','none')			
+		});	
 		
 		//用户退出重新加载当前页面
 		$('a.logout').click(function(){
@@ -244,9 +234,8 @@
 					window.location.reload();
 				}
 			})
-		})
-		
-		//侧边导航图标
+		})	
+		// 侧边导航图标
 		$('.order').hover(function(){
 			$(this).css({'opacity':'0.6'});
 		},function(){
