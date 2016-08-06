@@ -132,7 +132,7 @@
                     <foreach name="goods" item="val">
                     <tr>
                         <td class="text-left">{$val.goodsname}</td>
-                        <td class="text-left">是用图片还是。。</td>
+                        <td class="text-left"><img  width="100" height="100" alt="{$val.goodsname}" src="__PUBLIC__/Uploads/{$val.addtime}/{$val.pic}"></td>
                         <td class="text-right">{$val.num}</td>
                         <td class="text-right">{$val.price}</td>
                         <td class="text-right">{$val[num]*$val[price]}</td>
@@ -140,7 +140,7 @@
                     </foreach>
                 <tr>
                     <td colspan="4" class="text-right">总金额:</td>
-                    <td class="text-right">666</td>
+                    <td class="text-right">{$order.buy}</td>
                 </tr>
                 </tbody>
             </table>
