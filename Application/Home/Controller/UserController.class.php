@@ -52,6 +52,7 @@ class UserController extends CommonController
         //dump($goodsdata);
         //exit;
 
+
         $this->assign('pictime',$pictime);
         $this->assign('picdata',$picdata);
         $this->assign('goodsdata',$goodsdata);
@@ -464,4 +465,104 @@ class UserController extends CommonController
         }
     }
 
+
+    public function comment()
+    {   
+        //已经收到货的可以评论，先查到收到货的,状态orderstatus为2的
+        if($_SESSION['user']){
+            $name = $_SESSION['user']['name'];
+            $uid = $_SESSION['user']['id'];            
+        } 
+        $data['uid'] = $uid;
+        $data['orderstatus'] = 2;
+        $count = M('order')->where($data)->count();
+        $Page  = new \Think\Page($count,1);
+
+        $show = $Page->show();
+        $orderlist = M('order')->where($data)->limit($Page->firstRow.','.$Page->listRows)->select();
+
+        //dump($data);
+        //exit;
+        foreach($orderlist as $k=>$v){  
+            $orderdetail = M('orderdetail')->where('oid='.$v['orderid'])->select();
+            foreach($orderdetail as $key=>$val){    
+                $goodsaddtime = M('goods')->where('id='.$val['gid'])->find();
+                //dump($goodsaddtime);
+                $orderdetail[$key]['addtime']=date("Y-m-d",$goodsaddtime['addtime']);
+                //dump($orderdetail);
+            }
+            $orderlist[$k]['goodslist']=$orderdetail;
+
+        }
+
+
+        //dump($orderlist);
+        //exit;
+        $this->assign('page',$show);
+        $this->assign('orderlist',$orderlist);
+        $this->assign('orderdetail',$orderdetail);
+        $this->display();
+    }
+
+    //添加评论
+    public function add_comment()
+    {   
+        $oid = I('get.oid');
+        $uid = I('get.uid');
+        $gid = I('get.gid');
+        $id = I('get.id');
+
+        //dump($oid);
+        //dump($uid);
+        //dump($gid);
+        //$data = M('address')->field('id,uid,address,name,tel,postcode')->where('id='.$id)->find();
+        $this->assign('id',$id);
+        $this->assign('oid',$oid);
+        $this->assign('uid',$uid);
+        $this->assign('gid',$gid);               
+        $this->display('user/add_comment');
+    }
+
+    public function comupload(){
+        $upload = new \Think\Upload();// 实例化上传类    
+        $upload->maxSize = 3145728 ;// 设置附件上传大小    
+        $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型 
+        $upload->rootPath = './Public/';
+        $upload->savePath  = './comUploads/'; // 设置附件上传目录               
+        $info = $upload->upload();
+        $uid = I('uid');
+        $oid = I('oid');
+        $gid = I('gid');
+        $id = I('id');
+        $contents = I('contents');
+        //dump($uid);
+        //dump($oid);
+        //dump($gid);
+        //dump($contents);
+        //dump($info);
+        //exit;
+
+
+        
+        $data['picname']=$info['photo']['savename'];
+        $data['addtime'] = time();
+        $data['uid'] = $uid;
+        $data['goodsid'] = $gid;
+        $data['odid'] = $id;
+        $data['contents'] =$contents;
+        $map['commentstate'] = 1;
+
+        //dump($data);
+        //exit;
+
+
+        if(!$contents) {
+            // 上传错误提示错误信息        
+            $this->error($upload->getError());    
+        }else{
+            M('assess')->add($data);
+            M('orderdetail')->where('id='.$id)->save($map);
+            $this->success('上传成功！');        
+        }
+    }
 }

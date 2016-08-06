@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>评论</title>
+    <meta http-equiv="keywords" content="QAQ商城,笔记本,手机,数码相机,数码影音,DIY硬件" />
+    <meta name="description" content="QAQ商城（QAQ.com）具备在3年内成长为中国最大的3C电子商城之潜力，源于中国IT行业第一垂直媒体（QAQ.com.cn）在IT及互联网行业已臻十年的深厚积累。运营核心，只为了给用户打造一个放心、省心、舒心的购物平台！" />
+    <link href="__PUBLIC__/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/admin/lib/icheck/icheck.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+    <title>添加评论</title>
+</head>
+<body>
+<div class="pd-20">
+    <form action="__URL__/comupload" method="post" class="form form-horizontal" id="form-address-edit" enctype="multipart/form-data">
+        
+        <div class="row cl">
+            <!--
+            <label class="form-label col-3"><span class="c-red">*</span>ID：</label>
+            -->
+            <div class="formControls col-5">
+                <input type="hidden" class="input-text" value="{$uid}" placeholder="" id="uid" name="uid">
+                <input type="hidden" class="input-text" value="{$oid}" placeholder="" id="oid" name="oid">
+                <input type="hidden" class="input-text"  value="{$gid}" placeholder="" id="gid" name="gid">
+                <input type="hidden" class="input-text" value="{$id}" placeholder="" id="id" name="id">
+
+            </div>
+            <div class="col-4"> </div>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-3"><span class="c-red">*</span>评价内容：</label>
+            <div class="formControls col-5">
+                <input type="text" class="input-text" value="" placeholder="请填写对此商品的评价" id="contents" name="contents" datatype="*1-100" nullmsg="请填写评价吧">
+            </div>
+            <div class="col-4"> </div>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-3">
+                <span class="c-red">*</span>图片上传：
+            </label>
+            <div class="formControls col-5">
+               <input type="file" name="photo" >
+            </div>
+            <div class="col-4"> </div>
+        </div>
+
+      
+    <div class="row cl">
+      <div class="col-9 col-offset-3">
+        <input class="btn btn-primary radius" id="up" type="submit" name="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/admin/lib/icheck/jquery.icheck.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/admin/lib/Validform/5.3.2/Validform.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/lib/layer/1.9.3/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.js"></script>
+<script type="text/javascript">
+$(function(){
+   
+    $('.skin-minimal input').iCheck({
+        checkboxClass: 'icheckbox-blue',
+        radioClass: 'iradio-blue',
+        increaseArea: '20%'
+    });
+    
+    $("#form-address-edit").Validform({
+        tiptype:2,
+        callback:function(form){
+            form[0].submit();
+            var index = parent.layer.getFrameIndex(window.name);
+            parent.$('.btn-refresh').click();
+            parent.layer.close(index);
+        }
+    });
+    
+    $("#up").click(function(){ 
+        window.parent.location.reload();
+        $('.pd-20').load('__SELF__ .pd-20');
+    });
+    
+});
+
+</script>
+</body>
+</html>
