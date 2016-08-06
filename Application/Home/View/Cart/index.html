@@ -6,7 +6,9 @@
         <meta charset="utf-8" />	
 		<link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css">
 		<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
+		<link rel="stylesheet" href="__PUBLIC__/Home/css/base.css">
 		<script src="__PUBLIC__/Home/js/jquery-1.10.2.min.js"></script>
+		<script src="__PUBLIC__/home/js/layer/1.9.3/layer.js"></script>
         <script src="__PUBLIC__/home/js/bootstrap.js"></script>
 		
 		<style>
@@ -296,7 +298,7 @@ $(function(){
 			success:function(data){
 				//console.log(data)
 				if(data == 1){
-					alert('已添加');
+					layer.msg('已添加');
 					$('.main').load('__SELF__ .main');
 				}else if(data == 0){
 					alert('购物车已存在该商品!');

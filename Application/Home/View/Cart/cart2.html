@@ -16,7 +16,7 @@
   <div class="container">
     <ul class="fl">
       <li class="fl J_login_status"><a href="__MODULE__/user/index" alt="" title="" target="_self">{$_SESSION['user']['name']}</a>
-      	<a  href="__URL__/logout" style="margin:0 10px;" title="退出" target="_self">退出</a></li>
+      	<a id="logout"  href="__URL__/logout" style="margin:0 10px;" title="退出" target="_self">退出</a></li>
       </li>
             <li class="fl sep"></li>
       <li class="fl select-city dropdown">
@@ -54,7 +54,7 @@
 	    	<div class="layout after">
 	        	<div class="fl">
 	            	<div class="logo pa-to-36 wi345">
-	                	<a href="/"><img src="__PUBLIC__/home/image/newLogo.png" alt=""></a>
+	                	<a href="__MODULE__/index/index"><img src="__PUBLIC__/home/image/newLogo.png" alt=""></a>
 	                </div>
 	            </div>
 	        	<div class="fr">
@@ -441,6 +441,18 @@ function submit_order()
 		}
 	});	
 }
+
+//退出
+$('#logout').click(function(){
+	$.ajax({
+		url:'__URL__/logout',
+		success:function(data){
+			if(data == 1){
+				location.href="__MODULE__/index/index";
+			}
+		}
+	})
+})
 </script>
 </body>
 </html>
