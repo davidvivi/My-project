@@ -36,14 +36,15 @@ class CartController extends CommonController {
 				break;
 	   }
 	   
-	   $list = M('cart')->where('user_id='.$id)->field('goods_name,goods_price,goods_num,goods_id,addtime')->select();
+	   $list = M('cart')->where('user_id='.$id)->field('goods_name,goods_price,goods_num,goods_id')->select();
 	
 	   $count = count($list);
 	   for($i=0;$i<$count;$i++){
 		   $gid = $list[$i]['goods_id'];
 		   $data = M('goods_pic')->where('gid='.$gid)->field('picname')->limit(1)->find();
+		   $time = M('goods')->where('id='.$gid)->field('addtime')->find();
 		   $d = M('goods')->where('id='.$gid)->field('store')->find();
-		   $list[$i]['addtime'] = date('Y-m-d',$list[$i]['addtime']);
+		   $list[$i]['addtime'] = date('Y-m-d',$time['addtime']);
 		   $list[$i]['store'] = $d['store'];
 		   $list[$i]['picname'] = $data['picname'];
 	   }
