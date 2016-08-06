@@ -41,6 +41,7 @@
 				<th width="90">评价等级</th>
 				<th width="250">评价内容</th>
 				<th width="130">评价时间</th>
+                <th width="130">商品ID</th>
 				<th width="100">操作</th>
 			</tr>
 		</thead>
@@ -55,6 +56,7 @@
 				<td>{$val.grade}</td>
 				<td>{$val.contents}</td>
 				<td>{$val.addtime}</td>
+                <td>{$val.goodsid}</td>
 				<td class="td-manage"><a title="删除" href="javascript:;" class="unable-a" unable-id="{$val.id}" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 
 			</tr>
@@ -109,7 +111,7 @@ $(function(){
         id = $(this).attr('unable-id');
         
 
-        $.get("__URL__/linkDelete",{id:id},
+        $.get("__URL__/assessDelete",{id:id},
             function(data){ 
                 if(data == 1){ 
                     alert('删除成功!');

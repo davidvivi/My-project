@@ -65,15 +65,12 @@
         <div class="searchBar">
             <div class="searchBar-form">
                 <form name="sourch_form" id="sourch_form" method="post" action="__MODULE__/category/cateSearch">
-                    <input class="text" name="q" id="q" value="" placeholder="  搜索关键字" type="text">
+                    <input class="text" name="search" id="q" value="" placeholder="  搜索关键字" type="text">
                     <input class="button" value="搜索" onclick="if($.trim($('#q').val()) != '') $('#sourch_form').submit();" type="button"style="margin:-2px -2px 0px -2px">
                     <input name="__hash__" value="68fc823c064073733cc6d659691e2a7a_d85d6db9178fc15fec38e1c25cd9c713" type="hidden">
                 </form>
             </div>
-            <div class="searchBar-hot">
-                <b>热门搜索</b>
-               	<a target="_top" href="http://localhost/index.php/Home/Goods/search/q/%E6%89%8B%E6%9C%BA.html" class="ht">手机</a><a target="_top" href="http://localhost/index.php/Home/Goods/search/q/%E5%B0%8F%E7%B1%B3.html">小米</a><a target="_top" href="http://localhost/index.php/Home/Goods/search/q/iphone.html">iphone</a><a target="_top" href="http://localhost/index.php/Home/Goods/search/q/%E4%B8%89%E6%98%9F.html">三星</a><a target="_top" href="http://localhost/index.php/Home/Goods/search/q/%E5%8D%8E%E4%B8%BA.html">华为</a> 
-           </div>
+            
         </div>
         <!-- 搜索结束-->
         <div>
@@ -270,7 +267,7 @@
                                                 <!-- 购买数量end -->
                                                 <!-- 立即购买 -->
 
-                        <div class="join-a-shopping-cart ma-le-210 fl" style="position:relative;;bottom:-55px;left: -157px; "">
+                        <div class="join-a-shopping-cart ma-le-210 fl" style="position:relative;bottom:-55px;left: -157px; ">
                             <button type=""submit class="jrgwc-shopping-img2" id="loginsumbit">
                                 <span style="margin:0px 0px 0px -55px">加入购物车</span>
                             </a>
