@@ -65,11 +65,35 @@ class IndexController extends Controller {
 		$map['state'] = '1';
 		$phone = M('goods')->where($map)->field('id,goodname,addtime')->limit(8)->select();
 		foreach($phone as $key =>$val){			
-				$gid = $val['id'];			
-				$phone[$key]['addtime'] = date('Y-m-d',$val['addtime']);			
-				$data1= M('goods_pic')->where('gid='.$gid)->field('picname')->limit(1)->find();
-				$phone[$key]['picname'] = $data1['picname'];		
-			}
+			$gid = $val['id'];			
+			$phone[$key]['addtime'] = date('Y-m-d',$val['addtime']);			
+			$data1= M('goods_pic')->where('gid='.$gid)->field('picname')->limit(1)->find();
+			$phone[$key]['picname'] = $data1['picname'];		
+		}
+		
+		//首页电脑遍历
+		$a = '2,5,';
+		$map['typeid'] = array('like',"{$a}%");
+		$map['state'] = '1';
+		$pc = M('goods')->where($map)->field('id,goodname,addtime')->limit(8)->select();
+		foreach($pc as $key =>$val){			
+			$gid = $val['id'];			
+			$pc[$key]['addtime'] = date('Y-m-d',$val['addtime']);			
+			$data1= M('goods_pic')->where('gid='.$gid)->field('picname')->limit(1)->find();
+			$pc[$key]['picname'] = $data1['picname'];		
+		}
+		
+		//首页服装遍历
+		$a = '1,68,';
+		$map['typeid'] = array('like',"{$a}%");
+		$map['state'] = '1';
+		$clo = M('goods')->where($map)->field('id,goodname,addtime')->limit(8)->select();
+		foreach($clo as $key =>$val){			
+			$gid = $val['id'];			
+			$clo[$key]['addtime'] = date('Y-m-d',$val['addtime']);			
+			$data1= M('goods_pic')->where('gid='.$gid)->field('picname')->limit(1)->find();
+			$clo[$key]['picname'] = $data1['picname'];		
+		}
 		
 		if($_SESSION['user']){
 				
@@ -80,6 +104,8 @@ class IndexController extends Controller {
 		}
 		$this->assign('count',$count);
 		$this->assign('hot',$hot);
+		$this->assign('pc',$pc);
+		$this->assign('clo',$clo);
 		$this->assign('phone',$phone);
 		$this->assign('loved',$loved);        
 		$this->assign('imgurl',$imgurl);

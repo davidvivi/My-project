@@ -154,82 +154,59 @@
 			</div>
 		</div>
 	
+		<h2>1F 手机通讯</h2>		
 		<div class="floor" style="border:0;">
-			<h2>1F 手机通讯</h2>
-			<ul class="ulul">
-				<li><a>魅族</a></li>
-				<li><a>小米</a></li>
-				<li><a>华为</a></li>
-				<li><a>iphone</a></li>
-			</ul>
+			<div style="width:400px;height:400px;float:left;">
+				<img style="width:400px;height:400px;" src="__PUBLIC__/img/ChMkJ1efFlyIHyYjAADqpLRLtTYAAUDoQPMCbwAAOq8809.jpg">
+			</div>
+			<div class="floorshow" style="width:800px;height:200px;float:left;">
+				<foreach name="phone" item="vo">
+					<div style="width:200px;height:200px;float:left;border:1px solid #ededed;text-align:center;padding-top:20px;">
+						<a href="__MODULE__/Gdetail/index?goodsId={$vo.id}">{$vo.goodname}</a>
+						<img style="display:block;width:120px;height:120px;position:relative;left:35px;top:30px;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}">
+					</div>
+				</foreach>
+			</div>
+		</div>
+		<img style="margin-bottom:20px;" src="__PUBLIC__/img/hr.jpg">
+		
+		<h2>2F 电脑数码</h2>
+		<div class="floor">
+			<div style="width:400px;height:400px;float:left;">
+				<img style="width:400px;height:400px;" src="__PUBLIC__/img/ChMkJ1eF1_uIIPDaAAF1JU3ZuRcAATeHwCDDvUAAXU9577.png">
+			</div>
+			<div class="floorshow" style="width:800px;height:200px;float:left;">
+				<foreach name="pc" item="vo">
+					<div style="width:200px;height:200px;float:left;border:1px solid #ededed;text-align:center;padding-top:20px;">
+						<a href="__MODULE__/Gdetail/index?goodsId={$vo.id}">{$vo.goodname}</a>
+						<img style="display:block;width:120px;height:120px;position:relative;left:35px;top:30px;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}">
+					</div>
+				</foreach>
+			</div>
+		</div>
+		<img style="margin-bottom:20px;" src="__PUBLIC__/img/hr.jpg">
+		
+		<h2>3F 服装</h2>
+		<div class="floor">	
 			<div class="floor" style="border:0;">
-				<div style="width:400px;height:400px;float:left;">
-					<img style="width:400px;height:400px;" src="__PUBLIC__/img/ChMkJ1efFlyIHyYjAADqpLRLtTYAAUDoQPMCbwAAOq8809.jpg">
-				</div>
+				<div style="width:400px;height:400px;border:1px solid red;float:left;"></div>
 				<div class="floorshow" style="width:800px;height:200px;float:left;">
-					<foreach name="phone" item="vo">
+					<foreach name="clo" item="vo">
 						<div style="width:200px;height:200px;float:left;border:1px solid #ededed;text-align:center;padding-top:20px;">
 							<a href="__MODULE__/Gdetail/index?goodsId={$vo.id}">{$vo.goodname}</a>
-							<img style="display:block;width:120px;height:120px;position:relative;left:35px;top:30px;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}">
+							<img style="display:block;width:120px;height:120px;position:relative;left:35px;top:12px;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}">
 						</div>
 					</foreach>
 				</div>
 			</div>
 		</div>
 		<img style="margin-bottom:20px;" src="__PUBLIC__/img/hr.jpg">
-		<div class="floor">
-			<h2>2F 电脑数码</h2>
-			<ul>
-				<li><a>####</a></li>
-				<li><a>#####</a></li>
-				<li><a>####</a></li>
-				<li><a>####</a></li>
-			</ul>
+		
+		<h2>4F 摄影生活</h2>
+		<div class="floor">	
 			<div class="floor" style="border:0;">
 				<div style="width:400px;height:400px;border:1px solid red;float:left;"></div>
-				<div class="floorshow" style="float:left;">
-					<foreach name="phone" item="vo">
-						<div style="width:200px;height:200px;float:left;border:1px solid #ededed;text-align:center;padding-top:20px;">
-							<a href="__MODULE__/Gdetail/index?goodsId={$vo.id}">{$vo.goodname}</a>
-							<img style="display:block;width:120px;height:120px;position:relative;left:35px;top:30px;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}">
-						</div>
-					</foreach>
-				</div>
-			</div>
-		</div>
-		<img style="margin-bottom:20px;" src="__PUBLIC__/img/hr.jpg">
-		<div class="floor">
-			<h2>3F 服装</h2>
-			<ul>
-				<li><a>####</a></li>
-				<li><a>#####</a></li>
-				<li><a>####</a></li>
-				<li><a>####</a></li>
-			</ul>
-			<div class="floor" style="border:0;">
-				<div style="width:400px;height:400px;border:1px solid red;float:left;"></div>
-				<div class="floorshow" style="float:left;">
-					<foreach name="phone" item="vo">
-						<div style="width:200px;height:200px;float:left;border:1px solid #ededed;text-align:center;padding-top:20px;">
-							<a href="__MODULE__/Gdetail/index?goodsId={$vo.id}">{$vo.goodname}</a>
-							<img style="display:block;width:120px;height:120px;position:relative;left:35px;top:30px;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}">
-						</div>
-					</foreach>
-				</div>
-			</div>
-		</div>
-		<img style="margin-bottom:20px;" src="__PUBLIC__/img/hr.jpg">
-		<div class="floor">
-			<h2>4F 摄影生活</h2>
-			<ul>
-				<li><a>####</a></li>
-				<li><a>#####</a></li>
-				<li><a>####</a></li>
-				<li><a>####</a></li>
-			</ul>
-			<div class="floor" style="border:0;">
-				<div style="width:400px;height:400px;border:1px solid red;float:left;"></div>
-				<div class="floorshow" style="float:left;">
+				<div class="floorshow" style="width:800px;height:200px;float:left;">
 					<foreach name="phone" item="vo">
 						<div style="width:200px;height:200px;float:left;border:1px solid #ededed;text-align:center;padding-top:20px;">
 							<a href="__MODULE__/Gdetail/index?goodsId={$vo.id}">{$vo.goodname}</a>

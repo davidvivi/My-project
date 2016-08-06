@@ -17,7 +17,7 @@
   <div class="container">
     <ul class="fl">
       <li class="fl J_login_status"><a href="__MODULE__/user/index" alt="" title="" target="_self">{$_SESSION['user']['name']}</a>
-      	<a  href="__MODULE__/cart/logout" style="margin:0 10px;" title="退出" target="_self">退出</a></li>
+      	<a id="logout" href="javascript:void(0);" style="margin:0 10px;" title="退出" target="_self">退出</a></li>
       </li>
             <li class="fl sep"></li>
     </ul>
@@ -226,7 +226,22 @@ $('#pay').click(function(){
 		success:function(data){
 			if(data == 1){
 				alert('支付成功!');
-				location.href='__MODULE__/user/index';
+				location.href='__MODULE__/Defray/index';
+			}
+		}
+	})
+})
+
+$('#logout').click(function(){
+	$.ajax({
+		url:'__URL__/logout',
+		success:function(data){
+			if(data == 1){
+				//alert('支付成功!');
+				//confirm('确认退出？',function(){
+				location.href='__MODULE__/index/index';
+				//})
+				
 			}
 		}
 	})
