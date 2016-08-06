@@ -16,7 +16,7 @@
 
             $show = $Page->show();
 
-            $list = $Assess->field('id,uid,odid,grade,contents,addtime')->limit($Page->firstRow.','.$Page->listRows)->select();
+            $list = $Assess->field('id,uid,odid,grade,contents,addtime,goodsid')->limit($Page->firstRow.','.$Page->listRows)->select();
             //dump($list);
             //dump($count);
             $this->assign('list',$list);// 赋值数据集
@@ -26,7 +26,7 @@
 		
         }
 
-        public function linkDelete()
+        public function assessDelete()
     { 
         $id = I('id');
         $assess = M('assess');

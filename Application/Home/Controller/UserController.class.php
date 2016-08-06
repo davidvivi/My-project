@@ -13,8 +13,15 @@ class UserController extends CommonController
             $name = $_SESSION['user']['name'];
             $uid = $_SESSION['user']['id'];            
         }    
+        //查询头像
+        $picdata = M('user_detail')->where('uid='.$uid)->find();
+        $pictime = $picdata['picaddtime'];
+        $picdata['picaddtime'] = date('Y-m-d',$picdata['picaddtime']);
+        //dump($picdata);
+        //exit;
+
         //查询首页的订单部分
-        $order = M('order')->order('orderid desc')->where('uid='.$uid)->select();
+        $order = M('order')->order('orderid desc')->where('uid='.$uid)->limit(6)->select();
         
         //dump($order);
         $count=count($order);
@@ -45,7 +52,8 @@ class UserController extends CommonController
         //dump($goodsdata);
         //exit;
 
-
+        $this->assign('pictime',$pictime);
+        $this->assign('picdata',$picdata);
         $this->assign('goodsdata',$goodsdata);
         $this->assign('count',$count);
         $this->assign('order',$order);
@@ -244,6 +252,14 @@ class UserController extends CommonController
             $name = $_SESSION['user']['name'];
             $uid = $_SESSION['user']['id'];
         }    
+        //查询图片
+        $picdata = M('user_detail')->where('uid='.$uid)->find();
+        $pictime = $picdata['picaddtime'];
+
+        $picdata['picaddtime'] = date('Y-m-d',$picdata['picaddtime']);
+        //dump($pictime);
+        //dump($picdata);
+        //exit;
         
         //根据用户名查到等级
         $list=D('user_detail')->field('grade')->where("name='$name'")->find();
@@ -260,7 +276,8 @@ class UserController extends CommonController
         //dump($grade);
         //dump($data);
         //exit;
-        
+        $this->assign('pictime',$pictime);
+        $this->assign('picdata',$picdata);
         $this->assign('detail',$detail);
         $this->assign('dengji',$dengji);
         $this->assign('list',$list);
@@ -290,6 +307,46 @@ class UserController extends CommonController
 
     }  
 
+    public function avatar()
+    {   
+        if($_SESSION['user']){
+            $name = $_SESSION['user']['name'];
+            $uid = $_SESSION['user']['id'];
+        }
+        //dump($uid);
+        $picdata = M('user_detail')->where('uid='.$uid)->find();
+        $pictime = $picdata['picaddtime'];
+        $picdata['picaddtime'] = date('Y-m-d',$picdata['picaddtime']);
+        //dump($picdata);
+        //exit;
+        $this->assign('pictime',$pictime);
+        $this->assign('picdata',$picdata);
+        $this->assign('uid',$uid);
+        $this->display();
+    }
+
+    public function upload(){
+        $upload = new \Think\Upload();// 实例化上传类    
+        $upload->maxSize = 3145728 ;// 设置附件上传大小    
+        $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型 
+        $upload->rootPath = './Public/';
+        $upload->savePath  = './userpicUploads/'; // 设置附件上传目录               
+        $info = $upload->upload();
+        $uid = I('uid');
+
+        
+        $data['pic']=$info['photo']['savename'];
+        $data['picaddtime'] = time();
+
+
+        if(!$info) {
+            // 上传错误提示错误信息        
+            $this->error($upload->getError());    
+        }else{
+            M('user_detail')->where('uid='.$uid)->save($data);
+            $this->success('上传成功！');        
+        }
+    }
 
     /**
         我的订单列表

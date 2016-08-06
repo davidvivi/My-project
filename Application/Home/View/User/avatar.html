@@ -5,7 +5,11 @@
     <title>个人信息</title>
     <meta http-equiv="keywords" content="QAQ商城,笔记本,手机,数码相机,数码影音,DIY硬件" />
     <meta name="description" content="QAQ商城（QAQ.com）具备在3年内成长为中国最大的3C电子商城之潜力，源于中国IT行业第一垂直媒体（QAQ.com.cn）在IT及互联网行业已臻十年的深厚积累。运营核心，只为了给用户打造一个放心、省心、舒心的购物平台！" />
-    <link href="__PUBLIC__/Home/css/personal.css" rel="stylesheet" type="text/css" />  
+    <link href="__PUBLIC__/Home/css/personal.css" rel="stylesheet" type="text/css" /> 
+    <link href="__PUBLIC__/admin/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/admin/lib/icheck/icheck.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css" /> 
     <!-- 头部-s -->
     <include file="User/header" />
     <!-- 头部-e -->
@@ -40,16 +44,26 @@
                   
                     <!-- themes end -->
                     <div class="personal_info clearfix">
-                        <form action="" method="post" id="personal_info_form">
+                        <form action="__URL__/upload" method="post" id="personal_info_form" enctype="multipart/form-data">
                         
                         <div class="personal_info_content clearfix">
                             <div class="personal_info_image">
                                 <div class="name"> <span>头像：</span> </div>
-                                    <div class="detail J_edit_photos">             
-                                    <img class="btn_upload" id="preview" src="{$user.head_pic|default='__PUBLIC__/Home/image/headPic.jpg'}" onClick="GetUploadify2(1,'head_pic','head_pic','add_img')" />
+                                    <div class="detail J_edit_photos">
+                                    <input type="hidden" name="uid" value="{$uid}">  
+                                    <if condition="($pictime) gt 0">
+                                        <img class="btn_upload" id="preview" src="__PUBLIC__/userpicUploads/{$picdata.picaddtime}/{$picdata.pic}"  />
+                                        <else /><img class="btn_upload" id="preview" src="__PUBLIC__/Home/image/headPic.jpg"  />
+                                    </if>
+                                    <div id="picup" style="display:none;">
+
+                                        <input type="file" name="photo" />
+                                    </div>
+        
                                     
                                 </div>
                             </div>
+                            <input class="btn btn-primary radius" id="up" type="submit" name="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
                         </div>
                       
                         
@@ -69,6 +83,12 @@
 <script src="__PUBLIC__/Home/js/global.js"></script>
 <script src="__PUBLIC__/Home/js/pc_common.js"></script>
 <script>
-
+$('#preview').click(function(){
+        
+        
+    $('#picup').css('display','inline-block');
+                    
+            
+});
 </script>
 </html>

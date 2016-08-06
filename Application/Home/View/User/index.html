@@ -48,7 +48,10 @@
                 <li class="in_01">
                     <span id="loadingpic" class="indexloading"> 
                         <a class="personal_head   target_no" href="javascript:void(0);">
-                            <img width="100" height="100" src="{$user_detail.pic|default='__PUBLIC__/Home/image/img88.jpg'}">
+                            <if condition="($pictime) gt 0">
+                                <img width="100" height="100" src="__PUBLIC__/userpicUploads/{$picdata.picaddtime}/{$picdata.pic}"  />
+                                <else /><img width="100" height="100" src="__PUBLIC__/Home/image/img88.jpg"  />
+                            </if>
                         </a>
                     </span>
                     <h2>

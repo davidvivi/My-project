@@ -46,7 +46,10 @@
                             <div class="personal_info_image">
                                 <div class="name"> <span>头像：</span> </div>
                                     <div class="detail J_edit_photos">             
-                                    <img class="btn_upload" id="preview" src="{$user.head_pic|default='__PUBLIC__/Home/image/headPic.jpg'}" />
+                                    <if condition="($pictime) gt 0">
+                                        <img class="btn_upload" id="preview" src="__PUBLIC__/userpicUploads/{$picdata.picaddtime}/{$picdata.pic}"  />
+                                        <else /><img class="btn_upload" id="preview" src="__PUBLIC__/Home/image/headPic.jpg"  />
+                                    </if>
                                     <div class="edit J_btn_upload"> <a href="javascript:void(0);">编辑头像</a>
             				        <input type="hidden" name="head_pic" id="head_pic" value="{$user.head_pic}">
 
