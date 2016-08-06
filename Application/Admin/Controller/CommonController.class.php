@@ -7,7 +7,7 @@ use Think\Controller;
 
     class CommonController extends Controller
     {
-		protected $auth = null;
+		//protected $auth = null;
 		
 		
         public function _initialize()
@@ -18,7 +18,7 @@ use Think\Controller;
 				exit();
             }
 			
-			$this->auth = new \Think\Auth();
+			
 			
 			//登录成功后，获取到用户ID
 			$name = $_SESSION['admin']['name'];
@@ -35,17 +35,18 @@ use Think\Controller;
         
 		protected function checkAuth( $id )
 		{
-
+			$auth = new \Think\Auth();
 			//特殊用户
 			
 			if($_SESSION['admin']['name']=="admin"){
 				return true;
 			}
 			//dump($id);
-			dump($this->auth->check(Admin/index/index, $id));
+			//dump(MODULE_NAME.'/'.CONTROLLER_NAME.'/'.ACTION_NAME);
+			dump($auth->check(Admin/index/index, $id));
 			//判断普通管理员ID=1的有没有Admin/Article/Add模块的权限
 			// dump( $this->auth->check('Admin/Article/Add', 1) );
-			return $this->auth->check(MODULE_NAME.'/'.CONTROLLER_NAME.'/'.ACTION_NAME, $id) ;
+			return $auth->check(MODULE_NAME.'/'.CONTROLLER_NAME.'/'.ACTION_NAME, $id) ;
 
 		}    
 			
