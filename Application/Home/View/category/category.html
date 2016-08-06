@@ -415,16 +415,16 @@
                     <ul class="left text12" id="order_ul" sele="{$getid}" style="display: block">
                     <!--        <li><a class="col7ac " href1="&sort=recommand&asc=0" style="cursor:pointer;">综合</a></li>-->
                         <li> 
-                            <a class="col7ac" href="__URL__/index?getid={$getid}&type=id" style="cursor:pointer;"> 默认 </a>
+                            <a class="col7ac" href="__URL__/index?getid={$getid}&type=id" catetype="id" getid="{$getid}" yan="aa" style="cursor:pointer;"> 默认 </a>
                         </li>
                         <li> 
-                            <a class="col7ac" href="__URL__/index?getid={$getid}&type=buy" style="cursor:pointer;"> 销量 </a>
+                            <a class="col7ac" href="__URL__/index?getid={$getid}&type=buy" catetype="buy" getid="{$getid}" yan="aa" style="cursor:pointer;"> 销量 </a>
                         </li>
                         <li>
-                            <a class="col7ac" href="__URL__/index?getid={$getid}&type=price" style="cursor:pointer;">价格<span class="icon_s "></span></a>
+                            <a class="col7ac" href="__URL__/index?getid={$getid}&type=price" getid="{$getid}" yan="aa" catetype="price" style="cursor:pointer;">价格<span class="icon_s "></span></a>
                         </li>   
                         <li>
-                            <a class="col7ac" href="__URL__/index?getid={$getid}&type=addtime" style="cursor:pointer;">新品</a>
+                            <a class="col7ac" href="__URL__/index?getid={$getid}&type=addtime" getid="{$getid}" yan="aa" catetype="addtime" style="cursor:pointer;">新品</a>
                         </li>
                     </ul>
                     
@@ -442,7 +442,7 @@
             <ul id="cata_choose_product" class="cart_containt clearfix listContainer">
 
                 <foreach name="waresdata" item="wareval">
-                    <li>
+                    <li style="width:260px;margin-left:35px;">
                         <div class="nosinglemore"></div>
                         <div class="listbox clearfix"> 
                             <!-- 图片 -->
@@ -451,7 +451,7 @@
                                 	<img style="display: block;" src="__PUBLIC__\Uploads\{$wareval.addtime}\{$wareval.goods_url.0.picname}" class="fn_img_lazy" height="200" width="200"> 
                                 </a>             
                             </div>
-                            <div class="list-scroll J_scrollBox clearfix"> 
+                            <div class="list-scroll J_scrollBox clearfix" style="margin-left:28px"> 
                                 
                                 <div class="list-scroll-warp J_hideBox">
                                     <dl class="J_mBox clearfix" style="margin-left: 20px;">            
@@ -469,7 +469,7 @@
                       
                             <!-- 价格 -->
                             <div class="discountPrice">
-                                <div class="price-cash" style="text-align:center;">
+                                <div class="price-cash" style="text-align:center;width:200px;margin-left:15px;">
                                     <b style="float: left;margin-left:10px;">
                                     <span class="text13 colf22e01">¥</span>
                                     <span class="text18 colf22e01 fontT" id="itemPrice_201510CM130003397">{$wareval.price}包邮</span>
@@ -480,11 +480,11 @@
                             </div>
                             <!-- 价格 end--> 
                             <!-- 品名 -->
-                            <div class="listDescript" style="text-align:center;"> 
+                            <div class="listDescript" style="width: 200px;margin-left:21px;"> 
                                 <a target="_blank" href="__MODULE__/Gdetail/index?goodsId={$wareval.id}" class="text13">{$wareval.goodname}</a> 
                             </div>
                             <!-- 價格及字樣 -->
-                            <div class="itemPrice" style="width: 18 0px;height: 27px;background: rgb(224, 29, 32);">
+                            <div class="itemPrice" style="width: 200px;margin-left:20px;height: 27px;background: rgb(224, 29, 32);">
                                 <div class="cart_wrapper" style="text-align: center;"> 
                                     <a style="cursor:pointer;" target="_blank" class="" href="__MODULE__/Gdetail/index?goodsId={$wareval.id}" >购 &nbsp;买</a>
                                 </div>
@@ -518,7 +518,7 @@
     </div>
     
     <hr style="color:#3d3d3d;width:1200px;" />
-    <div class="footer" style="margin:10px 0px 10px 70px;">
+    <div class="footer" style="margin:10px 0px 10px 63px;">
         <ul>
             <li><b>购物指南</b></li>
             <li>账号注册</li>
@@ -635,6 +635,30 @@
                 }
             })
         })
+
+        // 排序
+        // $('.col7ac').click(function(){
+        //     type = $(this).attr('catetype');
+        //     getid = $(this).attr('getid');
+        //     yan = $(this).attr('yan');
+
+        //     $.get("__URL__/index",{getid:getid,type:type,yan:yan},
+        //         function(data){ 
+                    
+        //             if(data==1){ 
+                    
+        //                  $('#cata_choose_product').load("__SELF__ #cata_choose_product",function(){ 
+                            
+        //                  });
+        //             }else{ 
+        //                 alert('查找失败！');
+        //             }
+        //         },'json'
+        //     );
+        // })
+
+
+         
 
         // 搜索之后无排序
         if(!$('#order_ul').attr('sele')){           

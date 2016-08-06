@@ -78,6 +78,11 @@ class CategoryController extends Controller
         $waresdata = $return[0];
         // 分页
         $page = $return[1];
+        // $yan = I('yan');
+        // if($yan){
+        //     dump($waresdata);
+        //     $this->ajaxReturn('1');
+        // }
         
         //dump($waresdata);
 
@@ -155,6 +160,5 @@ class CategoryController extends Controller
         $this->display('category/category');
 
     }
-
     
 }
