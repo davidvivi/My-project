@@ -7,6 +7,8 @@
     <meta http-equiv="keywords" content="QAQ商城,笔记本,手机,数码相机,数码影音,DIY硬件" />
     <meta name="description" content="QAQ商城（QAQ.com）具备在3年内成长为中国最大的3C电子商城之潜力，源于中国IT行业第一垂直媒体（QAQ.com.cn）在IT及互联网行业已臻十年的深厚积累。运营核心，只为了给用户打造一个放心、省心、舒心的购物平台！']}" />
     <link rel="stylesheet" href="__PUBLIC__/Home/css/favorite.css">
+    <script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+
     </head>
 
     <body> 
@@ -137,9 +139,15 @@
             </div>            
             <!-- page next star -->
             <div class="operating fixed" id="bottom">
-                <div class="fn_page clearfix">
-                    {$page} 
-                </div>
+                <!--<div class="fn_page clearfix">-->
+        
+                <div id="page" style="text-align: center;">
+            
+                    {$page}
+                
+                </div> 
+                
+                <!--</div>-->
             </div>             
             <!-- page next end --> 
         </div>
@@ -158,6 +166,31 @@
             return false;
         location.href = "/index.php?m=Home&c=User&a=cancel_order&id="+id;
     }
+
+    (function page(){ 
+            $("#page").css("margin-top","15px").find('a').css({'margin': "0 9px",
+                "display": "inline-block",
+                "border":"1px solid #ededed",
+                "text-align": "center",
+                "width":"25px",
+                "height":"25px",
+                "text-decoration":"none"
+                }
+            ).hover(function(){
+                $(this).css({"background":"#5A98DE","color":"white"})
+            },function(){
+                $(this).css({"background":"white","color":"black"})
+            });
+        
+            $("#page").find('span').css({'margin': "0 9px",
+                "display": "inline-block",
+                "background": "#5A98DE",
+                "text-align": "center",
+                "width":"25px",
+                "height":"25px",
+                "color":"white"}
+            );
+        })();
 </script>
 </body>
 </html>

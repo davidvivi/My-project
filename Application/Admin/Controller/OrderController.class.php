@@ -72,6 +72,14 @@ class OrderController extends CommonController {
         $goods = M('orderdetail')->where('oid='.$orderid)->select();
         //dump($goods);
 
+        //查询图片的信息
+        foreach($goods as $k=>$v){  
+            $res = M('goods')->where('id='.$v['gid'])->find();
+            //dump($res);
+            $goods[$k]['addtime'] = date("Y-m-d",$res['addtime']);
+        }
+        //dump($goods);
+        //exit;
         $this->assign('goods',$goods);
         $this->assign('user',$user);
         $this->assign('order',$order);
