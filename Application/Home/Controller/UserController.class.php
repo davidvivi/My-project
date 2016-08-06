@@ -14,7 +14,7 @@ class UserController extends CommonController
             $uid = $_SESSION['user']['id'];            
         }    
         //查询首页的订单部分
-        $order = M('order')->order('orderid desc')->where('uid='.$uid)->select();
+        $order = M('order')->order('orderid desc')->where('uid='.$uid)->limit(6)->select();
         
         //dump($order);
         $count=count($order);
