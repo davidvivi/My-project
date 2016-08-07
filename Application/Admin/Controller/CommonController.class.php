@@ -28,7 +28,7 @@ use Think\Controller;
 			$bool = $this->checkAuth($id);
 			
 			if( !$bool ){
-            $this->error("抱歉！你没有此操作权限！");
+            echo("抱歉！你没有此操作权限！");
             exit();
 			}
 		}
@@ -43,7 +43,7 @@ use Think\Controller;
 			}
 			//dump($id);
 			//dump(MODULE_NAME.'/'.CONTROLLER_NAME.'/'.ACTION_NAME);
-			dump($auth->check(Admin/index/index, $id));
+			dump($auth->check(MODULE_NAME.'/'.CONTROLLER_NAME.'/'.ACTION_NAME, $id));
 			//判断普通管理员ID=1的有没有Admin/Article/Add模块的权限
 			// dump( $this->auth->check('Admin/Article/Add', 1) );
 			return $auth->check(MODULE_NAME.'/'.CONTROLLER_NAME.'/'.ACTION_NAME, $id) ;

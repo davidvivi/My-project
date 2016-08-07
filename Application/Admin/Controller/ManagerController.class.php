@@ -306,4 +306,59 @@ class ManagerController extends CommonController {
 		M('admin')->where('id='.$id)->save($map);
 		$tihs->ajaxReturn('1');
 	}
+
+	//权限列表
+	public function permission(){
+		$rule = M('auth_rule');
+		$count = $rule->count();
+		$Page = new \Think\Page($count,5);
+        $show = $Page->show();
+   
+        $data = $rule->field('id,name,title,status')->limit($Page->firstRow.','.$Page->listRows)->select();
+		
+		$this->assign('count',$count);
+		$this->assign('page',$show);
+		$this->assign('data',$data);
+		$this->display('manager/admin-permission');
+	}
+	
+	//权限修改
+	public function pedit(){
+		$id = I('id');
+		$status = M('auth_rule')->where('id='.$id)->getField('status');
+		if($status == '1'){
+			$map['status'] = '0';
+		}else{
+			$map['status'] = '1';
+		}
+		M('auth_rule')->where('id='.$id)->save($map);
+		$this->ajaxReturn('1');
+	}
+	//权限删除
+	public function pdel(){
+		if(IS_POST){
+			$id = I('id');
+			M('auth_rule')->where('id='.$id)->delete();
+			$this->ajaxReturn('1');
+		}
+	}
+	
+	public function padd(){
+		$this->display('manager/permission-add');
+		
+	}
+	
+	public function paddform(){
+		if(IS_POST){
+			$map['name'] = I('name');
+			$map['title'] = I('title');
+			$map['type'] = '1';
+			$map['status'] = '1';
+			
+			$da = M('auth_rule')->add($map);
+			$this->ajaxReturn($da);
+			
+		}
+		
+	}
 }
