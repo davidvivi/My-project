@@ -185,10 +185,20 @@ class UserController extends CommonController
     public function safety_settings()
     {   
         $name = $_SESSION['user']['name'];
+        $uid = $_SESSION['user']['id'];
+        //查询图片
+        $picdata = M('user_detail')->where('uid='.$uid)->find();
+        $pictime = $picdata['picaddtime'];
+
+        $picdata['picaddtime'] = date('Y-m-d',$picdata['picaddtime']);
             
         //根据用户名查到手机号
         $data=D('user')->field('tel,id,password,addtime')->where("username='$name'")->find();
         $list = M('user_detail')->field('email')->where("name='$name'")->find();
+
+
+        $this->assign('pictime',$pictime);
+        $this->assign('picdata',$picdata);
         $this->assign('list',$list);
         $this->assign('name',$name);
         $this->assign('data',$data);
@@ -466,6 +476,9 @@ class UserController extends CommonController
     }
 
 
+    /**
+        我的评价
+    */
     public function comment()
     {   
         //已经收到货的可以评论，先查到收到货的,状态orderstatus为2的
@@ -476,10 +489,10 @@ class UserController extends CommonController
         $data['uid'] = $uid;
         $data['orderstatus'] = 2;
         $count = M('order')->where($data)->count();
-        $Page  = new \Think\Page($count,1);
+        $Page  = new \Think\Page($count,3);
 
         $show = $Page->show();
-        $orderlist = M('order')->where($data)->limit($Page->firstRow.','.$Page->listRows)->select();
+        $orderlist = M('order')->order('orderid DESC')->where($data)->limit($Page->firstRow.','.$Page->listRows)->select();
 
         //dump($data);
         //exit;
@@ -498,7 +511,7 @@ class UserController extends CommonController
 
         //dump($orderlist);
         //exit;
-        $this->assign('page',$show);
+        $this->assign('page',$show); 
         $this->assign('orderlist',$orderlist);
         $this->assign('orderdetail',$orderdetail);
         $this->display();
@@ -540,10 +553,7 @@ class UserController extends CommonController
         //dump($gid);
         //dump($contents);
         //dump($info);
-        //exit;
-
-
-        
+        //exit;        
         $data['picname']=$info['photo']['savename'];
         $data['addtime'] = time();
         $data['uid'] = $uid;

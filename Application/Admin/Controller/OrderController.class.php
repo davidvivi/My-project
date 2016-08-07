@@ -165,7 +165,7 @@ class OrderController extends CommonController {
         $count = M('order')->where($data)->count(); //查询总条数
         //dump($count);
         //exit;
-        $Page = new \Think\Page($count,2);  
+        $Page = new \Think\Page($count,6);  
         $show = $Page->show();
         $orderlist = $order->limit($Page->firstRow.','.$Page->listRows)->order('addtime desc')->where($data)->select();
 

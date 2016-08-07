@@ -10,7 +10,7 @@ class ImgturnController extends CommonController {
     {   
         $imgturn = M('imgturn');
         $count = $imgturn->count();
-        $Page = new \Think\Page($count,2);
+        $Page = new \Think\Page($count,4);
         $show = $Page->show();
         $data = $imgturn->order('state')->limit($Page->firstRow.','.$Page->listRows)->select();
         foreach($data as $key =>$val){

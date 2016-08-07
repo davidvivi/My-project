@@ -34,7 +34,10 @@
           
                 <!-- Security Center star -->
                 <div class="security_center">
-                    <div class="security_center_top"> <a href="" class="personal_head target_no"><img height="100" width="100" src="{$user.head_pic|default='__PUBLIC__/Home/image/headPic.jpg'}" alt=""> </a>
+                    <div class="security_center_top"> <a href="" class="personal_head target_no"><if condition="($pictime) gt 0">
+                            <img class="btn_upload" id="preview" src="__PUBLIC__/userpicUploads/{$picdata.picaddtime}/{$picdata.pic}"  />
+                            <else /><img class="btn_upload" id="preview" src="__PUBLIC__/Home/image/headPic.jpg"  />
+                            </if> </a>
                     <div class="pers_info">
                         <h3 class="name">{$_SESSION['user']['name']}</h3>
                         <p class="rat"> 
