@@ -79,10 +79,13 @@
 			<div class="formControls col-5">
 				<span class="select-box" style="width:150px;">
 					<select class="select" id="admin-role" name="group" size="1">
-						<option value="4" disabled>超级管理员</option>
-						<option value="2">商品组</option>
-						<option value="1">客服组</option>
-						<option value="3" selected>管理层</option>
+						<foreach name="data" item="vo">
+							<eq name ="vo.id" value="7">
+								<option disabled value="7">超级管理员</option>
+							<else/>
+								<option value="{$vo.id}">{$vo.title}</option>
+							</eq>
+						</foreach>
 					</select>
 				</span> 
 			</div>

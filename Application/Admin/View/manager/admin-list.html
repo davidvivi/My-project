@@ -60,7 +60,7 @@
 							<th scope="col" colspan="9">管理员列表</th>
 						</tr>
 						<tr class="text-c">
-							<th width="25"><input type="checkbox" name="" value=""></th>
+							
 							<th width="40">ID</th>
 							<th width="150">登录名</th>
 							<th width="90">手机</th>
@@ -74,7 +74,7 @@
 					<tbody>
 						<foreach name="data" item="vo">
 							<tr class="text-c">
-								<td><input type="checkbox" value="1" name=""></td>
+								
 								<td>{$vo.id}</td>
 								<td>{$vo.name}</td>
 								<td>{$vo.tel}</td>
@@ -94,17 +94,21 @@
 										</span>
 									</td>
 								</eq>
-								<td class="td-manage">
-									<a style="text-decoration:none" onClick="stop({$vo.id})" href="javascript:;" title="停用">
-										<i class="Hui-iconfont">&#xe631;</i>
-									</a> 
-									<a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','__URL__/edit/id/{$vo.id}','1','800','500')" class="ml-5" style="text-decoration:none">
-										<i class="Hui-iconfont">&#xe6df;</i>
-									</a> 
-									<a title="删除" href="javascript:;"  class="unable-a" unable-id="{$vo.id}" style="text-decoration:none">
-										<i class="Hui-iconfont">&#xe6e2;</i>
-									</a>
-								</td>
+								<eq name="vo.id" value="1">
+									<td class="td-manage"></td>
+								<else/>
+									<td class="td-manage">
+										<a style="text-decoration:none" onClick="stop({$vo.id})" href="javascript:;" title="状态">
+											<i class="Hui-iconfont">&#xe631;</i>
+										</a> 
+										<a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','__URL__/edit/id/{$vo.id}','1','800','500')" class="ml-5" style="text-decoration:none">
+											<i class="Hui-iconfont">&#xe6df;</i>
+										</a> 
+										<a title="删除" href="javascript:;"  class="unable-a" unable-id="{$vo.id}" style="text-decoration:none">
+											<i class="Hui-iconfont">&#xe6e2;</i>
+										</a>
+									</td>
+								</eq>
 							</tr>
 						</foreach>
 						
@@ -183,18 +187,6 @@
 		layer_show(title,url,w,h);
 	}
 
-	/*管理员-删除*/
-	/*
-	function admin_del(obj,id){
-		layer.confirm('确认要删除吗？',function(index){
-			//此处请求后台程序，下方是成功后的前台处理……
-			
-			
-			$(obj).parents("tr").remove();
-			layer.msg('已删除!',{icon:1,time:1000});
-		});
-	}
-	*/
 
 	/*管理员-编辑*/
 	function admin_edit(title,url,id,w,h){
@@ -202,43 +194,20 @@
 	}
 	/*管理员-停用*/
 	function stop(id){
-		layer.confirm('确认要停用吗？',function(index){
-			//此处请求后台程序，下方是成功后的前台处理……
 			$.ajax({
 				type:'post',
 				data:'id='+id,
 				url:'__URL__/stop',
 				success:function(data){
-					$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_start({$vo.id})" href="javascript:;" title="启用" style="text-decoration:none"><i class="Hui-iconfont">&#xe615;</i></a>');
-					$(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已禁用</span>');
-					$(obj).remove();
-					layer.msg('已停用!',{icon: 5,time:1000});
+					$('#div1').load("__SELF__ #div2",function(){ 
+							page();
+						});
+					layer.msg('已更改!',{icon: 5,time:1000});
 				}
 			})
-			
-			
-		});
+
 	}
 
-	/*管理员-启用*/
-	function admin_start(id){
-		layer.confirm('确认要启用吗？',function(index){
-			//此处请求后台程序，下方是成功后的前台处理……
-			$.ajax({
-				type:'post',
-				data:'id='+id,
-				url:'__URL__/start',
-				success:function(data){
-			
-			
-					$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_stop({$vo.id})" href="javascript:;" title="停用" style="text-decoration:none"><i class="Hui-iconfont">&#xe631;</i></a>');
-					$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
-					$(obj).remove();
-					layer.msg('已启用!', {icon: 6,time:1000});
-				}
-			});
-		})
-	}
 	</script>
 </body>
 </html>

@@ -33,11 +33,9 @@
 			<i class="Hui-iconfont">&#xe68f;</i>
 		</a>
 	</nav>
+	<div id="111">
 	<div id="12345" class="pd-20">
-		<div class="text-c">
-			<input type="text" name="" id="" placeholder=" 产品名称" style="width:250px" class="input-text">
-			<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜商品</button>
-		</div>
+		
 		<div class="cl pd-5 bg-1 bk-gray mt-20"> 
 			<span class="l">
 				<a class="btn btn-primary radius" onclick="product_add('添加产品','__URL__/add','800','500')" href="javascript:;">
@@ -88,13 +86,10 @@
 								</span>
 							</td>
 							<td class="td-manage">
-								<a style="text-decoration:none" onClick="product_stop(this,{$vo.id})" href="javascript:;" title="下架">
+								<a onclick="change({$vo.id})" style="text-decoration:none" href="javascript:;" title="状态">
 									<i class="Hui-iconfont">&#xe6de;</i>
 								</a> 
-								<a style="text-decoration:none" class="ml-5" onClick="product_edit('产品编辑','product-add.html',{$vo.id})" href="javascript:;" title="编辑">
-									<i class="Hui-iconfont">&#xe6df;</i>
-								</a> 
-								<a style="text-decoration:none" class="ml-5" onClick="product_del(this,{$vo.id})" href="javascript:;" title="删除">
+								<a style="text-decoration:none" class="ml-5" onClick="product_del({$vo.id})" href="javascript:;" title="删除">
 									<i class="Hui-iconfont">&#xe6e2;</i>
 								</a>
 							</td>
@@ -108,6 +103,7 @@
 				{$page} 
 			</div>
 		</div>
+	</div>
 	</div>
 </div>
 <script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
@@ -152,49 +148,21 @@ function product_add(title,url,w,h){
 }
 
 
-/*图片-下架*/
-function product_stop(obj,id){
-	layer.confirm('确认要下架吗？',function(index){
-		$.ajax({
-			type:'post',
-			url:'__URL__/goodsStop',
-			data:'&id='+id,
-			success:function(data){
-				if(data == '1'){
-					window.location.reload();
-				}else{
-					alert('操作失败');
-					window.location.reload();
-				}
-			}
-		})
-		layer.msg('已下架!',{icon: 5,time:1000});
-	});
+function change(id){
+	
+	$.ajax({
+		type:'post',
+		url:'__URL__/goodsStop',
+		data:"id="+id,
+		success:function(){
+			$('#111').load('__SELF__ #12345',function(){page()});
+			layer.msg('已更改状态!',{icon: 5,time:1000});
+		}
+	})
 }
 
-/*商品-发布*/
-/*
-function product_start(obj,id){
-	layer.confirm('确认要发布吗？',function(index){
-		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="product_stop(this,id)" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
-		$(obj).remove();
-		layer.msg('已发布!',{icon: 6,time:1000});
-	});
-}
-*/
-
-/*商品-编辑*/
-function product_edit(title,url,id){
-	var index = layer.open({
-		type: 2,
-		title: title,
-		content: url
-	});
-	layer.full(index);
-}
 /*商品-删除*/
-function product_del(obj,id){
+function product_del(id){
 	layer.confirm('确认要删除吗？',function(index){
 		$.ajax({
 			type:'post',
@@ -203,7 +171,7 @@ function product_del(obj,id){
 			success:function(data){
 				if(data == 1){
 					$('#12345').load('__SELF__ #12345',function(){page()});
-					
+					layer.msg('已删除!',{icon:1,time:1000});
 				}else{
 					alert('操作失败');
 					window.location.reload();
@@ -211,7 +179,7 @@ function product_del(obj,id){
 			}
 		})
 		
-		layer.msg('已删除!',{icon:1,time:1000});
+		
 	});
 }
 </script>

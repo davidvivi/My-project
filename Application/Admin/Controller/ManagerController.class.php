@@ -43,7 +43,8 @@ class ManagerController extends CommonController {
 	
 	/*=====管理员添加开始========*/
 	public function add(){
-		
+		$data = M('auth_group')->field('id,title')->select();
+		$this->assign('data',$data);
 		$this->display('manager/admin-add');
 		
 	}
@@ -101,6 +102,50 @@ class ManagerController extends CommonController {
 		$this->display('manager/admin-group');
 	}
     
+	/*====用户组添加=====*/
+	public function gadd(){
+		$data = M('auth_rule')->field('id,title')->select();
+		$this->assign('data',$data);
+		$this->display('manager/admin-group-add');
+	}
+	
+	/*===用户组删除===*/
+	public function gdel(){
+		$id = I('id');
+		M('auth_group')->where('id='.$id)->delete();
+		$this->ajaxReturn('1');
+	}
+	
+	public function gedit(){
+		$id = I('id');
+		$a = M('auth_group')->where('id='.$id)->getField('status');
+		if($a == 1){
+			$a = 0;
+		}else{
+			$a = 1;
+		}
+		$map['status'] = $a;
+		M('auth_group')->where('id='.$id)->save($map);
+		$this->ajaxReturn('1');
+	}
+	
+	public function gaddform(){
+		$map['rules'] = rtrim(I('rules'),',');
+		$map['title'] = I('title');
+		$arr = explode(',',$map['rules']);
+		$des = '';
+		foreach($arr as $key =>$val){
+			$id = $val;
+			$a= M('auth_rule')->where('id='.$id)->getField('title');
+			$des .= $a.',';
+		}
+		$map['status'] = '1';
+		$map['des'] = rtrim($des,',');
+		//$this->ajaxReturn($map);
+		M('auth_group')->add($map);
+		$this->ajaxReturn('1');
+	}
+	
 	/*=======管理员删除======*/
     public function adminDelete()
     { 
@@ -295,20 +340,18 @@ class ManagerController extends CommonController {
     
 	public function stop(){
 		$id = I('id');
-		$map['status'] = 0;
+		$status = M('admin')->where('id='.$id)->getField('status');
+		if($status == 1){
+			$map['status']  = 0;
+		}else{
+			$map['status']  = 1;
+		}
 		M('admin')->where('id='.$id)->save($map);
 		$tihs->ajaxReturn('1');
 	}
 	
-	public function start(){
-		$id = I('id');
-		$map['status'] = 1;
-		M('admin')->where('id='.$id)->save($map);
-		$tihs->ajaxReturn('1');
-	}
-
 	//权限列表
-	public function permission(){
+	public function perm(){
 		$rule = M('auth_rule');
 		$count = $rule->count();
 		$Page = new \Think\Page($count,5);

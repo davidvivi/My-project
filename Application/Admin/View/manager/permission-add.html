@@ -39,14 +39,14 @@
 				<span class="c-red">*</span>权限路径：
 			</label>
 			<div class="formControls col-5">
-				<input type="text" name="name" placeholder="" autocomplete="off" value="" class="input-text" datatype="*6-20" nullmsg="不能为空">
+				<input type="text" name="name" placeholder="" autocomplete="off" value="" class="input-text" datatype="*6-25" nullmsg="不能为空">
 			</div>
 			<div class="col-4"> </div>
 		</div>
 
 		<div class="row cl">
 			<div class="col-9 col-offset-3">
-				<input class="btn btn-primary radius" id="up" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<input class="btn btn-primary radius" id="up" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
 		</div>
 	</form>
@@ -84,7 +84,7 @@ $(function(){
 			url:"{:U('paddform')}",
 			data:$('#form-admin-add').serialize(),
 			success:function(data){
-				alert(data);
+				//alert(data);
 					if(data){
 						alert('添加成功！');
 						window.parent.location.reload(); 

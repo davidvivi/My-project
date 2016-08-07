@@ -147,7 +147,13 @@ class GoodsController extends CommonController
 	public function goodsStop(){
 		if(IS_POST){
 			$id = I('id');
-			$map['state'] = '0';
+			$state = M('goods')->where('id='.$id)->getField('state');
+			if($state == 1){
+				$state = 0;
+			}else{
+				$state = 1;
+			}
+			$map['state'] = $state;
 			$da = M('goods')->where('id='.$id)->save($map);
 			if($da){
 				$this->ajaxReturn('1');

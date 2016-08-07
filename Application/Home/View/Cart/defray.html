@@ -48,18 +48,7 @@
         </ul>
         </div>
     </div>
-    <div>
-            <h2>热销商品</h2>
-            <div class="hot"  style="border:0;margin:10px 0px 130px 30px;">
-                <foreach name="hot" item="vo">
-                    <div class="hotgoods" style="width:150px;height:120px;float:left;">
-                    <a href="__MODULE__/Gdetail/index?goodsId={$vo.id}">
-                        <img style="width:150px;height:120px;position:relative;" src="__PUBLIC__/uploads/{$vo.addtime}/{$vo.picname}" />
-                    </a>
-                    </div>
-                </foreach>
-            </div>
-        </div>
+  
     <include file="public/footer" />
     <div class="weiba">
             <ul>
