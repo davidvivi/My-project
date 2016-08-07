@@ -8,7 +8,7 @@ use Think\Controller;
         // 友情链接
         $link = M('link');
         $datalink['state'] = array('GT',0);
-        $link_list = $link ->field('contents,url')->where($datalink)->select();
+        $link_list = $link ->field('contents,url')->where($datalink)->order('state')->select();
         $hot = M('goods')->field('id,goodname,addtime')->order('buy desc')->limit(8)->select();
         foreach($hot as $key =>$val){           
                 $gid = $val['id'];          

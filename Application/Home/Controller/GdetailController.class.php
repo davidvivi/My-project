@@ -21,7 +21,7 @@ class GdetailController extends Controller {
        //友情链接
        $link = M('link');
         $datalink['state'] = array('GT',0);
-        $link_list = $link ->field('contents,url')->where($datalink)->select();
+        $link_list = $link ->field('contents,url')->where($datalink)->order('state')->select();
         $this->assign('link',$link_list);
        //dump($GoodsDetail);
        $goodsimg = $this -> geipic($goodsId);

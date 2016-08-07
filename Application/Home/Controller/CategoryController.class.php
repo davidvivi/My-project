@@ -31,7 +31,7 @@ class CategoryController extends Controller
         // 友情链接
         $link = M('link');
         $datalink['state'] = array('GT',0);
-        $link_list = $link ->field('contents,url')->where($datalink)->select();
+        $link_list = $link ->field('contents,url')->where($datalink)->order('state')->select();
 
         
         // 假设从其他页面传来的ID
@@ -128,7 +128,7 @@ class CategoryController extends Controller
         // 友情链接
         $link = M('link');
         $datalink['state'] = array('GT',0);
-        $link_list = $link ->field('contents,url')->where($datalink)->select();
+        $link_list = $link ->field('contents,url')->where($datalink)->order('state')->select();
 
         // 判断是否有search传过来，以及session里有没有值
     	$search = I('search');

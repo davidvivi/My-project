@@ -16,7 +16,7 @@ class IndexController extends Controller {
         // 友情链接
         $link = M('link');
         $data['state'] = array('GT',0);
-        $link_list = $link ->field('contents,url')->where($data)->select();
+        $link_list = $link ->field('contents,url')->where($data)->order('state')->select();
         
         //轮播图
         $imgturn = M('imgturn');
