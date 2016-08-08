@@ -18,6 +18,11 @@
 
             $list = $Assess->field('id,uid,odid,grade,contents,addtime,goodsid')->limit($Page->firstRow.','.$Page->listRows)->select();
             //dump($list);
+            foreach($list as $k => $v){ 
+                $list[$k]['addtime'] = date('Y-m-d',$v['addtime']);
+            }
+            //dump($list);
+            
             //dump($count);
             $this->assign('list',$list);// 赋值数据集
             $this->assign('count',$count);// 
