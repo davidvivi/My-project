@@ -211,14 +211,16 @@
             
                 </div>
             </div>
-
+            <!--
             <div class="items_collect">
             <h4 class="cell_title">商品收藏</h4>
             <div class="browse_related_list J_slide_parent">
                          
                 <tpshop sql="select * from __PREFIX__goods_collect where user_id = $user[user_id] order by collect_id desc limit 3" result_name="collect_result"></tpshop>          
                 <if condition="count($collect_result) gt 0"> 
+                -->
                     <!--有收藏-->
+                    <!--
                     <div id="favShow" class="slide_box J_slide_box">
                         <ul class="clearfix">
                             <foreach name="collect_result" item="v">
@@ -232,12 +234,15 @@
                     </div>
                     <div class="view_all_order" id="favMore"><a class="target_no" href="{:U('Home/User/goods_collect')}">查看更多收藏</a></div>
                     <!--有收藏 end-->
+                    <!--
                     <else />
                     <!--没有收藏-->
+                    <!--
                     <div class="null">
                     <p>您还没收藏商品哟，<a class="blue" title="去逛逛吧！" href="__MODULE__/index/index">去逛逛吧！</a></p>
                     </div>
                     <!--没有收藏 end--> 
+                <!--
                 </if>
             </div>
             </div>
@@ -246,8 +251,10 @@
                 <h4 class="cell_title">我的优惠券</h4>
                 <div class="browse_related_list J_slide_parent">          
                 <tpshop sql="select * from __PREFIX__goods_collect where user_id = $user[user_id] order by collect_id desc limit 3" result_name="coupon_list"></tpshop>
-                <if condition="count($collect_result) gt 0">           
+                <if condition="count($collect_result) gt 0"> 
+                -->          
                     <!--有优惠券-->
+                    <!--
                     <div id="favShow" class="slide_box J_slide_box">
                         <ul class="clearfix">
                             <foreach name="collect_result" item="v">
@@ -259,15 +266,19 @@
                     </div>
                     <div class="view_all_order" id="cardMore"><a class="target_no" href="{:U('Home/User/coupon')}">查看更多优惠券</a></div>
                     <!--有优惠券-->
+                    <!--
                     <else />
                     <!--没有优惠券-->
+                    <!--
                     <div class="null">
                         <p>您还没有优惠券哦.</p>
                     </div>
                     <!--没有优惠券 end--> 
+                    <!--
                 </if>
             </div>
         </div>
+        -->
         
 
     <div style="clear: both"></div>
